@@ -2,18 +2,19 @@
 
 ## Lab overview
 
-[Selenium](http://www.seleniumhq.org/) is a portable open source software-testing framework for web applications. It has the capability to operate on almost every operating system. It supports all modern browsers and multiple languages including .NET (C#), Java.
+Software of any complexity can fail in unexpected ways in response to changes. Thus, testing after making changes is required for all but the most trivial (or least critical) applications. Manual testing is the slowest, least reliable, most expensive way to test software.
 
-In this lab, you will learn how to execute Selenium test cases on a C# web application, as part of the Azure DevOps Release pipeline. 
+There are many kinds of automated tests for software applications. The simplest, lowest level test is the unit test. At a slightly higher level, there are integration tests and functional tests. Other kinds of tests, such as UI tests, load tests, stress tests, and smoke tests, are beyond the scope of this lab.
+
+If you want to know more about the different types of testing, we recommend you reading this article: [Test ASP.NET Core MVC apps](https://learn.microsoft.com/dotnet/architecture/modern-web-apps-azure/test-asp-net-core-mvc-apps).
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+After you complete this lab, you will be able to configure a CI pipeline for a .Net application that includes:
 
-- Configure a self-hosted Azure DevOps agent
-- Configure release pipeline
-- Trigger build and release
-- Run tests in Chrome and Firefox
+- Unit Tests
+- Integration Tests
+- Functional Tests
 
 ## Estimated timing: 60 minutes
 
@@ -45,198 +46,110 @@ Identify the applications that you'll use in this lab:
 
 # Exercise 0: Configure the lab prerequisites
 
-In this exercise, you will set up the prerequisites for the lab, which include the preconfigured Parts Unlimited team project based on an Azure DevOps Demo Generator template and Azure resources. 
+In this exercise, you will set up the prerequisites for the lab, which consist of a new Azure DevOps project with a repository based on the [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb).
 
-## Task 1: Configure the team project
+## Task 1: Configure the team project (Skip if already done) 
 
-In this task, you will use Azure DevOps Demo Generator to generate a new project based on the **Selenium** template.
+In this task, you will create an eShopOnWeb Azure DevOps project to be used by several labs.
+    1. On your lab computer, in a browser window open your Azure DevOps organization. Click on New Project. Give your project the name eShopOnWeb and leave the other fields with defaults. Click on Create.
 
-1.  On your lab computer, start a web browser and navigate to [Azure DevOps Demo Generator](https://azuredevopsdemogenerator.azurewebsites.net). This utility site will automate the process of creating a new Azure DevOps project within your account that is prepopulated with content (work items, repos, etc.) required for the lab. 
+## Task 2: Import the eShopOnWeb Git Repository (Skip if already done) 
 
-    > **Note**: For more information on the site, see [What is the Azure DevOps Services Demo Generator?](https://docs.microsoft.com/en-us/azure/devops/demo-gen).
+In this task you will import the eShopOnWeb Git repository that will be used by several labs.
 
-1.  Click **Sign in** and sign in using the Microsoft account associated with your Azure DevOps subscription.
-1.  If required, on the **Azure DevOps Demo Generator** page, click **Accept** to accept the permission requests for accessing your Azure DevOps subscription.
-1.  On the **Create New Project** page, in the **New Project Name** textbox, type **Setting Up and Running Functional Tests**, in the **Select organization** dropdown list, select your Azure DevOps organization, and then click **Choose template**.
-1.  In the list of templates, in the toolbar, click **DevOps Labs**, select the **Selenium** template and click **Select Template**.
-1.  Back on the **Create New Project** page, click **Create Project**
+1.  On your lab computer, in a browser window open your Azure DevOps organization and the previously created eShopOnWeb project. Click on Repos>Files , Import a Repository. Select Import. On the Import a Git Repository window, paste the following URL [https://github.com/MicrosoftLearning/eShopOnWeb.git](https://github.com/MicrosoftLearning/eShopOnWeb.git) and click Import:
 
-    > **Note**: Wait for the process to complete. This should take about 2 minutes. In case the process fails, navigate to your DevOps organization, delete the project, and try again.
+1. The repository is organized the following way:
 
-1.  On the **Create New Project** page, click **Navigate to project**.
+    - **.ado** folder contains Azure DevOps YAML pipelines.
+    - **.devcontainer** folder container setup to develop using containers (either locally in VS Code or GitHub Codespaces).
+    - **infra** folder contains Bicep & ARM infrastructure as code templates used in some lab scenarios.
+    - **.github** folder contains YAML GitHub workflow definitions.
+    - **src** folder contains the .NET website used in the lab scenarios.
 
-## Task 2: Create Azure resources
+## Task 3: Set main branch as default branch (Skip if already done) 
 
-In this task, you will provision an Azure VM running Windows Server 2016 along with SQL Express 2017, Chrome, and Firefox.
+1. Go to **Repos>Branches**.
+2. Hover on the **main** branch then click the ellipsis on the right of the column.
+3. Click on **Set as default branch**.
 
-1.  Click here in **[Deploy to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Falmvm%2Fmaster%2Flabs%2Fvstsextend%2Fselenium%2Farmtemplate%2Fazuredeploy.json)** link. This will automatically redirect you to the **Custom deployment** blade in the Azure portal.
+# Exercise 1: Setup Tests in CI pipeline
 
-1.  If prompted, sign in with the user account that has the Owner role in the Azure subscription you will be using in this lab and has the role of the Global Administrator in the Azure AD tenant associated with this subscription.
+In this exercise, you will setup tests in CI pipeline.
 
-1.  On the **Custom deployment** blade, select **Edit template**.
+## Task 1: Import the YAML build definition for CI (Skip if already done) 
 
-1.  On the **Edit template** blade, locate the line `"https://raw.githubusercontent.com/microsoft/azuredevopslabs/master/labs/vstsextend/selenium/armtemplate/chrome_firefox_VSTSagent_IIS.ps1"`, replace it with `"https://raw.githubusercontent.com/CloudLabs-MOC/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/prod/Allfiles/Labs/11b/chrome_firefox_VSTSagent_IIS.ps1"`, and click **Save**.
+In this task, you will add the YAML build definition that will be used to implement the Continuous Integration.
 
-1.  Back on the **Custom deployment** blade, specify the following settings:
+Let's start by importing the CI pipeline named [eshoponweb-ci.yml](https://github.com/MicrosoftLearning/eShopOnWeb/blob/main/.ado/eshoponweb-ci.yml).
 
-    | Setting | Value |
-    | --- | --- |
-    | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | the name of a new resource group **az400m11l02-RG** |
-    | Region | the name of the Azure region in which you want to deploy the Azure resources in this lab |
-    | Virtual Machine Name | **az40011bvm** |
+1. Go to **Pipelines>Pipelines**.
+2. Click on **New Pipeline** button.
+3. Select **Azure Repos Git (YAML)**.
+4. Select the **eShopOnWeb** repository.
+5. Select **Existing Azure Pipelines YAML File**.
+6. Select the **main** branch and the **/.ado/eshoponweb-ci.yml** file, then click on **Continue**.
 
-1.  Click **Review + create** and then click **Create**. 
+   The CI definition consists of the following tasks:
 
-    > **Note**: Wait for the process to complete. This should take about 30 minutes. 
+    - **DotNet Restore:** With NuGet Package Restore you can install all your project's dependency without having to store them in source control.
+    - **DotNet Build:** Builds a project and all of its dependencies.
+    - **DotNet Test:** .Net test driver used to execute unit tests.
+    - **DotNet Publish: **Publishes the application and its dependencies to a folder for deployment to a hosting system. In this case, it's **Build.ArtifactStagingDirector**y.
+    - **Publish Artifact - Website:** Publish the app artifact (created in the previous step) and make it available as a pipeline artifact.
+    - **Publish Artifact - Bicep:** Publish the infrastructure artifact (Bicep file) and make it available as a pipeline artifact.
 
-# Exercise 1: Implement Selenium tests by using a self-hosted Azure DevOps agent
+7. Click the **Save** button (not **Save and run**) to save the pipeline definition.
 
-In this exercise, you will implement Selenium tests by using a self-hosted Azure DevOps agent.
+## Task 2: Add tests to the CI pipeline
 
-## Task 1: Configure a self-hosted Azure DevOps agent
+In this task, you will add the integration and functional tests to the CI Pipeline.
 
-In this task, you will configure a self-hosted agent by using the VM you deployed in the previous exercise. Selenium requires the agent to be run in the interactive mode to execute the UI tests.
+You can notice that the Unit Tests task is already part of the pipeline.
 
-1.  In the web browser window displaying the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az40011bvm**.
+- Unit Tests test a single part of your application's logic. One can further describe it by listing some of the things that it isn't. A unit test doesn't test how your code works with dependencies or infrastructure – that's what integration tests are for.
 
-1.  On the **az40011bvm** blade, select **Connect**, in the drop-down menu, select **RDP**, on the **RDP** tab of the **az40011bvm \| Connect** blade, select **Download RDP File** and open the downloaded file.
+1. Now you need to add the Integration Tests task after the Unit Tests task:
 
-1.  When prompted, sign in with the following credentials:
-
-    | Setting | Value |
-    | --- | --- |
-    | User Name | **vmadmin** |
-    | Password | **P2ssw0rd@123** |
-
-1.  Within the Remote Desktop session to **az40011bvm**, open a Chrome web browser window, navigate to **https://go.microsoft.com/fwlink/?LinkId=307137** and sign in to your Azure DevOps organization. 
-
-1.  In the lower left corner of the **Azure DevOps** portal, click **Organization settings**.
-
-1.  In the vertical menu on the left hand side of the page, in the **Pipelines** section, click **Agent pools**.
-
-1.  On the **Agent pools** pane, click **Default**. 
-
-1.  On the **Default** pane, click **New agent**. 
-
-1.  On  the **Get the agent** panel, ensure that the **Windows** tab and the **x64** section are selected and then click **Download**.
-
-1.  Start File Explorer, create a directory **C:\\AzAgent** and extract content of the downloaded agent zip file residing in the **Downloads** folder into this directory.
-
-1.  Within the Remote Desktop session to **az40011bvm**, right-click the **Start** menu and click **Command Prompt (Admin)**.
-
-1.  Within the **Administrator: Command Prompt** window, run the following to start the installation of the agent binaries:
-
-    ```cmd
-    cd C:\AzAgent
     ```
-    
-    ```cmd
-    Config.cmd
+    - task: DotNetCoreCLI@2
+      displayName: Integration Tests
+      inputs:
+        command: 'test'
+        projects: 'tests/IntegrationTests/*.csproj'
+      ```
+
+      > **Integration Tests** test how your code works with dependencies or infrastructure. Although it's a good idea to encapsulate your code that interacts with infrastructure like databases and file systems, you will still have some of that code, and you will probably want to test it. Additionally, you should verify that your code's layers interact as you expect when your application's dependencies are fully resolved. This functionality is the responsibility of integration tests.
+
+1. Then you need to add the Functional tests task after the Integration Tests task:
+
+    ```YAML
+    - task: DotNetCoreCLI@2
+      displayName: Functional Tests
+      inputs:
+        command: 'test'
+        projects: 'tests/FunctionalTests/*.csproj'
     ```
 
-1.  In the **Administrator: Command Prompt** window, when prompted to **Enter server URL**, type **https://dev.azure.com/(your-DevOps-organization-name)/**, where **(your-DevOps-organization-name)** represents the name of your Azure DevOps Organization, and press the **Enter** key.
+    > **Functional Tests** are written from the perspective of the user, and verify the correctness of the system based on its requirements. Unlike integration tests that are written from the perspective of the developer, to verify that some components of the system work correctly together.
 
-1.  In the **Administrator: Command Prompt** window, when prompted **Enter Authentication type (press enter for PAT)**, press the **Enter key**.
+1. Click **Save**, on the **Save** pane, click **Save** again to commit the changes directly into the main branch.
 
-1.  In the **Administrator: Command Prompt** window, when prompted **Enter personal access token**, switch to the Azure DevOps portal, close the **Get the agent** panel, in the upper right corner of the Azure DevOps page, click the **User settings** icon, in the dropdown menu, click **Personal access tokens**, on the **Personal Access Tokens** pane, and click **+ New Token**.
+#### Task 4: Check the tests summary
 
-1.  On the **Create a new personal access token** pane, specify the following settings and click **Create** (leave all others with their default values):
+1. Click on the **Run**, then from the **Run pipeline** tab, click on **Run** again.
 
-    | Setting | Value |
-    | --- | --- |
-    | Name | Type **Setting Up and Running Functional Tests lab** |
-    | Scopes | **Custom Defined** |
-    | Scopes | Click **Show all scopes** (at the bottom of the window) |
-    | Scopes | **Agent Pools** - **Read & Manage** |
+1. Wait for the pipeline to start and until it completes the Build Stage successfully.
 
-1.  On the **Success** pane, copy the value of the personal access token to Clipboard.
+1. Once completed, the **Test** tab will show as part of the pipeline run. Click on it to check the summary. It looks like shown below:
 
-    > **Note**: Make sure you copy the token. You will not be able to retrieve it once you close this pane. 
+    ![Tests Summary](images/AZ400_M05_L09_Tests_Summary.png)
 
-1.  On the **Success** pane, click **Close**.
+1. For more details, at the bottom of the page, the table shows a list of the different run tests.
 
-1.  Switch back to the **Administrator: Command Prompt** window and paste the content of Clipboard and press the **Enter key**.
+    >**Note**: If the table is empty, you need to reset the filters to have all the details about the tests run.
 
-1.  In the **Administrator: Command Prompt** window, when prompted **Enter agent pool (press enter for default)**, press the **Enter key**.
-
-1.  In the **Administrator: Command Prompt** window, when prompted **Enter agent name (press enter for az40011bvm)**, press the **Enter key**.
-
-1.  In the **Administrator: Command Prompt** window, when prompted **Enter work folder (press enter for _work)**, press the **Enter key**.
-
-1.  In the **Administrator: Command Prompt** window, when prompted **Enter run agent as service (Y/N) (press enter for N)**, press the **Enter key**.
-
-1.  In the **Administrator: Command Prompt** window, when prompted **Enter configure autologon and run agent on startup (Y/N) (press enter for N)**, press the **Enter key**.
-1.  Once the agent is registered, in the **Administrator: Command Prompt** window, type **run.cmd** and press the **Enter** to start the agent.
-
-    > **Note**: You also need to install the Dac Framework which is used by the application you will be deploying later in the lab.
-
-1.  Within the Remote Desktop session to **az40011bvm**, start another instance of the web browser, navigate to the [Microsoft SQL Server Data-Tier Application Framework (18.2) download page](https://www.microsoft.com/en-us/download/details.aspx?id=58207&WT.mc_id=rss_alldownloads_extensions) and click **Download**. 
-
-1.  On the **Choose the download you want**, select the **EN\x64\DacFramework.msi** checkbox and click **Next**. This will trigger automatic download of the **DacFramework.msi** file.
-
-1.  Once the download of the **DacFramework.msi** file completes, use it to run the installation of the Microsoft SQL Server Data-Tier Application Framework with the default settings.
-
-## Task 2: Configure a release pipeline
-
-In this task, you will configure the release pipeline.
-
-> **Note**: The Azure VM has the agent configured to deploy the applications and run Selenium testcases. The release definition uses **[Phases](https://docs.microsoft.com/en-us/vsts/build-release/concepts/process/phases)** to deploy to target servers.
-
-1.  Within the Remote Desktop session to **az40011bvm**, in the browser window displaying the **Azure DevOps** portal, click the **Azure DevOps** symbol in the upper left corner.
-
-1.  On the pane displaying your organization projects, click the tile representing the **Setting Up and Running Functional Tests** project.
-
-1.  On the **Setting** pane, in the vertical navigational pane, select **Pipelines**, within the **Pipelines** section, click **Releases** and then, on the **Selenium** pane, click **Edit**.
-
-1.  On the **All pipelines > Selenium** pane, click the **Tasks** tab header and, in the dropdown menu, click **Dev**.
-
-1.  Within the list of tasks of the **Dev** stage, review the **IIS Deployment**, **SQL Deployment**, and **Selenium test execution** deployment phases. 
-
-    - **IIS Deployment phase**: In this phase, we deploy application to the VM using the following tasks:
-
-        - **IIS Web App Manage**: This task runs on the target machine where we registered agent. It creates a *website* and an *Application Pool* locally with the name **PartsUnlimited** running under the port **82** , [**http://localhost:82**](http://localhost:82)
-        - **IIS Web App Deploy**: This task deploys the application to the IIS server using **Web Deploy**.
-
-    - **Database deploy phase**: In this phase, we use [**SQL Server Database Deploy**](https://github.com/Microsoft/vsts-tasks/blob/master/Tasks/SqlDacpacDeploymentOnMachineGroup/README.md) task to deploy [**dacpac**](https://docs.microsoft.com/en-us/sql/relational-databases/data-tier-applications/data-tier-applications) file to the DB server.
-
-    - **Selenium tests execution**: Executing **UI testing** as part of the release process allows us to detect unexpected changes. Setting up automated browser based testing drives quality in your application, without having to do it manually. In this phase, we will execute Selenium tests on the deployed web application. The subsequent tasks describe using Selenium to test the websites in the release pipeline.
-
-    - **Visual Studio Test Platform Installer**: The [Visual Studio Test Platform Installer](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/tool/vstest-platform-tool-installer?view=vsts) task will acquire the Microsoft test platform from nuget.org or a specified feed, and add it to the tools cache. It satisfies the **vstest** requirements so any subsequent Visual Studio Test task in a build or release pipeline can run without needing a full Visual Studio install on the agent machine.
-    - **Run Selenium UI tests**: This [task](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) uses **vstest.console.exe** to execute the selenium testcases on the agent machines.
-
-1.  On the **All pipelines > Selenium** pane, click the **IIS Deployment** phase and, on the **Agent job** pane, verify that the **Default** Agent pool is selected. 
-
-1.  Repeat the previous step for **SQL Deployment** and the **Selenium tests execution** phases. If needed, click **Save** to save the changes.
-
-## Task 3: Trigger Build and Release
-
-In this task, we will trigger the **Build** to compile Selenium C# scripts along with the Web application. The resulting binaries are copied to self-hosted agent and the Selenium scripts are executed as part of the automated **Release**.
-
-1.  Within the Remote Desktop session to **az40011bvm**, in the browser window displaying the **Azure DevOps** portal, in the vertical navigational pane, in the **Pipelines** section, click **Pipelines** and then, on the **Pipelines** pane, click **Selenium**.
-
-1.  On the **Selenium** pane, click **Run pipeline** and, on the **Run pipeline**, click **Run**.
-
-    > **Note**: This build will publish the test artifacts to Azure DevOps, which will be used in release. 
-
-    > **Note**: Once the build is successful, release will be triggered. 
-
-1.  On the pipeline runs pane, in the **Jobs** section, click **Phase 1** and monitor the build progress until its completion.
-
-1.  In the browser window displaying the **Azure DevOps** portal, in the vertical navigational pane, in the **Pipelines** section, click **Releases**, click the entry representing the release, and, on the **Selenium > Release-1** pane, click **Dev**.
-
-1.  On the **Selenium > Release-1 > Dev** pane, monitor the corresponding deployment.
-
-1.  Once the **Selenium test execution** phase starts, monitor the web browser tests. 
-
-1.  Once the release completes, on the **Selenium > Release-1 > Dev** pane, click on the **Tests** tab to analyze the test results. Select the required filters from the dropdown in **Outcome** section to view the tests and their status.
-
-**Note :** If you you the pipeline agents offline for more than 30 minutes , please run the below and perform Task 3.
-
-   ```cmd
-     .\run --diagnostics
-     .\run.cmd
-   ```
+    ![Tests Table](images/AZ400_M05_L09_Tests_Table.png)
 
   **Congratulations** on completing the lab! Now, it's time to validate it. Here are the steps:
 
@@ -247,4 +160,4 @@ In this task, we will trigger the **Build** to compile Selenium C# scripts along
 
 ## Review
 
-In this lab, you learned how to execute Selenium test cases on a C# web application, as part of the Azure DevOps Release pipeline.
+In this lab, you learned how to setup and run different tests types using Azure Pipelines and .Net.
