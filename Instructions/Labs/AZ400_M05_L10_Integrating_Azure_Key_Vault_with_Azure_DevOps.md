@@ -15,11 +15,10 @@ In this lab, you will see how you can integrate Azure Key Vault with an Azure De
 
 After you complete this lab, you will be able to:
 
--   Create an Azure Active Directory (Azure AD) service principal.
--   Create an Azure key vault. 
--   Track pull requests through the Azure DevOps pipeline.
+- Create a Microsoft Entra service principal.
+- Create an Azure Key Vault.
 
-## Estimated timing: 45 minutes
+## Estimated timing: 40 minutes
 
 ## Architecture Diagram
 
@@ -65,6 +64,12 @@ In this task you will import the eShopOnWeb Git repository that will be used by 
     - **.azure** folder contains Bicep&ARM infrastructure as code templates used in some lab scenarios.
     - **.github** folder container YAML GitHub workflow definitions.
     - **src** folder contains the .NET 6 website used on the lab scenarios.
+
+## Task 3: (skip if done) Set main branch as default branch
+
+1. Go to **Repos>Branches**.
+1. Hover on the **main** branch then click the ellipsis on the right of the column.
+1. Click on **Set as default branch**.
 
 # Exercise 1: Setup CI pipeline to build eShopOnWeb container
 
@@ -142,7 +147,9 @@ In this task, you will import an existing CI YAML pipeline definition, modify an
 
 1. Click on **Save and Run** and wait for the pipeline to execute successfully.
 
-    > **Note**: The build may take a few minutes to complete. The build definition consists of the following tasks:
+   > **Important**: If you see the message "This pipeline needs permission to access resources before this run can continue to Docker Compose to ACI", click on View, Permit and Permit again. This is needed to allow the pipeline to create the resource.
+
+   > **Note**: The build may take a few minutes to complete. The build definition consists of the following tasks:
     - **AzureResourceManagerTemplateDeployment** uses **bicep** to deploy an Azure Container Registry.
     - **PowerShell** task take the bicep output (acr login server) and creates pipeline variable.
     - **DockerCompose** task builds and pushes the container images for eShopOnWeb to the Azure Container Registry .
@@ -173,7 +180,7 @@ For this lab scenario, we will have a Azure Container Instance (ACI) that pull a
     | --- | --- |
     | Subscription |*Leave it as default subscription*|
     | Resource group | an Azure region close to the location of your lab environment |
-    | Key vault name | **keyvault<inject key="DeploymentID" enableCopy="false" />**|
+    | Key vault name | **ewebshop-keyvault<inject key="DeploymentID" enableCopy="false" />**|
     | Region | an Azure region close to the location of your lab environment |
     | Pricing tier | **Standard** |
     | Days to retain deleted vaults | **7** |
@@ -255,7 +262,9 @@ In this task, you will import a CD pipeline, customize it and run it for deployi
 1. Validate the message in the **Permit popup** window, and confirm by clicking **Permit**.
 1. Wait for this to complete successfully.
 
-    > **Note**: The deployment may take a few minutes to complete. The CD definition consists of the following tasks:
+   > **Important**: If you see the message "This pipeline needs permission to access resources before this run can continue to Docker Compose to ACI", click on View, Permit and Permit again. This is needed to allow the pipeline to create the resource.
+   
+   > **Note**: The deployment may take a few minutes to complete. The CD definition consists of the following tasks:
     - **Resources** : it is prepared to automatically trigger based on CI pipeline completion. It also download the repository for the bicep file.
     - **Variables (for Deploy stage)** connects to the variable group to consume the Azure Key Vault secret **acr-secret**
     - **AzureResourceManagerTemplateDeployment** deploys the Azure Container Instance (ACI) using bicep template and provides the ACR login parameters to allow ACI to download the previously created container image from Azure Container Registry (ACR).
@@ -269,11 +278,22 @@ In this task, you will import a CD pipeline, customize it and run it for deployi
   > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
   > - If you need any assistance, please contact us at labs-support@spektrasystems.com.
 
+### Exercise 2: Remove the Azure lab resources
+
+In this exercise, you will remove the Azure resources provisioned in this lab to eliminate unexpected charges.
+
+   >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+
+#### Task 1: Remove the Azure lab resources
+
+In this task, you will use Azure Cloud Shell to remove the Azure resources provisioned in this lab to eliminate unnecessary charges.
+
+1. In the Azure portal, open the created Resource Group and click on **Delete resource group**.
+
 ## Review
 
 In this lab, you integrated Azure Key Vault with an Azure DevOps pipeline by using the following steps:
 
-- created an Azure Key vault to store a MySQL server password as a secret.
-- created an Azure service principal to provide access to secrets in the Azure Key vault.
-- configured permissions to allow the service principal to read the secret.
-- configured pipeline to retrieve the password from the Azure Key vault and pass it on to subsequent tasks.
+- Created an Azure service principal to provide access to an Azure Key Vault secret and authenticate deployment to Azure from Azure DevOps.
+- Ran two YAML pipelines imported from a Git repository.
+- Configured one pipeline to retrieve the password from Azure Key Vault using a Variable Group and use it on subsequent tasks.
