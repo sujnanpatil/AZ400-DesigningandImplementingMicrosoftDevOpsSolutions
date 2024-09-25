@@ -202,6 +202,7 @@ In this task, you will add continuous delivery to the YAML-based definition of t
             appType: 'webApp'
             WebAppName: 'eshoponWebYAML369825031'
             packageForLinux: '$(Build.ArtifactStagingDirectory)/**/Web.zip'
+            AppSettings: "-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development"
     ```
 
 1. Validate the task is listed as a child of the **steps** task. If not, select all lines from the added task, press the **Tab** key twice to indent it four spaces, so that it listed as a child of the **steps** task.
@@ -329,7 +330,7 @@ In this task, you will add continuous delivery to the YAML-based definition of t
             appType: 'webApp'
             WebAppName: 'eshoponWebYAML369825031'
             packageForLinux: '$(Build.ArtifactStagingDirectory)/**/Web.zip'
-
+            AppSettings: '-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development'
     ```
 
 ## Task 4: Review the deployed site
@@ -411,7 +412,7 @@ the resulting YAML snippet should look like this now, reflecting the **Deploy St
       runOnce:
         deploy:
           steps:
-          - task: DownloadBuildArtifacts@0
+          - task: DownloadBuildArtifacts@1
             inputs:
               buildType: 'current'
               downloadType: 'single'
@@ -424,6 +425,7 @@ the resulting YAML snippet should look like this now, reflecting the **Deploy St
               appType: 'webApp'
               WebAppName: 'eshoponWebYAML369825031'
               packageForLinux: '$(Build.ArtifactStagingDirectory)/**/Web.zip'
+              AppSettings: "-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development"
 ```
 
 1. Confirm the changes to the code YAML file by clicking **Commit** and clicking **Commit** again in the appearing Commit pane.
