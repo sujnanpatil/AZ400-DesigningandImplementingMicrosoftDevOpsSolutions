@@ -70,13 +70,11 @@ In this task, you will create an **eShopOnWeb** Azure DevOps project to be used 
       
    3. The repository is organized the following way:
 
-        O **.ado** folder contains Azure DevOps YAML pipelines
-        
-        O **.devcontainer** folder container setup to develop using containers (either locally in VS Code or GitHub Codespaces)
-        
-        O **.github** folder container YAML GitHub workflow definitions.
-        
-        O **.src** folder contains the .NET 6 website used on the lab scenarios.
+        - **.ado** folder contains Azure DevOps YAML pipelines
+        - **.devcontainer** folder container setup to develop using containers (either locally in VS Code or GitHub Codespaces)
+        - **infra** folder contains Bicep&ARM infrastructure as code templates used in some lab scenarios.
+        - **.github** folder container YAML GitHub workflow definitions.
+        - **.src** folder contains the .NET 6 website used on the lab scenarios.
         
         ![](images/6.repositoryview.png)
         
@@ -130,13 +128,12 @@ You can create a connection from Azure Pipelines to external and remote services
 
 In this task, you will create a service principal by using the Azure CLI, which will allow Azure DevOps to:
 
-o Deploy resources on your azure subscription
-   
-o Deploy the eShopOnWeb application
+- Deploy resources on your azure subscription
+- Deploy the eShopOnWeb application
    
 > **Note**: If you do already have a service principal, you can proceed directly to the next task.
       
- You will need a **service principal** to deploy Azure resources from Azure Pipelines.
+You will need a **service principal** to deploy Azure resources from Azure Pipelines.
  
  A **service principal** is automatically created by Azure Pipeline when you connect to an Azure subscription from inside a pipeline definition or when you create a new service connection from the project settings page (automatic option). You can also manually create the service principal from the portal or using Azure CLI and re-use it across projects.
  
@@ -194,15 +191,15 @@ o Deploy the eShopOnWeb application
 
   9. Fill in the empty fields using the information gathered during previous steps:
 
-        o **Subscription Id(1)** and **Subscription Name(2)**.
+        - **Subscription Id(1)** and **Subscription Name(2)**.
         
-        o **Service Principal Id (or clientId)(3)**, **Service Principal Key (or Password)(4)** and **TenantId(5)** and click **Verify(6)** to check the connection.
+        - **Service Principal Id (or clientId)(3)**, **Service Principal Key (or Password)(4)** and **TenantId(5)** and click **Verify(6)** to check the connection.
         
-        o In **Service connection name type azure subs(7)**. This name will be referenced in YAML pipelines when needing an Azure DevOps Service Connection to communicate with your Azure subscription.
+        - In **Service connection name type azure subs(7)**. This name will be referenced in YAML pipelines when needing an Azure DevOps Service Connection to communicate with your Azure subscription.
         
-        o **Enable(8)** Grant access permissions to all pipelines.
+        - **Enable(8)** Grant access permissions to all pipelines.
         
-        o Click on **Verify and Save(9)**
+        - Click on **Verify and Save(9)**
         
         ![](images/27.SPcreation-1.png)
         
@@ -212,7 +209,7 @@ o Deploy the eShopOnWeb application
           
  **Task 3: Import and run the CD pipeline**
  
- Let's import the CD pipeline named **eshoponweb-cd-webapp-code.yml*.
+ Let's import the CD pipeline named [eshoponweb-cd-webapp-code.yml](https://github.com/MicrosoftLearning/eShopOnWeb/blob/main/.ado/eshoponweb-cd-webapp-code.yml).
  
    1. Go to **Pipelines(1)>Pipelines(2)** and Click on **New pipeline(3)** button
 
@@ -264,7 +261,8 @@ o Deploy the eShopOnWeb application
 
 In this exercise, you will create the App Configuration resource in Azure, enable the managed identity and then test the full solution.
 
->Note: This exercise doesn't require any coding skills. The website's code implements already Azure App Configuration functionalities.
+>**Note**: This exercise doesn't require any coding skills. The website's code implements already Azure App Configuration functionalities.
+
 If you want to know how to implement this in your application, please take a look at these tutorials: [Use dynamic configuration in an ASP.NET Core app](https://learn.microsoft.com/azure/azure-app-configuration/enable-dynamic-configuration-aspnet-core) and [Manage feature flags in Azure App Configuration](https://learn.microsoft.com/azure/azure-app-configuration/manage-feature-flags).
 
 ## Task 1: Create the App Configuration resource
@@ -411,6 +409,31 @@ Let's continue to test the Feature manager.
   > - Hit the Validate button for the corresponding task. If you receive a success message, you have successfully validated the lab. 
   > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
   > - If you need any assistance, please contact us at labs-support@spektrasystems.com.
+
+### Exercise 3: Remove the Azure lab resources
+
+In this exercise, you will remove the Azure resources provisioned in this lab to eliminate unexpected charges.
+
+>**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+
+#### Task 1: Remove the Azure lab resources
+
+In this task, you will use Azure Cloud Shell to remove the Azure resources provisioned in this lab to eliminate unnecessary charges.
+
+1. In the Azure portal, open the **Bash** shell session within the **Cloud Shell** pane.
+1. List all resource groups created throughout the labs of this module by running the following command:
+
+    ```sh
+    az group list --query "[?starts_with(name,'AZ400-EWebShop-')].name" --output tsv
+    ```
+
+1. Delete all resource groups you created throughout the labs of this module by running the following command:
+
+    ```sh
+    az group list --query "[?starts_with(name,'AZ400-EWebShop-')].[name]" --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
+    ```
+
+    >**Note**: The command executes asynchronously (as determined by the --nowait parameter), so while you will be able to run another Azure CLI command immediately afterwards within the same Bash session, it will take a few minutes before the resource groups are actually removed.
 
 ## Review
 
