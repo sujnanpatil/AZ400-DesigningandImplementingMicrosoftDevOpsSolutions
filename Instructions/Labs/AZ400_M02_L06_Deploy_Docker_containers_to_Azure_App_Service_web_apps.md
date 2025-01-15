@@ -170,6 +170,10 @@ You should now see the JSON output which confirms the success of the command run
 
 In this task, you will import and run the CI pipeline.
 
+1. In the DevOps portal, navigate to **Repos**, then select **Files** and navigate to **infra/webapp-docker.bicep**
+
+1. Change the SKU to **F1** from **B1** on line 19 and Commit the changes.
+
 1. Go to **Pipelines>Pipelines**.
 
 1. Click on **New pipeline** button.
@@ -183,8 +187,11 @@ In this task, you will import and run the CI pipeline.
 1. Select the **/.ado/eshoponweb-cd-webapp-docker.yml** file then click on **Continue**.
 
 1. In the YAML pipeline definition, customize:
+    - **azureServiceConnection:** 'azure-connection'
+location: 'southcentralus'
     - **YOUR-SUBSCRIPTION-ID** with your Azure subscription id.
     - **rg-az400-container-NAME** with the resource group name defined before in the lab.
+    - **location:** 'southcentralus'
 
 1. Click on **Save and Run** and wait for the pipeline to execute succesfully.
 
