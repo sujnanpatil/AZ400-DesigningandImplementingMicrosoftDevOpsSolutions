@@ -27,7 +27,7 @@ After you complete this lab, you will be able to:
 
     * Password: <inject key="AzureAdUserPassword"></inject>
 
-1. In the pop-up for *Help us protect your account*, select **Skip for now (14 days until this is required)**.
+1. If you get a pop-up for *Help us protect your account*, select **Skip for now (14 days until this is required)**.
 
 1. On the next page accept defaults and click on continue.
 
@@ -105,7 +105,7 @@ In this task, you will configure Visual Studio to prepare for the lab.
 
     ![](images/AZ400_M08_L15_11(1).png)
 
-    - if prompted to sign-in  with the following credentials.
+1. If prompted to sign-in  with the following credentials.
     
         > **Email/Username**: <inject key="AzureAdUserEmail"></inject>
     
@@ -113,23 +113,23 @@ In this task, you will configure Visual Studio to prepare for the lab.
     
       >**Note**: If **Visual Studio** takes more than 5 minutes to get launched follow the below steps:
    
-    - Close the **Visual Studio** by navigating to **Task Manager** and on task manager select **Microsoft Visual studio 2022**, click **End Task** and reopen **Visual Studio**  from start menu.
+        - Close the **Visual Studio** by navigating to **Task Manager** and on task manager select **Microsoft Visual studio 2022**, click **End Task** and reopen **Visual Studio**  from start menu.
 
-      ![](images/az-400-image(4).png)
+          ![](images/az-400-image(4).png)
        
-    - If prompted click **Continue without code** on **Visual studio 2022** page
+       - If prompted click **Continue without code** on **Visual studio 2022** page
     
-    - Within the Visual Studio interface click **Git** tool and select **Clone Repository**
+       - Within the Visual Studio interface click **Git** tool and select **Clone Repository**
           
-      ![](images/az-400-image5.png)
+         ![](images/az-400-image5.png)
              
-    - On **Clone Repository** page under Browse a Repository select **Azure DevOps** and Connect to a Project select **EShopOnWeb** repo and **Clone**.
+       - On **Clone Repository** page under Browse a Repository select **Azure DevOps** and Connect to a Project select **EShopOnWeb** repo and **Clone**.
            
-       ![](images/az-400-image6.png)
+        ![](images/az-400-image6.png)
         
-       ![](images/az-400-image7.png)
+        ![](images/az-400-image7.png)
          
-    - If prompted, sign in with the following Username and password.
+      - If prompted, sign in with the following Username and password.
 
         > **Email/Username**: <inject key="AzureAdUserEmail"></inject>
     
@@ -139,10 +139,10 @@ In this task, you will configure Visual Studio to prepare for the lab.
 
 In this exercise, you will learn how to work with Azure Artifacts by using the following steps:
 
-- create and connect to a feed.
-- create and publish a NuGet package.
-- import a NuGet package.
-- update a NuGet package.
+- Create and connect to a feed.
+- Create and publish a NuGet package.
+- Import a NuGet package.
+- Update a NuGet package.
 
 ## Task 1: Create and connect to a feed
 
@@ -238,7 +238,7 @@ In this task, you will create and publish a NuGet package.
 1. In the **Administrator: Windows PowerShell** window, navigate to the eShopOnWeb.Shared folder, by executing the following command:
 
     ```text
-    cd c:\eShopOnWeb\eShopOnWeb.Shared
+    cd C:\Users\azureuser\source\repos\EShopOnWeb.Shared\EShopOnWeb.Shared
     ```
 
     > **Note**: The **eShopOnWeb.Shared** folder is the location of the **eShopOnWeb.Shared.csproj** file. If you chose a different location, navigate to that location instead.
