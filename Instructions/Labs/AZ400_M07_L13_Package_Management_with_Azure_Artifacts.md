@@ -288,17 +288,15 @@ In this task, you will create and publish a NuGet package.
    
       - We need to unblock the **nuget.exe(1)** file which we downloaded to the **EShareOnWeb.Shared** folder by selecting **Properties(2)**.
 
-       ![](images/AZ400_M08_L15_33.png)
+        ![](images/AZ400_M08_L15_33.png)
 
      - Check the **Unblock (1)** and click on **Apply (2)** to save the changes and click on **OK (3)**.
 
-      ![](images/AZ400_M08_L15_34.png)
+        ![](images/AZ400_M08_L15_34.png)
     
      - Now again run the above powershell and it will create a package successfully.
     
-      ![](images/AZ400_M08_L15_35.png)
-
-    > **Knowlege**: NuGet is highly customizable. To learn more, refer to the [NuGet package creation page](https://docs.microsoft.com/en-us/nuget/create-packages/overview-and-workflowhttps:/docs.microsoft.com/en-us/nuget/create-packages/overview-and-workflow).
+     > **Knowlege**: NuGet is highly customizable. To learn more, refer to the [NuGet package creation page](https://docs.microsoft.com/en-us/nuget/create-packages/overview-and-workflowhttps:/docs.microsoft.com/en-us/nuget/create-packages/overview-and-workflow).
 
   
 1. Run the following to publish the package to the EShopOnWebShared feed:
