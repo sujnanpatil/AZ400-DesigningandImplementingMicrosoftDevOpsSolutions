@@ -233,21 +233,6 @@ In this task, you will create and publish a NuGet package.
     
    ![](images/AZ400_M08_L15_26.png)
    
-1. From your lab workstation, open the Start menu, and search for **Windows PowerShell**. Next, in the cascading menu, click **Open Windows PowerShell as administrator**.
-
-1. In the **Administrator: Windows PowerShell** window, navigate to the eShopOnWeb.Shared folder, by executing the following command:
-
-    ```text
-    cd C:\Users\azureuser\source\repos\EShopOnWeb.Shared\EShopOnWeb.Shared
-    ```
-
-    > **Note**: The **eShopOnWeb.Shared** folder is the location of the **eShopOnWeb.Shared.csproj** file. If you chose a different location, navigate to that location instead.
-
-1. Run the following to create a **.nupkg** file from the project.
-
-    ```powershell
-    dotnet pack .\eShopOnWeb.Shared.csproj
-    ```
 1. Switch to the web browser displaying the Azure DevOps portal. 
 
 1. Navigate to the **Connect to feed** pane, in the **NuGet** section and select **NuGet.exe**. This will display the **NuGet.exe** pane.
@@ -291,68 +276,46 @@ In this task, you will create and publish a NuGet package.
     ```
      cd C:\Users\azureuser\source\repos\EShopOnWeb.Shared\EShopOnWeb.Shared
     ```
-1. Run the following to create a .nupkg file from the project.
+
+1. Run the following to create a .nupkg file from the project. Replace [DID] with <inject key="DeploymentID"></inject> in the below command.
+
 
     ```
-     dotnet pack .\EShopOnWeb.Shared.csproj
+     dotnet pack --output C:\Users\azureuser\source\repos\EShopOnWeb.Shared\EShopOnWeb.Shared\bin\Release  /p:PackageVersion=[DID].0.0 --configuration Release
     ```
-1. In the PowerShell window, run the following command to open the bin\Release folder:
-
-    ```
-      cd .\bin\Release
-    ```  
-1. Run the following command.
+    
+     > **Note**: If you prompted with the **Error NU5133: NuGet.exe file on path C:\Users\xxxxx\source\repos\EShopOnWeb.Shared\EShopOnWeb.Shared\nuget.exe needs to be unblocked after downloading** follow the below steps:
    
-    ```
-     cd C:\Users\azureuser\source\repos\EShopOnWeb.Shared\EShopOnWeb.Shared
-    ```
+      - We need to unblock the **nuget.exe(1)** file which we downloaded to the **EShareOnWeb.Shared** folder by selecting **Properties(2)**.
 
+       ![](images/AZ400_M08_L15_33.png)
+
+     - Check the **Unblock (1)** and click on **Apply (2)** to save the changes and click on **OK (3)**.
+
+      ![](images/AZ400_M08_L15_34.png)
+    
+     - Now again run the above powershell and it will create a package successfully.
+    
+      ![](images/AZ400_M08_L15_35.png)
+
+    > **Knowlege**: NuGet is highly customizable. To learn more, refer to the [NuGet package creation page](https://docs.microsoft.com/en-us/nuget/create-packages/overview-and-workflowhttps:/docs.microsoft.com/en-us/nuget/create-packages/overview-and-workflow).
+
+  
 1. Run the following to publish the package to the EShopOnWebShared feed:
 
     ```
        iex "& { $(irm https://aka.ms/install-artifacts-credprovider.ps1) } -AddNetfx"
-    ```  
-1. In the **Administrator: Windows PowerShell** window, run the following to create a **.nupkg** file from the project.
-
     ```
-     ./nuget.exe pack ./EShopOnWeb.Shared.csproj
-    ```
-
-    > **Note**: Disregard any warnings displayed in the **Administrator: Windows PowerShell** window.
-    > **Note**: This is a shortcut to package the NuGet bits for deployment. NuGet is highly customizable. To learn more, refer to the [NuGet package creation page](https://docs.microsoft.com/en-us/nuget/create-packages/overview-and-workflowhttps:/docs.microsoft.com/en-us/nuget/create-packages/overview-and-workflow).
-
-1. NuGet builds a minimal package based on the information it is able to identify from the project. For example, note that the name is **ESopOnWeb.Shared.1.0.0.nupkg**. That version number was retrieved from the assembly.
-
-    ![](images/AZ400_M08_L15_(32).png)
-       
-    >**Note**: If you prompted with the **Error NU5133: NuGet.exe file on path C:\Users\xxxxx\source\repos\EShopOnWeb.Shared\EShopOnWeb.Shared\nuget.exe needs to be unblocked after downloading** then we need to unblock the **nuget.exe(1)** file which we downloaded to the **EShareOnWeb.Shared** folder by selecting **Properties(2)**.
-
-    ![](images/AZ400_M08_L15_33.png)
-
-1. Check the **Unblock (1)** and click on **Apply (2)** to save the changes and click on **OK (3)**.
-
-    ![](images/AZ400_M08_L15_34.png)
     
-1. Now again run the **PowerShell command** from the **step 22** and it will create package successfully.
-    
-    ![](images/AZ400_M08_L15_35.png)
-
-1. After the successful creation of the package, run the following to publish the package to the **EShopOnWebShared** feed. If it Prompted to sign select **Work or school account** and click on continue in window login with the following credentials.
-    
-    > **Email/Username**: <inject key="AzureAdUserEmail"></inject>
-    
-    > **Password**: <inject key="AzureAdUserPassword"></inject>
 
 1. Run the following to publish the package to the **eShopOnWebShared** feed:
 
-    > **Important**: You need to install the credential provider for your operating system to be able to authenticate with Azure DevOps. You can find the installation instructions at [Azure Artifacts Credential Provider](https://go.microsoft.com/fwlink/?linkid=2099625). You can install by running the following command in the PowerShell window: `iex "& { $(irm https://aka.ms/install-artifacts-credprovider.ps1) } -AddNetfx"`
-
-    > **Note**: You need to provide an **API Key**, which can be any non-empty string. We're using **az** here. When prompted, sign in to your Azure DevOps organization.
-
     ```
-    dotnet nuget push --source "eShopOnWebShared" --api-key az eShopOnWeb.Shared.1.0.0.nupkg
+    dotnet nuget push --source "eShopOnWebShared" --api-key az C:\Users\azureuser\source\repos\EShopOnWeb.Shared\EShopOnWeb.Shared\bin\Release\EShopOnWeb.Shared.[DID].0.0.nupkg --interactive
     ```
-               
+
+1. When prompted to login through the device login, copy the link in a new browser and copy the code displayed in the powershell window and sign in.
+
 1. Wait for the confirmation of the successful package push operation.   
 
 1. Switch to the web browser window displaying the Azure DevOps portal and, in the vertical navigational pane, select **Artifacts**.
@@ -373,20 +336,12 @@ Besides developing your own packages, why not using the Open Source NuGet (<http
 
 In this task, we will use a generic "Newtonsoft.Json" sample package, but you can use the same approach for other packages in the library.
 
-1. From the same PowerShell window, navigate to the **EShopOnWeb.Shared** folder, run the following **dotnet** command to install the sample package:
+1. From the same PowerShell window, run the following **dotnet** command to install the sample package. Replace [DID] with <inject key="DeploymentID"></inject> in the below command.
 
     ```powershell
-    dotnet add package Newtonsoft.Json
+    dotnet pack --output C:\Users\azureuser\.nuget\packages\newtonsoft.json /p:PackageVersion=[DID].0.0 --configuration Release
     ```
-
-1. Check the output of the install process. It shows the different Feeds it will try to download the package:
-
-    ```powershell
-    Feeds used:
-    https://api.nuget.org/v3/registration5-gz-semver2/newtonsoft.json/index.json
-    https://pkgs.dev.azure.com/<AZURE_DEVOPS_ORGANIZATION>/eShopOnWeb/_packaging/eShopOnWebShared/nuget/v3/index.json
-    ```
-1. Next, it will show additional output regarding the actual installation process itself.
+1. It will show additional output regarding the actual installation process itself.
 
     ```powershell
     Determining projects to restore...
@@ -433,7 +388,7 @@ Let's consider this package an "approved" package for our DevOps team to reuse, 
 1. From the PowerShell window, execute the following command replacing the **[path]** with the one which you recored and modified in notepad:
 
     ```powershell
-    dotnet nuget push --source "EShopOnWebShared" --api-key az [path]
+    dotnet nuget push --source "EShopOnWebShared" --api-key az [path]  
     ```
 
    ![](images/img9.png)
