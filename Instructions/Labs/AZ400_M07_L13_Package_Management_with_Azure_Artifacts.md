@@ -107,29 +107,29 @@ In this task, you will configure Visual Studio to prepare for the lab.
 
 1. If prompted to sign-in  with the following credentials.
     
-        > **Email/Username**: <inject key="AzureAdUserEmail"></inject>
+   > **Email/Username**: <inject key="AzureAdUserEmail"></inject>
     
-        > **Password**: <inject key="AzureAdUserPassword"></inject>
+   > **Password**: <inject key="AzureAdUserPassword"></inject>
     
       >**Note**: If **Visual Studio** takes more than 5 minutes to get launched follow the below steps:
    
-        - Close the **Visual Studio** by navigating to **Task Manager** and on task manager select **Microsoft Visual studio 2022**, click **End Task** and reopen **Visual Studio**  from start menu.
+     - Close the **Visual Studio** by navigating to **Task Manager** and on task manager select **Microsoft Visual studio 2022**, click **End Task** and reopen **Visual Studio**  from start menu.
 
           ![](images/az-400-image(4).png)
        
-       - If prompted click **Continue without code** on **Visual studio 2022** page
+     - If prompted click **Continue without code** on **Visual studio 2022** page
     
-       - Within the Visual Studio interface click **Git** tool and select **Clone Repository**
+     - Within the Visual Studio interface click **Git** tool and select **Clone Repository**
           
          ![](images/az-400-image5.png)
              
-       - On **Clone Repository** page under Browse a Repository select **Azure DevOps** and Connect to a Project select **EShopOnWeb** repo and **Clone**.
+     - On **Clone Repository** page under Browse a Repository select **Azure DevOps** and Connect to a Project select **EShopOnWeb** repo and **Clone**.
            
         ![](images/az-400-image6.png)
         
         ![](images/az-400-image7.png)
          
-      - If prompted, sign in with the following Username and password.
+     - If prompted, sign in with the following Username and password.
 
         > **Email/Username**: <inject key="AzureAdUserEmail"></inject>
     
