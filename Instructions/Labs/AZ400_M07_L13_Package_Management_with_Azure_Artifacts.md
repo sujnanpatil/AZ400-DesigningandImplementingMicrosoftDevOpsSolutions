@@ -284,7 +284,7 @@ In this task, you will create and publish a NuGet package.
      dotnet pack --output C:\Users\azureuser\source\repos\EShopOnWeb.Shared\EShopOnWeb.Shared\bin\Release  /p:PackageVersion=[DID].0.0 --configuration Release
     ```
     
-      > **Note**: If you prompted with the **Error NU5133: NuGet.exe file on path C:\Users\xxxxx\source\repos\EShopOnWeb.Shared\EShopOnWeb.Shared\nuget.exe needs to be unblocked after downloading** follow the below steps:
+   > **Note**: If you prompted with the **Error NU5133: NuGet.exe file on path C:\Users\xxxxx\source\repos\EShopOnWeb.Shared\EShopOnWeb.Shared\nuget.exe needs to be unblocked after downloading** follow the below steps:
    
       - We need to unblock the **nuget.exe(1)** file which we downloaded to the **EShareOnWeb.Shared** folder by selecting **Properties(2)**.
 
@@ -296,7 +296,7 @@ In this task, you will create and publish a NuGet package.
     
      - Now again run the above powershell and it will create a package successfully.
     
-     > **Knowlege**: NuGet is highly customizable. To learn more, refer to the [NuGet package creation page](https://docs.microsoft.com/en-us/nuget/create-packages/overview-and-workflowhttps:/docs.microsoft.com/en-us/nuget/create-packages/overview-and-workflow).
+  > **Knowlege**: NuGet is highly customizable. To learn more, refer to the [NuGet package creation page](https://docs.microsoft.com/en-us/nuget/create-packages/overview-and-workflowhttps:/docs.microsoft.com/en-us/nuget/create-packages/overview-and-workflow).
 
   
 1. Run the following to publish the package to the EShopOnWebShared feed:
