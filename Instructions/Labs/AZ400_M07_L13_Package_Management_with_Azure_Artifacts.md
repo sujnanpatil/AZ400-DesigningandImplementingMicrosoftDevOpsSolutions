@@ -284,7 +284,7 @@ In this task, you will create and publish a NuGet package.
      dotnet pack --output C:\Users\azureuser\source\repos\EShopOnWeb.Shared\EShopOnWeb.Shared\bin\Release  /p:PackageVersion=[DID].0.0 --configuration Release
     ```
     
-     > **Note**: If you prompted with the **Error NU5133: NuGet.exe file on path C:\Users\xxxxx\source\repos\EShopOnWeb.Shared\EShopOnWeb.Shared\nuget.exe needs to be unblocked after downloading** follow the below steps:
+      > **Note**: If you prompted with the **Error NU5133: NuGet.exe file on path C:\Users\xxxxx\source\repos\EShopOnWeb.Shared\EShopOnWeb.Shared\nuget.exe needs to be unblocked after downloading** follow the below steps:
    
       - We need to unblock the **nuget.exe(1)** file which we downloaded to the **EShareOnWeb.Shared** folder by selecting **Properties(2)**.
 
