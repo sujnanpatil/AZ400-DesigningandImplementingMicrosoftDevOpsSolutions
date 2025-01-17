@@ -90,7 +90,8 @@ In this task you will import the eShopOnWeb Git repository that will be used by 
 
 In this task, you will create an Azure web app by using the Azure portal.
 
-1. From the lab computer, start a web browser, navigate to the [**Azure Portal**](https://portal.azure.com), and sign in with the user account that has the Owner role in the Azure subscription you will be using in this lab and has the role of the Global Administrator in the Azure AD tenant associated with this subscription.
+1. From the lab computer, start a web browser, navigate to the [**Azure Portal**](https://portal.azure.com), and sign in if required.
+
 1. In the Azure portal, in the toolbar, click the **Cloud Shell** icon located directly to the right of the search text box.
    
     ![Import Repository](images/az-400-9a2.png)
@@ -520,6 +521,10 @@ YAML Pipelines as Code don't have Release/Quality Gates as we have with Azure De
    - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="a03ccb27-424c-486e-9b76-b75cd7f250e7" />
+
+   <validation step="c728e3cd-36c8-41d9-9dd2-2fb0d9dbb59e" />
+
+   
    
 ## Review
 
