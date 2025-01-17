@@ -172,7 +172,7 @@ In this task, you will create and connect to a feed.
     
     ![](images/AZ400_M08_L15_(16).png)
 
-1. Switch back to the **Visual Studio** window and wait for the installation to be get completed. 
+1. Switch back to the **Visual Studio** window.
 
 1. In the Visual Studio window, click **Tools (1)** menu header, in the dropdown menu, select **NuGet Package Manager (2)** and, in the cascading menu, select **Package Manager Settings (3)**.
     
@@ -214,9 +214,7 @@ In this task, you will create and publish a NuGet package.
    | Location | accept the default value (2) |
    | Solution | **Create new solution (3)** |
    | Solution name | **EShopOnWeb.Shared (4)** |
-    
-   > **Note**: Make sure not to select **.NET Standard**.
-
+   
    ![](images/AZ400_M08_L15_21.png)
     
 1. Click Next. Accept **.NET 8.0 (Long Term Support) (1)** as Framework option and click **Create (2)**.
@@ -277,8 +275,7 @@ In this task, you will create and publish a NuGet package.
      cd C:\Users\azureuser\source\repos\EShopOnWeb.Shared\EShopOnWeb.Shared
     ```
 
-1. Run the following to create a .nupkg file from the project. Replace [DID] with <inject key="DeploymentID"></inject> in the below command.
-
+1. Run the following to create a .nupkg file from the project. Replace **[DID]** with **<inject key="DeploymentID"></inject>** in the below command.
 
     ```
      dotnet pack --output C:\Users\azureuser\source\repos\EShopOnWeb.Shared\EShopOnWeb.Shared\bin\Release  /p:PackageVersion=[DID].0.0 --configuration Release
