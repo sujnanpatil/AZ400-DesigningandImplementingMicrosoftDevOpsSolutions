@@ -363,7 +363,7 @@ In this task, we will use a generic "Newtonsoft.Json" sample package, but you ca
 
    ![](images/new-image2.png)
 
-## Task 4: Check on the Packages istalled in Visual Studio
+## Task 4: Check on the Packages installed in Visual Studio
 
 1. From the Visual Studio **EShopOnWeb.Shared** Solution, right-click the **EShopOnWeb.Shared** Project, and select **Manage NuGet Packages** from the context menu.
 
