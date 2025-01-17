@@ -104,7 +104,8 @@ In this task you will import the eShopOnWeb Git repository that will be used by 
 
 In this task, you will create an Azure web app by using the cloud shell in Azure portal.
 
-1. From the lab computer, start a web browser, navigate to the [**Azure Portal**](https://portal.azure.com), and sign in with the user account that has the Owner role in the Azure subscription you will be using in this lab and has the role of the Global Administrator in the Microsoft Entra tenant associated with this subscription.
+1. From the lab computer, start a web browser, navigate to the [**Azure Portal**](https://portal.azure.com).
+
 1. In the Azure portal, in the toolbar, click the **Cloud Shell** icon located directly to the right of the search text box.
 
     ![Import Repository](images/az-400-9a2.png)
@@ -132,7 +133,7 @@ In this task, you will create an Azure web app by using the cloud shell in Azure
     az group create --name $RESOURCEGROUPNAME --location $LOCATION
     ```
 
-1. To create a Windows App service plan by running the following command:
+1. Create a Windows App service plan by running the following command:
 
     ```bash
     SERVICEPLANNAME='az400l16-sp'
@@ -140,7 +141,7 @@ In this task, you will create an Azure web app by using the cloud shell in Azure
         --name $SERVICEPLANNAME --sku B3
     ```
 
-1. Create a web app with a unique name.
+1. Run the following command to create a web app with a unique name.
 
     ```bash
     WEBAPPNAME=az400eshoponweb$RANDOM$RANDOM
