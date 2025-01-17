@@ -155,13 +155,13 @@ In this task, you will create Azure Repository and publish a branch of an Azure 
       
      ![](images/AZ400_M09_L17_16.png)
 
-    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+   > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
    - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
-   <validation step="667e41aa-6e7d-4380-a86d-8ad52f49747d" />
-
+   <validation step="667e41aa-6e7d-4380-a86d-8ad52f49747d" />  
+   
 ## Task 2: Manage content of a published wiki
 In this task, you will manage content of the wiki you published in the previous task.
 
