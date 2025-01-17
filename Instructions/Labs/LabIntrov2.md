@@ -6,7 +6,7 @@ Welcome to your AZ-400: Designing and Implementing Microsoft DevOps Solutions wo
  
 Once you're ready to dive in, your virtual machine and lab guide will be right at your fingertips within your web browser.
  
-![Access Your VM and Lab Guide](./images/labguide.png)
+![Access Your VM and Lab Guide](./images/az-400gs1.png)
 
 ### Virtual Machine & Lab Guide
  
@@ -16,25 +16,25 @@ Your virtual machine is your workhorse throughout the workshop. The lab guide is
  
 To get a better understanding of your lab resources and credentials, navigate to the **Environment Details** tab.
  
-![Explore Lab Resources](./images/env.png)
+![Explore Lab Resources](./images/az-400gs2.png)
  
 ## Utilizing the Split Window Feature
  
 For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the top right corner.
  
-![Use the Split Window Feature](./images/spl.png)
+![Use the Split Window Feature](./images/az-400gs3.png)
  
 ## Managing Your Virtual Machine
  
 Feel free to start, stop, or restart your virtual machine as needed from the **Resources** tab. Your experience is in your hands!
  
-![Manage Your Virtual Machine](./images/res.png)
+![Manage Your Virtual Machine](./images/az-400gs4.png)
 
 ## **Lab Duration Extension**
 
 1. To extend the duration of the lab, kindly click the **Hourglass** icon in the top right corner of the lab environment. 
 
-    ![Manage Your Virtual Machine](./images/gext.png)
+    ![Manage Your Virtual Machine](./images/az-400gs5.png)
 
     >**Note:** You will get the **Hourglass** icon when 10 minutes are remaining in the lab.
 
