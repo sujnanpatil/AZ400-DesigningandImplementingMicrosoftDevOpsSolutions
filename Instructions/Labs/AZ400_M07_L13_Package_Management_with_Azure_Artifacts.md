@@ -295,22 +295,24 @@ In this task, you will create and publish a NuGet package.
     
      > **Knowlege**: NuGet is highly customizable. To learn more, refer to the [NuGet package creation page](https://docs.microsoft.com/en-us/nuget/create-packages/overview-and-workflowhttps:/docs.microsoft.com/en-us/nuget/create-packages/overview-and-workflow).
  
-1. Run the following to publish the package to the EShopOnWebShared feed:
+1. Run the following to install the credential provider
 
     ```
        iex "& { $(irm https://aka.ms/install-artifacts-credprovider.ps1) } -AddNetfx"
     ```
     
 
-1. Run the following to publish the package to the **eShopOnWebShared** feed:
+1. Run the following to publish the package to the **eShopOnWebShared** feed.Replace **[DID]** with **<inject key="DeploymentID"></inject>** in the below command.
 
     ```
     dotnet nuget push --source "eShopOnWebShared" --api-key az C:\Users\azureuser\source\repos\EShopOnWeb.Shared\EShopOnWeb.Shared\bin\Release\EShopOnWeb.Shared.[DID].0.0.nupkg --interactive
     ```
 
-1. When prompted to login through the device login, copy the link in a new browser and copy the code displayed in the powershell window and sign in.
+1. When prompted to login through the device login, copy the link in a new browser and copy the code displayed in your powershell window and sign in.
 
-1. Wait for the confirmation of the successful package push operation.   
+   ![](images/az-400l1.png)
+
+1. After signing in the browser back in the powershell window Wait for the confirmation of the successful package push operation.   
 
 1. Switch to the web browser window displaying the Azure DevOps portal and, in the vertical navigational pane, select **Artifacts**.
 
@@ -318,7 +320,7 @@ In this task, you will create and publish a NuGet package.
 
    > **Note**: The **EShopOnWebShared** feed should include the newly published NuGet package.
 
-   ![](images/AZ400_M08_L15_(37).png)
+   ![](images/az-400l2.png)
     
 1. Click the NuGet package to display its details.
 
@@ -330,10 +332,10 @@ Besides developing your own packages, why not using the Open Source NuGet (<http
 
 In this task, we will use a generic "Newtonsoft.Json" sample package, but you can use the same approach for other packages in the library.
 
-1. From the same PowerShell window, run the following **dotnet** command to install the sample package. Replace [DID] with <inject key="DeploymentID"></inject> in the below command.
+1. From the same PowerShell window, run the following **dotnet** command to install the sample package.
 
     ```powershell
-    dotnet pack --output C:\Users\azureuser\.nuget\packages\newtonsoft.json /p:PackageVersion=[DID].0.0 --configuration Release
+    dotnet add package Newtonsoft.Json --interactive
     ```
 1. It will show additional output regarding the actual installation process itself.
 
@@ -361,44 +363,8 @@ In this task, we will use a generic "Newtonsoft.Json" sample package, but you ca
 
    ![](images/new-image2.png)
 
-## Task 4: Upload the Open-Source NuGet package to Azure Artifacts
+## Task 4: Check on the Packages istalled in Visual Studio
 
-Let's consider this package an "approved" package for our DevOps team to reuse, by uploading it to the Azure Artifacts Package feed created earlier.
-
-1. From the Visual Studio, right-click the new **Newtonsoft.Json** package, and select **Open Folder in File Explorer** from the context menu. You will see the new **Newtonsoft.Json** package with the extension **.nupkg**.
-
-1. Copy the full path from the address bar of the File Explorer window and paste it in notepad.
-
-   ![](images/img6.png)
-
-1. Right click on **newtonsoft.json.X.X.X.nupkg**  and select **Properties** then copy the  **newtonsoft.json.X.X.X.nupkg** file name within the Properties window.
-
-    ![](images/img(7).png)
-   
-    ![](images/img(8).png)
-   
-1. Navigate back to notepad where you recorded the path and add one backslash \ after version X.X.X and paste the **newtonsoft.json.X.X.X.nupkg** file name at the end.
-
-1. From the PowerShell window, execute the following command replacing the **[path]** with the one which you recored and modified in notepad:
-
-    ```powershell
-    dotnet nuget push --source "EShopOnWebShared" --api-key az [path]  
-    ```
-
-   ![](images/img9.png)
-
-   > **Note**: This should now result in a successful upload.
-
-    ```text
-    Pushing newtonsoft.json.13.0.3.nupkg to 'https://pkgs.dev.azure.com/<AZURE_DEVOPS_ORGANIZATION>/_packaging/5faffb6c-018b-4452-a4d6-72c6bffe79db/nuget/v2/'...
-    PUT https://pkgs.dev.azure.com/<AZURE_DEVOPS_ORGANIZATION>/_packaging/5faffb6c-018b-4452-a4d6-72c6bffe79db/nuget/v2/
-    Accepted https://pkgs.dev.azure.com/<AZURE_DEVOPS_ORGANIZATION>/_packaging/5faffb6c-018b-4452-a4d6-72c6bffe79db/nuget/v2/ 3160ms
-    Your package was pushed.
-    ```
-1. From the Azure DevOps Portal, **refresh** the Artifacts Package Feed page. The list of packages shows both the **EShopOnWeb.Shared** custom-developed package, as well as the **Newtonsoft.Json** public sourced package.
-
-   ![](images/img10.png)
-   
 1. From the Visual Studio **EShopOnWeb.Shared** Solution, right-click the **EShopOnWeb.Shared** Project, and select **Manage NuGet Packages** from the context menu.
 
 1. From the NuGet Package Manager window, validate the **Package Source** is set to **EShopOnWebShared**.
@@ -407,10 +373,9 @@ Let's consider this package an "approved" package for our DevOps team to reuse, 
 
 1. Click **Browse**, and wait for the list of NuGet Packages to load.
 
-1. This list will also show both the **EShopOnWeb.Shared** custom-developed package, as well as the **Newtonsoft.Json** public sourced package.
+1. This list will also show both the **EShopOnWeb.Shared** custom-developed package, as well as the **Newtonsoft.Json** public sourced package.You might have to search for it in the search bar for the packages to appear.
 
-    ![](images/img11.png)
-
+    
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
@@ -422,9 +387,9 @@ Let's consider this package an "approved" package for our DevOps team to reuse, 
 
 In this lab, you learned how to work with Azure Artifacts by using the following steps:
 
-- created and connect to a feed.
-- created and publish a NuGet package.
-- imported a NuGet package.
-- updated a NuGet package.
+- Created and connect to a feed.
+- Created and publish a NuGet package.
+- Imported a NuGet package.
+- Updated a NuGet package.
 
 ### You have successfully completed the lab.
