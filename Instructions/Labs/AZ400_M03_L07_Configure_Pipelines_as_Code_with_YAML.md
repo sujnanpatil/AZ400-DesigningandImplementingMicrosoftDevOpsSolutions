@@ -146,6 +146,12 @@ In this task, you will create an Azure web app by using the Azure portal.
 
 1. Close the Azure Cloud Shell, but leave the Azure Portal open in the browser.
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+   - If you receive a success message, you can proceed to the next task.
+   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+ 
+   <validation step="c728e3cd-36c8-41d9-9dd2-2fb0d9dbb59e" />
 
 # Exercise 1: Configure CI/CD Pipelines as Code with YAML in Azure DevOps
 
@@ -514,18 +520,7 @@ YAML Pipelines as Code don't have Release/Quality Gates as we have with Azure De
 30. This allows the Deploy Stage to kick off and successfully deploying the Azure Web App source code.
 
    > **Note:** While this example only used the approvals, know the other checks such as Azure Monitor, REST API, etc... can be used in a similar way
-
-   > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-   - If you receive a success message, you can proceed to the next task.
-   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
- 
-   <validation step="a03ccb27-424c-486e-9b76-b75cd7f250e7" />
-
-   <validation step="c728e3cd-36c8-41d9-9dd2-2fb0d9dbb59e" />
-
-   
-   
+  
 ## Review
 
 In this lab, you configured CI/CD pipelines as code with YAML in Azure DevOps.
