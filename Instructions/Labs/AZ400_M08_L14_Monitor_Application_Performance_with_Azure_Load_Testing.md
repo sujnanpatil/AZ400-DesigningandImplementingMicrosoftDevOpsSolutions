@@ -36,7 +36,11 @@ In this task, you will create an **eShopOnWeb** Azure DevOps project to be used 
 
 1. On your lab VM open **Edge Browser** on desktop and navigate to https://go.microsoft.com/fwlink/?LinkId=307137. 
 
-1. Sign in to Microsoft login if you are not already sign in using the credentials provided in the environment. 
+1. Sign in with the following credentials:
+
+   * Email/Username: <inject key="AzureAdUserEmail"></inject>
+
+    * Password: <inject key="AzureAdUserPassword"></inject>
 
 1. In the pop-up for *Help us protect your account*, select **Skip for now (14 days until this is required)**.
 
