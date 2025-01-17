@@ -389,8 +389,8 @@ In this task, we will use a generic "Newtonsoft.Json" sample package, but you ca
 
 In this lab, you learned how to work with Azure Artifacts by using the following steps:
 
-- Created and connect to a feed.
-- Created and publish a NuGet package.
+- Created and connected to a feed.
+- Created and published a NuGet package.
 - Imported a NuGet package.
 - Updated a NuGet package.
 
