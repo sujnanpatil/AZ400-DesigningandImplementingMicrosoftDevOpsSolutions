@@ -21,7 +21,7 @@ After you complete this lab, you will be able to:
 # Exercise 0: Configure the lab prerequisites
 
 In this exercise, you will set up the prerequisites for the lab, which consist of the pre-configured **EShopOnWeb-<inject key="DeploymentID"> </inject>** team project based on an Azure DevOps Demo Generator template and a team created in Microsoft Teams.
-=======
+
 ## Set up an Azure DevOps organization. 
 
 1. On your lab VM open **Edge Browser** on desktop and navigate to [Azure DevOps](https://go.microsoft.com/fwlink/?LinkId=307137), and if prompted sign with the credentials.
