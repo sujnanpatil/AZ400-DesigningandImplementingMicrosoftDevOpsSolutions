@@ -112,7 +112,7 @@ Each new project is configured with a default team, which name matches the proje
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="6bfb5ec2-2ca1-4ce1-afa6-1c8117bf8ace" />
 
@@ -239,7 +239,7 @@ Work items play a prominent role in Azure DevOps. Whether describing work to be 
     > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="e8d69d56-6dbf-41ac-b508-a8d2867aae01" />
 
@@ -452,7 +452,7 @@ To maximize a team's ability to consistently deliver high quality software, Kanb
     > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="89c40260-53f7-4e2e-95b0-9723f07bf5df" />
 
@@ -529,7 +529,7 @@ All processes are shared within the same organization. That is, one or more team
     > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="6d5612cd-7e8b-428f-a862-5b81ab230d6d" />
 
