@@ -35,16 +35,17 @@ After you complete this lab, you will be able to:
 
     ![Azure DevOps](images/400112.png)
     
-5. On the Azure DevOps page click on **Azure DevOps** located at top left corner and then click on **Organization Setting** at the left down corner
+4. On the Azure DevOps page click on **Azure DevOps** located at top left corner and then click on **Organization Setting** at the left down corner
 
     ![Azure DevOps](images/az-400-lab3-(1).png)
     
-6. In the **Organization Setting** window on the left menu click on **Billing (1)** and select **Setup Billing (2)** then click on **save (3)**.
+5. In the **Organization Setting** window on the left menu click on **Billing (1)** and select **Setup Billing (2)** then click on **save (3)**.
 
     ![Azure DevOps](images/az-400-lab3-1.png)
-    ![Azure DevOps](images/az-400-lab3-2.png)    
 
-7. On the **MS Hosted CI/CD** section under **Paid parallel jobs** enter value **1** and at the end of the page click on **Save**.
+   ![Azure DevOps](images/az-400-lab3-2.png)    
+
+6. On the **MS Hosted CI/CD** section under **Paid parallel jobs** enter value **1** and at the end of the page click on **Save**.
 
     ![Azure DevOps](images/az-400-lab3-3.png)
 
@@ -64,13 +65,13 @@ In this task, you will create an **eShopOnWeb** Azure DevOps project to be used 
 
 In this task you will import the eShopOnWeb Git repository that will be used by several labs.
 
-1. On your lab computer, in a browser window open your Azure DevOps organization and the previously created eShopOnWeb project. Click on             **Repos (1)>Files (2) , Import a Repository**. Select **Import (3)**. On the **Import a Git Repository (4)** window, paste the following URL                     https://github.com/MicrosoftLearning/eShopOnWeb.git (5) and click **Import (6)**.
+1. On your lab computer, in a browser window open your Azure DevOps organization and the previously created eShopOnWeb project. Click on **Repos (1)>Files (2) , Import a Repository**. Select **Import (3)**. On the **Import a Git Repository (4)** window, paste the following URL https://github.com/MicrosoftLearning/eShopOnWeb.git (5) and click **Import (6)**.
 
       ![](images/AZ-400-import.png)
       
       ![](images/AZ-400-git.png)
 
-   2. The repository is organized the following way:
+2. The repository is organized the following way:
 
          o. **.ado** folder contains Azure DevOps YAML pipelines
          
@@ -158,7 +159,7 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
     | Scope (custom defined) | **Agent Pools** click Show all scopes (at the bottom of the window)|
     | Agent Pools | **Read and manage** |
     
-    ![Azure DevOps](images/lab4-10.png)
+   ![Azure DevOps](images/lab4-10.png)
 
 1. On the **Success** pane, copy the value of the personal access token to Clipboard.
 
