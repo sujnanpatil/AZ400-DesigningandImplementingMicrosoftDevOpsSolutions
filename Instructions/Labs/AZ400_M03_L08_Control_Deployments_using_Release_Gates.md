@@ -46,7 +46,7 @@ In this task, you will add a YAML build definition to the existing project.
    
 1. In the **Create your Pipeline** window, click **New pipeline**.
    
-    > **Note**: We will use the wizard to create a new YAML Pipeline definition based on our project.
+   > **Note**: We will use the wizard to create a new YAML Pipeline definition based on our project.
     
 1. On the **Where is your code?** pane, click **Azure Repos Git (YAML)** option.
    
