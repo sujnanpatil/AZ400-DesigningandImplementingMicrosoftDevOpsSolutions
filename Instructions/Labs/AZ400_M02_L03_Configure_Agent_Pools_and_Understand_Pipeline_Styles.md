@@ -73,17 +73,17 @@ In this task you will import the eShopOnWeb Git repository that will be used by 
 
 2. The repository is organized the following way:
 
-         o. **.ado** folder contains Azure DevOps YAML pipelines
+    o. **.ado** folder contains Azure DevOps YAML pipelines
          
-         o **.devcontainer** folder container setup to develop using containers (either locally in VS Code or GitHub Codespaces)
+    o **.devcontainer** folder container setup to develop using containers (either locally in VS Code or GitHub Codespaces)
          
-         o **.azure** folder contains Bicep & ARM infrastructure as code templates used in some lab scenarios.
+   o **.azure** folder contains Bicep & ARM infrastructure as code templates used in some lab scenarios.
          
-         o **.github** folder contains YAML GitHub workflow definitions.
+   o **.github** folder contains YAML GitHub workflow definitions.
          
-         o. **src** folder contains the .NET 6 website used in the lab scenarios.
+   o. **src** folder contains the .NET 6 website used in the lab scenarios.
          
-       ![](images/az400-m3-L4-06.png)
+    ![](images/az400-m3-L4-06.png)
 
 #### Task 3: Set main branch as default branch
 
