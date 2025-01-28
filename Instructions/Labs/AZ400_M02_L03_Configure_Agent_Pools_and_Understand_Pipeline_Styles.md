@@ -118,7 +118,7 @@ In this task, you will create a template-based Azure DevOps YAML pipeline.
 
     ![](images/AZ-400-yaml.1.png)
  
-1. On the **Review your pipeline YAML** pane, review the sample pipeline. This is a rather straight-forward .NET application Build pipeline, which does the following:
+6. On the **Review your pipeline YAML** pane, review the sample pipeline. This is a rather straight-forward .NET application Build pipeline, which does the following:
 
    - A single Stage: Build
    - A single Job: Build
@@ -126,11 +126,11 @@ In this task, you will create a template-based Azure DevOps YAML pipeline.
    - **DotNet Restore:** With NuGet Package Restore you can install all your project's dependency without having to store them in source control.      
    - **DotNet Build:** Builds a project and all of its dependencies.     
    - **DotNet Test:** .Net test driver used to execute unit tests.    
-   - **DotNet Publish:** Publishes the application and its dependencies to a folder for deployment to a hosting system. In this case, it's                 **Build.ArtifactStagingDirectory**.
+   - **DotNet Publish:** Publishes the application and its dependencies to a folder for deployment to a hosting system. In this case, it's **Build.ArtifactStagingDirectory**.
         
-        ![](images/AZ-400-pipeline.png)
+   ![](images/AZ-400-pipeline.png)
 
-1. On the **Review your pipeline YAML** pane, click the down-facing caret symbol next to the **Run** button, click **Save**.
+7. On the **Review your pipeline YAML** pane, click the down-facing caret symbol next to the **Run** button, click **Save**.
 
     ![](images/az400-m3-L4-13.png)
 
