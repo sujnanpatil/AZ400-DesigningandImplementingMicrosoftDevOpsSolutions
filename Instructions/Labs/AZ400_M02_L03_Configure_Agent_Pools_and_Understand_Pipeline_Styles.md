@@ -276,3 +276,5 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 ## Review
 
 In this lab, you learned how to convert classic pipelines into YAML-based ones and how to implement and use self-hosted agents.
+
+## Click Next to proceed with the next lab.
