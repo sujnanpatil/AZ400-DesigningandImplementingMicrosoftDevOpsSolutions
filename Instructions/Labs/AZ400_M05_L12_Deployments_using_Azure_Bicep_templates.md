@@ -53,9 +53,10 @@ In this exercise, you will set up the prerequisites for the lab, which consist o
 6. In the **Organization Setting** window on the left menu click on **Billing (1)** and select **Setup Billing (2)** then click on **save (3)**.
 
     ![Azure DevOps](images/az-400-lab3-1.png)
-    ![Azure DevOps](images/az-400-lab3-2.png)    
 
-7. On the **MS Hosted CI/CD** section under **Paid parallel jobs** enter value **1** and at the end of the page click on **Save**.
+   ![Azure DevOps](images/az-400-lab3-2.png)    
+
+8. On the **MS Hosted CI/CD** section under **Paid parallel jobs** enter value **1** and at the end of the page click on **Save**.
 
     ![Azure DevOps](images/az-400-lab3-3.png)   
 
@@ -94,7 +95,9 @@ In this task you will import the eShopOnWeb Git repository that will be used by 
 ## Task 4: Set main branch as default branch
   
 1. Go to **Repos>Branches (1)**.
+
 1. Hover on the **main** branch then click the ellipsis on the right of the column **(2)**.
+
 1. Click on **Set as default branch (3)**.
    
    ![Import Repository](images/az-400-5.png)
