@@ -273,12 +273,12 @@ In this task, you will create a project wiki and add to it a Mermaid diagram and
     
       ![](images/AZ400_M09_L17_34.png)
 
-15. On the **Project Design (1)** editor pane, in the toolbar, click the **paper clip icon (2)** representing the **Insert a file** action, in the **Open** dialog box, navigate to the **Desktop (3)** folder, select the 
-     **Brand.png (4)** file you downloaded in the previous exercise, and click **Open (5)**.
+15. On the **Project Design (1)** editor pane, in the toolbar, click the **paper clip icon (2)** representing the **Insert a file** action, in the **Open** dialog box, navigate to the **Desktop (3)** folder, select the **Brand.png (4)** file you downloaded in the 
+    previous exercise, and click **Open (5)**.
      
-      ![](images/AZ400_M09_L17_35.png)
+     ![](images/AZ400_M09_L17_35.png)
 
-      ![](images/AZ400_M09_L17_36.png)
+     ![](images/AZ400_M09_L17_36.png)
 
 16. Back on the **Project Design** editor pane, review the preview pane and verify that the image is properly displayed.
 
