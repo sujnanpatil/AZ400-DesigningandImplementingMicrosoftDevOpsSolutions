@@ -74,10 +74,10 @@ In this task, you will create an **eShopOnWeb** Azure DevOps project to be used 
 
 1. On the **Create new project** page, Enter the following details.
 
-    - Project name: **eShopOnWeb (1)**
-    - Under the **Advanced** section, choose **Scrum (2)** on the **Work Item process** dropdown and then click on **+ Create project (3)**.
+ - Project name: **eShopOnWeb (1)**
+ - Under the **Advanced** section, choose **Scrum (2)** on the **Work Item process** dropdown and then click on **+ Create project (3)**.
      
-      ![Create Project](images/create-new-devops-project.png)    
+   ![Create Project](images/create-new-devops-project.png)    
 
 ### Task 2: Import eShopOnWeb Git Repository
 
@@ -744,4 +744,4 @@ In this task, You'll use load test fail criteria to get alerted (have a failed p
 
 In this exercise, you deployed a web app to Azure App Service by using Azure Pipelines, as well as deploying an Azure Load Testing Resource with TestRuns. Next, you integrated the JMeter load testing config.yaml file to Azure Repos source control, and extending your CI/CD pipeline with the Azure Load Testing. In the last exercise, you learned how to define the success criteria of the LoadTest.
 
-### You have successfully completed the lab.
+## Click Next to proceed with the next lab
