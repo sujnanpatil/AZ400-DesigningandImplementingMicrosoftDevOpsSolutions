@@ -249,4 +249,4 @@ In this task, you will add policies to the main branch and only allow changes us
   
   In this lab, you enabled pull request validation using a build definition and configured CI pipeline as code with YAML in Azure DevOps. 
 
-### You have successfully completed the lab.
+### Click Next to proceed with the next lab.
