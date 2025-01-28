@@ -44,8 +44,12 @@ In this task you will import the eShopOnWeb Git repository that will be used by 
   
 ## Task 2: Set main branch as default branch
 
+In this task you will set the main branch as the default branch.
+
 1. Go to **Repos>Branches (1)**.
+
 1. Hover on the **main** branch then click the ellipsis on the right of the column **(2)**.
+
 1. Click on **Set as default branch (3)**.
    
     ![Import Repository](images/az-400-5.png)
