@@ -524,3 +524,5 @@ YAML Pipelines as Code don't have Release/Quality Gates as we have with Azure De
 ## Review
 
 In this lab, you configured CI/CD pipelines as code with YAML in Azure DevOps.
+
+## Click Next to proceed with the next lab.
