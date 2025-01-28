@@ -217,26 +217,26 @@ In this task, you will create a project wiki and add to it a Mermaid diagram and
 
 7. **Copy and paste** the following code to insert a mermaid diagram on your wiki.
 
-    ```
-    ::: mermaid
-     sequenceDiagram
-     participant U as User
-     participant A as Your app
-     participant D as Azure DevOps
-     U->>A: Use your app
-     A->>D: Request authorization for user
-     D-->>U: Request authorization
-     U->>D: Grant authorization
-     D-->>A: Send authorization code
-     A->>D: Get access token
-     D-->>A: Send access token
-     A->>D: Call REST API with access token
-     D-->>A: Respond to REST API
-     A-->>U: Relay REST API response
-    :::
-    ```
+      ```
+      ::: mermaid
+       sequenceDiagram
+       participant U as User
+       participant A as Your app
+       participant D as Azure DevOps
+       U->>A: Use your app
+       A->>D: Request authorization for user
+       D-->>U: Request authorization
+       U->>D: Grant authorization
+       D-->>A: Send authorization code
+       A->>D: Get access token
+       D-->>A: Send access token
+       A->>D: Call REST API with access token
+       D-->>A: Respond to REST API
+       A-->>U: Relay REST API response
+      :::
+      ```
     
-     ![](images/AZ400_M09_L17_26.png)
+      ![](images/AZ400_M09_L17_26.png)
 
     >**Note**: For details regarding the Mermaid syntax, refer to [About Mermaid](https://mermaid-js.github.io/mermaid/#/)
 
@@ -254,7 +254,7 @@ In this task, you will create a project wiki and add to it a Mermaid diagram and
 
 10. In the **Save page** dialog box, type **Authentication and authorization section with the OAuth 2.0 Mermaid diagram** and click **Save**.
      
-     ![](images/AZ400_M09_L17_30.png)
+      ![](images/AZ400_M09_L17_30.png)
 
 11. On the **Project Design** editor pane, place the cursor at the end of the Mermaid element you added earlier in this task, press the **Enter** key to add an extra line, click the left-most icon in the **toolbar 
     (1)** representing the header setting and, in the dropdown list, click **Header 2 (2)**. This will automatically add the double hash character (**##(3)**) at the beginning of the line.
@@ -276,9 +276,9 @@ In this task, you will create a project wiki and add to it a Mermaid diagram and
 15. On the **Project Design (1)** editor pane, in the toolbar, click the **paper clip icon (2)** representing the **Insert a file** action, in the **Open** dialog box, navigate to the **Desktop (3)** folder, select the **Brand.png (4)** file you downloaded in the 
     previous exercise, and click **Open (5)**.
      
-     ![](images/AZ400_M09_L17_35.png)
+    ![](images/AZ400_M09_L17_35.png)
 
-     ![](images/AZ400_M09_L17_36.png)
+    ![](images/AZ400_M09_L17_36.png)
 
 16. Back on the **Project Design** editor pane, review the preview pane and verify that the image is properly displayed.
 
