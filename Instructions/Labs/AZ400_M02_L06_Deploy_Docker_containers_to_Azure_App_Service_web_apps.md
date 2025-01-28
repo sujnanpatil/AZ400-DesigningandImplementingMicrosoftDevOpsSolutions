@@ -86,12 +86,15 @@ In this exercise, you will import and run the CI pipeline.
 When going through the different course labs in the order they are presented, the branch policy configured during this lab will block exercises in future labs. Therefore, we want you to remove the configured branch policies.
  
 1. From the Azure DevOps **eShopOnWeb** Project view, navigate to **Repos** and select **Branches (1)**. Select the **Mine (2)** tab of the **Branches** pane.
+
 1. On the **Mine** tab of the **Branches** pane, hover the mouse pointer over the **main** branch entry to reveal the ellipsis symbol (the ...) **(3)** on the right side.
+
 1. Click the ellipsis and, in the pop-up menu, select **Branch Policies (4)**.
  
     ![Policy Settings](images/az-400-37.png)
  
 1. On the **main** tab of the repository settings, disable the option for **Require minimum number of reviewers (1)**.
+
 1. On the **main** tab of the repository settings, disable the option for **Check for linked work items (2)**.
  
     ![Branch Policies](images/az-400-38.png)
