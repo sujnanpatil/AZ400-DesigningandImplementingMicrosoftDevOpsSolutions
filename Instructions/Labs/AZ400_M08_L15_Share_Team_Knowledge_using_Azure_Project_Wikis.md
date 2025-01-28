@@ -167,7 +167,7 @@ In this task, you will manage content of the wiki you published in the previous 
 
 1. In the vertical menu on the left side, click **Repos (1)**, ensure that the dropdown menu in the upper section of the **Files (2)** pane displays the **EShopOnWeb-<inject key="DeploymentID"> </inject> (3)** repo and **main (4)** branch, in the repo folder hierarchy, select the **Documents (5)** folder, and select the **Welcome-to-our-Online-Retail-Store!.md (6)** file.
 
-    ![](images/L2T2S1.png)
+     ![](images/L2T2S1.png)
 
 2. Notice how the MarkDown format is visible here as raw text format, allowing you to continue editing the file content from here as well.
 
