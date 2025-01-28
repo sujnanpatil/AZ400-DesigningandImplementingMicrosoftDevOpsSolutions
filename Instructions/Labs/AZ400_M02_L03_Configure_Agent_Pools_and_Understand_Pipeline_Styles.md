@@ -159,7 +159,7 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
     | Scope (custom defined) | **Agent Pools** click Show all scopes (at the bottom of the window)|
     | Agent Pools | **Read and manage** |
     
-   ![Azure DevOps](images/lab4-10.png)
+     ![Azure DevOps](images/lab4-10.png)
 
 1. On the **Success** pane, copy the value of the personal access token to Clipboard.
 
