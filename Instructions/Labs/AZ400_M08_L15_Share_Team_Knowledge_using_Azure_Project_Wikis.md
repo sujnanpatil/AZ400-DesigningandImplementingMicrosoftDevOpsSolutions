@@ -184,38 +184,38 @@ In this exercise, you will step through creating and managing a project wiki.
 
 In this task, you will create a project wiki and add to it a Mermaid diagram and an image.
 
-1.  On your lab VM, in the Azure DevOps portal displaying the **Overview (1)** and **Wiki (2)** pane of the **EShopOnweb-<inject key="DeploymentID"> </inject>** project, with the content of the **EShopOnWeb-<inject 
-    key="DeploymentID"> </inject> (Documents) (3)** wiki selected, at the top of the pane, click the **EShopOnWeb-<inject key="DeploymentID"> </inject> (Documents)** dropdown list header, and, in the drop down list, 
-    select **Create new project wiki (4)**. 
+1. On your lab VM, in the Azure DevOps portal displaying the **Overview (1)** and **Wiki (2)** pane of the **EShopOnweb-<inject key="DeploymentID"> </inject>** project, with the content of the **EShopOnWeb-<inject 
+   key="DeploymentID"> </inject> (Documents) (3)** wiki selected, at the top of the pane, click the **EShopOnWeb-<inject key="DeploymentID"> </inject> (Documents)** dropdown list header, and, in the drop down list, 
+   select **Create new project wiki (4)**. 
 
      ![](images/L2E2T1S1.png)
 
-2.  In the Page title text box, type **Project Design**.
+2. In the Page title text box, type **Project Design**.
 
      ![](images/AZ400_M09_L17_19.png)
 
-3.  Place the cursor in the body of the page, click the left-most icon in the toolbar representing the header setting and, in the dropdown list, click **Header 1**. This will automatically add the hash character (**#**) 
+3. Place the cursor in the body of the page, click the left-most icon in the toolbar representing the header setting and, in the dropdown list, click **Header 1**. This will automatically add the hash character (**#**) 
     at the beginning of the line.
 
      ![](images/AZ400_M09_L17_20.png)
 
      ![](images/AZ400_M09_L17_21.png)
 
-4.  Directly after the newly added **#** character, type **Authentication and Authorization** and press the **Enter** key.
+4. Directly after the newly added **#** character, type **Authentication and Authorization** and press the **Enter** key.
 
      ![](images/AZ400_M09_L17_22.png)
 
-5.  Click the left-most icon in the toolbar representing the header setting and, in the dropdown list, click **Header 2**. This will automatically add the hash character (**##**) at the beginning of the line.
+5. Click the left-most icon in the toolbar representing the header setting and, in the dropdown list, click **Header 2**. This will automatically add the hash character (**##**) at the beginning of the line.
 
      ![](images/AZ400_M09_L17_23.png)
 
      ![](images/AZ400_M09_L17_24.png)
 
-6.  Directly after the newly added **##** character, type **Azure DevOps OAuth 2.0 Authorization Flow** and press the **Enter** key.
+6. Directly after the newly added **##** character, type **Azure DevOps OAuth 2.0 Authorization Flow** and press the **Enter** key.
 
      ![](images/AZ400_M09_L17_25.png)
 
-7.  **Copy and paste** the following code to insert a mermaid diagram on your wiki.
+7. **Copy and paste** the following code to insert a mermaid diagram on your wiki.
 
     ```
     ::: mermaid
@@ -236,11 +236,11 @@ In this task, you will create a project wiki and add to it a Mermaid diagram and
     :::
     ```
     
-    ![](images/AZ400_M09_L17_26.png)
+     ![](images/AZ400_M09_L17_26.png)
 
     >**Note**: For details regarding the Mermaid syntax, refer to [About Mermaid](https://mermaid-js.github.io/mermaid/#/)
 
-8.  To the right of the editor pane, in the preview pane, click **Load diagram** and review the outcome. 
+8. To the right of the editor pane, in the preview pane, click **Load diagram** and review the outcome. 
 
      ![](images/AZ400_M09_L17_27.png)
 
@@ -248,47 +248,47 @@ In this task, you will create a project wiki and add to it a Mermaid diagram and
 
      >**Note**: The output should resemble the flowchart that illustrates how to [Authorize access to REST APIs with OAuth 2.0](https://docs.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/oauth?view=azure-devops)
 
-9.  In the upper right corner of the editor pane, click the down-facing caret next to the **Save** button and, in the dropdown menu, click **Save with revision message**. 
+9. In the upper right corner of the editor pane, click the down-facing caret next to the **Save** button and, in the dropdown menu, click **Save with revision message**. 
 
      ![](images/AZ400_M09_L17_29.png)
 
-11.  In the **Save page** dialog box, type **Authentication and authorization section with the OAuth 2.0 Mermaid diagram** and click **Save**.
+10. In the **Save page** dialog box, type **Authentication and authorization section with the OAuth 2.0 Mermaid diagram** and click **Save**.
      
      ![](images/AZ400_M09_L17_30.png)
 
-12.  On the **Project Design** editor pane, place the cursor at the end of the Mermaid element you added earlier in this task, press the **Enter** key to add an extra line, click the left-most icon in the **toolbar 
+11. On the **Project Design** editor pane, place the cursor at the end of the Mermaid element you added earlier in this task, press the **Enter** key to add an extra line, click the left-most icon in the **toolbar 
     (1)** representing the header setting and, in the dropdown list, click **Header 2 (2)**. This will automatically add the double hash character (**##(3)**) at the beginning of the line.
    
       ![](images/AZ400_M09_L17_31.png)
 
-13.  Directly after the newly added **##** character, type **User Interface** and press the **Enter** key.
+12. Directly after the newly added **##** character, type **User Interface** and press the **Enter** key.
     
       ![](images/AZ400_M09_L17_32.png)
 
-14.  Download any image from Google by searching **brand.png (1)** and select the **image** to download.
+13. Download any image from Google by searching **brand.png (1)** and select the **image** to download.
     
       ![](images/AZ400_M09_L17_33.png)
  
-15.  Right click on the image, select **save image as** and save it to the **Desktop (1)** and type File name as **Brand.png (2)** and **Save (3)** it in your lab VM.
+14. Right click on the image, select **save image as** and save it to the **Desktop (1)** and type File name as **Brand.png (2)** and **Save (3)** it in your lab VM.
     
       ![](images/AZ400_M09_L17_34.png)
 
-16.  On the **Project Design (1)** editor pane, in the toolbar, click the **paper clip icon (2)** representing the **Insert a file** action, in the **Open** dialog box, navigate to the **Desktop (3)** folder, select the 
+15. On the **Project Design (1)** editor pane, in the toolbar, click the **paper clip icon (2)** representing the **Insert a file** action, in the **Open** dialog box, navigate to the **Desktop (3)** folder, select the 
      **Brand.png (4)** file you downloaded in the previous exercise, and click **Open (5)**.
      
       ![](images/AZ400_M09_L17_35.png)
 
       ![](images/AZ400_M09_L17_36.png)
 
-18.  Back on the **Project Design** editor pane, review the preview pane and verify that the image is properly displayed.
+16. Back on the **Project Design** editor pane, review the preview pane and verify that the image is properly displayed.
 
-19.  In the upper right corner of the editor pane, click the down-facing caret next to the **Save** button and, in the dropdown menu, click **Save with revision message**. 
+17. In the upper right corner of the editor pane, click the down-facing caret next to the **Save** button and, in the dropdown menu, click **Save with revision message**. 
     
       ![](images/AZ400_M09_L17_37.png)
 
-20.  In the **Save page** dialog box, type **User Interface section with the Brand image** and click **Save**.
+18. In the **Save page** dialog box, type **User Interface section with the Brand image** and click **Save**.
     
-21.  Back on the editor pane, in the upper right corner, click **Close**. 
+19. Back on the editor pane, in the upper right corner, click **Close**. 
      
       ![](images/AZ400_M09_L17_39.png)
    
