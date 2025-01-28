@@ -58,7 +58,7 @@ In this task, you will add a YAML build definition to the existing project.
    
 1. On the **Configure your pipeline** pane, scroll down and select **Existing Azure Pipelines YAML File**.
    
-    ![Import Repository](images/newpip3.png)
+   ![Import Repository](images/newpip3.png)
    
 1. In the **Selecting an existing YAML File** blade, specify the following parameters:
    
