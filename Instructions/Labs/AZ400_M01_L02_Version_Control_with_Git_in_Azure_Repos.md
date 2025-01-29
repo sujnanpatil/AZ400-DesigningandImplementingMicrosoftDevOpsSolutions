@@ -14,18 +14,23 @@ In this lab, you will learn how to establish a local Git repository, which can e
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab, you will complete the following exercises:
 
--   Clone an existing repository
--   Save work with commits
--   Review history of changes
--   Work with branches by using Visual Studio Code
+- Exercise 0: Configure the prerequisites
+- Exercise 1: Clone an existing repository
+- Exercise 2: Save work with commits
+- Exercise 3: Review history
+- Exercise 4: Work with branches
 
-## Estimated timing: 60 minutes
+## Estimated timing: 45 minutes
 
 ## Architecture Diagram
 
-   ![Architecture Diagram](images/lab2-architecture-new.png)
+   ![Architecture Diagram](images/lab2-architecture-new1.png)
+
+# Exercise 0: Configure the prerequisites
+
+In this exercise, you will configure the prerequisites.
 
 ## Task 1: Import eShopOnWeb Git Repository
 
@@ -346,14 +351,19 @@ Git keeps track of which branch you are working on and makes sure that, when you
 
 In this task, you will use the Azure DevOps portal restore the branch you deleted in the previous task.
 
-1. Go to the web browser displaying the **Mine** tab of the **Branches** pane in the Azure DevOps portal.
-1. On the **Mine** tab of the **Branches** pane, select the **All** tab.
-1. On the **All** tab of the **Branches** pane, in the **Search branch name** text box, type **dev**.
-1. Review the **Deleted branches** section containing the entry representing the newly deleted branch.
-1. In the **Deleted branches** section, hover the mouse pointer over the **dev** branch entry to reveal the ellipsis symbol on the right side.
-1. Click the ellipsis, in the pop-up menu and select **Restore branch**.
+1. Go to the web browser displaying the **Mine** tab of the **Branches (1)** pane in the Azure DevOps portal.
 
-    ![restore branch](images/az400_02-15.png)
+1. On the **Mine** tab of the **Branches** pane, select the **All (2)** tab.
+
+1. On the **All** tab of the **Branches** pane, in the **Search branch name** text box, type **dev (3)**.
+
+1. Review the **Deleted branches** section containing the entry representing the newly deleted branch.
+
+1. In the **Deleted branches** section, hover the mouse pointer over the **dev** branch entry to reveal the ellipsis symbol on the right side.
+
+1. Click the ellipsis, in the pop-up menu and select **Restore branch (4)**.
+
+    ![restore branch](images/az400_02-151.png)
 
     > **Note**: You can use this functionality to restore a deleted branch as long as you know its exact name.
 
@@ -479,12 +489,11 @@ The product team has decided that the current version of the site should be rele
     > **Note**: You have now tagged the repository at this release (the latest commit gets linked to the tag). You could tag commits for a variety of reasons and Azure DevOps offers the flexibility to edit and delete them, as well as manage their permissions.
 
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-   - If you receive a success message, you can proceed to the next task.
+   - If you receive a success message, you can proceed further.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
    - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="1e561da0-92ec-4ecc-88b1-b3a5cefee594" />
-
 
 ## Review
 
