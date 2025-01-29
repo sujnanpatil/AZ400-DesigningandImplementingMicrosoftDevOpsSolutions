@@ -1,6 +1,6 @@
 # Lab 01: Configuring Pipelines as Code with YAML
 
-## Lab overview
+## Lab Overview
 
 Azure DevOps supports two types of version control, Git and Team Foundation Version Control (TFVC). Here is a quick overview of the two version control systems:
 
@@ -14,10 +14,11 @@ In this lab, you will learn how to establish a local Git repository, which can e
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab, you will be performing the following exercises:
 
--  Configure CI/CD pipelines as code with YAML in Azure DevOps
--  Configure  Environment settings for CI/CD pipelines
+- Exercise 0: Configure the lab prerequisites
+- Exercise 1: Configure CI/CD Pipelines as Code with YAML in Azure DevOps
+- Exercise 2: Configure Environment settings for CI/CD Pipelines as Code with YAML in Azure DevOps
 
 ## Estimated timing: 60 minutes
 
