@@ -6,10 +6,10 @@ In this lab, you will learn how to implement a GitHub Action workflow that deplo
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab you will complete the following exercises:
 
-- Implement a GitHub Action workflow by using DevOps Starter
-- Explain the basic characteristics of GitHub Action workflows
+- Exercise 0: Import eShopOnWeb to your GitHub Repository
+- Exercise 1: Setup your GitHub Repository and Azure access
 
 ## Estimated timing: 40 minutes
 
