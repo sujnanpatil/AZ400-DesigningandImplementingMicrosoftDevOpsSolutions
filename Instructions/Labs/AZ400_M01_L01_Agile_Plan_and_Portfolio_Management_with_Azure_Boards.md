@@ -6,16 +6,13 @@ In this lab, you will learn about the agile planning and portfolio management to
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab, you will complete the following exercises:
 
--   Manage teams, areas, and iterations
--   Manage work items
--   Manage sprints and capacity
--   Customize Kanban boards
--   Define dashboards
--   Customize team process
+-  Exercise 0: Configure the lab prerequisites
+-  Exercise 1: Manage Agile project
+-  Exercise 2: Define dashboards
 
-## Estimated timing: 60 minutes
+## Estimated timing: 45 minutes
 
 ## Architecture Diagram
 
