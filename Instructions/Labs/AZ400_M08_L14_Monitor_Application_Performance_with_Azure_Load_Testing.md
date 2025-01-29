@@ -10,19 +10,18 @@ In this lab, you'll learn about how you can use Azure Load Testing to simulate p
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab, you will perform the following exercises:
 
-- Deploy Azure App Service web apps.
-- Compose and Run a YAML-based CI/CD pipeline.
-- Deploy Azure Load Testing.
-- Investigate Azure web app performance by using Azure Load Testing.
-- Integrate Azure Load Testing into your CI/CD pipelines.
+- Exercise 0: Configure the lab prerequisites
+- Exercise 1: Configure CI/CD Pipelines as Code with YAML in Azure DevOps
+- Exercise 2: Deploy and Setup Azure Load Testing
+- Exercise 3: Automate a Load Test with CI/CD in Azure Pipelines
 
 ## Estimated timing: 60 minutes
 
 ## Architecture Diagram
 
-  ![Architecture Diagram](images/lab14arch.png)
+  ![Architecture Diagram](images/lab14arch1.png)
 
 ## Instructions
 
