@@ -16,7 +16,7 @@ Your virtual machine is your workhorse throughout the workshop. The lab guide is
  
 To adjust the zoom level for the environment page, click the **A↕ : 100%** icon located next to the timer in the lab environment.
 
-![](../media/zoomin.png)
+![](./images/zoomin.png)
 
 ## Exploring Your Lab Resources
  
