@@ -10,10 +10,10 @@ The pipelines will be used in two scenarios:
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab, you will complete the following exercises:
 
-- Include build validation as part of a Pull Request.
-- Configure CI pipeline as code with YAML.
+- Exercise 1: Include build validation as part of a Pull Request 
+- Exercise 2: Configure CI Pipeline as Code with YAML
 
 ## Estimated timing: 45 minutes
 
