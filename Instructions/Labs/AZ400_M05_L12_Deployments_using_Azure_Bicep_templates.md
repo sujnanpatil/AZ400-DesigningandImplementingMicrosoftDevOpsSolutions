@@ -18,15 +18,13 @@ In this lab, you'll create an Azure Bicep template and modularize it using the A
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab you will perform the following exercises:
 
 - Exercise 0: Configure the lab prerequisites
 - Exercise 1: Understand an Azure Bicep template and simplify it using a reusable module
 - Exercise 2: Deploying the templates to Azure using YAML pipelines
 
 ## Estimated timing: 45 minutes
-
-## Instructions
 
 # Exercise 0: Configure the lab prerequisites
 
