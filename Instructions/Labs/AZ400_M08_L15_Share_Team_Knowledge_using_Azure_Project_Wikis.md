@@ -6,13 +6,12 @@ In this lab, you will create and configure wiki in an Azure DevOps, including ma
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab, you will perform the following exercises:
 
-- Create a wiki in an Azure Project
-- Add and edit markdown
-- Create a Mermaid diagram
+- Exercise 1: Publish code as wiki
+- Exercise 2: Create and manage a project wiki
 
-## Estimated timing: 60 minutes
+## Estimated timing: 45 minutes
 
 ## Architecture Diagram
  
