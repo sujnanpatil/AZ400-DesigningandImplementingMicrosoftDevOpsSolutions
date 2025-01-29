@@ -1,6 +1,6 @@
 # Lab 03: Setting Up and Running Functional Tests
 
-## Lab overview
+## Lab Overview
 
 Software of any complexity can fail in unexpected ways in response to changes. Thus, testing after making changes is required for all but the most trivial (or least critical) applications. Manual testing is the slowest, least reliable, most expensive way to test software.
 
@@ -10,11 +10,9 @@ There are many kinds of automated tests for software applications. The simplest,
 
 ## Objectives
 
-After you complete this lab, you will be able to configure a CI pipeline for a .Net application that includes:
+In this lab, you will perform the following exercise:
 
-- Unit Tests
-- Integration Tests
-- Functional Tests
+ - Exercise 1: Setup Tests in CI pipeline
 
 ## Estimated timing: 30 minutes
 
