@@ -1,6 +1,6 @@
 # Lab 02: Controlling Deployments using Release Gates
 
-## Lab overview
+## Lab Overview
 
 This lab covers the configuration of the deployment gates and details how to use them to control the execution of Azure Pipelines. To illustrate their implementation, you'll configure a release definition with two environments for an Azure Web App. You'll deploy to the Canary environment only when there are no blocking bugs for the app and mark the Canary environment complete only when there are no active alerts in Application Insights of Azure Monitor.
 
@@ -24,11 +24,13 @@ There are 4 types of gates included by default in every account.
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab, you will be performing the following exercises:
 
-- Configure release pipelines.
-- Configure release gates.
-- Test release gates.
+- Exercise 0: Configure the lab prerequisites
+- Exercise 1: Creating the necessary Azure Resources for the Release Pipeline
+- Exercise 2: Configure the release pipeline
+- Exercise 3: Configure release gates
+- Exercise 4: Test release gates
 
 ## Estimated timing: 60 minutes
 
