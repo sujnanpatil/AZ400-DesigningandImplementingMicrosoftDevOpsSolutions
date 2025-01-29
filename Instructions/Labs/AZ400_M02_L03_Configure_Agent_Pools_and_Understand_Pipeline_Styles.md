@@ -10,10 +10,12 @@ In this lab, you will learn how to implement and use self-hosted agents with YAM
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab you will complete the following exercises:
 
-- Implement YAML-based pipelines
-- Implement self-hosted agents
+- Exercise 0: Configure the lab prerequisites
+- Exercise 1: Author YAML-based Azure DevOps pipelines
+- Exercise 2: Manage Azure DevOps agent pools
+
 
 ## Estimated timing: 45 minutes
 
