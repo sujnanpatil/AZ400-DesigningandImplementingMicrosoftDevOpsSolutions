@@ -17,7 +17,7 @@ In this lab, you will perform the following exercises:
 - Exercise 2: Deploy and Setup Azure Load Testing
 - Exercise 3: Automate a Load Test with CI/CD in Azure Pipelines
 
-## Estimated timing: 60 minutes
+## Estimated timing: 45 minutes
 
 ## Architecture Diagram
 
