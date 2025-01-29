@@ -6,14 +6,12 @@ Azure Artifacts facilitate discovery, installation, and publishing NuGet, npm, a
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab, you will perform the following exercises:
 
--  Create and connect to a feed.
--  Create and publish a NuGet package.
--  Import a NuGet package.
--  Update a NuGet package.
+- Exercise 1: Configure the lab prerequisites
+- Exercise 2: Working with Azure Artifacts
 
-## Estimated timing: 40 minutes
+## Estimated timing: 45 minutes
 
 ## Architecture Diagram
 
