@@ -151,7 +151,7 @@ Work items play a prominent role in Azure DevOps. Whether describing work to be 
 
 1. On the **Add link** panel, in the **Link Type** dropdown list, select **Child**. Next, in the **Work item type** dropdown list, select **Feature**, in the **Title** textbox, type **Training dashboard** and click **Add Link**.
 
-    ![Include Title "Training Dashboard" and click "OK"](images/az-400p3a1.png)
+    ![Include Title "Training Dashboard" and click "OK"](images//m1/az-400p3a1.png)
 
     > **Note**: On the **Training dashboard** panel, note that the assignment, **Area**, and **Iteration** are already set to the same values as the epic that the feature is based on. In addition, the feature is automatically linked to the parent item it was created from.
 
@@ -348,7 +348,7 @@ To maximize a team's ability to consistently deliver high quality software, Kanb
 
 1. On the **Settings** panel, select the **Tag colors (1)** tab, click **+ Tag color (2)**, in the **Tag** textbox, type **data (3)** and leave the default color(4) in place and click on **Save and Close (5)**.
 
-    !["Settings" window, "Tag colors", include "data" tag](images/tagcolor1.png)
+    !["Settings" window, "Tag colors", include "data" tag](images/m1/tagcolor1.png)
 
     > **Note**: Whenever a backlog item or bug is tagged with **data**, that tag will be highlighted.
 
