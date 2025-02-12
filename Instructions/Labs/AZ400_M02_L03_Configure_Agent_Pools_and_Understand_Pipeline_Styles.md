@@ -267,7 +267,7 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 
 1. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better. Go to **Pipelines>Pipelines** and click on the recently created pipeline. Click on the **ellipsis (1)** and **Rename/move (2)** option.
    
-      ![](images/AZ-400-eshop.png)
+      ![](images/E2T1S27-1202.png)
 
 1. Name it **eshoponweb-ci-pr (1)** and click on **Save (2)**.
 
