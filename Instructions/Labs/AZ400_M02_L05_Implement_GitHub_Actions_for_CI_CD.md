@@ -63,12 +63,14 @@ In this task, you will create an empty public GitHub repository and import the e
     
     | Field | Value |
     | --- | --- |
-    | Your old repository’s clone URL| https://github.com/MicrosoftLearning/eShopOnWeb |
-    | Owner | Your account alias |
-    | Repository Name | eShopOnWeb |
-    | Privacy | **Public** | 
+    | Your old repository’s clone URL| https://github.com/MicrosoftLearning/eShopOnWeb (1) |
+    | Owner | Your account alias (2) |
+    | Repository Name | eShopOnWeb (3) |
+    | Privacy | **Public** (4) | 
 
-1. Click on **Begin Import** and wait for your repository to be ready (this may take few minutes).
+1. Click on **Begin Import (5)** and wait for your repository to be ready (this may take a few minutes).
+
+    ![Create Repository](images/import-repo-1202.png)
 
 1. On the repository page, go to **Settings**, click on **Actions > General** and choose the option **Allow all actions and reusable workflows**. Click on **Save**.
 
@@ -122,7 +124,7 @@ In this task, you will create the Azure Service Principal used by GitHub to depl
     }
     ```
 
-    ![Import ADO org to Sonarcloud](images/3.png)
+    ![Import ADO org to Sonarcloud](images/create-sp-1202.png)
 
 1. You also need to run the following command to register the resource provider for the **Azure App Service** you will deploy later:
 
@@ -133,10 +135,12 @@ In this task, you will create the Azure Service Principal used by GitHub to depl
 1. In a browser window, go back to your **eShopOnWeb** GitHub repository.
 
 1. On the repository page, go to **Settings**, click on **Secrets and variables > Actions**. Click on **New repository secret**
-    - Name : **AZURE_CREDENTIALS**
-    - Secret: **paste the previously copied  JSON object** (GitHub is able to keep multiple secrets under same name, used by  [azure/login](https://github.com/Azure/login) action )
+    - Name : **AZURE_CREDENTIALS (1)**
+    - Secret: **paste the previously copied  JSON object (2)** (GitHub is able to keep multiple secrets under same name, used by  [azure/login](https://github.com/Azure/login) action )
 
-1. Click on **Add secret**. Now GitHub Actions will be able to reference the service principal, using the repository secret.
+1. Click on **Add secret  (3)**. Now GitHub Actions will be able to reference the service principal, using the repository secret.
+
+    ![Import ADO org to Sonarcloud](images/Add-secret-1202.png)
 
 ## Task 2: Modify and execute the GitHub workflow
 
@@ -153,8 +157,10 @@ In this task, you will modify the given GitHub workflow and execute it to deploy
 1. In the **env** section, make the following changes:
     - Replace **NAME** in **RESOURCE-GROUP** variable. It should be the same resource group created in previous steps.
     - (Optional) You can choose your closest [azure region](https://azure.microsoft.com/en-gb/explore/global-infrastructure/geographies/#geographies) for **LOCATION**. For example, "eastus", "eastasia", "westus", etc.
-    - Replace **YOUR-SUBS-ID** in **SUBSCRIPTION-ID**.
+    - Replace **YOUR-SUBS-ID** in **SUBSCRIPTION-ID**. You can find your subscription ID from the Overview page of Resource group in Azure portal. 
     - Replace **WEBAPP-NAME** with **eshoponweb-webapp-<inject key="DeploymentID" enableCopy="false"/>**. It will be used to create a globally unique website using Azure App Service.
+
+    ![](images/E1T2S6-1202.png)
 
 1. Read the workflow carefully, comments are provided to help understand.
 
@@ -202,7 +208,7 @@ In this task, you will use GitHub environments to ask for manual approval before
 
     > NOTE: If an environment called **Development** already exists in the **Environments** list, open its configuration by clicking on the environment name. 
 
-1. In the **Configure Development** tab, check the option **Required Reviewers** and add your GitHub account as a reviewer. Click on **Save protection rules**.
+1. In the **Configure Development** tab, check the option **Required Reviewers** and enter your Github account username in the add reviewers section and click on **Save protection rules**.
 
 1. Now lets test the protection rule. On the repository page, go to **Actions**, click on **eShopOnWeb Build and Test** workflow and click on **Run workflow>Run workflow** to execute manually.
 
