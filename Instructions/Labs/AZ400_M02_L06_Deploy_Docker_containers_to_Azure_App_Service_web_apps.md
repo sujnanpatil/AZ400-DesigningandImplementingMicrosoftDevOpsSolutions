@@ -113,7 +113,7 @@ When going through the different course labs in the order they are presented, th
 
 1. Select **Azure Repos Git (Yaml)**.
 
-   ![Branch Policies](images/az-4004.png)
+   ![Branch Policies](images/az4004.png)
  
 1. Select the **eShopOnWeb** repository.
 
@@ -126,13 +126,13 @@ When going through the different course labs in the order they are presented, th
     - **YOUR-SUBSCRIPTION-ID** with your Azure subscription id you copied in the previous step (2)
     - **rg-az400-container-NAME** rg-az400-eshopeonweb-<inject key="DeploymentID"></inject> (3)
 
-      ![Branch Policies](images/az-4005.png)
+      ![Branch Policies](images/az4005.png)
 
 1. Click on **Save and Run** and wait for the pipeline to execute succesfully.
 
 1. Select "Create new branch" and enter the branch name as **master** and submit to run the pipeline.
 
-   ![Branch Policies](images/az-4006.png)
+   ![Branch Policies](images/az4006.png)
 
     > **Note**: The deployment may take a few minutes to complete.
 
