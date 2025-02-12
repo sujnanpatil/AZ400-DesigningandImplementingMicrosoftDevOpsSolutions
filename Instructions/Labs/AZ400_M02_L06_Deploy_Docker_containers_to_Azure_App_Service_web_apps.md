@@ -64,7 +64,11 @@ A service principal is automatically created by Azure Pipeline when you connect 
     az ad sp create-for-rbac --name sp-az400-azdo --role contributor --scopes /subscriptions/$subscriptionId
     ```
 
-1. Next, from the lab vm, start a web browser, navigate to the [**Azure Devops**](https://go.microsoft.com/fwlink/?LinkId=307137) **eShopOnWeb** project. Click on **Project Settings>Service Connections (under Pipelines)** and **Create Service Connection**.
+1. Next, from the lab vm, start a web browser, navigate to the [**Azure Devops**](https://go.microsoft.com/fwlink/?LinkId=307137) **eShopOnWeb** project. Click on **Project Settings** from the bottom left corner. 
+
+   ![Policy Settings](images/az4001.png)
+
+1. Subsequently, select **Service Connections (under Pipelines)** and **Create Service Connection**.
 
 1. On the **New service connection** blade, select **Azure Resource Manager** and **Next** (may need to scroll down).
 
