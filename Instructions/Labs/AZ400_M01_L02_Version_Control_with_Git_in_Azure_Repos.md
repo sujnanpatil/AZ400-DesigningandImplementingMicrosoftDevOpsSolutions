@@ -27,11 +27,11 @@ After you complete this lab, you will be able to:
 
    ![Architecture Diagram](images/lab2-architecture-new.png)
 
-## Task 1: Import eShopOnWeb Git Repository
+## Task 1: Import EShopOnWeb Git Repository
 
-In this task you will import the eShopOnWeb Git repository that will be used by several labs.
+In this task you will import the EShopOnWeb Git repository that will be used by several labs.
 
-1.  On your lab computer, in a browser window open your Azure DevOps organization and the previously created **eShopOnWeb** project. Navigate to **Repos (1)>Files (2)** and then click on **Import (3)** within the **Import a repository** card. On the **Import a Git Repository** window, paste the following URL https://github.com/MicrosoftLearning/eShopOnWeb.git **(4)** and click on **Import (5)**:
+1.  On your lab computer, in a browser window open your Azure DevOps organization and the previously created **EShopOnWeb** project. Navigate to **Repos (1)>Files (2)** and then click on **Import (3)** within the **Import a repository** card. On the **Import a Git Repository** window, paste the following URL https://github.com/MicrosoftLearning/EShopOnWeb.git **(4)** and click on **Import (5)**:
 
     ![Import Repository](images/az-400-4.png)
 
@@ -87,9 +87,9 @@ In this exercise, you use Visual Studio Code to clone the Git repository you pro
 
 In this task, you will step through the process of cloning a Git repository by using Visual Studio Code.
 
-1.  Switch to the web browser displaying your Azure DevOps organization with the **eShopOnWeb** project you generated in the previous exercise. 
+1.  Switch to the web browser displaying your Azure DevOps organization with the **EShopOnWeb** project you generated in the previous exercise. 
 1.  In the vertical navigational pane of the Azure DevOps portal, select the **Repos** icon.
-1.  In the upper right corner of the **eShopOnWeb** pane, click **Clone**.
+1.  In the upper right corner of the **EShopOnWeb** pane, click **Clone**.
 
     ![Clone Git Repository](images/az400_02-05.png)
     
@@ -133,7 +133,7 @@ Git commits consist of the following:
 
 In this task, you will use Visual Studio Code to commit changes.
 
-1.  In the Visual Studio Code window, at the top of the vertical toolbar, select the **EXPLORER** tab, navigate to the **/eShopOnWeb/src/Web/Program.cs** file and select it. This will automatically display its content in the details pane.
+1.  In the Visual Studio Code window, at the top of the vertical toolbar, select the **EXPLORER** tab, navigate to the **/EShopOnWeb/src/Web/Program.cs** file and select it. This will automatically display its content in the details pane.
 
     ![Import Repository](images/az-400-13.png)
 
@@ -184,7 +184,7 @@ In this task, you will explore the use of staging changes by using Visual Studio
     ```csharp
     // My second change
     ```
-1. In the Visual Studio Code window, switch back the **EXPLORER** tab, navigate to the **/eShopOnWeb/src/Web/Constants.cs** file and select it. This will automatically display its content in the details pane.
+1. In the Visual Studio Code window, switch back the **EXPLORER** tab, navigate to the **/EShopOnWeb/src/Web/Constants.cs** file and select it. This will automatically display its content in the details pane.
 1. Add to the **Constants.cs** file a comment on the first line and save the file.
 
     ```csharp
@@ -363,7 +363,7 @@ For simplicity we will work directly on the web browser repo editor (working dir
 In this task, you will use the Azure DevOps portal to test the policy and create your first Pull Request.
 
 1. In the vertical navigational pane of the of the Azure DevOps portal, in the **Repos>Files**, make sure the **main** branch is selected (dropdown above shown content).
-1. To make sure policies are working, try making a change and committing it on the **main** branch, navigate to the **/eShopOnWeb/src/Web/Program.cs (1)** file and select it and click on **Edit (2)**. This will automatically display its content in the details pane.
+1. To make sure policies are working, try making a change and committing it on the **main** branch, navigate to the **/EShopOnWeb/src/Web/Program.cs (1)** file and select it and click on **Edit (2)**. This will automatically display its content in the details pane.
 
     ![Import Repository](images/az-400-31.png)
    
@@ -393,7 +393,7 @@ In this task, you will use the Azure DevOps portal to create a Pull Request, usi
     ![Import Repository](images/az-400-33.png)
    
 1. Now go back to the vertical navigational pane of the of the Azure DevOps portal, in the **Repos>Files**, make sure the **dev** branch is selected.
-1. Navigate to the **/eShopOnWeb/src/Web/Program.cs (1)** file, click on **Edit (2)** and make the following change on the first line:
+1. Navigate to the **/EShopOnWeb/src/Web/Program.cs (1)** file, click on **Edit (2)** and make the following change on the first line:
 
     ```csharp
     // Testing my first PR
@@ -450,7 +450,7 @@ The product team has decided that the current version of the site should be rele
 
 When going through the different course labs in the order they are presented, the branch policy configured during this lab will block exercises in future labs. Therefore, we want you to remove the configured branch policies.
 
-1. From the Azure DevOps **eShopOnWeb** Project view, navigate to **Repos** and select **Branches (1)**. Select the **Mine (2)** tab of the **Branches** pane.
+1. From the Azure DevOps **EShopOnWeb** Project view, navigate to **Repos** and select **Branches (1)**. Select the **Mine (2)** tab of the **Branches** pane.
 1. On the **Mine** tab of the **Branches** pane, hover the mouse pointer over the **main** branch entry to reveal the ellipsis symbol (the ...) **(3)** on the right side.
 1. Click the ellipsis and, in the pop-up menu, select **Branch Policies (4)**.
 
