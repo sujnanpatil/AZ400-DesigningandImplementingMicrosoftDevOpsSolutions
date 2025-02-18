@@ -177,7 +177,14 @@ In this task, you will use Visual Studio Code to commit changes.
 1.  If prompted whether you would like to automatically stage your changes and commit them directly, click **Always**. 
 
     > **Note**: We will discuss **staging** later in the lab.
+    
     > **Note**: Ignore the failed pipelines and it will not impact the remaining tasks.
+
+     > **Note**: If the above step is stuck in the committing state and not completed within a few minutes, you can use the following commands to perform the commit,
+
+     >     git commit -m "My commit"
+     >     git push origin main
+     
 1. Click on Sync Changes 1.
    
     ![Import Repository](images/az-400-17.png)
