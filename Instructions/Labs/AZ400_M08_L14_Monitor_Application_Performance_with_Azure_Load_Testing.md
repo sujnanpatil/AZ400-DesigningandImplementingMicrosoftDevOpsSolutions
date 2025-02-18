@@ -10,19 +10,18 @@ In this lab, you'll learn about how you can use Azure Load Testing to simulate p
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab, you will perform the following exercises:
 
-- Deploy Azure App Service web apps.
-- Compose and Run a YAML-based CI/CD pipeline.
-- Deploy Azure Load Testing.
-- Investigate Azure web app performance by using Azure Load Testing.
-- Integrate Azure Load Testing into your CI/CD pipelines.
+- Exercise 0: Configure the lab prerequisites
+- Exercise 1: Configure CI/CD Pipelines as Code with YAML in Azure DevOps
+- Exercise 2: Deploy and Setup Azure Load Testing
+- Exercise 3: Automate a Load Test with CI/CD in Azure Pipelines
 
-## Estimated timing: 60 minutes
+## Estimated timing: 45 minutes
 
 ## Architecture Diagram
 
-  ![Architecture Diagram](images/lab14arch.png)
+  ![Architecture Diagram](images/lab14arch1.png)
 
 ## Instructions
 
@@ -36,7 +35,11 @@ In this task, you will create an **eShopOnWeb** Azure DevOps project to be used 
 
 1. On your lab VM open **Edge Browser** on desktop and navigate to https://go.microsoft.com/fwlink/?LinkId=307137. 
 
-1. Sign in to Microsoft login if you are not already sign in using the credentials provided in the environment. 
+1. Sign in with the following credentials:
+
+   * Email/Username: <inject key="AzureAdUserEmail"></inject>
+
+    * Password: <inject key="AzureAdUserPassword"></inject>
 
 1. In the pop-up for *Help us protect your account*, select **Skip for now (14 days until this is required)**.
 
@@ -70,10 +73,10 @@ In this task, you will create an **eShopOnWeb** Azure DevOps project to be used 
 
 1. On the **Create new project** page, Enter the following details.
 
-    - Project name: **eShopOnWeb (1)**
-    - Under the **Advanced** section, choose **Scrum (2)** on the **Work Item process** dropdown and then click on **+ Create project (3)**.
+ - Project name: **eShopOnWeb (1)**
+ - Under the **Advanced** section, choose **Scrum (2)** on the **Work Item process** dropdown and then click on **+ Create project (3)**.
      
-      ![Create Project](images/create-new-devops-project.png)    
+   ![Create Project](images/create-new-devops-project.png)    
 
 ### Task 2: Import eShopOnWeb Git Repository
 
@@ -100,7 +103,8 @@ In this task you will import the eShopOnWeb Git repository that will be used by 
 
 In this task, you will create an Azure web app by using the cloud shell in Azure portal.
 
-1. From the lab computer, start a web browser, navigate to the [**Azure Portal**](https://portal.azure.com), and sign in with the user account that has the Owner role in the Azure subscription you will be using in this lab and has the role of the Global Administrator in the Microsoft Entra tenant associated with this subscription.
+1. From the lab computer, start a web browser, navigate to the [**Azure Portal**](https://portal.azure.com).
+
 1. In the Azure portal, in the toolbar, click the **Cloud Shell** icon located directly to the right of the search text box.
 
     ![Import Repository](images/az-400-9a2.png)
@@ -128,7 +132,7 @@ In this task, you will create an Azure web app by using the cloud shell in Azure
     az group create --name $RESOURCEGROUPNAME --location $LOCATION
     ```
 
-1. To create a Windows App service plan by running the following command:
+1. Create a Windows App service plan by running the following command:
 
     ```bash
     SERVICEPLANNAME='az400l16-sp'
@@ -136,7 +140,7 @@ In this task, you will create an Azure web app by using the cloud shell in Azure
         --name $SERVICEPLANNAME --sku B3
     ```
 
-1. Create a web app with a unique name.
+1. Run the following command to create a web app with a unique name.
 
     ```bash
     WEBAPPNAME=az400eshoponweb$RANDOM$RANDOM
@@ -148,7 +152,7 @@ In this task, you will create an Azure web app by using the cloud shell in Azure
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="9d87d07a-94ef-41a7-ad3a-be755cabf1af" />
 
@@ -379,7 +383,7 @@ In this task, you will add a YAML build definition to the existing project.
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="3bf353b8-c587-49e1-8c24-9d18d6515ca1" />
 
@@ -478,7 +482,7 @@ With both quick tests complete, let's make a few changes to them, and validate t
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="bd548940-a663-43d2-888b-8d06b0c4c4da" />
 
@@ -739,4 +743,4 @@ In this task, You'll use load test fail criteria to get alerted (have a failed p
 
 In this exercise, you deployed a web app to Azure App Service by using Azure Pipelines, as well as deploying an Azure Load Testing Resource with TestRuns. Next, you integrated the JMeter load testing config.yaml file to Azure Repos source control, and extending your CI/CD pipeline with the Azure Load Testing. In the last exercise, you learned how to define the success criteria of the LoadTest.
 
-### You have successfully completed the lab.
+## Click Next to proceed with the next lab

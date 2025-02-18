@@ -6,13 +6,12 @@ In this lab, you will create and configure wiki in an Azure DevOps, including ma
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab, you will perform the following exercises:
 
-- Create a wiki in an Azure Project
-- Add and edit markdown
-- Create a Mermaid diagram
+- Exercise 1: Publish code as wiki
+- Exercise 2: Create and manage a project wiki
 
-## Estimated timing: 60 minutes
+## Estimated timing: 45 minutes
 
 ## Architecture Diagram
  
@@ -21,7 +20,7 @@ After you complete this lab, you will be able to:
 # Exercise 0: Configure the lab prerequisites
 
 In this exercise, you will set up the prerequisites for the lab, which consist of the pre-configured **EShopOnWeb-<inject key="DeploymentID"> </inject>** team project based on an Azure DevOps Demo Generator template and a team created in Microsoft Teams.
-=======
+
 ## Set up an Azure DevOps organization. 
 
 1. On your lab VM open **Edge Browser** on desktop and navigate to [Azure DevOps](https://go.microsoft.com/fwlink/?LinkId=307137), and if prompted sign with the credentials.
@@ -154,20 +153,20 @@ In this task, you will create Azure Repository and publish a branch of an Azure 
 13.  **Refresh** your browser, or select any other DevOps portal option and return to the **Overview(1)** and **Wiki(2)** section. Notice you are now presented with the **EshopOnWeb-<inject key="DeploymentID"> </inject> (Documents)** Wiki, as well as having the **Welcome to our Online Retail Store(3)** as **HomePage** of the Wiki.
       
      ![](images/AZ400_M09_L17_16.png)
-    
-   > - **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps
-   > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
-   > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
-   
-   <validation step="27c2ac30-3be6-4f7f-889e-214781b039da" />
 
+   >  **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+   - If you receive a success message, you can proceed to the next task.
+   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+ 
+   <validation step="667e41aa-6e7d-4380-a86d-8ad52f49747d" />  
+   
 ## Task 2: Manage content of a published wiki
 In this task, you will manage content of the wiki you published in the previous task.
 
 1. In the vertical menu on the left side, click **Repos (1)**, ensure that the dropdown menu in the upper section of the **Files (2)** pane displays the **EShopOnWeb-<inject key="DeploymentID"> </inject> (3)** repo and **main (4)** branch, in the repo folder hierarchy, select the **Documents (5)** folder, and select the **Welcome-to-our-Online-Retail-Store!.md (6)** file.
 
-    ![](images/L2T2S1.png)
+     ![](images/L2T2S1.png)
 
 2. Notice how the MarkDown format is visible here as raw text format, allowing you to continue editing the file content from here as well.
 
@@ -184,113 +183,114 @@ In this exercise, you will step through creating and managing a project wiki.
 
 In this task, you will create a project wiki and add to it a Mermaid diagram and an image.
 
-1.  On your lab VM, in the Azure DevOps portal displaying the **Overview (1)** and **Wiki (2)** pane of the **EShopOnweb-<inject key="DeploymentID"> </inject>** project, with the content of the **EShopOnWeb-<inject key="DeploymentID"> </inject> (Documents) (3)** wiki selected, at the top of the pane, click the **EShopOnWeb-<inject key="DeploymentID"> </inject> (Documents)** dropdown list header, and, in the drop down list, select **Create new project wiki (4)**. 
+1. On your lab VM, in the Azure DevOps portal displaying the **Overview (1)** and **Wiki (2)** pane of the **EShopOnweb-<inject key="DeploymentID"> </inject>** project, with the content of the **EShopOnWeb-<inject 
+   key="DeploymentID"> </inject> (Documents) (3)** wiki selected, at the top of the pane, click the **EShopOnWeb-<inject key="DeploymentID"> </inject> (Documents)** dropdown list header, and, in the drop down list, 
+   select **Create new project wiki (4)**. 
 
      ![](images/L2E2T1S1.png)
 
-2.  In the Page title text box, type **Project Design**.
+2. In the Page title text box, type **Project Design**.
 
      ![](images/AZ400_M09_L17_19.png)
 
-3.  Place the cursor in the body of the page, click the left-most icon in the toolbar representing the header setting and, in the dropdown list, click **Header 1**. This will automatically add the hash character (**#**) at the beginning of the line.
+3. Place the cursor in the body of the page, click the left-most icon in the toolbar representing the header setting and, in the dropdown list, click **Header 1**. This will automatically add the hash character (**#**) 
+    at the beginning of the line.
 
      ![](images/AZ400_M09_L17_20.png)
+
      ![](images/AZ400_M09_L17_21.png)
 
-4.  Directly after the newly added **#** character, type **Authentication and Authorization** and press the **Enter** key.
+4. Directly after the newly added **#** character, type **Authentication and Authorization** and press the **Enter** key.
 
      ![](images/AZ400_M09_L17_22.png)
 
-5.  Click the left-most icon in the toolbar representing the header setting and, in the dropdown list, click **Header 2**. This will automatically add the hash character (**##**) at the beginning of the line.
+5. Click the left-most icon in the toolbar representing the header setting and, in the dropdown list, click **Header 2**. This will automatically add the hash character (**##**) at the beginning of the line.
 
      ![](images/AZ400_M09_L17_23.png)
 
      ![](images/AZ400_M09_L17_24.png)
-6.  Directly after the newly added **##** character, type **Azure DevOps OAuth 2.0 Authorization Flow** and press the **Enter** key.
+
+6. Directly after the newly added **##** character, type **Azure DevOps OAuth 2.0 Authorization Flow** and press the **Enter** key.
 
      ![](images/AZ400_M09_L17_25.png)
 
-7.  **Copy and paste** the following code to insert a mermaid diagram on your wiki.
+7. **Copy and paste** the following code to insert a mermaid diagram on your wiki.
 
-    ```
-    ::: mermaid
-     sequenceDiagram
-     participant U as User
-     participant A as Your app
-     participant D as Azure DevOps
-     U->>A: Use your app
-     A->>D: Request authorization for user
-     D-->>U: Request authorization
-     U->>D: Grant authorization
-     D-->>A: Send authorization code
-     A->>D: Get access token
-     D-->>A: Send access token
-     A->>D: Call REST API with access token
-     D-->>A: Respond to REST API
-     A-->>U: Relay REST API response
-    :::
-    ```
+      ```
+      ::: mermaid
+       sequenceDiagram
+       participant U as User
+       participant A as Your app
+       participant D as Azure DevOps
+       U->>A: Use your app
+       A->>D: Request authorization for user
+       D-->>U: Request authorization
+       U->>D: Grant authorization
+       D-->>A: Send authorization code
+       A->>D: Get access token
+       D-->>A: Send access token
+       A->>D: Call REST API with access token
+       D-->>A: Respond to REST API
+       A-->>U: Relay REST API response
+      :::
+      ```
+    
+      ![](images/AZ400_M09_L17_26.png)
 
     >**Note**: For details regarding the Mermaid syntax, refer to [About Mermaid](https://mermaid-js.github.io/mermaid/#/)
 
-    ![](images/AZ400_M09_L17_26.png)
-
-
-8.  To the right of the editor pane, in the preview pane, click **Load diagram** and review the outcome. 
-
-     >**Note**: The output should resemble the flowchart that illustrates how to [Authorize access to REST APIs with OAuth 2.0](https://docs.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/oauth?view=azure-devops)
+8. To the right of the editor pane, in the preview pane, click **Load diagram** and review the outcome. 
 
      ![](images/AZ400_M09_L17_27.png)
 
      ![](images/AZ400_M09_L17_28.png)
 
-9.  In the upper right corner of the editor pane, click the down-facing caret next to the **Save** button and, in the dropdown menu, click **Save with revision message**. 
+     >**Note**: The output should resemble the flowchart that illustrates how to [Authorize access to REST APIs with OAuth 2.0](https://docs.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/oauth?view=azure-devops)
+
+9. In the upper right corner of the editor pane, click the down-facing caret next to the **Save** button and, in the dropdown menu, click **Save with revision message**. 
 
      ![](images/AZ400_M09_L17_29.png)
 
-10.  In the **Save page** dialog box, type **Authentication and authorization section with the OAuth 2.0 Mermaid diagram** and click **Save**.
+10. In the **Save page** dialog box, type **Authentication and authorization section with the OAuth 2.0 Mermaid diagram** and click **Save**.
      
       ![](images/AZ400_M09_L17_30.png)
 
-11.  On the **Project Design** editor pane, place the cursor at the end of the Mermaid element you added earlier in this task, press the **Enter** key to add an extra line, click the left-most icon in the **toolbar (1)** representing the header setting and, in the dropdown list, click **Header 2 (2)**. This will automatically add the double hash character (**##(3)**) at the beginning of the line.
+11. On the **Project Design** editor pane, place the cursor at the end of the Mermaid element you added earlier in this task, press the **Enter** key to add an extra line, click the left-most icon in the **toolbar 
+    (1)** representing the header setting and, in the dropdown list, click **Header 2 (2)**. This will automatically add the double hash character (**##(3)**) at the beginning of the line.
    
       ![](images/AZ400_M09_L17_31.png)
 
-12.  Directly after the newly added **##** character, type **User Interface** and press the **Enter** key.
+12. Directly after the newly added **##** character, type **User Interface** and press the **Enter** key.
     
       ![](images/AZ400_M09_L17_32.png)
 
-13.  Download any image from Google by searching **brand.png (1)** and select the **image** to download.
+13. Download any image from Google by searching **brand.png (1)** and select the **image** to download.
     
       ![](images/AZ400_M09_L17_33.png)
  
-14.  Right click on the image, select **save image as** and save it to the **Desktop (1)** and type File name as **Brand.png (2)** and **Save (3)** it in your lab VM.
+14. Right click on the image, select **save image as** and save it to the **Desktop (1)** and type File name as **Brand.png (2)** and **Save (3)** it in your lab VM.
     
       ![](images/AZ400_M09_L17_34.png)
 
-15.  On the **Project Design (1)** editor pane, in the toolbar, click the **paper clip icon (2)** representing the **Insert a file** action, in the **Open** dialog box, navigate to the **Desktop (3)** folder, select the **Brand.png (4)** file you downloaded in the previous exercise, and click **Open (5)**.
+15. On the **Project Design (1)** editor pane, in the toolbar, click the **paper clip icon (2)** representing the **Insert a file** action, in the **Open** dialog box, navigate to the **Desktop (3)** folder, select the **Brand.png (4)** file you downloaded in the 
+    previous exercise, and click **Open (5)**.
      
-      ![](images/AZ400_M09_L17_35.png)
-      ![](images/AZ400_M09_L17_36.png)
+    ![](images/AZ400_M09_L17_35.png)
 
-16.  Back on the **Project Design** editor pane, review the preview pane and verify that the image is properly displayed.
-17.  In the upper right corner of the editor pane, click the down-facing caret next to the **Save** button and, in the dropdown menu, click **Save with revision message**. 
+    ![](images/AZ400_M09_L17_36.png)
+
+16. Back on the **Project Design** editor pane, review the preview pane and verify that the image is properly displayed.
+
+17. In the upper right corner of the editor pane, click the down-facing caret next to the **Save** button and, in the dropdown menu, click **Save with revision message**. 
     
       ![](images/AZ400_M09_L17_37.png)
 
-18.  In the **Save page** dialog box, type **User Interface section with the Brand image** and click **Save**.
+18. In the **Save page** dialog box, type **User Interface section with the Brand image** and click **Save**.
     
-19.  Back on the editor pane, in the upper right corner, click **Close**. 
+19. Back on the editor pane, in the upper right corner, click **Close**. 
      
       ![](images/AZ400_M09_L17_39.png)
-
-   > - **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps
-   > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
-   > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
    
-   <validation step="d5c34a98-999e-48a2-930a-4074ff99a0e2" />
-
 ## Task 2: Manage a project wiki
 
 In this task, you will manage the newly created project wiki.

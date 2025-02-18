@@ -14,18 +14,23 @@ In this lab, you will learn how to establish a local Git repository, which can e
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab, you will complete the following exercises:
 
--   Clone an existing repository
--   Save work with commits
--   Review history of changes
--   Work with branches by using Visual Studio Code
+- Exercise 0: Configure the prerequisites
+- Exercise 1: Clone an existing repository
+- Exercise 2: Save work with commits
+- Exercise 3: Review history
+- Exercise 4: Work with branches
 
-## Estimated timing: 60 minutes
+## Estimated timing: 45 minutes
 
 ## Architecture Diagram
 
-   ![Architecture Diagram](images/lab2-architecture-new.png)
+   ![Architecture Diagram](images/lab2-architecture-new1.png)
+
+# Exercise 0: Configure the prerequisites
+
+In this exercise, you will configure the prerequisites.
 
 ## Task 1: Import EShopOnWeb Git Repository
 
@@ -44,8 +49,12 @@ In this task you will import the EShopOnWeb Git repository that will be used by 
   
 ## Task 2: Set main branch as default branch
 
+In this task you will set the main branch as the default branch.
+
 1. Go to **Repos>Branches (1)**.
+
 1. Hover on the **main** branch then click the ellipsis on the right of the column **(2)**.
+
 1. Click on **Set as default branch (3)**.
    
     ![Import Repository](images/az-400-5.png)
@@ -110,10 +119,21 @@ In this task, you will step through the process of cloning a Git repository by u
    cd C:\
    mkdir Git
    cd C:\Git\
-   git clone https://odluser1565376@dev.azure.com/odluser1565376/EShopOnWeb/_git/EShopOnWeb
+   git clone [Enter the repo URL]
    ```
-   
-1. After the cloning process completes,  in the Visual Studio Code, from the File menu, click **Open Folder** and navigate to the **C:\Git** folder and select the folder to open the cloned repository. If **Do you trust the authors of the files in this folder?** warning prompted click on **Yes**.
+   >**Note:** Make sure to replace  the [Enter the repo URL] with the  repo URL you had copied in the previous step.
+
+1. When prompted to sign-in, use the following credentials:
+
+   * Email/Username: <inject key="AzureAdUserEmail"></inject>
+
+   * Password: <inject key="AzureAdUserPassword"></inject>
+ 
+1. After the cloning process completes,  in the Visual Studio Code, from the File menu, click **Open Folder** and navigate to the **C:\Git** folder, select the **EShopOnWeb** folder to open the cloned repository. If **Do you trust the authors of the files in this folder?** warning prompted click on **Yes**.
+
+   ![Import Repository](images/az-400px1.png) 
+
+   ![Import Repository](images/az-400px.png)    
 
     > **Note**: You can ignore warnings you might receive regarding problems with loading of the project. The solution may not be in the state suitable for a build, but we're going to focus on working with Git, so building the project is not required.
 
@@ -150,7 +170,7 @@ In this task, you will use Visual Studio Code to commit changes.
 
     ![Azure DevOps](images/az-400-15.png)
 
-1.  With the **SOURCE CONTROL** tab selected, at the top of the pane, in the textbox, type **My commit** as the commit message and press **Ctrl+Enter** to commit it locally.
+1.  With the **SOURCE CONTROL** tab selected, at the top of the pane, in the textbox, type **My commit** as the commit message and click on **Commit** to commit it locally.
 
      ![Azure DevOps](images/m12.png)
 
@@ -179,7 +199,7 @@ In this task, you will use the Azure DevOps portal to review commits.
 In this task, you will explore the use of staging changes by using Visual Studio Code. Staging changes allows you to selectively add certain files to a commit while passing over the changes made in other files.
 
 1. Switch back to the **Visual Studio Code** window.
-1. Update the open **Program.cs** class by changing the first comment with the following, and saving the file.
+1. Update the open **Program.cs** class by changing the first comment with the following, and save the file.
 
     ```csharp
     // My second change
@@ -205,10 +225,10 @@ In this task, you will explore the use of staging changes by using Visual Studio
 
     ![Import Repository](images/az-400-22.png)
    
-1. Click on **Sync Changes 2**
+1. In the lower-left corner of the Visual Studio Code window, click the **Synchronize Changes** button to synchronize the committed changes with the server.
 
-     ![Import Repository](images/az-400-23.png)
-   
+    ![Import Repository](images/az-400px2.png)
+
 1. If prompted, whether to proceed, click **OK** to push and pull commits to and from **origin/main**.
 
     > **Note**: Note that since only the staged change was committed, the other change is still pending to be synchronized.
@@ -231,8 +251,10 @@ In this task, you will step through commit history by using the Azure DevOps por
     
     > **Note**: A comparison view is opened to enable you to easily locate the changes you've made. In this case, it's just one comment.
 
-1.  Switch to the web browser window displaying the **Commits** pane of the **Azure DevOps** portal to review the source branches and merges. These provide a convenient way to visualize when and how changes were made to the source.
+1.  Switch to the web browser window displaying the **Commits** pane of the **Azure DevOps** portal to review the source branches and merges.1.  Refresh the browser to see the latest commit. These provide a convenient way to visualize when and how changes were made to the source.
+
 1.  Scroll down to the **My commit** entry and hover the mouse pointer over it to reveal the ellipsis symbol on the right side.
+
 1.  Click the ellipsis, in the dropdown menu, select **Browse Files**, and review the results.
 
     ![Commit browse](images/az400_02-12.png)
@@ -305,11 +327,11 @@ Git keeps track of which branch you are working on and makes sure that, when you
 
 1.  Select the **dev** entry in the list of branches to delete.
 
-1.  In the lower left corner of the Visual Studio Code window, click the **main** entry again. This will display the existing branches in the upper portion of the Visual Studio Code window.
+1.  In the lower-left corner of the Visual Studio Code window, click the **main** entry again. This will display the existing branches in the upper portion of the Visual Studio Code window.
 
 1.  Verify that the local **dev** branch no longer appears in the list, but the remote **origin/dev** is still there.
-2.  
-    ![Import Repository](images/az-400-29.png)
+  
+    ![Import Repository](images/az-400px11.png)
 
 1.  Press **Ctrl+Shift+P** to open the **Command Palette**.
 
@@ -329,14 +351,19 @@ Git keeps track of which branch you are working on and makes sure that, when you
 
 In this task, you will use the Azure DevOps portal restore the branch you deleted in the previous task.
 
-1. Go to the web browser displaying the **Mine** tab of the **Branches** pane in the Azure DevOps portal.
-1. On the **Mine** tab of the **Branches** pane, select the **All** tab.
-1. On the **All** tab of the **Branches** pane, in the **Search branch name** text box, type **dev**.
-1. Review the **Deleted branches** section containing the entry representing the newly deleted branch.
-1. In the **Deleted branches** section, hover the mouse pointer over the **dev** branch entry to reveal the ellipsis symbol on the right side.
-1. Click the ellipsis, in the pop-up menu and select **Restore branch**.
+1. Go to the web browser displaying the **Mine** tab of the **Branches (1)** pane in the Azure DevOps portal.
 
-    ![restore branch](images/az400_02-15.png)
+1. On the **Mine** tab of the **Branches** pane, select the **All (2)** tab.
+
+1. On the **All** tab of the **Branches** pane, in the **Search branch name** text box, type **dev (3)**.
+
+1. Review the **Deleted branches** section containing the entry representing the newly deleted branch.
+
+1. In the **Deleted branches** section, hover the mouse pointer over the **dev** branch entry to reveal the ellipsis symbol on the right side.
+
+1. Click the ellipsis, in the pop-up menu and select **Restore branch (4)**.
+
+    ![restore branch](images/az400_02-151.png)
 
     > **Note**: You can use this functionality to restore a deleted branch as long as you know its exact name.
 
@@ -379,7 +406,25 @@ In this task, you will use the Azure DevOps portal to test the policy and create
 
 1. Click on **Cancel** to skip the commit.
 
-## Task 6: Working with Pull Requests
+
+## Task 6 : Remove Branch Policies
+
+When going through the different course labs in the order they are presented, the branch policy configured during this lab will block exercises in future labs. Therefore, we want you to remove the configured branch policies.
+
+1. From the Azure DevOps **eShopOnWeb** Project view, navigate to **Repos** and select **Branches (1)**. Select the **Mine (2)** tab of the **Branches** pane.
+1. On the **Mine** tab of the **Branches** pane, hover the mouse pointer over the **main** branch entry to reveal the ellipsis symbol (the ...) **(3)** on the right side.
+1. Click the ellipsis and, in the pop-up menu, select **Branch Policies (4)**.
+
+    ![Policy Settings](images/az-400-37.png)
+
+1. On the **main** tab of the repository settings, disable the option for **Require minimum number of reviewers (1)**.
+1. On the **main** tab of the repository settings, disable the option for **Check for linked work items (2)**.
+
+    ![Branch Policies](images/az-400-38.png)
+
+1. You have now disabled/removed the branch policies for the main branch.
+
+## Task 7: Working with Pull Requests
 
 In this task, you will use the Azure DevOps portal to create a Pull Request, using the **dev** branch to merge a change into the protected **main** branch. An Azure DevOps work item with be linked to the changes to be able to trace pending work with code activity.
 
@@ -418,15 +463,20 @@ In this task, you will use the Azure DevOps portal to create a Pull Request, usi
     ![Link work item](images/az400_02-20.png)
 
 1. Next,  open the **Files** tab to review the proposed changes. In a more complete Pull Request,  you would be able to review files one by one (marked as reviewed) and open comments for lines that may not be clear (hovering the mouse over the line number gives you an option to post a comment).
+
+   ![Link work item](images/az-400px3.png)
+
 1. Go back to the **Overview** tab, and on the top-right click on **Approve**. All the requirements will change to green. Now you can click on **Complete**.
+
 1. On the **Complete Pull Request** tab, multiple options will be given before completing the merge:
     - **Merge Type**: 4 merge types are offered, you can review them [here](https://learn.microsoft.com/azure/devops/repos/git/complete-pull-requests?view=azure-devops&tabs=browser#complete-a-pull-request) or observing the given animations. Choose **Merge (no fast forward)**.
     - **Post-complete options**:
         - Check **Complete associated work item...**. It will move associated PBI to **Done** state.
-    
-2. Click on **Complete Merge**
+    - Click on **Complete Merge**
+  
+      ![Link work item](images/az-400px4.png) 
         
-## Task 7: Applying tags
+## Task 8: Applying tags
 
 The product team has decided that the current version of the site should be released as v1.1.0-beta.
 
@@ -439,12 +489,11 @@ The product team has decided that the current version of the site should be rele
     > **Note**: You have now tagged the repository at this release (the latest commit gets linked to the tag). You could tag commits for a variety of reasons and Azure DevOps offers the flexibility to edit and delete them, as well as manage their permissions.
 
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-   - If you receive a success message, you can proceed to the next task.
+   - If you receive a success message, you can proceed further.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="1e561da0-92ec-4ecc-88b1-b3a5cefee594" />
-
 
 ### Exercise 5: Remove Branch Policies
 
@@ -462,7 +511,6 @@ When going through the different course labs in the order they are presented, th
     ![Branch Policies](images/az-400-38.png)
 
 1. You have now disabled/removed the branch policies for the main branch.
-
 
 ## Review
 

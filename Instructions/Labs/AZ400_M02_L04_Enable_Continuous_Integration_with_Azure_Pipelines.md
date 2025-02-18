@@ -10,10 +10,10 @@ The pipelines will be used in two scenarios:
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab, you will complete the following exercises:
 
-- Include build validation as part of a Pull Request.
-- Configure CI pipeline as code with YAML.
+- Exercise 1: Include build validation as part of a Pull Request 
+- Exercise 2: Configure CI Pipeline as Code with YAML
 
 ## Estimated timing: 45 minutes
 
@@ -241,7 +241,7 @@ In this task, you will add policies to the main branch and only allow changes us
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="acd984e3-6678-4326-9460-21caeb9889c7" />
           
@@ -249,4 +249,4 @@ In this task, you will add policies to the main branch and only allow changes us
   
   In this lab, you enabled pull request validation using a build definition and configured CI pipeline as code with YAML in Azure DevOps. 
 
-### You have successfully completed the lab.
+### Click Next to proceed with the next lab.

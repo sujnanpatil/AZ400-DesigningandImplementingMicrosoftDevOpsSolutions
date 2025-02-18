@@ -2,7 +2,7 @@
 
 ## Lab overview
 
-Azure Key Vault provides secure storage and management of sensitive data, such as keys, passwords, and certificates. Azure Key Vault includes supports for hardware security modules, as well as a range of encryption algorithms and key lengths. By using Azure Key Vault, you can minimize the possibility of disclosing sensitive data through source code, which is a common mistake made by developers. Access to Azure Key Vault requires proper authentication and authorization, supportxing fine grained permissions to its content.
+Azure Key Vault provides secure storage and management of sensitive data, such as keys, passwords, and certificates. Azure Key Vault includes supports for hardware security modules, as well as a range of encryption algorithms and key lengths. By using Azure Key Vault, you can minimize the possibility of disclosing sensitive data through source code, which is a common mistake made by developers. Access to Azure Key Vault requires proper authentication and authorization, supporting fine grained permissions to its content.
 
 In this lab, you will see how you can integrate Azure Key Vault with an Azure DevOps pipeline by using the following steps:
 
@@ -13,11 +13,11 @@ In this lab, you will see how you can integrate Azure Key Vault with an Azure De
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab, you will perform the following exercises:
 
 - Exercise 0: Configure the lab prerequisites.
-- Exercise 1: Setup CI pipeline to build eShopOnWeb container.
-- 
+- Exercise 1: Setup CI pipeline to build eShopOnWeb container
+  
 ## Estimated timing: 45 minutes
 
 ## Architecture Diagram
@@ -281,7 +281,7 @@ In this task, you will import a CD pipeline, customize it and run it for deployi
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="10127a4a-453b-48da-b290-fea76e5a1dfe" />
 
@@ -293,3 +293,5 @@ In this lab, you integrated Azure Key Vault with an Azure DevOps pipeline by usi
 - Created an Azure service principal to provide access to secrets in the Azure Key vault.
 - Configured permissions to allow the service principal to read the secret.
 - Configured pipeline to retrieve the password from the Azure Key vault and pass it on to subsequent tasks.
+
+## Click Next to proceed with the next lab.

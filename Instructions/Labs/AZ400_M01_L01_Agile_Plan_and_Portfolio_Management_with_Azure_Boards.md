@@ -6,16 +6,13 @@ In this lab, you will learn about the agile planning and portfolio management to
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab, you will complete the following exercises:
 
--   Manage teams, areas, and iterations
--   Manage work items
--   Manage sprints and capacity
--   Customize Kanban boards
--   Define dashboards
--   Customize team process
+-  Exercise 0: Configure the lab prerequisites
+-  Exercise 1: Manage Agile project
+-  Exercise 2: Define dashboards
 
-## Estimated timing: 60 minutes
+## Estimated timing: 45 minutes
 
 ## Architecture Diagram
 
@@ -45,7 +42,7 @@ In this exercise, you will set up the prerequisites for the lab, which consist o
 
 In this task, you will create an **EShopOnWeb** Azure DevOps project to be used by several labs.
 
-1. Click on the **Azure Devops** icon and click on **New Project** option.
+1. In the Azure Devops portal, click on the **Azure Devops (1)** icon and click on **New Project (2)** option.
 
    ![Create Project](images/az-400p1.png)
 
@@ -69,7 +66,7 @@ Each new project is configured with a default team, which name matches the proje
 
     ![Azure DevOps project window. Click on "Project settings" option](images/m1/az-400_m01_09.png)
 
-1. In the **General** section, select the **Teams** tab. There are already a default team in this project, **EShopOnWebTeam**, but you'll create a new one for this lab. Click **New Team**.
+1. In the **General** section, select the **Teams (1)** tab. There are already a default team in this project, **EShopOnWeb Team**, but you'll create a new one for this lab. Click **New Team (2)**.
 
     ![In project settings window, "Teams" tab, click on "New Team"](images/m1/az-400_m01_10.png)
 
@@ -85,7 +82,7 @@ Each new project is configured with a default team, which name matches the proje
 
     ![In project settings window, "Teams" tab, "PUL-Web" team, click on "Iterations and Area Paths"](images/m1/az-400_m01_12.png)
 
-1. At the top of the **Boards** pane, select the **Iterations** tab and then click **+ Select iteration(s)**.
+1. At the top of the **Boards** pane, select the **Iterations (1)** tab and then click **+ Select iteration(s) (2)**.
 
     ![In the "interations" tab, click on "Select Iteration"](images/m1/az-400_m01_13.png)
 
@@ -93,13 +90,13 @@ Each new project is configured with a default team, which name matches the proje
 
 1. Select **Sprint 1** and click the **ellipsis (...)**. From the context menu, select **Edit**.
 
-    ![In the "interations" tab, click on "Edit"](images/m1/az-400_m01_14.png)
+    ![In the "interations" tab, click on "Edit"](images/m1/az-400_m01_141.png)
 
 1. Specify the Start Date as the first work day of last week, and count 3 full work weeks for each sprint. For example, if March 6 is the first work day of the sprint, it goes until March 24th. Sprint 2 starts on March 27, which is 3 weeks out from March 6
 
 1. Repeat the previous step to add **Sprint 2** and **Sprint 3**. You could say that we are currently in the 2nd week of the first sprint.
 
-    ![Do the same for Sprint 2 and 3, make sure they are created for "EShop-Web" team](images/m1/az-400_m01_iterations.png)
+    ![Do the same for Sprint 2 and 3, make sure they are created for "EShop-Web" team](images/m1/az-400_m011_iterations.png)
 
 1. Back on the **Boards** pane, at the top of the pane, select the **Areas** tab. You will find there an automatically generated area with the name matching the name of the team.
 
@@ -112,7 +109,7 @@ Each new project is configured with a default team, which name matches the proje
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="6bfb5ec2-2ca1-4ce1-afa6-1c8117bf8ace" />
 
@@ -124,11 +121,11 @@ Work items play a prominent role in Azure DevOps. Whether describing work to be 
 
 > **Note**: This task is designed to illustrate a variety of ways you can create different kinds of work items, as well as to demonstrate the breadth of features available on the platform. As a result, these steps should not be viewed as prescriptive guidance for project management. The features are intended to be flexible enough to fit your process needs, so explore and experiment as you go.
 
-1. In the vertical navigational pane of the Azure DevOps portal, select the **Boards** icon and, select **Work Items**.
+1. In the vertical navigational pane of the Azure DevOps portal, select the **Boards** icon and, select **Work Items (1)**.
 
     > **Note**: There are many ways to create work items in Azure DevOps, and we'll explore a few of them. Sometimes it's as simple as firing one off from a dashboard.
 
-1. On the **Work Items** window, click on **+ New Work Item > Epic**.
+1. On the **Work Items** window, click on **+ New Work Item (2) > Epic (3)**.
 
     ![In the "Boards">"Work Items" window, click on "New work item" >Epic](images/m1/az-400_m01_t2_s2.png)
 
@@ -154,7 +151,7 @@ Work items play a prominent role in Azure DevOps. Whether describing work to be 
 
 1. On the **Add link** panel, in the **Link Type** dropdown list, select **Child**. Next, in the **Work item type** dropdown list, select **Feature**, in the **Title** textbox, type **Training dashboard** and click **Add Link**.
 
-    ![Include Title "Training Dashboard" and click "OK"](images/az-400p3a.png)
+    ![Include Title "Training Dashboard" and click "OK"](images//m1/az-400p3a1.png)
 
     > **Note**: On the **Training dashboard** panel, note that the assignment, **Area**, and **Iteration** are already set to the same values as the epic that the feature is based on. In addition, the feature is automatically linked to the parent item it was created from.
 
@@ -239,7 +236,7 @@ Work items play a prominent role in Azure DevOps. Whether describing work to be 
     > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="e8d69d56-6dbf-41ac-b508-a8d2867aae01" />
 
@@ -253,11 +250,9 @@ Planning meetings typically consist of two parts. In the first part, the team an
 
 The sprint backlog should contain all the information the team needs to successfully plan and complete work within the time allotted without having to rush at the end. Before planning the sprint, you'd want to have created, prioritized, and estimated the backlog and defined the sprints.
 
-1. In the vertical navigational pane of the Azure DevOps portal, select the **Boards** icon and, in the list of the **Boards** items, select **Sprints**.
+1. In the vertical navigational pane of the Azure DevOps portal, select the **Boards** icon and, in the list of the **Boards** items, select **Sprints (1)**.
 
-
-
-1. Make sure to select **Sprint 2** from the dropdown. On the **Taskboard** tab of the **Sprints** view, in the toolbar, on the right hand side, select the **View options** symbol (directly to the left of the funnel icon) and, in the **View options** dropdown list, select the **Work details** entry.
+1. Make sure to select **Sprint 2** from the dropdown. On the **Taskboard** tab of the **Sprints** view, in the toolbar, on the right hand side, select the **View options (2)** symbol (directly to the left of the funnel icon) and, in the **View options** dropdown list, select the **Work details (3)** entry.
 
     ![In the "Boards">"Sprints" window, "EShop-WEB" team, select "View options" icon and click on "Work details"](images/m1/az-400p5.png)
 
@@ -317,9 +312,9 @@ The sprint backlog should contain all the information the team needs to successf
 
     > **Note**: This will color all cards green if they meet the rule criteria set directly below, in the **Rule criteria** section.
 
-1. Click on **+ Add criteria**, and on the **Rule criteria** section, in the **Field** dropdown list, select **Activity**, in the **Operator** dropdown list, select **=**, and, in the **Value** dropdown list, select **Development**.Click on **Save**
+1. Click on **+ Add criteria**, and on the **Rule criteria** section, in the **Field** dropdown list, select **Activity (1)**, in the **Operator** dropdown list, select **= (2)**, and, in the **Value** dropdown list, select **Development (3)**.Click on **Save**
 
-    !["Settings" window, make sure all fields have mentioned information](images/m1/az-400_m01_t3_s14.png)
+    !["Settings" window, make sure all fields have mentioned information](images/m1/az-400_m01_t3_s141.png)
 
     > **Note**: This will set all cards assigned to **Development** activities green.
 
@@ -351,9 +346,9 @@ To maximize a team's ability to consistently deliver high quality software, Kanb
 
     > **Note**: The team is emphasizing work done with data, so there is special attention paid to any task associated with accessing or storing data.
 
-1. On the **Settings** panel, select the **Tag colors** tab, click **+ Tag color**, in the **Tag** textbox, type **data** and leave the default color in place.
+1. On the **Settings** panel, select the **Tag colors (1)** tab, click **+ Tag color (2)**, in the **Tag** textbox, type **data (3)** and leave the default color(4) in place and click on **Save and Close (5)**.
 
-    !["Settings" window, "Tag colors", include "data" tag](images/tagcolor.png)
+    !["Settings" window, "Tag colors", include "data" tag](images/m1/tagcolor1.png)
 
     > **Note**: Whenever a backlog item or bug is tagged with **data**, that tag will be highlighted.
 
@@ -437,7 +432,7 @@ To maximize a team's ability to consistently deliver high quality software, Kanb
 
 1. On the **Settings** panel, select the **Swimlanes** tab.
 
-1. On the **Swimlanes** tab, click **+ Swimlane**, directly under the **Swimlane name** label, in the **Name** textbox, type **Expedite**.
+1. On the **Swimlanes (1)** tab, click **+ Add Swimlane**, directly under the **Swimlane name** label, in the **Name (2)** textbox, type **Expedite**.
 
 1. On the **Settings** panel, click **Save**.
 
@@ -452,7 +447,7 @@ To maximize a team's ability to consistently deliver high quality software, Kanb
     > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="89c40260-53f7-4e2e-95b0-9723f07bf5df" />
 
@@ -464,15 +459,15 @@ In Azure DevOps, you customize your work tracking experience through a process. 
 
 All processes are shared within the same organization. That is, one or more team projects can reference a single process. Instead of customizing a single team project, you customize a process. Changes made to the process automatically update all team projects that reference that process. Once you've created an inherited process, you can customize it, create team projects based on it, and migrate existing team projects to reference it. The Git team project can't be customized until it's migrated to an inherited process.
 
-1. On the Azure DevOps page, click the **Azure DevOps** logo in the top left corner to navigate to the account root page.
+1. On the Azure DevOps page, click the **Azure DevOps (1)** logo in the top left corner to navigate to the account root page.
 
 1. In the left bottom corner of the page, click **Organization settings**.
 
-1. In the **Organization Settings** vertical menu, in the **Boards** section, select **Process**.
+1. In the **Organization Settings** vertical menu, in the **Boards** section, select **Process (2)**.
 
-1. On the **All processes** pane, to the right of the **Scrum** entry, select the ellipsis symbol (...) and, in the dropdown menu, select **Create inherited process**.
+1. On the **All processes** pane, to the right of the **Scrum (3)** entry, select the ellipsis symbol (...) (4) and, in the dropdown menu, select **Create inherited process**.
 
-    ![In the "Organization settings" window, "Process" option, look for "Scrum" process and click on ellipsis (...) and "Create inherited process"](images/m1/az-400_m01_t5_s04.png)
+    ![In the "Organization settings" window, "Process" option, look for "Scrum" process and click on ellipsis (...) and "Create inherited process"](images/m1/az-400_m01_t5_s041.png)
 
 1. In the **Create inherited process from Scrum** panel, in the **Process name (required)** textbox, type **Customized Scrum** and click **Create process**.
 
@@ -492,9 +487,9 @@ All processes are shared within the same organization. That is, one or more team
 
 1. On the **Add a field to Product Backlog Item** panel, click **Layout**.
 
-1. On the **Add a field to Product Backlog Item** panel, on the **Layout** tab, in the **Label** textbox, type **Ticket ID**, select the **Create a new group** option, in the **Group** textbox, type **EShopOnWeb**, and click **Add field**.
+1. On the **Add a field to Product Backlog Item** panel, on the **Layout (1)** tab, in the **Label** textbox, type **Ticket ID (2)**, select the **Create a new group** option, in the **Group** textbox, type **EShopOnWeb (3)**, and click **Add field (4)**.
 
-    ![On the "Add a field to Product Backlog Item" panel, on the "Layout" tab make sure the information has been included and click "Add Field"](images/m1/az-400_m01_t5_s11.png)
+    ![On the "Add a field to Product Backlog Item" panel, on the "Layout" tab make sure the information has been included and click "Add Field"](images/m1/az-400_m01_t5_s111.png)
 
     > **Note**: Now that the customized process has been configured, let's switch to the EShopOnWebproject to use it.
 
@@ -529,7 +524,7 @@ All processes are shared within the same organization. That is, one or more team
     > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="6d5612cd-7e8b-428f-a862-5b81ab230d6d" />
 
@@ -545,13 +540,13 @@ Dashboards allow teams to visualize status and monitor progress across the proje
 
     ![If necessary, on the "Dashboards" pane, in the upper left corner, in the "EShopOnWebTeam" section, select "EShopOnWebTeam - Overview"](images/m1/az-400_m01_ex2_s02.png)
 
-1. On the **Dashboards** pane, select the drop-down menu next to the **EShopOnWebTeam - Overview** title, and select **+ New dashboard**.
+1. On the **Dashboards (1)** pane, select the drop-down menu next to the **eShopOnWeb Team - Overview (2)** title, and select **+ New dashboard (3)**.
 
-    ![On the "Dashboards" pane, in the upper left corner, in the "EShopOnWebTeam" section, select "+ New dashboard"](images/m1/az-400_m01_ex2_s03.png)
+    ![On the "Dashboards" pane, in the upper left corner, in the "eShopOnWeb Team" section, select "+ New dashboard"](images/m1/az-400_m01_ex2_s031.png)
 
-1. On the **Create a dashboard** pane, in the **Name** textbox, type **Product training**, in the **Team** dropdown list, select the **EShop-WEB** team, and click **Create**.
+1. On the **Create a dashboard** pane, in the **Name** textbox, type **Product training (1)**, in the **Team** dropdown list, select the **EShop-WEB (2)** team, and click **Create (3)**.
 
-    ![On the "Create a dashboard" pane, in the "Name" textbox, type "Product training", in the "Team" dropdown list, select the "EShop-WEB" team, and click "Create"](images/m1/az-400_m01_ex2_s04.png)
+    ![On the "Create a dashboard" pane, in the "Name" textbox, type "Product training", in the "Team" dropdown list, select the "EShop-WEB" team, and click "Create"](images/m1/az-400_m01_ex2_s041.png)
 
 1. On the new dashboard pane, click **Add a widget**.
 

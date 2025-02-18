@@ -10,10 +10,12 @@ In this lab, you will learn how to implement and use self-hosted agents with YAM
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab you will complete the following exercises:
 
-- Implement YAML-based pipelines
-- Implement self-hosted agents
+- Exercise 0: Configure the lab prerequisites
+- Exercise 1: Author YAML-based Azure DevOps pipelines
+- Exercise 2: Manage Azure DevOps agent pools
+
 
 ## Estimated timing: 45 minutes
 
@@ -35,16 +37,17 @@ After you complete this lab, you will be able to:
 
     ![Azure DevOps](images/400112.png)
     
-5. On the Azure DevOps page click on **Azure DevOps** located at top left corner and then click on **Organization Setting** at the left down corner
+4. On the Azure DevOps page click on **Azure DevOps** located at top left corner and then click on **Organization Setting** at the left down corner
 
     ![Azure DevOps](images/az-400-lab3-(1).png)
     
-6. In the **Organization Setting** window on the left menu click on **Billing (1)** and select **Setup Billing (2)** then click on **save (3)**.
+5. In the **Organization Setting** window on the left menu click on **Billing (1)** and select **Setup Billing (2)** then click on **save (3)**.
 
     ![Azure DevOps](images/az-400-lab3-1.png)
-    ![Azure DevOps](images/az-400-lab3-2.png)    
 
-7. On the **MS Hosted CI/CD** section under **Paid parallel jobs** enter value **1** and at the end of the page click on **Save**.
+   ![Azure DevOps](images/az-400-lab3-2.png)    
+
+6. On the **MS Hosted CI/CD** section under **Paid parallel jobs** enter value **1** and at the end of the page click on **Save**.
 
     ![Azure DevOps](images/az-400-lab3-3.png)
 
@@ -64,25 +67,25 @@ In this task, you will create an **eShopOnWeb** Azure DevOps project to be used 
 
 In this task you will import the eShopOnWeb Git repository that will be used by several labs.
 
-1. On your lab computer, in a browser window open your Azure DevOps organization and the previously created eShopOnWeb project. Click on             **Repos (1)>Files (2) , Import a Repository**. Select **Import (3)**. On the **Import a Git Repository (4)** window, paste the following URL                     https://github.com/MicrosoftLearning/eShopOnWeb.git (5) and click **Import (6)**.
+1. On your lab computer, in a browser window open your Azure DevOps organization and the previously created eShopOnWeb project. Click on **Repos (1)>Files (2) , Import a Repository**. Select **Import (3)**. On the **Import a Git Repository (4)** window, paste the following URL https://github.com/MicrosoftLearning/eShopOnWeb.git (5) and click **Import (6)**.
 
       ![](images/AZ-400-import.png)
       
       ![](images/AZ-400-git.png)
 
-   2. The repository is organized the following way:
+2. The repository is organized the following way:
 
-         o. **.ado** folder contains Azure DevOps YAML pipelines
+    o. **.ado** folder contains Azure DevOps YAML pipelines
          
-         o **.devcontainer** folder container setup to develop using containers (either locally in VS Code or GitHub Codespaces)
+    o **.devcontainer** folder container setup to develop using containers (either locally in VS Code or GitHub Codespaces)
          
-         o **.azure** folder contains Bicep & ARM infrastructure as code templates used in some lab scenarios.
+   o **.azure** folder contains Bicep & ARM infrastructure as code templates used in some lab scenarios.
          
-         o **.github** folder contains YAML GitHub workflow definitions.
+   o **.github** folder contains YAML GitHub workflow definitions.
          
-         o. **src** folder contains the .NET 6 website used in the lab scenarios.
+   o. **src** folder contains the .NET 6 website used in the lab scenarios.
          
-       ![](images/az400-m3-L4-06.png)
+    ![](images/az400-m3-L4-06.png)
 
 #### Task 3: Set main branch as default branch
 
@@ -118,7 +121,7 @@ In this task, you will create a template-based Azure DevOps YAML pipeline.
 
     ![](images/AZ-400-yaml.1.png)
  
-1. On the **Review your pipeline YAML** pane, review the sample pipeline. This is a rather straight-forward .NET application Build pipeline, which does the following:
+6. On the **Review your pipeline YAML** pane, review the sample pipeline. This is a rather straight-forward .NET application Build pipeline, which does the following:
 
    - A single Stage: Build
    - A single Job: Build
@@ -126,11 +129,11 @@ In this task, you will create a template-based Azure DevOps YAML pipeline.
    - **DotNet Restore:** With NuGet Package Restore you can install all your project's dependency without having to store them in source control.      
    - **DotNet Build:** Builds a project and all of its dependencies.     
    - **DotNet Test:** .Net test driver used to execute unit tests.    
-   - **DotNet Publish:** Publishes the application and its dependencies to a folder for deployment to a hosting system. In this case, it's                 **Build.ArtifactStagingDirectory**.
+   - **DotNet Publish:** Publishes the application and its dependencies to a folder for deployment to a hosting system. In this case, it's **Build.ArtifactStagingDirectory**.
         
-        ![](images/AZ-400-pipeline.png)
+   ![](images/AZ-400-pipeline.png)
 
-1. On the **Review your pipeline YAML** pane, click the down-facing caret symbol next to the **Run** button, click **Save**.
+7. On the **Review your pipeline YAML** pane, click the down-facing caret symbol next to the **Run** button, click **Save**.
 
     ![](images/az400-m3-L4-13.png)
 
@@ -158,7 +161,7 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
     | Scope (custom defined) | **Agent Pools** click Show all scopes (at the bottom of the window)|
     | Agent Pools | **Read and manage** |
     
-    ![Azure DevOps](images/lab4-10.png)
+     ![Azure DevOps](images/lab4-10.png)
 
 1. On the **Success** pane, copy the value of the personal access token to Clipboard.
 
@@ -276,3 +279,5 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 ## Review
 
 In this lab, you learned how to convert classic pipelines into YAML-based ones and how to implement and use self-hosted agents.
+
+## Click Next to proceed with the next lab.

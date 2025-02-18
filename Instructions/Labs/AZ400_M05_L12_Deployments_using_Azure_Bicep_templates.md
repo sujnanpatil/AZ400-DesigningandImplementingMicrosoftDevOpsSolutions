@@ -18,15 +18,13 @@ In this lab, you'll create an Azure Bicep template and modularize it using the A
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab you will perform the following exercises:
 
 - Exercise 0: Configure the lab prerequisites
 - Exercise 1: Understand an Azure Bicep template and simplify it using a reusable module
 - Exercise 2: Deploying the templates to Azure using YAML pipelines
 
 ## Estimated timing: 45 minutes
-
-## Instructions
 
 # Exercise 0: Configure the lab prerequisites
 
@@ -53,9 +51,10 @@ In this exercise, you will set up the prerequisites for the lab, which consist o
 6. In the **Organization Setting** window on the left menu click on **Billing (1)** and select **Setup Billing (2)** then click on **save (3)**.
 
     ![Azure DevOps](images/az-400-lab3-1.png)
-    ![Azure DevOps](images/az-400-lab3-2.png)    
 
-7. On the **MS Hosted CI/CD** section under **Paid parallel jobs** enter value **1** and at the end of the page click on **Save**.
+   ![Azure DevOps](images/az-400-lab3-2.png)    
+
+8. On the **MS Hosted CI/CD** section under **Paid parallel jobs** enter value **1** and at the end of the page click on **Save**.
 
     ![Azure DevOps](images/az-400-lab3-3.png)   
 
@@ -81,8 +80,7 @@ In this task you will import the eShopOnWeb Git repository that will be used by 
 
 1. On your lab computer, in a browser window open your Azure DevOps organization and the previously created **eShopOnWeb** project. Click on **Repos (1) >Files (2)** , **Import a Repository**. Select **Import (3)**. On the **Import a Git Repository** window, paste the following URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> **(4)** and click **Import (5)**:
 
-
-   ![Import Repository](images/az-400-4.png)
+     ![Import Repository](images/az-400-4.png)
 
 1. The repository is organized the following way:
     - **.ado** folder contains Azure DevOps YAML pipelines.
@@ -95,7 +93,9 @@ In this task you will import the eShopOnWeb Git repository that will be used by 
 ## Task 4: Set main branch as default branch
   
 1. Go to **Repos>Branches (1)**.
+
 1. Hover on the **main** branch then click the ellipsis on the right of the column **(2)**.
+
 1. Click on **Set as default branch (3)**.
    
    ![Import Repository](images/az-400-5.png)
@@ -147,7 +147,7 @@ In this task, you will create a storage template module **storage.bicep** which 
    
 1. Click on Commit twice to commit the changes, however, we're not done with it yet.
 
-1. Next, hover your mouse over the bicep folder and click the ellipsis icon **(1)**, then select **New>File (2)**. 
+1. Next, hover your mouse over the **infra** folder and click the ellipsis icon **(1)**, then select **New>File (2)**. 
 
    
    ![Simple-windows-vm.bicep file](./images/az-400-5a26.png)
@@ -156,7 +156,7 @@ In this task, you will create a storage template module **storage.bicep** which 
    
    ![Simple-windows-vm.bicep file](./images/az-400-5a29.png)
    
-1. Now copy the following code snippet into the file and **commit (1)** your changes:
+1. Now copy the following code snippet into the file and select **commit (1)** twice to commit your changes.:
 
    ```bicep
    @description('Location for all resources.')
@@ -302,7 +302,7 @@ A Service Principal is automatically created by Azure Pipelines, when you connec
     - Click on **Verify and Save (7)**.
 
       ![Azure Service Connection](images/az-400-9a24.png)
-  
+
       ![Azure Service Connection](images/az-400-9a25.png)   
 
 
@@ -310,7 +310,7 @@ A Service Principal is automatically created by Azure Pipelines, when you connec
 
 In this task, you will create a template-based Azure DevOps YAML pipeline.
 
-1. Go to **Pipelines (1)>Pipelines (2)**. Click on **Create Pipeline (3)** or **New Pipeline** button.
+1. Go to **Pipelines (1)>Pipelines (2)**. Click on **Create Pipeline (3)** button.
 
     ![](images/AZ-400-create.png)  
 
@@ -335,8 +335,6 @@ In this task, you will create a template-based Azure DevOps YAML pipeline.
 1. In the variables section, replace name with **az400m06l15-RG** resource group, set the desired **location** to **<inject key="Region" enableCopy="false"/>** replace the value of the service connection with one of your existing service connections you created earlier.
 
 1. Click the **Save and run (1)** button from the top right corner and in the commit dialog, click **Save and run** again.
-
-   ![Save and running the YAML pipeline after making changes](./images/az-400-5a23.png)
 
 1. Wait for the pipeline to kick off.
 
@@ -364,7 +362,7 @@ In this task, you will create a template-based Azure DevOps YAML pipeline.
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="9cd20f12-9e2f-4fb2-b764-6790b73ade56" />
 

@@ -6,11 +6,11 @@ In this lab, you will learn how to use an Azure DevOps CI/CD pipeline to build a
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab you will complete the following exercises:
 
-- Build a custom Docker image by using a Microsoft hosted Linux agent
-- Push an image to Azure Container Registry
-- Deploy a Docker image as a container to Azure App Service by using Azure DevOps
+- Exercise 1: Manage the service connection
+- Exercise 2: Import and run the CI pipeline
+- Exercise 3: Import and run the CD pipeline
 
 ## Estimated timing: 30 minutes
 
@@ -31,14 +31,20 @@ In this task, you will create a service principal by using the Azure CLI, which 
 - Push the docker image to Azure Container Registry
 - Add a role assignment to allow Azure App Service pull the docker image from Azure Container Registry
 
-> **Note**: If you do already have a service principal, you can proceed directly to the next task.
-
 You will need a service principal to deploy  Azure resources from Azure Pipelines.
 
 A service principal is automatically created by Azure Pipeline when you connect to an Azure subscription from inside a pipeline definition or when you create a new service connection from the project settings page (automatic option). You can also manually create the service principal from the portal or using Azure CLI and re-use it across projects. 
 
-1.  From the lab computer, start a web browser, navigate to the [**Azure Portal**](https://portal.azure.com), and sign in with the user account that has the Owner role in the Azure subscription you will be using in this lab and has the role of the Global Administrator in the Azure AD tenant associated with this subscription.
+1. From the lab computer, start a web browser, navigate to the [**Azure Portal**](https://portal.azure.com), and sign in with the following if you are not signed in already:
 
+   - Enter the following **Email/Username** and then click on **Next**. 
+   
+      Email/Username: <inject key="AzureAdUserEmail"></inject>
+
+   - Enter the following **Password** and click on **Sign in**. 
+   
+      Password: <inject key="AzureAdUserPassword"></inject>
+   
 1.  In the Azure portal, click on the **Cloud Shell** icon, located directly to the right of the search textbox at the top of the page. 
 
 1.  If prompted to select either **Bash** or **PowerShell**, select **Bash**. 
@@ -64,55 +70,81 @@ A service principal is automatically created by Azure Pipeline when you connect 
     az ad sp create-for-rbac --name sp-az400-azdo --role contributor --scopes /subscriptions/$subscriptionId
     ```
 
-1. Next, from the lab vm, start a web browser, navigate to the [**Azure Devops**](https://go.microsoft.com/fwlink/?LinkId=307137) **eShopOnWeb** project. Click on **Project Settings>Service Connections (under Pipelines)** and **Create Service Connection**.
+1. Next, from the lab VM, start a web browser, navigate to the [**Azure Devops**](https://go.microsoft.com/fwlink/?LinkId=307137) **eShopOnWeb** project. Click on **Project Settings** from the bottom left corner. 
+
+   ![Policy Settings](images/az4001.png)
+
+1. Subsequently, select **Service Connections (under Pipelines)** and **Create Service Connection**.
 
 1. On the **New service connection** blade, select **Azure Resource Manager** and **Next** (may need to scroll down).
 
-1. The choose **Service principal (manual)** and click on **Next**.
+1. Fill in the below fields and leave the others as default:
+    - Resource Group: **rg-az400-eshopeonweb-<inject key="DeploymentID"></inject>** (1)
+    - In **Service connection name** type **azure-connection** (2). This name will be referenced in YAML pipelines when needing an Azure DevOps Service Connection to communicate with your Azure subscription.
+    - Click on **Save**(3).
 
-1. Fill in the empty fields using the information gathered during previous steps:
-    - Subscription Id and Name
-    - Service Principal Id **(appId**), Service principal key ( **Password**) and TenantId (**tenant**).
-    - In **Service connection name** type **azure-connection**. This name will be referenced in YAML pipelines when needing an Azure DevOps Service Connection to communicate with your Azure subscription.
-
-1. Click on **Verify and Save**.
+      ![Policy Settings](images/az4002.png)
 
 # Exercise 2: Import and run the CI pipeline
 
 In this exercise, you will import and run the CI pipeline.
 
-## Task 1: Import and run the CI pipeline
+## Task 1 : Remove Branch Policies
+ 
+When going through the different course labs in the order they are presented, the branch policy configured during this lab will block exercises in future labs. Therefore, we want you to remove the configured branch policies.
+ 
+1. From the Azure DevOps **eShopOnWeb** Project view, navigate to **Repos** and select **Branches (1)**. Select the **Mine (2)** tab of the **Branches** pane.
 
-1. Go to **Pipelines>Pipelines**.
+1. On the **Mine** tab of the **Branches** pane, hover the mouse pointer over the **main** branch entry to reveal the ellipsis symbol (the ...) **(3)** on the right side.
+
+1. Click the ellipsis and, in the pop-up menu, select **Branch Policies (4)**.
+ 
+    ![Policy Settings](images/az-400-37.png)
+ 
+1. On the **main** tab of the repository settings, disable the option for **Require minimum number of reviewers (1)**.
+
+1. On the **main** tab of the repository settings, disable the option for **Check for linked work items (2)** and **Build Validation**(3).
+ 
+    ![Branch Policies](images/az4008.png)
+ 
+    >**Note:** Kindly check if the Build validation option is toggled off. 
+    
+1. You have now disabled/removed the branch policies for the main branch.
+
+## Task 2: Import and run the CI pipeline
+
+1. Go to **Pipelines** from the left navigation pane and select Pipelines.
 
 1. Click on **New pipeline** button.
 
 1. Select **Azure Repos Git (Yaml)**.
 
+   ![Branch Policies](images/az4004.png)
+ 
 1. Select the **eShopOnWeb** repository.
 
 1. Select **Existing Azure Pipelines YAML File**.
 
 1. Select the **/.ado/eshoponweb-ci-docker.yml** file then click on **Continue**.
 
-1. In the YAML pipeline definition, customize:
-    - **Azure-service-connection-name** with **azure-connection**.
-    - **YOUR-SUBSCRIPTION-ID** with your Azure subscription id.
-    - **rg-az400-container-NAME** with the resource group name defined before in the lab.
+1. In the YAML pipeline definition, customize under the Variables section from line number 9:
+    - **Azure-service-connection-name** with **azure-connection** (1)
+    - **YOUR-SUBSCRIPTION-ID** with your Azure subscription id you copied in the previous step (2)
+    - **rg-az400-container-NAME** rg-az400-eshopeonweb-<inject key="DeploymentID"></inject> (3)
+
+      ![Branch Policies](images/az4005.png)
 
 1. Click on **Save and Run** and wait for the pipeline to execute succesfully.
-2. Select "Create new brach" and enter the branch name as **master** and submit to run the pipeline.
 
-    > **Note**: The deployment may take a few minutes to complete if it is ask for permission click on permit.
+1. Select "Create new branch" and enter the branch name as **master** and submit to run the pipeline.
 
-    The CI definition consists of the following tasks:
-    - **Resources**: It downloads the repository filest will be used in the followinf tasks.
-    - **AzureResourceManagerTemplateDeployment**: Deploys the Azure Container Registry using bicep template.
-    - **PowerShell**: Retrieve the **ACR Login Server** value from the previous task's output and create a new parameter **acrLoginServer**
-    - [**Docker**](https://learn.microsoft.com/azure/devops/pipelines/tasks/reference/docker-v0?view=azure-pipelines) **- Build**: Build the docker image and create two tags (Latest and current BuildID)
-    - **Docker - Push**: Push the images to Azure Container Registry
+   ![Branch Policies](images/az4006.png)
 
-1. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better. Go to **Pipelines>Pipelines** and click on the recently created pipeline. Click on the ellipsis and **Rename/Remove** option. Name it **eshoponweb-ci-docker** and click on **Save**.
+    > **Note**: The deployment may take a few minutes to complete.
+
+1. When it asks for permission click on **View** and click on **Permit** twice.
+
+1. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better. Go to **Pipelines>Pipelines** and click on the recently created pipeline. Click on the ellipsis and **Rename/move** option. Name it **eshoponweb-ci-docker** and click on **Save**.
 
 # Exercise 3: Import and run the CD pipeline
 
@@ -139,19 +171,25 @@ In this task, you will add a new role assignment to allow Azure App Service pull
     echo $roleName
     ```
 
-1. After getting the service principal ID and the role name, let's create the role assignment by running this command **(replace <rg-az400-container-NAME> with your resource group name)**
+1. Now, let's create the role assignment by running this command **(replace <rg-az400-container-NAME> with rg-az400-eshopeonweb-<inject key="DeploymentID"></inject> )**
 
     ```sh
     az role assignment create --assignee $spId --role $roleName --scope /subscriptions/$subscriptionId/resourceGroups/<rg-az400-container-NAME>
     ```
 
-You should now see the JSON output which confirms the success of the command run.
+1. You should now see the JSON output which confirms the success of the command run.
 
 ## Task 2: Import and run the CD pipeline
 
 In this task, you will import and run the CI pipeline.
 
-1. Go to **Pipelines>Pipelines**.
+1. In the DevOps portal, from the left navigation pane, go to **Repos**, then select **Files** and navigate to **infra** folder and select **webapp-docker.bicep** file.
+
+   ![Branch Policies](images/az4007.png)
+
+1. Change the SKU to **F1** from **B1** on line 19 and Commit the changes.
+
+1. Go to **Pipelines**and select **Pipelines** from the left navigation pane.
 
 1. Click on **New pipeline** button.
 
@@ -163,24 +201,23 @@ In this task, you will import and run the CI pipeline.
 
 1. Select the **/.ado/eshoponweb-cd-webapp-docker.yml** file then click on **Continue**.
 
-1. In the YAML pipeline definition, customize:
+1. In the YAML pipeline definition, customize with the following values:
+    - **azureServiceConnection:** 'azure-connection'
     - **YOUR-SUBSCRIPTION-ID** with your Azure subscription id.
-    - **rg-az400-container-NAME** with the resource group name defined before in the lab.
+    - **rg-az400-container-NAME** rg-az400-eshopeonweb-<inject key="DeploymentID"></inject>
+    - **location:** 'southcentralus'
 
-1. Click on **Save and Run** and wait for the pipeline to execute succesfully.
+1. Click on **Save and Run** and wait for the pipeline to execute successfully.
 
     > **Note**: The deployment may take a few minutes to complete and if its asks for permission click on Permit.
 
     > **Important**: If you receive the error message "TF402455: Pushes to this branch are not permitted; you must use a pull request to update this branch.", you need to uncheck the "Require a minimum number of reviewers" Branch protection rule enabled in the previous labs.
 
-    The CD definition consists of the following tasks:
-    - **Resources**: It downloads the repository filest will be used in the following tasks.
-    - **AzureResourceManagerTemplateDeployment**: Deploys the Azure App Service using bicep template.
-    - **AzureResourceManagerTemplateDeployment**: Add role assignment using Bicep
+1. When it asks for permission click on **View** and click on **Permit** twice.
 
 1. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better. Go to **Pipelines>Pipelines** and click on the recently created pipeline. Click on the ellipsis and **Rename/Remove** option. Name it **eshoponweb-cd-webapp-docker** and click on **Save**.
 
-    > **Note 1**: The use of the **/.azure/bicep/webapp-docker.bicep** template creates an app service plan, a web app with system assigned managed identity enabled, and references the docker image pushed previously: **${acr.properties.loginServer}/eshoponweb/web:latest**.
+    > **Note 1**: The use of the **/.azure/bicep/webapp-docker.bicep** template creates an app service plan, a web app with system-assigned managed identity enabled, and references the docker image pushed previously: **${acr.properties.loginServer}/eshoponweb/web:latest**.
 
     > **Note 2**: The use of the **/.azure/bicep/webapp-to-acr-roleassignment.bicep** template creates a new role assignment for the web app with AcrPull role to be able to retreive the docker image. This could be done in the first template, but since the role assignment can take some time to propagate, it's a good idea to do both tasks separately.
 
@@ -209,7 +246,7 @@ In this task, you will remove pipeline billing to eliminate unnecessary charges.
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="87a02bd6-fc07-4d97-9993-757399fc846f" />
 

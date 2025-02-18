@@ -1,6 +1,6 @@
 # Lab 02: Controlling Deployments using Release Gates
 
-## Lab overview
+## Lab Overview
 
 This lab covers the configuration of the deployment gates and details how to use them to control the execution of Azure Pipelines. To illustrate their implementation, you'll configure a release definition with two environments for an Azure Web App. You'll deploy to the Canary environment only when there are no blocking bugs for the app and mark the Canary environment complete only when there are no active alerts in Application Insights of Azure Monitor.
 
@@ -24,13 +24,15 @@ There are 4 types of gates included by default in every account.
 
 ## Objectives
 
-After you complete this lab, you will be able to:
+In this lab, you will be performing the following exercises:
 
-- Configure release pipelines.
-- Configure release gates.
-- Test release gates.
+- Exercise 0: Configure the lab prerequisites
+- Exercise 1: Creating the necessary Azure Resources for the Release Pipeline
+- Exercise 2: Configure the release pipeline
+- Exercise 3: Configure release gates
+- Exercise 4: Test release gates
 
-## Estimated timing: 90 minutes
+## Estimated timing: 60 minutes
 
 ## Architecture Diagram
 
@@ -45,9 +47,7 @@ In this task, you will add a YAML build definition to the existing project.
 1. Navigate back to the **Pipelines** pane in of the **Pipelines** hub.
    
 1. In the **Create your Pipeline** window, click **New pipeline**.
-   
-    > **Note**: We will use the wizard to create a new YAML Pipeline definition based on our project.
-    
+       
 1. On the **Where is your code?** pane, click **Azure Repos Git (YAML)** option.
    
     ![Import Repository](images/newpip1.png)
@@ -58,7 +58,7 @@ In this task, you will add a YAML build definition to the existing project.
    
 1. On the **Configure your pipeline** pane, scroll down and select **Existing Azure Pipelines YAML File**.
    
-    ![Import Repository](images/newpip3.png)
+   ![Import Repository](images/newpip3.png)
    
 1. In the **Selecting an existing YAML File** blade, specify the following parameters:
    
@@ -434,7 +434,7 @@ In this task, you will enable the post-deployment gate for the Canary Environmen
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="29f6bfe8-0b16-4145-92f9-30e77d26ab03" />
 
@@ -496,4 +496,4 @@ In this task, you will first generate some alerts for the Canary Web App, follow
 
 In this lab, you configured release pipelines and then configured and tested release gates.
 
-### You have successfully completed the lab.
+## Click Next to proceed with the next lab.
