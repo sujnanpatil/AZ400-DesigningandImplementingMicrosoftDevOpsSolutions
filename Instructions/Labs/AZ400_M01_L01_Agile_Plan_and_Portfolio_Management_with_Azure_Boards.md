@@ -36,7 +36,7 @@ In this lab, you will complete the following exercises:
 
 # Exercise 0: Configure the lab prerequisites
 
-In this exercise, you will set up the prerequisites for the lab, which consist of a new Azure DevOps project with a repository based on the [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb). 
+In this exercise, you will set up the prerequisites for the lab, which consist of a new Azure DevOps project with a repository based on the [EShopOnWeb](https://github.com/MicrosoftLearning/EShopOnWeb). 
 
 ## Task 1: Configure the team project
 
@@ -46,9 +46,9 @@ In this task, you will create an **EShopOnWeb** Azure DevOps project to be used 
 
    ![Create Project](images/az-400p1.png)
 
-1. Give your project name as **EShopOnWeb (1)**, select visibility as **Private(2)** and under the **Advanced (3)** section, choose **Scrum (4)** on the **Work Item process** dropdown. Click on **Create (5)**.
+1. Give your project name as **EShopOnWeb(1)**, select visibility as **Private(2)** and under the **Advanced (3)** section, choose **Scrum (4)** on the **Work Item process** dropdown. Click on **Create Project (5)**.
 
-   ![Create Project](images/az-400p2.png)
+   ![Create Project](images/create-rpoject-1702.png)
     
 # Exercise 1: Manage Agile project
 
@@ -92,7 +92,7 @@ Each new project is configured with a default team, which name matches the proje
 
     ![In the "interations" tab, click on "Edit"](images/m1/az-400_m01_141.png)
 
-    > **Note**: Specify the Start Date as the first work day of last week, and count 3 full work weeks for each sprint. For example, if March 6 is the first work day of the sprint, it goes until March 24th. Sprint 2 starts on March 27, which is 3 weeks out from March 6
+1. Specify the Start Date as the first work day of last week, and count 3 full work weeks for each sprint. For example, if March 6 is the first work day of the sprint, it goes until March 24th. Sprint 2 starts on March 27, which is 3 weeks out from March 6
 
 1. Repeat the previous step to add **Sprint 2** and **Sprint 3**. You could say that we are currently in the 2nd week of the first sprint.
 
@@ -135,9 +135,9 @@ Work items play a prominent role in Azure DevOps. Whether describing work to be 
 
     - In the upper left corner, select the **Unassigned** entry and, in the dropdown list, select your user account in order to assign the new work item to yourself. If your name doesn't appear to start with, begin typing your name and click **Search** (2).
 
-     - Next to the **Area** entry, select the **eShopOnWeb** entry and, in the dropdown list, select **EShop-WEB**. This will set the **Area** to **eShopOnWeb\EShop-WEB** (3).
+     - Next to the **Area** entry, select the **EShopOnWeb** entry and, in the dropdown list, select **EShop-WEB**. This will set the **Area** to **EShopOnWeb\EShop-WEB** (3).
 
-     - Next to the **Iteration** entry, select the **eShopOnWeb** entry and, in the dropdown list, select **Sprint 2**. This will set the **Iteration** to **eShopOnWeb\Sprint 2** (4).
+     - Next to the **Iteration** entry, select the **EShopOnWeb** entry and, in the dropdown list, select **Sprint 2**. This will set the **Iteration** to **EShopOnWeb\Sprint 2** (4).
 
        ![Enter previously shown information and click "Save" in Epic window](images/m1/az-400_m01_t2_s7.png)
 
@@ -442,7 +442,7 @@ To maximize a team's ability to consistently deliver high quality software, Kanb
 
    ![On the "Settings" panel, review information and click "Save and close"](images/m1/az-400p9.png)
 
-    > **Note**: If you would like to review a more sophisticated board with many more work items, on the **Board** tab of the **Boards** panel, in the upper left corner, select **EShop-WEB** and, in the dropdown list of teams, select the **eShopOnWeb Team**. This board provides a playground for you to experiment with and review the results.
+    > **Note**: If you would like to review a more sophisticated board with many more work items, on the **Board** tab of the **Boards** panel, in the upper left corner, select **EShop-WEB** and, in the dropdown list of teams, select the **EShopOnWebTeam**. This board provides a playground for you to experiment with and review the results.
 
     > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
@@ -491,7 +491,7 @@ All processes are shared within the same organization. That is, one or more team
 
     ![On the "Add a field to Product Backlog Item" panel, on the "Layout" tab make sure the information has been included and click "Add Field"](images/m1/az-400_m01_t5_s111.png)
 
-    > **Note**: Now that the customized process has been configured, let's switch to the eShopOnWeb project to use it.
+    > **Note**: Now that the customized process has been configured, let's switch to the EShopOnWebproject to use it.
 
 1. Return to the **All processes** root using the breadcrumb path at the top of the **All processes > Customized Scrum > Product Backlog Item** pane.
 
@@ -501,7 +501,7 @@ All processes are shared within the same organization. That is, one or more team
 
 1. On the **All processes > Scrum** pane, select the **Projects** tab.
 
-1. In the list of projects, in the row containing the **eShopOnWeb** entry, select the ellipsis symbol (...) and then select **Change process**.
+1. In the list of projects, in the row containing the **EShopOnWeb** entry, select the ellipsis symbol (...) and then select **Change process**.
 
 1. On the **Change the project process** pane, in the **Select a target process** dropdown list, select the **Customized Scrum** process, click **Save** and then click **Close**.
 
@@ -509,9 +509,9 @@ All processes are shared within the same organization. That is, one or more team
 
 1. Click the **Azure DevOps** logo in the top left corner to return to the account root page.
 
-1. On the **Projects** tab, select the entry representing the **eShopOnWeb** project.
+1. On the **Projects** tab, select the entry representing the **EShopOnWeb** project.
 
-1. In the vertical menu on the left side of the **eShopOnWeb** page, select **Boards** and ensure that the **Work Items** pane is displayed.
+1. In the vertical menu on the left side of the **EShopOnWeb** page, select **Boards** and ensure that the **Work Items** pane is displayed.
 
 1. In the list of work items, click the first backlog item.
 
@@ -536,9 +536,9 @@ Dashboards allow teams to visualize status and monitor progress across the proje
 
 1. In the vertical navigational pane of the Azure DevOps portal, select the **Overview** icon and, in the list of the **Overview** items, select **Dashboards**.
 
-1. If necessary, on the **Dashboards** pane, in the upper left corner, in the **eShopOnWeb Team** section, select **eShopOnWeb Team - Overview** and review the existing dashboard.
+1. If necessary, on the **Dashboards** pane, in the upper left corner, in the **EShopOnWebTeam** section, select **EShopOnWebTeam - Overview** and review the existing dashboard.
 
-    ![If necessary, on the "Dashboards" pane, in the upper left corner, in the "eShopOnWeb Team" section, select "eShopOnWeb Team - Overview"](images/m1/az-400_m01_ex2_s02.png)
+    ![If necessary, on the "Dashboards" pane, in the upper left corner, in the "EShopOnWebTeam" section, select "EShopOnWebTeam - Overview"](images/m1/az-400_m01_ex2_s02.png)
 
 1. On the **Dashboards (1)** pane, select the drop-down menu next to the **eShopOnWeb Team - Overview (2)** title, and select **+ New dashboard (3)**.
 
@@ -572,11 +572,11 @@ Dashboards allow teams to visualize status and monitor progress across the proje
 
 1. On the **Editor** tab of **Queries > My Queries** pane, in the **Value** dropdown list of the **Work Item Type** row, select **Task**.
 
-1. On the **Editor** tab of **Queries > My Queries** pane, in the second row, in the **Field** column, select **Area Path** and, in the corresponding **Value** dropdown list, select **eShopOnWeb\\EShop-WEB**.
+1. On the **Editor** tab of **Queries > My Queries** pane, in the second row, in the **Field** column, select **Area Path** and, in the corresponding **Value** dropdown list, select **EShopOnWeb\\EShop-WEB**.
 
 1. Click **Save**.
 
-    ![On the "Editor" tab of "Queries > My Queries" pane, in the second row, in the "Field" column, select "Area Path" and, in the corresponding "Value" dropdown list, select "eShopOnWeb\\EShop-WEB"](images/m1/az-400_m01_ex2_s15.png)
+    ![On the "Editor" tab of "Queries > My Queries" pane, in the second row, in the "Field" column, select "Area Path" and, in the corresponding "Value" dropdown list, select "EShopOnWeb\\EShop-WEB"](images/m1/az-400_m01_ex2_s15.png)
 
 1. In the **New query** panel, in the **Enter name** textbox, type **Web tasks**, in the **Folder** dropdown list, select **Shared Queries**, and click **OK**.
 
