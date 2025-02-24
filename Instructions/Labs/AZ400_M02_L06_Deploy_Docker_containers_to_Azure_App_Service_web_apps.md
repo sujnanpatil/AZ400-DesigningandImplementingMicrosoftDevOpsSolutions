@@ -176,10 +176,10 @@ In this task, you will add a new role assignment to allow Azure App Service pull
     echo $roleName
     ```
 
-1. Now, let's create the role assignment by running this command **(replace <rg-az400-container-NAME> with rg-az400-eshopeonweb-<inject key="DeploymentID"></inject> )**
+1. Now, let's create the role assignment by running this command **(replace [rg-az400-container-NAME] with rg-az400-eshopeonweb-<inject key="DeploymentID"></inject> )**
 
     ```sh
-    az role assignment create --assignee $spId --role $roleName --scope /subscriptions/$subscriptionId/resourceGroups/<rg-az400-container-NAME>
+    az role assignment create --assignee $spId --role $roleName --scope /subscriptions/$subscriptionId/resourceGroups/[rg-az400-container-NAME]
     ```
 
 1. You should now see the JSON output which confirms the success of the command run.
