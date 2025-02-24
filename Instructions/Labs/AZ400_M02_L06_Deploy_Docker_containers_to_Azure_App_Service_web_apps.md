@@ -83,7 +83,7 @@ A service principal is automatically created by Azure Pipeline when you connect 
    ![Policy Settings](images/402.png)
 
 1. Fill in the below fields and leave the others as default:
-    - Resource Group: ****rg-az400-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>**** (1)
+    - Resource Group: **rg-az400-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** (1)
     - In **Service connection name** type **azure-connection** (2). This name will be referenced in YAML pipelines when needing an Azure DevOps Service Connection to communicate with your Azure subscription.
     - Click on **Save**(3).
 
@@ -131,10 +131,11 @@ When going through the different course labs in the order they are presented, th
 
 1. Select the **/.ado/eshoponweb-ci-docker.yml** file then click on **Continue**.
 
-1. In the YAML pipeline definition, customize under the Variables section from line number 9:
+1. In the YAML pipeline definition, customize under the Variables section from line number 8:
+
     - **Azure-service-connection-name** with **azure-connection** (1)
     - **YOUR-SUBSCRIPTION-ID** with your Azure subscription id you copied in the previous step (2)
-    - **rg-az400-container-NAME** AZ400-JumpVM (3)
+    - **rg-az400-container-NAME** with **rg-az400-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>**  (3)
 
       ![Branch Policies](images/az40055-5.png)
 
