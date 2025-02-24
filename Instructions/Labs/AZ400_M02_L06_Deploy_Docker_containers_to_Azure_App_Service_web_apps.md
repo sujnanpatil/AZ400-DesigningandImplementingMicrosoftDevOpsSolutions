@@ -79,11 +79,11 @@ A service principal is automatically created by Azure Pipeline when you connect 
 1. On the **New service connection** blade, select **Azure Resource Manager** and **Next** (may need to scroll down).
 
 1. Fill in the below fields and leave the others as default:
-    - Resource Group: **rg-az400-eshopeonweb-<inject key="DeploymentID"></inject>** (1)
+    - Resource Group: **AZ400AZ400-JumpVM** (1)
     - In **Service connection name** type **azure-connection** (2). This name will be referenced in YAML pipelines when needing an Azure DevOps Service Connection to communicate with your Azure subscription.
     - Click on **Save**(3).
 
-      ![Policy Settings](images/az4002.png)
+      ![Policy Settings](images/az40022-2.png)
 
 # Exercise 2: Import and run the CI pipeline
 
@@ -130,9 +130,9 @@ When going through the different course labs in the order they are presented, th
 1. In the YAML pipeline definition, customize under the Variables section from line number 9:
     - **Azure-service-connection-name** with **azure-connection** (1)
     - **YOUR-SUBSCRIPTION-ID** with your Azure subscription id you copied in the previous step (2)
-    - **rg-az400-container-NAME** rg-az400-eshopeonweb-<inject key="DeploymentID"></inject> (3)
+    - **rg-az400-container-NAME** AZ400-JumpVM (3)
 
-      ![Branch Policies](images/az4005.png)
+      ![Branch Policies](images/az40055-5.png)
 
 1. Click on **Save and Run** and wait for the pipeline to execute succesfully.
 
