@@ -49,7 +49,9 @@ A service principal is automatically created by Azure Pipeline when you connect 
 
 1.  If prompted to select either **Bash** or **PowerShell**, select **Bash**. 
 
-    >**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and select **Create storage**. 
+    >**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, Select **No storage Account Required** (1) select the subscription you are using in this lab (2), and click on **Apply** (3)
+    
+    > ![Policy Settings](images/401.png)
 
 1.  From the **Bash** prompt, in the **Cloud Shell** pane, run the following commands to retrieve the values of the Azure subscription ID attribute: 
 
@@ -74,9 +76,11 @@ A service principal is automatically created by Azure Pipeline when you connect 
 
    ![Policy Settings](images/az4001.png)
 
-1. Subsequently, select **Service Connections (under Pipelines)** and **Create Service Connection**.
+1. Subsequently, from left pane, select **Service Connections (under Pipelines)** and **Create Service Connection**.
 
-1. On the **New service connection** blade, select **Azure Resource Manager** and **Next** (may need to scroll down).
+1. On the **New service connection** blade, select **Azure Resource Manager** (1) and **Next** (2) (may need to scroll down).
+
+   ![Policy Settings](images/402.png)
 
 1. Fill in the below fields and leave the others as default:
     - Resource Group: ****rg-az400-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>**** (1)
@@ -187,7 +191,9 @@ In this task, you will import and run the CI pipeline.
 
    ![Branch Policies](images/az4007.png)
 
-1. Change the SKU to **F1** from **B1** on line 19 and Commit the changes.
+1. Change the SKU to **F1** from **B1** on line 19 (1)and click on **Commit**(2)  to save the changes.
+
+   ![Branch Policies](images/403.png)
 
 1. Go to **Pipelines**and select **Pipelines** from the left navigation pane.
 
@@ -199,14 +205,18 @@ In this task, you will import and run the CI pipeline.
 
 1. Select **Existing Azure Pipelines YAML File**.
 
-1. Select the **/.ado/eshoponweb-cd-webapp-docker.yml** file then click on **Continue**.
+1. Select the **/.ado/eshoponweb-cd-webapp-docker.yml** (1) file then click on **Continue** (2).
+
+   ![Branch Policies](images/404.png)
 
 1. In the YAML pipeline definition, customize with the following values:
     - **azureServiceConnection:** 'azure-connection'
-    - **YOUR-SUBSCRIPTION-ID** with your Azure subscription id.
-    - **rg-az400-container-NAME** rg-az400-eshopeonweb-<inject key="DeploymentID"></inject>
+    - **resourceGroup** rg-az400-eshopeonweb-<inject key="DeploymentID"></inject>
     - **location:** 'southcentralus'
-
+    - **YOUR-SUBSCRIPTION-ID** with your Azure subscription id which you copied in the previous step.
+    
+      ![Branch Policies](images/405.png)
+   
 1. Click on **Save and Run** and wait for the pipeline to execute successfully.
 
     > **Note**: The deployment may take a few minutes to complete and if its asks for permission click on Permit.
@@ -215,7 +225,13 @@ In this task, you will import and run the CI pipeline.
 
 1. When it asks for permission click on **View** and click on **Permit** twice.
 
-1. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better. Go to **Pipelines>Pipelines** and click on the recently created pipeline. Click on the ellipsis and **Rename/Remove** option. Name it **eshoponweb-cd-webapp-docker** and click on **Save**.
+1. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better. Go to **Pipelines>Pipelines** and click on the recently created pipeline.
+  
+1. Click on the ellipsis and select **Rename/move** option.
+
+   ![Branch Policies](images/406.png)
+
+1. Name it **eshoponweb-cd-webapp-docker** and click on **Save**.
 
     > **Note 1**: The use of the **/.azure/bicep/webapp-docker.bicep** template creates an app service plan, a web app with system-assigned managed identity enabled, and references the docker image pushed previously: **${acr.properties.loginServer}/eshoponweb/web:latest**.
 
