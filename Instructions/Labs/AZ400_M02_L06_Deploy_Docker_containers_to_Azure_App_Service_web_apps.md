@@ -254,11 +254,17 @@ In this exercise, you will remove the Azure DevOps billing enabled in this lab t
 
 In this task, you will remove pipeline billing to eliminate unnecessary charges.
 
-1. On the lab computer, switch to the browser window displaying Azure DevOps organization homepage and select **Organization Settings** at bottom left corner.
+1. On the lab computer, switch to the browser window displaying Azure DevOps organization homepage by clicking on **Azure Devops** from the top left corner.
 
-1. Under **Organization Settings** select **Billing** and click on **Change billing** button to open Change billing pane.
+   ![Branch Policies](images/407.png)
 
-1. In the **Change billing** pane, select **Remove billing** setting and click on Save.
+1. Select **Organization Settings** at bottom left corner.
+
+   ![Branch Policies](images/408.png)
+
+1. Under **Organization Settings** select **Billing** from the left pane and click on **Change billing** button to open Change billing pane.
+
+1. In the **Change billing** pane, select **Remove billing** setting and click on **Save**.
 
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
