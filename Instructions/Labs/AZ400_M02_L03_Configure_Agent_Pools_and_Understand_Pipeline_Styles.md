@@ -274,7 +274,13 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
       ![](images/AZ-400-rename.png)  
 
 
-<validation step="38dc84d9-2b4f-44c8-bf6f-1da2f5a9cde7" />
+   > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+   > - If you receive a success message, you can proceed further.
+   > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+   > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+
+   <validation step="38dc84d9-2b4f-44c8-bf6f-1da2f5a9cde7" />
 
 ## Review
 
