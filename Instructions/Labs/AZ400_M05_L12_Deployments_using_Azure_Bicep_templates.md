@@ -60,7 +60,7 @@ In this exercise, you will set up the prerequisites for the lab, which consist o
 
 9. In the **Organization Setting** window on the left menu click on **Policies** and enable **Third-party application access via OAuth**.
 
-    ![Azure DevOps](images/policies-enable-3rd.png)    
+    ![Azure DevOps](images/AZ41.png)    
 
 ## Task 2: Create and configure the team project
 
@@ -100,6 +100,8 @@ In this task you will import the eShopOnWeb Git repository that will be used by 
    
    ![Import Repository](images/az-400-5.png)
 
+   >**Note:** If there is only one branch, it will automatically be considered the main branch, causing the option to be greyed out.
+
 # Exercise 1: Understand an Azure Bicep template and simplify it using a reusable module
 
 In this lab, you will review an Azure Bicep template and simplify it using a reusable module.
@@ -108,7 +110,7 @@ In this lab, you will review an Azure Bicep template and simplify it using a reu
 
 In this task, you will use Visual Studio Code to create an Azure Bicep template
 
-1. In the browser tab you have your Azure DevOps project open, navigate to **Repos** and **Files**. Open the `infra` folder and find the `simple-windows-vm.bicep` file.
+1. In the browser tab you have your Azure DevOps project open, navigate to **Repos** and **Files** from the left pane. Open the `infra` folder and find the `simple-windows-vm.bicep` file.
 
    ![Simple-windows-vm.bicep file](./images/6-8.png)
 
@@ -130,7 +132,7 @@ In this task, you will create a storage template module **storage.bicep** which 
 
    ![Edit button](./images/6-9.png)
 
-1. Now delete the storage resource:
+1. Now delete the storage resource located in line number 93:
 
    ```bicep
    resource storageAccount 'Microsoft.Storage/storageAccounts@2022-05-01' = {
@@ -211,16 +213,8 @@ In this task, you will modify the main template to reference the template module
    ```
    
    ![Simple-windows-vm.bicep file](./images/az-400-5a31.png)
-   
-1. Review the following details in the main template:
 
-   - A module in the main template is used to link to another template.
-   - The module has a symbolic name called `storageModule`. This name is used for configuring any dependencies.
-   - You can only use **Incremental** deployment mode when using template modules.
-   - A relative path is used for your template module.
-   - Use parameters to pass values from the main template to the template modules.
-
-1. Commit the template.
+1. Click on Commit twice.
 
 # Exercise 2: Deploying the templates to Azure using YAML pipelines
 
@@ -228,21 +222,14 @@ In this lab, you will create a service connection and use it in an Azure DevOps 
 
 ## Task 1: Create a Service Connection for deployment
 
-In this task, you will create a Service Principal by using the Azure CLI, which will allow Azure DevOps to:
-
-- Deploy resources on your Azure subscription.
-- Have read access on the later created Key Vault secrets.
-
-> **Note**: If you do already have a Service Principal, you can proceed directly to the next task.
-
-You will need a Service Principal to deploy  Azure resources from Azure Pipelines. Since we are going to retrieve secrets in a pipeline, we will need to grant permission to the service when we create the Azure Key Vault.
+In this task, you will create a Service Principal by using the Azure CLI. You will need a Service Principal to deploy  Azure resources from Azure Pipelines. Since we are going to retrieve secrets in a pipeline, we will need to grant permission to the service when we create the Azure Key Vault.
 
 A Service Principal is automatically created by Azure Pipelines, when you connect to an Azure subscription from inside a pipeline definition or when you create a new Service Connection from the project settings page (automatic option). You can also manually create the Service Principal from the portal or using Azure CLI and re-use it across projects.
 
 1. From the lab computer, start a web browser, navigate to the [**Azure Portal**](https://portal.azure.com), if prompted to sign in sign in using the following credentials:
 
-    Username:  <inject key="AzureAdUserEmail"></inject>
-    Password:  <inject key="AzureAdUserPassword"></inject>
+    - Username:  <inject key="AzureAdUserEmail"></inject>
+    - Password:  <inject key="AzureAdUserPassword"></inject>
       
 1. In the Azure portal, click on the **Cloud Shell** icon, located directly to the right of the search textbox at the top of the page.
 
@@ -271,7 +258,9 @@ A Service Principal is automatically created by Azure Pipelines, when you connec
 
     > **Note**: Copy both values to a text file. You will need them later in this lab.
 
-1. From the **Bash** prompt, in the **Cloud Shell** pane, run the following command to create a Service Principal (replace the **myServicePrincipalName** with any unique string of characters consisting of letters and digits) and **mySubscriptionID** with your Azure subscriptionId :
+1. From the **Bash** prompt, in the **Cloud Shell** pane, run the following command to create a Service Principal
+
+   - Replace the **myServicePrincipalName** with **azureconnection<inject key="DeploymentID" enableCopy="false" />** and **mySubscriptionID** with your Azure subscription Id which you copied in the previous step.
 
     ```bash
     az ad sp create-for-rbac --name myServicePrincipalName \
@@ -283,29 +272,33 @@ A Service Principal is automatically created by Azure Pipelines, when you connec
 
     ![New Service Connection](images/6-5.png)
 
-1. Next, from the lab computer, start a web browser, navigate to the Azure DevOps **eShopOnWeb** project. Click on **Project Settings>Service Connections (under Pipelines)** and **Create Service Connection**.
+1. Run the following command to create a resource group.
+
+    Replace **[Location]** with **<inject key="Region" enableCopy="false" />** in the below command.
+
+     ```bash
+       az group create --name az400m06l15-RG --location [Location]
+     ```
+
+1. Next, from the lab computer, start a web browser, navigate to the Azure DevOps **eShopOnWeb** project. Click on **Project Settings**. 
 
    ![New Service Connection](images/az-4.3.png)
+
+1. From the left pane click **Service Connections** (under Pipelines and **Create Service Connection**.
 
    ![New Service Connection](images/6-6.png)
 
 1. On the **New service connection** blade, select **Azure Resource Manager** and **Next** (may need to scroll down).
 
-1. The choose **Service Principal (manual)** and click on **Next**.
+   ![New Service Connection](images/402.png)
+
+1. Fill in the below fields and leave the others as default:
+    - Resource Group: **az400m06l15-RG** (1)
+    - In **Service connection name** type **azure subs**(2). This name will be referenced in YAML pipelines when needing an Azure DevOps Service Connection to communicate with your Azure subscription.
+    - Click on **Save**(3).
+
+      ![Policy Settings](images/AZ42.png)
    
-1. Fill in the empty fields using the information gathered during previous steps:
-    - Subscription Id **(1)**
-    - Subscription Name **(2)**
-    - Service Principal Id (appId) **(3)**
-    - Service principal key (password) **(4)** and Tenant ID (tenant **(5))**
-    - In **Service connection name** type **azure subs (6)**. This name will be referenced in YAML pipelines when needing an Azure DevOps Service Connection to communicate with your Azure subscription.
-    - Click on **Verify and Save (7)**.
-
-      ![Azure Service Connection](images/az-400-9a24.png)
-
-      ![Azure Service Connection](images/az-400-9a25.png)   
-
-
 ## Task 2: Deploy resources to Azure by YAML pipelines
 
 In this task, you will create a template-based Azure DevOps YAML pipeline.
@@ -332,7 +325,13 @@ In this task, you will create a template-based Azure DevOps YAML pipeline.
 
    ![Save and running the YAML pipeline after making changes](./images/6-3.png)
 
-1. In the variables section, replace name with **az400m06l15-RG** resource group, set the desired **location** to **<inject key="Region" enableCopy="false"/>** replace the value of the service connection with one of your existing service connections you created earlier.
+1. In the variables section, replace the  following:
+
+   - Name of the resource group with **az400m06l15-RG** (1)
+   - Set the desired **location** to **<inject key="Region" enableCopy="false"/>** (2)
+   - Value of the service connection with **azure subs** (3)
+
+    ![](images/AZ43.png)
 
 1. Click the **Save and run (1)** button from the top right corner and in the commit dialog, click **Save and run** again.
 
@@ -353,7 +352,7 @@ In this task, you will create a template-based Azure DevOps YAML pipeline.
 
 1. Validate the message in the **Permit popup** window, and confirm by clicking **Permit**.
 
-1. This sets off the Deploy Stage. Wait for this to complete successfully.
+1. This sets off the Deploy Stage. Wait for this to complete successfully. The pipeline can take around 6 minutes to complete.
 
 1. Wait for the deployment to finish and review the results.
 
