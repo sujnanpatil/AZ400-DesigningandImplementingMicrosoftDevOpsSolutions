@@ -78,17 +78,11 @@ In this task, you will create an **eShopOnWeb** Azure DevOps project to be used 
 
 In this task you will import the eShopOnWeb Git repository that will be used by several labs.
 
-1. On your lab computer, in a browser window open your Azure DevOps organization and the previously created **eShopOnWeb** project. Click on **Repos (1) >Files (2)** , **Import a Repository**. Select **Import (3)**. On the **Import a Git Repository** window, paste the following URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> **(4)** and click **Import (5)**:
+1. On your lab computer, in a browser window open your Azure DevOps organization and the previously created **eShopOnWeb** project.
+  
+1. Click on **Repos (1) >Files (2)** from the left pane , under **Import a Repository** select **Import (3)**. On the **Import a Git Repository** window, paste the following URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> **(4)** and click **Import (5)**:
 
      ![Import Repository](images/az-400-4.png)
-
-1. The repository is organized the following way:
-    - **.ado** folder contains Azure DevOps YAML pipelines.
-    - **.devcontainer** folder container setup to develop using containers (either locally in VS Code or GitHub Codespaces).
-    - **infra** folder contains Bicep&ARM infrastructure as code templates used in some lab scenarios.
-    - **.github** folder container YAML GitHub workflow definitions.
-    - **src** folder contains the .NET 8 website used on the lab scenarios.
-
 
 ## Task 4: Set main branch as default branch
   
@@ -100,7 +94,7 @@ In this task you will import the eShopOnWeb Git repository that will be used by 
    
    ![Import Repository](images/az-400-5.png)
 
-   >**Note:** If there is only one branch, it will automatically be considered the main branch, causing the option to be greyed out.
+   >**Note:** If there's only one branch, it will automatically be set as the default branch, and the option will be greyed out. In this case, you can proceed with the next steps.
 
 # Exercise 1: Understand an Azure Bicep template and simplify it using a reusable module
 
@@ -187,7 +181,7 @@ In this task, you will modify the main template to reference the template module
 
 1. Navigate back to the `simple-windows-vm.bicep` file and click on the **Edit** button once again.
 
-1. Next, add the following code after the variables:
+1. Next, add the following code after the variables in line number 93:
 
    ```bicep
    module storageModule './storage.bicep' = {
@@ -267,8 +261,6 @@ A Service Principal is automatically created by Azure Pipelines, when you connec
                          --role contributor \
                          --scopes /subscriptions/mySubscriptionID
     ```
-
-    > **Note**: The command will generate a JSON output. Copy the output to text file. You will need it later in this lab.
 
     ![New Service Connection](images/6-5.png)
 
