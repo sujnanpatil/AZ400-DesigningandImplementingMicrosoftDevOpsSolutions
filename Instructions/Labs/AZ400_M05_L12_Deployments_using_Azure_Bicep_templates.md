@@ -276,7 +276,11 @@ A Service Principal is automatically created by Azure Pipelines, when you connec
 
    ![New Service Connection](images/az-4.3.png)
 
-1. From the left pane click **Service Connections** (under Pipelines and **Create Service Connection**.
+1. From the left pane click **Service Connections** under Pipelines.
+
+   ![New Service Connection](images/AZ44.png)
+
+1. In the window that appears click on **Create Service Connection**.
 
    ![New Service Connection](images/6-6.png)
 
@@ -331,12 +335,7 @@ In this task, you will create a template-based Azure DevOps YAML pipeline.
 
 1. **Ignore** any Warnings showing up during the Build Stage. Wait until it completes the Build Stage successfully. (You can select the actual Build stage to see more details from the logs.)
 
-1. Once the Deploy Stage wants to start, you are prompted with **Permissions Needed**, as well as an orange bar saying:
-
-    ```text
-    This pipeline needs permission to access a resource before this run can continue to Deploy to an Azure Web App
-    ```
-1. Click on **View**.
+1. Once the Deploy Stage wants to start, you are prompted with **Permissions Needed**. Click on **View**.
 
    ![Successful resource deployment to Azure using YAML pipelines](./images/az-400-5a25.png)
 
@@ -344,7 +343,7 @@ In this task, you will create a template-based Azure DevOps YAML pipeline.
 
 1. Validate the message in the **Permit popup** window, and confirm by clicking **Permit**.
 
-1. This sets off the Deploy Stage. Wait for this to complete successfully. The pipeline can take around 6 minutes to complete.
+1. This sets off the Deploy Stage. Wait for this to complete successfully. The pipeline can take around 10 minutes to complete.
 
 1. Wait for the deployment to finish and review the results.
 
@@ -356,6 +355,23 @@ In this task, you will create a template-based Azure DevOps YAML pipeline.
    - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="9cd20f12-9e2f-4fb2-b764-6790b73ade56" />
+
+## Task 3: Remove the Azure DevOps billing
+
+In this task, you will remove pipeline billing to eliminate unnecessary charges.
+
+1. On the lab computer, switch to the browser window displaying Azure DevOps organization homepage by clicking on **Azure Devops** from the top left corner.
+
+   ![Branch Policies](images/407.png)
+
+1. Select **Organization Settings** at bottom left corner.
+
+   ![Branch Policies](images/408.png)
+
+1. Under **Organization Settings** select **Billing** from the left pane and click on **Change billing** button to open Change billing pane.
+
+1. In the **Change billing** pane, select **Remove billing** setting and click on **Save**.
+
 
 ## Review
 
