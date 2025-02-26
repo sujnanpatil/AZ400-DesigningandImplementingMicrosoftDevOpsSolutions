@@ -300,13 +300,13 @@ In this task, you will add a YAML build definition to the existing project.
    
     ![Import Repository](images/az-400-9a5.png)
    
-1. In the **Azure App Service deploy** pane, specify the following settings and click **Add**:
+1. In the **Azure App Service deploy** pane, specify the following settings and click **Add(7)**:
 
-    - in the **Azure subscription** drop-down list, select the Azure subscription into which you deployed the Azure resources earlier in the lab, - if needed (only when this is your first pipeline you create) click **Authorize**, and, when prompted, authenticate by using the same user account you used during the Azure resource deployment.
-    - Validate **App Service Type** points to Web App on Windows.
-    - in the **App Service name** dropdown list, select the name of the web app you deployed earlier in the lab (**az400eshoponweb...).
-    - in the **Package or folder** text box, **update** the Default Value to `$(Build.ArtifactStagingDirectory)/**/Web.zip`.
-    - Expand **Application and Configuration Settings** and in the **App settings** text box add the value `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development`
+    - in the **Azure subscription(1)** drop-down list, select the Azure subscription into which you deployed the Azure resources earlier in the lab, - if needed (only when this is your first pipeline you create) click **Authorize(2)**, and, when prompted, authenticate by using the same user account you used during the Azure resource deployment.
+    - Validate **App Service Type** points to **Web App on Windows(3)**.
+    - in the **App Service name** dropdown list, select the name of the web app you deployed earlier in the lab (**az400eshoponweb...(4)**).
+    - in the **Package or folder** text box, **update(5)** the Default Value to `$(Build.ArtifactStagingDirectory)/**/Web.zip`.
+    - Expand **Application and Configuration Settings** and in the **App settings(6)** text box add the value `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development`
 
         ![Import Repository](images/test-134.png)
 
