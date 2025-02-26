@@ -435,7 +435,7 @@ In this task, you will create different Azure Load Testing tests, using differen
 
 1. Complete the following parameters and settings to create a load test:
    - Make sure to disable **Enable Advanced settings (1)**
-   - **Test URL**: Enter the URL from the Azure App Service you deployed in the previous exercise which looks similar to (**https://az400eshoponweb...azurewebsites.net/**) **(2)**
+   - **Test URL**: Enter the URL from the Azure App Service you deployed in the previous exercise which looks similar to (**https://az400eshoponweb...azurewebsites.net/**), **including https://**.
    - **Specify Load**: Virtual Users **(3)**
    - **Number of Virtual Users**: 50 **(4)**
    - **Test Duration (minutes)**: 5 **(5)**
