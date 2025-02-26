@@ -308,6 +308,8 @@ In this task, you will add a YAML build definition to the existing project.
     - in the **Package or folder** text box, **update** the Default Value to `$(Build.ArtifactStagingDirectory)/**/Web.zip`.
     - Expand **Application and Configuration Settings** and in the **App settings** text box add the value `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development`
 
+        ![Import Repository](images/test-134.png)
+
 1. Confirm the settings from the Assistant pane by clicking the **Add** button.
 
     > **Note**: This will automatically add the deployment task to the YAML pipeline definition.
