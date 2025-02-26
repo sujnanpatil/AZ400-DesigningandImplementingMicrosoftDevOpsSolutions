@@ -147,6 +147,7 @@ In this task, you will create an Azure web app by using the cloud shell in Azure
     az webapp create --resource-group $RESOURCEGROUPNAME --plan $SERVICEPLANNAME --name $WEBAPPNAME
     ```
 
+    > **Note**: If you receive an error "This region has quota of 0 instances for your subscription".Delete the Resource group, and again perform step 8 and 9 with a different region ex. westus.
     > **Note**: Record the name of the web app. You will need it later in this lab.
 
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
@@ -300,13 +301,15 @@ In this task, you will add a YAML build definition to the existing project.
    
     ![Import Repository](images/az-400-9a5.png)
    
-1. In the **Azure App Service deploy** pane, specify the following settings and click **Add**:
+1. In the **Azure App Service deploy** pane, specify the following settings and click **Add(7)**:
 
-    - in the **Azure subscription** drop-down list, select the Azure subscription into which you deployed the Azure resources earlier in the lab, - if needed (only when this is your first pipeline you create) click **Authorize**, and, when prompted, authenticate by using the same user account you used during the Azure resource deployment.
-    - Validate **App Service Type** points to Web App on Windows.
-    - in the **App Service name** dropdown list, select the name of the web app you deployed earlier in the lab (**az400eshoponweb...).
-    - in the **Package or folder** text box, **update** the Default Value to `$(Build.ArtifactStagingDirectory)/**/Web.zip`.
-    - Expand **Application and Configuration Settings** and in the **App settings** text box add the value `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development`
+    - in the **Azure subscription(1)** drop-down list, select the Azure subscription into which you deployed the Azure resources earlier in the lab, - if needed (only when this is your first pipeline you create) click **Authorize(2)**, and, when prompted, authenticate by using the same user account you used during the Azure resource deployment.
+    - Validate **App Service Type** points to **Web App on Windows(3)**.
+    - in the **App Service name** dropdown list, select the name of the web app you deployed earlier in the lab (**az400eshoponweb...(4)**).
+    - in the **Package or folder** text box, **update(5)** the Default Value to `$(Build.ArtifactStagingDirectory)/**/Web.zip`.
+    - Expand **Application and Configuration Settings** and in the **App settings(6)** text box add the value `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development`
+
+        ![Import Repository](images/test-134.png)
 
 1. Confirm the settings from the Assistant pane by clicking the **Add** button.
 
@@ -433,7 +436,7 @@ In this task, you will create different Azure Load Testing tests, using differen
 
 1. Complete the following parameters and settings to create a load test:
    - Make sure to disable **Enable Advanced settings (1)**
-   - **Test URL**: Enter the URL from the Azure App Service you deployed in the previous exercise which looks similar to (**https://az400eshoponweb...azurewebsites.net/**) **(2)**
+   - **Test URL**: Enter the URL from the Azure App Service you deployed in the previous exercise which looks similar to (**https://az400eshoponweb...azurewebsites.net/**), **including https://**.
    - **Specify Load**: Virtual Users **(3)**
    - **Number of Virtual Users**: 50 **(4)**
    - **Test Duration (minutes)**: 5 **(5)**
