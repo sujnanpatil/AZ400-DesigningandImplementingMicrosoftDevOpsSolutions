@@ -108,9 +108,6 @@ In this task, you will create Azure Repository and publish a branch of an Azure 
      ![](images/E1T1S8.png)
 
 10.  In the Wiki Page **Title** field, enter **Welcome to our Online Retail Store!**
-    
-      ![](images/E1T1S9.png)
-
 11.  In the **body (1)** of the Wiki Page, paste in the following text and **Save (2)** it:
     
       ```

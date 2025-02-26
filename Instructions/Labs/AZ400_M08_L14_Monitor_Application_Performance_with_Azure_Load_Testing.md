@@ -147,6 +147,7 @@ In this task, you will create an Azure web app by using the cloud shell in Azure
     az webapp create --resource-group $RESOURCEGROUPNAME --plan $SERVICEPLANNAME --name $WEBAPPNAME
     ```
 
+    > **Note**: If you receive an error "This region has quota of 0 instances for your subscription".Delete the Resource group, and again perform step 8 and 9 with a different region ex. westus.
     > **Note**: Record the name of the web app. You will need it later in this lab.
 
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
