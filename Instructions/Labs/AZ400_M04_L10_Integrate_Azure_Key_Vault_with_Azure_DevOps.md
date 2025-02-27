@@ -27,10 +27,12 @@ In this lab, you will perform the following exercises:
 # Exercise 0: Configure the lab prerequisites
 
 In this exercise, you will set up the prerequisites for the lab, which consist of a new Azure DevOps project with a repository based on the [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb).
+
 ## Task 1: Set up an Azure DevOps organization
+
 1. On your lab VM open **Edge Browser** on desktop and navigate to https://go.microsoft.com/fwlink/?LinkId=307137. 
 
-2. In the pop-up for *Help us protect your account*, select **Skip for now (14 days until this is required)**.
+2. If you get a pop-up for *Help us protect your account*, select **Skip for now (14 days until this is required)**.
 
 3. On the next page accept defaults and click on continue.
 
@@ -48,7 +50,7 @@ In this exercise, you will set up the prerequisites for the lab, which consist o
 
     ![Azure DevOps](images/bill.png)    
 
-1. On the **MS Hosted CI/CD** section under **Paid parallel jobs** enter value **1** and at the end of the page click on **Save**.
+1. On the **MS Hosted CI/CD** section under **Paid parallel jobs** enter value **1** and scroll down and  click on **Save**.
 
     ![Azure DevOps](images/billingsetup1.png)
 
@@ -56,54 +58,51 @@ In this exercise, you will set up the prerequisites for the lab, which consist o
 
 In this task, you will create an **eShopOnWeb** Azure DevOps project to be used by several labs.
 
-1.  On your lab computer, in a browser window open your Azure DevOps organization. Click on **New Project**. Give your project the name **eShopOnWeb** and choose **Scrum** on the **Work Item process** dropdown. Click on **Create**
+1. Click on the **Azure Devops icon** located in the top left corner to navigate back to the Project page.
+
+    ![Create Project](images/AZ441.png)
+
+1. In the window that appears, give your project the name **eShopOnWeb** and choose **Scrum** on the **Work Item process** dropdown. Click on **Create**
 
     ![Create Project](images/lab-400-1.png)
 
 ## Task 3: Import eShopOnWeb Git Repository
 
-In this task you will import the eShopOnWeb Git repository that will be used by several labs.
+In this task, you will import the eShopOnWeb Git repository that will be used by several laB.
 
-1.  On your lab computer, in a browser window open your Azure DevOps organization and the previously created **eShopOnWeb** project. Click on **Repos>Files** , **Import**. On the **Import a Git Repository** window, paste the following URL https://github.com/MicrosoftLearning/eShopOnWeb.git  and click on **Import**:
+1.  Click on **Files** (1) under Repos from the left navigation pane, click on **Import** (2). On the **Import a Git Repository** window, paste the following URL https://github.com/MicrosoftLearning/eShopOnWeb.git  (3)  and click on **Import**(4).
 
-    ![Import Repository](images/lab-400-21.png)
-
-1. The repository is organized the following way:
-    - **.ado** folder contains Azure DevOps YAML pipelines.
-    - **.devcontainer** folder container setup to develop using containers (either locally in VS Code or GitHub Codespaces).
-    - **infra** folder contains Bicep&ARM infrastructure as code templates used in some lab scenarios.
-    - **.github** folder container YAML GitHub workflow definitions.
-    - **src** folder contains the .NET 8 website used on the lab scenarios.
+    ![Import Repository](images/az-442.png)
 
 ## Task 4: Set main branch as default branch
+  
+1. Go to **Repos>Branches (1)**.
 
-1. Go to **Repos>Branches**.
-1. Hover on the **main** branch then click the ellipsis on the right of the column.
-1. Click on **Set as default branch**.
+1. Hover on the **main** branch then click the ellipsis on the right of the column **(2)**.
+
+1. Click on **Set as default branch (3)**.
+   
+   ![Import Repository](images/az-400-5.png)
+
+   >**Note:** If there's only one branch, it will automatically be set as the default branch, and the option will be greyed out. In this case, you can proceed with the next steps.
 
 # Exercise 1: Setup CI pipeline to build eShopOnWeb container
 
-Setup CI YAML pipeline for:
-- Creating an Azure Container Registry to keep the container images
-- Using Docker Compose to build and push **eshoppublicapi** and **eshopwebmvc** container images. Only **eshopwebmvc** container will be deployed.
+In this exercise, you will setup CI YAML pipeline  for the creation of an Azure Container Registry.
 
 ## Task 1:  Create a Service Principal
 
-In this task, you will create a Service Principal by using the Azure CLI, which will allow Azure DevOps to:
-- Deploy resources on your Azure subscription
-- Have read access on the later created Key Vault secrets.
+In this task, you will create a Service Principal by using the Azure CLI.
 
-> **Note**: If you do already have a Service Principal, you can proceed directly to the next task.
+1.  From the lab computer, start a web browser, navigate to the [**Azure Portal**](https://portal.azure.com).
 
-You will need a Service Principal to deploy  Azure resources from Azure Pipelines. Since we are going to retrieve secrets in a pipeline, we will need to grant permission to the service when we create the Azure Key Vault.
-
-A Service Principal is automatically created by Azure Pipelines, when you connect to an Azure subscription from inside a pipeline definition or when you create a new Service Connection from the project settings page (automatic option). You can also manually create the Service Principal from the portal or using Azure CLI and re-use it across projects.
-
-1.  From the lab computer, start a web browser, navigate to the [**Azure Portal**](https://portal.azure.com), and sign in with the user account that has the Owner role in the Azure subscription you will be using in this lab and has the role of the Global Administrator in the Azure AD tenant associated with this subscription.
 1.  In the Azure portal, click on the **Cloud Shell** icon, located directly to the right of the search textbox at the top of the page.
+
 1.  If prompted to select either **Bash** or **PowerShell**, select **Bash**.
 
-    >**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and select **Create storage**.
+1. If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, Select **No storage Account Required** (1) select the subscription you are using in this lab (2), and click on **Apply** (3)
+    
+    ![Policy Settings](images/401.png)
 
 1.  From the **Bash** prompt, in the **Cloud Shell** pane, run the following commands to retrieve the values of the Azure subscription ID and subscription name attributes:
 
@@ -124,9 +123,13 @@ A Service Principal is automatically created by Azure Pipelines, when you connec
 
     > **Note**: The command will generate a JSON output. Copy the output to text file. You will need it later in this lab.
 
-1. Next, from the lab computer, start a web browser, navigate to the Azure DevOps **eShopOnWeb** project. Click on **Project Settings>Service Connections (under Pipelines)** and **Create Service Connection**.
+1. Next, from the lab computer, start a web browser, navigate to the Azure DevOps **eShopOnWeb** project. Click on **Project Settings** (1)  then click on **Service Connections** (under Pipelines) (2)
 
-    ![New Service Connection](images/lab-400-3.png)
+    ![New Service Connection](images/AZ443.png)
+
+1. Click on **Create Service Connection**
+
+   ![New Service Connection](images/AZ444.png)
 
 1. On the **New service connection** blade, select **Azure Resource Manager** and **Next** (may need to scroll down).
 
