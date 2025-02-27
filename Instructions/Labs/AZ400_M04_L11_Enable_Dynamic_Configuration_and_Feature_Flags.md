@@ -256,11 +256,28 @@ Let's continue to test the Feature manager.
    ![](images/67.dissappearmsg.png)
 
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-   - If you receive a success message, you can proceed to the next task.
+   - If you receive a success message, you have successfully completed the lab.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
    - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
  
    <validation step="ec5155c1-0a64-4319-9b84-94137c2a9658" />
+
+## Task 6: Remove the Azure DevOps billing
+
+In this task, you will remove pipeline billing to eliminate unnecessary charges.
+
+1. On the lab computer, switch to the browser window displaying Azure DevOps organization homepage by clicking on **Azure Devops** from the top left corner.
+
+   ![Branch Policies](images/407.png)
+
+1. Select **Organization Settings** at bottom left corner.
+
+   ![Branch Policies](images/408.png)
+
+1. Under **Organization Settings** select **Billing** from the left pane and click on **Change billing** button to open Change billing pane.
+
+1. In the **Change billing** pane, select **Remove billing** setting and click on **Save**.
+
 
 ## Review
 
