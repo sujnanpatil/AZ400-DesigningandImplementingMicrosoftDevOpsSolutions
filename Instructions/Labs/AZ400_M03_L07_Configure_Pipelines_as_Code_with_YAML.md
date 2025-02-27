@@ -87,7 +87,7 @@ In this task you will import the eShopOnWeb Git repository that will be used by 
    
     ![Import Repository](images/az-400-5.png)
    
-## Task 2: Create Azure resources
+## Task 3: Create Azure resources
 
 In this task, you will create an Azure web app by using the Azure portal.
 
@@ -128,6 +128,7 @@ In this task, you will create an Azure web app by using the Azure portal.
     RESOURCEGROUPNAME='az400m05l11-RG'
     az group create --name $RESOURCEGROUPNAME --location $LOCATION
     ```
+    > **Note:** If you receive an error "This region has a quota of 0 instances for your subscription", please delete the Resource group, and perform step 7 with a different region ex. westus
 
 1. To create a Windows App service plan by running the following command:
 
