@@ -320,19 +320,19 @@ The sprint backlog should contain all the information the team needs to successf
 
 1. On the **Settings** panel, select the **Backlogs** dropdown.
 
-    ![](images/m1/001.png)
+    ![](images/m1/0001.png)
 
     > **Note**: Entries on this tab allow you to set the levels available for navigation. Epics are not included by default, but you could change that.
 
 1. On the **Settings** panel, select the **Working days** dropdown.
 
-    ![](images/m1/002.png)
+    ![](images/m1/0002.png)
 
     > **Note**: Entries on this tab allow you to specify the **Working days** the team follows. This applies to capacity and burndown calculations.
 
 1. On the **Settings** panel, select the **Working with bugs** dropdown.
 
-    ![](images/m1/003.png)
+    ![](images/m1/0003.png)
 
     > **Note**: Entries on this tab allow you to specify how bugs are presented on the board.
 
