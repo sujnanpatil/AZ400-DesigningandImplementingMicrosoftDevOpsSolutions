@@ -325,9 +325,10 @@ In this task, you will import a CD pipeline, customize it and run it for deployi
 
     -  Location: **<inject key="Region" enableCopy="false" />** (1)
     - **YOUR-SUBSCRIPTION-ID** with your Azure subscription id which you copied in the previous task (2).
-    - **acr-login-server**: Login Server name of the Container Registry resource copied in Ex 1 Task 2 step number 11.(3)
-    - **acr-username**: Username of the Container Registry resource copied in Ex 1 Task 2 step number 11.(4)
-    - **resource-group**: **AZ400-EWebShop-<inject key="DeploymentID" enableCopy="false"/>** (5)
+    - **webappname**: **az400eshop-<inject key="DeploymentID" enableCopy="false"/>** (3)
+    - **acr-login-server**: Login Server name of the Container Registry resource copied in Ex 1 Task 2 step number 11 (4)
+    - **acr-username**: Username of the Container Registry resource copied in Ex 1 Task 2 step number 11 (5)
+    - **resource-group**: **AZ400-EWebShop-<inject key="DeploymentID" enableCopy="false"/>** (6)
 
      ![Variable Group create](images/azk171.png)
 
