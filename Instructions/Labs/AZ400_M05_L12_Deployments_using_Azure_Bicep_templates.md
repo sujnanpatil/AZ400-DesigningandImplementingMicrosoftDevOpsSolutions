@@ -356,7 +356,7 @@ In this task, you will create a template-based Azure DevOps YAML pipeline.
  
    <validation step="9cd20f12-9e2f-4fb2-b764-6790b73ade56" />
 
-## Task 3: Remove the Azure DevOps billing
+## Task 3: Remove the Azure Devops billing
 
 In this task, you will remove pipeline billing to eliminate unnecessary charges.
 
