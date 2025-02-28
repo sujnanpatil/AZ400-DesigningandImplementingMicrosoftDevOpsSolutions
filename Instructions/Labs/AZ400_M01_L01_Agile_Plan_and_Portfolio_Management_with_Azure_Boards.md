@@ -354,9 +354,9 @@ To maximize a team's ability to consistently deliver high quality software, Kanb
 
     > **Note**: The team is emphasizing work done with data, so there is special attention paid to any task associated with accessing or storing data.
 
-1. On the **Settings** panel, select the **Tag colors (1)** tab, click **+ Tag color (2)**, in the **Tag** textbox, type **data (3)** and leave the default color(4) in place and click on **Save and Close (5)**.
+1. On the **Settings** panel, select the **Tag colors (1)** tab, click **+ Add Tag color (2)**, in the **Tag** textbox, type **data (3)** and leave the default color(4) in place and click on **Save (5)**.
 
-    !["Settings" window, "Tag colors", include "data" tag](images/m1/tagcolor1.png)
+    !["Settings" window, "Tag colors", include "data" tag](images/m1/tagcolor1-1.png)
 
     > **Note**: Whenever a backlog item or bug is tagged with **data**, that tag will be highlighted.
 
