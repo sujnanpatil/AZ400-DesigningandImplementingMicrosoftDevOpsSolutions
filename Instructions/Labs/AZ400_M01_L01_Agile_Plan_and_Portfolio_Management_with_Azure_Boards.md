@@ -350,6 +350,8 @@ To maximize a team's ability to consistently deliver high quality software, Kanb
 
 1. On the **Boards** panel, click the **Configure board settings** cogwheel icon (directly to the right of the funnel icon).
 
+    ![](images/m1/settings.png)
+
     > **Note**: The team is emphasizing work done with data, so there is special attention paid to any task associated with accessing or storing data.
 
 1. On the **Settings** panel, select the **Tag colors (1)** tab, click **+ Tag color (2)**, in the **Tag** textbox, type **data (3)** and leave the default color(4) in place and click on **Save and Close (5)**.
