@@ -424,6 +424,8 @@ To maximize a team's ability to consistently deliver high quality software, Kanb
 
 1. On the **QA Approved** tab, enable the **Split column into doing and done** checkbox to create two separate columns.
 
+    ![](images/m1/az-400p7-1.png)
+
     > **Note**: As your team updates the status of work as it progresses from one stage to the next, it helps that they agree on what **done** means. By specifying the **Definition of done** criteria for each Kanban column, you help share the essential tasks to complete before moving an item into a downstream stage.
 
 1. On the **QA Approved** tab, at the bottom of the panel, in the **Definition of done** textbox, type **Passes \*\*all\*\* tests**.
