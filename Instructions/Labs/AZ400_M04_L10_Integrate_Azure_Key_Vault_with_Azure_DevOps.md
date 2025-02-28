@@ -329,7 +329,7 @@ In this task, you will import a CD pipeline, customize it and run it for deployi
     - **acr-username**: Username of the Container Registry resource copied in Ex 1 Task 2 step number 11.(4)
     - **resource-group**: **AZ400-EWebShop-<inject key="DeploymentID" enableCopy="false"/>** (5)
 
-     ![Variable Group create](images/azk17.png)
+     ![Variable Group create](images/azk171.png)
 
       >**Note:** If you have not copied the Login server name and Username,you can retrieve it by  navigating to azure portal,search for Container Registries and click on the available container registry,from the left navigation pane go to **Access Keys** and copy the login server and the username.
     
