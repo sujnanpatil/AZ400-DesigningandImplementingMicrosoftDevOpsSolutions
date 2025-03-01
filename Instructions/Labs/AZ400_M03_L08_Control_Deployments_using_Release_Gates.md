@@ -171,10 +171,9 @@ In this task, you will create two Azure web apps representing the **Canary** and
 1. Wait until the change takes effect.
 
     > **Note**: You will create monitor alerts here, which you will use in later part of this lab.
+
 1. From the same **Settings** / **Application Insights** menu option within the Web App, select **View Application Insights Data**. This redirects you to the Application Insights blade in the Azure Portal.
-
-    ![portal](images/view.png)
-
+   
 1. On the Application Insights resource blade, in the **Monitoring** section, click **Alerts** and then click **Create > Alert rule**.
 
     ![portal](images/alert.png)
