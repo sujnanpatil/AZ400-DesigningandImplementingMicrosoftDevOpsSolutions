@@ -80,7 +80,22 @@ You can notice that the Unit Tests task is already part of the pipeline.
 
     ![Tests Table](images/AZ400_M05_TEST1.png)
 
-   
+#### Task 3: Remove the Azure Devops billing
+
+In this task, you will remove pipeline billing to eliminate unnecessary charges.
+
+1. On the lab computer, switch to the browser window displaying Azure DevOps organization homepage by clicking on **Azure Devops** from the top left corner.
+
+   ![Branch Policies](images/407.png)
+
+1. Select **Organization Settings** at bottom left corner.
+
+   ![Branch Policies](images/408.png)
+
+1. Under **Organization Settings** select **Billing** from the left pane and click on **Change billing** button to open Change billing pane.
+
+1. In the **Change billing** pane, select **Remove billing** setting and click on **Save**.   
+
 ## Review
 
 In this lab, you learned how to setup and run different tests types using Azure Pipelines and .Net.
