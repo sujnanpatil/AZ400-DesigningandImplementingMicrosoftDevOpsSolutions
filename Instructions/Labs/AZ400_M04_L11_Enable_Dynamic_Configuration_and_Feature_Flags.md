@@ -105,10 +105,6 @@ Let's start by importing the CI pipeline named **eshoponweb-ci.yml**.
        
        ![](images/36.pipelinesuccess.png)
 
-      The CD definition consists of the following tasks:
-       - **Resources**: it is prepared to automatically trigger based on CI pipeline completion. It also downloads the repository for the bicep file.
-       - **AzureResourceManagerTemplateDeployment**: Deploys the Azure Web App using bicep template.
-
   7. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better. Go to **Pipelines(1)>Pipelines(2)** and          click on the recently created pipeline. Click on the **ellipsis(3)** and **Rename/move(4)** option. Name it **eshoponweb-cd-webapp-code(5)** and click on          **Save(6)**.
 
      ![](images/37.rename-1.png)   
