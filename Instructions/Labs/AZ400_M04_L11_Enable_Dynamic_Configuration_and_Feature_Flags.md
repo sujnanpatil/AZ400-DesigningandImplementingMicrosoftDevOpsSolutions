@@ -145,29 +145,31 @@ If you want to know how to implement this in your application, please take a loo
 
 ## Task 2: Enable Managed Identity
 
-1. Go to the **Web App(1)** deployed using the pipeline (it should be named **az400-webapp-NAME**).
+1. In the Azure portal, search for and select **App Services** resource.
+
+1. Go to the **Web App(1)** deployed using the pipeline (it should be named **az400-webapp-<inject key="DeploymentID" enableCopy="false"/>**).
 
    ![](images/44.webapp-1.png)
    
-2. In the **Settings(2)** section, click on **Identity(3)** then switch status to **On(4)** in the **System Assigned** section, click **save(5)>yes(6)** and wait a few seconds for the operation to finish.
+1. In the **Settings(2)** section, click on **Identity(3)** then switch status to **On(4)** in the **System Assigned** section, click **save(5)>yes(6)** and wait a few seconds for the operation to finish.
 
    ![](images/45.managedidentity-1.png)
    
    ![](images/46.managedidentity-2.png)
    
-3. Go back to the **App Configuration(1)** service and click on **Access control(IAM)(2)** then **+Add(3)->Add role assignment(4)**.
+1. Go back to the **App Configuration(1)** service and click on **Access control(IAM)(2)** then **+Add(3)->Add role assignment(4)**.
 
    ![](images/47.roleassignment-1.png)
    
-4. In the **Role(1)** section, select **App Configuration Data Reader(2)** and click on **Next(3)**.
+1. In the **Role(1)** section, select **App Configuration Data Reader(2)** and click on **Next(3)**.
 
    ![](images/48.roleassignment-2.png)
    
-5. In the **Members(1)** section, check **Manage Identity(2)** then click on **+ Select members(3)**. In the select manage identities tab select **Managed Identity(4)** as **App Service** of your **Web App(5)** (they should have the same name) and then click on **Select(6)**.
+1. In the **Members(1)** section, check **Manage Identity(2)** then click on **+ Select members(3)**. In the select manage identities tab select **Managed Identity(4)** as **App Service** of your **Web App(5)** (they should have the same name) and then click on **Select(6)**.
 
    ![](images/49.roleassinment-3.png)
    
-6. Click on **Review and assign**
+1. Click on **Review and assign**
 
    ![](images/50.roleassignment-4.png)
 
@@ -182,22 +184,22 @@ In order to make sure that your website is accessing App Configuration, you need
    > **Note**: If you dont see **+ New application setting** option, you will see a instruction stating **View and edit your application settings and connection strings from Environment variables. Click here to go to Environment Variables menu**, click on **go to Environment Variables** and click on **+ Add**.
 
 
-4. Add two new application settings:
+4. Add two new application settings and click on **Apply**:
     - First app setting
         - **Name:** UseAppConfig
         - **Value:** true
 
-         ![](images/52.1stappsetting.png)
+         ![](images/u1.png)
       
     - Second app setting
-        - **Name:** AppConfigEndpoint
-        - **Value:** *the value you saved/copied previously from App Configuration Endpoint. It should look like https://appcs-NAME-REGION.azconfig.io*
+        - **Name:** AppConfigEndpoint(1)
+        - **Value:** *the value you saved/copied previously from App Configuration Endpoint(Ex 2,Task 1,Step number 4). It should look like https://appcs-NAME-REGION.azconfig.io*
       
-         ![](images/53.2ndappsetting.png)
+         ![](images/u2.png)
       
-5. Click on **Apply** then **Continue** and wait for the settings to be updated.
+5. Click on **Apply** then **Confirm** and wait for the settings to be updated.
    
-6. Go to **Overview(1)** and click on **Browse(2)**
+6. Go to **Overview(1)** and click on **Browse(2)**. The website might take a little while to load. Please refresh your browser occasionally until the page appears.
 
    ![](images/lab-400-border.png)
 
@@ -206,20 +208,22 @@ In order to make sure that your website is accessing App Configuration, you need
 1. In your website, select **Visual Studio(2)** in the **Brand(1)** drop-down list and click on the arrow button (**>(3)**).
 
    ![](images/58.brandvisualstudio.png)
-2. You will see a message saying **"THERE ARE NO RESULTS THAT MATCH YOUR SEARCH"(4)**.
+
+2. You will see a message saying **"THERE ARE NO RESULTS THAT MATCH YOUR SEARCH"(4)**.The goal of this Lab is to be able to update that value without updating the website's code or redeploying it.
 
    ![](images/59.brandvsmsg.png)
    
-The goal of this Lab is to be able to update that value without updating the website's code or redeploying it.
-
 3. In order to try this, go back to **App Configuration(1)**. In the **Operations(2)** section, select **Configuration Explorer(3)** and Click on **+ Create(4) > Key-value(5)** then add:
+    
     - **Key(6):** eShopWeb:Settings:NoResultsMessage
+    
     - **Value(7):** *type your custom message*
-   Click **Apply(8)** then go back to your website and refresh the webapp browser page.
    
-   ![](images/60.appconfigkeyvalue.png)
+    - Click **Apply(8)** then go back to your website and refresh the webapp browser page.
    
-   ![](images/61.appconfigkeyvaluecreate.png)
+     ![](images/60.appconfigkeyvalue.png)
+   
+     ![](images/61.appconfigkeyvaluecreate.png)
    
 4. You should see your new message instead of the old default value.
 
@@ -234,7 +238,7 @@ Let's continue to test the Feature manager.
 
    ![](images/63.featureflag-1.png)
    
-2. Click on **+ Create(4)** then add:
+2. Click on **+ Create(4)** and select **Feature Flag**then specify the following settings:
     - **Enable feature flag(1):** Checked
     - **Feature flag name(2):** SalesWeekend
    and click **Apply(3)** then go back to your website and refresh the page.
