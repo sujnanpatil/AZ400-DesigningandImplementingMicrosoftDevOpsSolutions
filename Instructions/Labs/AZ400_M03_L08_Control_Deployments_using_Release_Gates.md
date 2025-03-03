@@ -38,9 +38,9 @@ In this lab, you will be performing the following exercises:
 
   ![Architecture Diagram](images/lab7-architecture-new.png) 
 
-# Exercise 0: Configure the lab prerequisites
+## Exercise 0: Configure the lab prerequisites
 
-## Task 1: Configure CI Pipeline as Code with YAML in Azure DevOps
+### Task 1: Configure CI Pipeline as Code with YAML in Azure DevOps
 
 In this task, you will add a YAML build definition to the existing project.
 
@@ -79,9 +79,9 @@ In this task, you will add a YAML build definition to the existing project.
    
     > **Note**: Each task from the YAML file is available for review, including any warnings and errors.
 
-# Exercise 1: Creating the necessary Azure Resources for the Release Pipeline
+## Exercise 1: Creating the necessary Azure Resources for the Release Pipeline
 
-## Task 1: Create two Azure web apps
+### Task 1: Create two Azure web apps
 
 In this task, you will create two Azure web apps representing the **Canary** and **Production** environments, into which you'll deploy the application via Azure Pipelines.
 
@@ -122,7 +122,7 @@ In this task, you will create two Azure web apps representing the **Canary** and
 
 1. Wait for the Web App Services Resources provisioning process to complete and close the **Cloud Shell** pane.
 
-## Task 2: Configure an Application Insights resource
+### Task 2: Configure an Application Insights resource
 
 1. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the page to search for **Application Insights (1)** and, in the list of results, select **Application Insights (2)**.
 
@@ -211,11 +211,11 @@ In this task, you will create two Azure web apps representing the **Canary** and
 
 1. Confirm the creation of the Alert rule by clicking **Review + create (5)**, and confirm once more by clicking **Create**. Wait for the alert rule to get created successfully.
 
-# Exercise 2: Configure the release pipeline
+## Exercise 2: Configure the release pipeline
 
 In this exercise, you will configure a release pipeline.
 
-## Task 1: Set Up Release Tasks
+### Task 1: Set Up Release Tasks
 
 In this task, you will set up the release tasks as part of the Release Pipeline.
 
@@ -235,11 +235,11 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 1. Click **Apply**.
 
     ![Azure devops](images/tem.png)
-   
+
 1. From the **Stage** window appearing, update the default "Stage 1" Stage Name to **Canary**. Close the popup window by using the **X** button. You are now in the graphical editor of the Release Pipeline, showing the Canary Stage.
 
     ![Azure devops](images/DevOpspage2.png)
-   
+
 1. Hover the mouse over the Canary Stage, and click the **Clone** button, to copy the Canary Stage to an additional Stage. Name this Stage **Production**.
 
     ![Azure devops](images/clone.png)
@@ -343,11 +343,11 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
     > **Note**: Now you have the application with CI/CD configured. In the next exercise we will set up Quality Gates as part of a more advanced release pipeline.
 
-# Exercise 3: Configure release gates
+## Exercise 3: Configure release gates
 
 In this exercise, you will set up Quality Gates in the release pipeline.
 
-## Task 1: Configure pre-deployment gates for approvals
+### Task 1: Configure pre-deployment gates for approvals
 
 In this task, you will configure pre-deployment gates.
 
@@ -384,7 +384,7 @@ In this task, you will configure pre-deployment gates.
 
     ![Azure devops](images/approve.png) 
 
-## Task 2: Configure post-deployment gates for Azure Monitor
+### Task 2: Configure post-deployment gates for Azure Monitor
 
 In this task, you will enable the post-deployment gate for the Canary Environment.
 
@@ -441,11 +441,11 @@ In this task, you will enable the post-deployment gate for the Canary Environmen
  
    <validation step="29f6bfe8-0b16-4145-92f9-30e77d26ab03" />
 
-# Exercise 4: Test release gates
+## Exercise 4: Test release gates
 
 In this exercise, you will test the release gates by updating the application, which will trigger a deployment.
 
-## Task 1: Update and deploy application after adding release gates
+### Task 1: Update and deploy application after adding release gates
 
 In this task, you will first generate some alerts for the Canary Web App, followed by tracking the release process with the release gates enabled.
 
@@ -466,7 +466,7 @@ In this task, you will first generate some alerts for the Canary Web App, follow
 1. Notice there should be at least **1 Failed_Alert** with **Severity 2 - Warning** showing up in the list. This got trigger when you validated the non-existing website URL address in the previous exercise.
 
     > **Note:** If no Alert shows up yet, wait another few minutes. 
-    
+
     ![Azure devops](images/alertfailed.png) 
 
 1. Return back to the Azure DevOps Portal, open the **eShopOnWeb_MultiStageYAML** Project. Navigate to **Pipelines**, select **Releases** and select the **New Release Pipeline**. Click the **Create Release** button.
@@ -499,4 +499,4 @@ In this task, you will first generate some alerts for the Canary Web App, follow
 
 In this lab, you configured release pipelines and then configured and tested release gates.
 
-### You have successfully completed the lab. Click on **Next >>** to procced with next lab.
+## You have successfully completed the lab. Click on **Next >>** to procced with next lab.

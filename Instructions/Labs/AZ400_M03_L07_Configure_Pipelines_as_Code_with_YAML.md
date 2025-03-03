@@ -26,7 +26,7 @@ In this lab, you will be performing the following exercises:
 
    ![Architecture Diagram](images/lab8-architecture-new.png)
 
-# Set up an Azure DevOps organization
+## Set up an Azure DevOps organization
 
 1. On your lab VM open **Edge Browser** on desktop and navigate to https://go.microsoft.com/fwlink/?LinkId=307137. 
 
@@ -54,11 +54,11 @@ In this lab, you will be performing the following exercises:
 
     ![Azure DevOps](images/new-az-400-mod3-03.png)
 
-# Exercise 0: Configure the lab prerequisites
+## Exercise 0: Configure the lab prerequisites
 
 In this exercise, you will set up the prerequisites for the lab, which consist of a new Azure DevOps project with a repository based on the [eShopOnWeb](https://dev.azure.com/unhueteb/_git/eshopweb-az400).
 
-## Task 1: Create and configure the team project
+### Task 1: Create and configure the team project
 
 In this task, you will create an **eShopOnWeb** Azure DevOps project to be used by several labs.
 
@@ -68,7 +68,7 @@ In this task, you will create an **eShopOnWeb** Azure DevOps project to be used 
 
     ![Azure DevOps](images/DevOpspage1.png)
 
-## Task 2: Import eShopOnWeb Git Repository
+### Task 2: Import eShopOnWeb Git Repository
 
 In this task you will import the eShopOnWeb Git repository that will be used by several labs.
 
@@ -84,12 +84,14 @@ In this task you will import the eShopOnWeb Git repository that will be used by 
     - **src** folder contains the .NET 6 website used on the lab scenarios.
 
 1. Go to **Repos>Branches (1)**.
+
 1. Hover on the **main** branch then click the ellipsis on the right of the column **(2)**.
+
 1. Click on **Set as default branch (3)**.
-   
+
     ![Import Repository](images/az-400-5.png)
    
-## Task 3: Create Azure resources
+### Task 3: Create Azure resources
 
 In this task, you will create an Azure web app by using the Azure portal.
 
@@ -109,9 +111,8 @@ In this task, you will create an Azure web app by using the Azure portal.
    
     ![](images/lab15-storage-acc-2.png)
 
-
 1. Use the existing **Subscription (1)** and **Resource group** as **AZ400-JumpVM (2)** and **Region** as **westus(3)** and specify new names for **Storage account** as **az400storage<inject key="DeploymentID" enableCopy="false" /> (4)** and **File share** as **az400fileshare<inject key="DeploymentID" enableCopy="false" /> (5)**, as shown in the dialog below. Then select **Create**.
-   
+
     ![](images/az-400-storage.png)
 
     > **Note:** for a list of regions and their alias, run the following command from the Azure Cloud Shell - Bash:
@@ -157,11 +158,11 @@ In this task, you will create an Azure web app by using the Azure portal.
  
    <validation step="c728e3cd-36c8-41d9-9dd2-2fb0d9dbb59e" />
 
-# Exercise 1: Configure CI/CD Pipelines as Code with YAML in Azure DevOps
+## Exercise 1: Configure CI/CD Pipelines as Code with YAML in Azure DevOps
 
 In this exercise, you will configure CI/CD Pipelines as code with YAML in Azure DevOps.
 
-## Task 1: Add a YAML build definition
+### Task 1: Add a YAML build definition
 
 In this task, you will add a YAML build definition to the existing project.
 
@@ -197,7 +198,7 @@ In this task, you will add a YAML build definition to the existing project.
 
     > **Note**: Each task from the YAML file is available for review, including any warnings and errors.
 
-## Task 2: Add continuous delivery to the YAML definition
+### Task 2: Add continuous delivery to the YAML definition
 
 In this task, you will add continuous delivery to the YAML-based definition of the pipeline you created in the previous task.
 
@@ -409,7 +410,7 @@ In this task, you will add continuous delivery to the YAML-based definition of t
 
     ```
 
-## Task 3: Review the deployed site
+### Task 3: Review the deployed site
 
 1. Switch back to web browser window displaying the Azure portal and navigate to the blade displaying the properties of the Azure web app.
 
@@ -417,11 +418,11 @@ In this task, you will add continuous delivery to the YAML-based definition of t
 
 1. Verify that the deployed site loads as expected in the new browser tab, showing the EShopOnWeb E-commerce website.
 
-# Exercise 2: Configure Environment settings for CI/CD Pipelines as Code with YAML in Azure DevOps
+## Exercise 2: Configure Environment settings for CI/CD Pipelines as Code with YAML in Azure DevOps
 
 In this exercise, you will add approvals to a YAML-based Pipeline in Azure DevOps.
 
-## Task 1: Set up Pipeline Environments
+### Task 1: Set up Pipeline Environments
 
 YAML Pipelines as Code don't have Release/Quality Gates as we have with Azure DevOps Classic Release Pipelines. However, some similarities can be configured for YAML Pipelines-as-Code using **Environments**. In this task, you will use this mechanism to configure approvals for the Build Stage.
 
@@ -491,59 +492,57 @@ YAML Pipelines as Code don't have Release/Quality Gates as we have with Azure De
           runOnce:
             deploy:
     ```
-20. Select the remaining snippet (Line **67** all the way to the end), and use the **Tab** key to fix the YAML indentation. 
+1. Select the remaining snippet (Line **67** all the way to the end), and use the **Tab** key to fix the YAML indentation. 
 
     The resulting YAML snippet should look like this now, reflecting the **Deploy Stage**:
 
-
     ```yaml
-        - stage: Deploy
-          displayName: Deploy to an Azure Web App
-          jobs:
-            - deployment: Deploy
-              environment: approvals
-              pool:
-                vmImage: "windows-latest"
-              strategy:
-                runOnce:
-                  deploy:
-                    steps:
-                      - task: DownloadBuildArtifacts@1
-                        inputs:
-                          buildType: "current"
-                          downloadType: "single"
-                          artifactName: "Website"
-                          downloadPath: "$(Build.ArtifactStagingDirectory)"
-                      - task: AzureRmWebAppDeployment@4
-                        inputs:
-                          ConnectionType: "AzureRM"
-                          azureSubscription: "AZURE SUBSCRIPTION HERE (b999999abc-1234-987a-a1e0-27fb2ea7f9f4)"
-                          appType: "webApp"
-                          WebAppName: "eshoponWebYAML369825031"
-                          packageForLinux: "$(Build.ArtifactStagingDirectory)/**/Web.zip"
-                          AppSettings: "-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development"
+    - stage: Deploy
+      displayName: Deploy to an Azure Web App
+      jobs:
+      - deployment: Deploy
+        environment: approvals
+        pool:
+          vmImage: "windows-latest"
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+              - task: DownloadBuildArtifacts@1
+                inputs:
+                  buildType: "current"
+                  downloadType: "single"
+                  artifactName: "Website"
+                  downloadPath: "$(Build.ArtifactStagingDirectory)"
+              - task: AzureRmWebAppDeployment@4
+                inputs:
+                  ConnectionType: "AzureRM"
+                  azureSubscription: "AZURE SUBSCRIPTION HERE (b999999abc-1234-987a-a1e0-27fb2ea7f9f4)"
+                  appType: "webApp"
+                  WebAppName: "eshoponWebYAML369825031"
+                  packageForLinux: "$(Build.ArtifactStagingDirectory)/**/Web.zip"
+                  AppSettings: "-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development"
     ```
 
+1. Confirm the changes to the code YAML file by clicking **Commit** and clicking **Commit** again in the appearing Commit pane.
 
-21. Confirm the changes to the code YAML file by clicking **Commit** and clicking **Commit** again in the appearing Commit pane.
+1. Navigate to the Azure DevOps Project menu to the left, select **Pipelines**, select **Pipelines** and notice the **EshopOnWeb_MultiStageYAML** Pipeline used earlier.
 
-22. Navigate to the Azure DevOps Project menu to the left, select **Pipelines**, select **Pipelines** and notice the **EshopOnWeb_MultiStageYAML** Pipeline used earlier.
+1. Open the Pipeline.
 
-23. Open the Pipeline.
+1. Click **Run Pipeline** to trigger a new Pipeline run; confirm by clicking **Run**.
 
-24. Click **Run Pipeline** to trigger a new Pipeline run; confirm by clicking **Run**.
+1. Just like before, the Build Stage kicks off as expected. Wait for it to complete successfully.
 
-25. Just like before, the Build Stage kicks off as expected. Wait for it to complete successfully.
+1. From the appearing pane **Checks and manual validations for Deploy to Azure Web App**, click the **View** button next to this message.click the **Permit** button.
 
-26. From the appearing pane **Checks and manual validations for Deploy to Azure Web App**, click the **View** button next to this message.click the **Permit** button.
+1. Click **Permit** again in the following pop-up.
 
-27. Click **Permit** again in the following pop-up.
+1. Next, since we have the *environment:approvals* configured for the Deploy Stage, it will ask for an approval confirmation before it kicks off.
 
-28. Next, since we have the *environment:approvals* configured for the Deploy Stage, it will ask for an approval confirmation before it kicks off.
+1. This is visible from the Pipeline view, where it says **Waiting (0/1 checks passed)**. A notification message is also displayed saying **approval needs review before this run can continue to Deploy to an Azure Web App**. 
 
-29. This is visible from the Pipeline view, where it says **Waiting (0/1 checks passed)**. A notification message is also displayed saying **approval needs review before this run can continue to Deploy to an Azure Web App**. 
-
-30. This allows the Deploy Stage to kick off and successfully deploying the Azure Web App source code.
+1. This allows the Deploy Stage to kick off and successfully deploying the Azure Web App source code.
 
    > **Note:** While this example only used the approvals, know the other checks such as Azure Monitor, REST API, etc... can be used in a similar way
   
@@ -551,4 +550,4 @@ YAML Pipelines as Code don't have Release/Quality Gates as we have with Azure De
 
 In this lab, you configured CI/CD pipelines as code with YAML in Azure DevOps.
 
-### You have successfully completed the lab. Click on **Next >>** to procced with next lab.
+## You have successfully completed the lab. Click on **Next >>** to procced with next lab.

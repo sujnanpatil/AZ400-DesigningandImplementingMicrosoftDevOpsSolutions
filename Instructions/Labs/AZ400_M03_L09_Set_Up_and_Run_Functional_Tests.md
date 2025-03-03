@@ -20,11 +20,11 @@ In this lab, you will perform the following exercise:
 
   ![Architecture Diagram](images/lab09-architecture-new.png) 
 
-### Exercise 1: Setup Tests in CI pipeline
+## Exercise 1: Setup Tests in CI pipeline
 
 In this exercise, you will setup tests in CI pipeline.
 
-#### Task 1: Add tests to the CI pipeline
+### Task 1: Add tests to the CI pipeline
 
 In this task, you will add the integration and functional tests to the CI Pipeline.
 
@@ -66,7 +66,7 @@ You can notice that the Unit Tests task is already part of the pipeline.
 
 1. Click **Save**, on the **Save** pane, click **Save** again to commit the changes directly into the main branch.
 
-#### Task 2: Check the tests summary
+### Task 2: Check the tests summary
 
 1. Click on the **Run**, then from the **Run pipeline** tab, click on **Run** again.
 
@@ -82,7 +82,7 @@ You can notice that the Unit Tests task is already part of the pipeline.
 
     ![Tests Table](images/AZ400_M05_TEST1.png)
 
-#### Task 3: Remove the Azure DevOps billing
+### Task 3: Remove the Azure DevOps billing
 
 In this task, you will remove pipeline billing to eliminate unnecessary charges.
 
@@ -102,4 +102,4 @@ In this task, you will remove pipeline billing to eliminate unnecessary charges.
 
 In this lab, you learned how to setup and run different test types using Azure Pipelines and .Net.
 
-### You have successfully completed the lab!
+## You have successfully completed the lab!
