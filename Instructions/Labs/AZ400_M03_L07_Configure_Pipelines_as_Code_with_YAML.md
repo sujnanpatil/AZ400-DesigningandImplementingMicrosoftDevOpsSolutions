@@ -36,23 +36,23 @@ In this lab, you will be performing the following exercises:
 
     ![Azure DevOps](images/az-400-5-1.png)
 
-4. On the **Almost Done...** page fill the captcha and click on continue. 
+4. On the **Almost Done...** page accept defaults and click on **Continue**.
 
-    ![Azure DevOps](images/az-400-5-2.png)
+    ![Azure DevOps](images/new-az-400-mod3-1.png)
 
-5. On the Azure Devops page click on **Azure DevOps** located at top left corner and then click on **Organization Setting** at the left down corner
+5. On the Azure DevOps page click on **Azure DevOps (1)** located at top left corner and then click on **Organization Setting (2)** at the left down corner
 
-    ![Azure DevOps](images/az-400-5-3.png)
+    ![Azure DevOps](images/new-az-400-mod3-2.png)
 
-6. In the **Organization Setting** window on the left menu click on **Billing** and select **Setup Billing** then click on save.
+6. In the **Organization Setting** window on the left menu click on **Billing (1)** and select **Setup Billing (2)** then click on save.
 
-    ![Azure DevOps](images/az-400-5-4.png)
+    ![Azure DevOps](images/new-az-400-mod3-03.png)
     
     ![Azure DevOps](images/az-400-5-5.png)    
 
 7. On the **MS Hosted CI/CD** section under **Paid parallel jobs** enter value **1** and at the end of the page click on **Save**.
 
-    ![Azure DevOps](images/az-400-5-6.png)
+    ![Azure DevOps](images/new-az-400-mod3-03.png)
 
 # Exercise 0: Configure the lab prerequisites
 
@@ -62,7 +62,9 @@ In this exercise, you will set up the prerequisites for the lab, which consist o
 
 In this task, you will create an **eShopOnWeb** Azure DevOps project to be used by several labs.
 
-1. On your lab computer, in a browser window where Azure DevOps organization. navigate to **projects**, click on **New Project**. give your project the name **eShopOnWeb_MultiStageYAML** and leave the other fields with defaults. Click on **Create**..
+1. On your lab computer, in a browser window where Azure DevOps organization. Navigate to **Projects**, click on **+ New Project** and provide your project as **eShopOnWeb_MultiStageYAML** and leave the other fields with defaults. Click on **Create**.
+
+    ![Azure DevOps](images/new-az-400-mod3-5.png)
 
     ![Azure DevOps](images/DevOpspage1.png)
 
@@ -70,7 +72,7 @@ In this task, you will create an **eShopOnWeb** Azure DevOps project to be used 
 
 In this task you will import the eShopOnWeb Git repository that will be used by several labs.
 
-1.  On your lab computer, in a browser window where Azure DevOps organization and the previously created **eShopOnWeb_MultiStageYAML** project. Navigate to **Repos (1)>Files (2)** and then click on **Import (3)** within the **Import a repository** card. On the **Import a Git Repository** window, paste the following URL https://github.com/MicrosoftLearning/eShopOnWeb.git **(4)** and click on **Import (5)**:
+1.  On edge browser window on your lab computer, navigate to the Azure DevOps organization, then access the previously created **eShopOnWeb_MultiStageYAML** project. Navigate to **Repos (1)>Files (2)** and then click on **Import (3)** within the **Import a repository** card. On the **Import a Git Repository** window, paste the following URL https://github.com/MicrosoftLearning/eShopOnWeb.git **(4)** and click on **Import (5)**:
 
     ![Import Repository](images/az-400-4.png)
 
@@ -128,7 +130,7 @@ In this task, you will create an Azure web app by using the Azure portal.
     RESOURCEGROUPNAME='az400m05l11-RG'
     az group create --name $RESOURCEGROUPNAME --location $LOCATION
     ```
-    > **Note:** If you receive an error "This region has a quota of 0 instances for your subscription", please delete the Resource group, and perform step 7 with a different region ex. westus
+    > **Note:** If you receive an error "This region has a quota of 0 instances for your subscription", please delete the Resource group, and perform step 7 with a different region ex. westus.
 
 1. To create a Windows App service plan by running the following command:
 
@@ -171,19 +173,25 @@ In this task, you will add a YAML build definition to the existing project.
 
     > **Note**: We will use the wizard to create a new YAML Pipeline definition based on our project.
 
-1. On the **Where is your code?** pane, click **Azure Repos Git (YAML)** option.
+1. On the **Where is your code?** pane, click **Azure Repos Git (YAML) (1)** option.
+
+    ![Import Repository](images/new-az-400-mod3-6.png)
 
 1. On the **Select a repository** pane, click **eShopOnWeb_MultiStageYAML**.
 
 1. On the **Configure your pipeline** pane, scroll down and select **Existing Azure Pipelines YAML File**.
 
 1. In the **Selecting an existing YAML File** blade, specify the following parameters:
-    - Branch: **main**
-    - Path: **/.ado/eshoponweb-ci.yml**
+    - Branch: **main (1)**
+    - Path: **/.ado/eshoponweb-ci.yml (2)**
 
-1. Click **Continue** to save these settings.
+1. Click **Continue (3)** to save these settings.
+
+    ![Import Repository](images/new-az-400-mod3-7.png)
 
 1. From the **Review your Pipeline YAML** screen, click **Run** to start the Build Pipeline process.
+
+    ![Import Repository](images/new-az-400-mod3-8.png)
 
 1. Wait for the Build Pipeline to complete successfully. Ignore any warnings regarding the source code itself, as they are not relevant for this lab exercise.
 
@@ -226,7 +234,7 @@ In this task, you will add continuous delivery to the YAML-based definition of t
 
     - In the **App Service name** dropdown list, select the name of the web app you deployed earlier in the lab.
 
-      > **Note**: If you faced fallowing issue `Failed to obtain the Json Web Token(JWT) using service principal client ID` from the **Azure subscription**, select the Azure subscription into which you deployed the Azure resources earlier in the lab, click **Authorize**, once the authication has been completed make sure to select latest generated **Service connection** 
+      > **Note**: If you faced fallowing issue `Failed to obtain the Json Web Token(JWT) using service principal client ID` from the **Azure subscription**, select the Azure subscription into which you deployed the Azure resources earlier in the lab, click **Authorize**, once the authentication has been completed make sure to select latest generated **Service connection** 
 
     - In the **Package or folder** text box, **update** the Default Value to `$(Build.ArtifactStagingDirectory)/**/Web.zip`
 
@@ -290,7 +298,11 @@ In this task, you will add continuous delivery to the YAML-based definition of t
 
 1. On the **EShopOnWeb_MultiStageYAML** Pipeline and click **Run Pipeline**.
 
+    ![Import Repository](images/new-az-400-mod3-10.png)
+
 1. Click on the **Run** from the appearing pane.
+
+    ![Import Repository](images/new-az-400-mod3-11.png)
 
 1. Notice the 2 different Stages, **Build .Net Core Solution** and **Deploy to Azure Web App** appearing.
 
@@ -303,9 +315,15 @@ In this task, you will add continuous delivery to the YAML-based definition of t
     ```
 1. Click on **View**.
 
+    ![Import Repository](images/new-az-400-mod3-12.png)
+
 1. From the **Waiting for Review** pane, click **Permit**.
 
-1. Validate the message in the **Permit popup** window, and confirm by clicking **Permit**.
+    ![Import Repository](images/new-az-400-mod3-13.png)
+
+1. Validate the message in the **Permit access** window, and confirm by clicking **Permit**.
+
+    ![Import Repository](images/new-az-400-mod3-014.png)
 
 1. This sets off the Deploy Stage. Wait for this to complete successfully.
 
@@ -409,15 +427,19 @@ YAML Pipelines as Code don't have Release/Quality Gates as we have with Azure De
 
 1. From the Azure DevOps Project **EShopOnWeb_MultiStageYAML**, navigate to **Pipelines**.
 
-1. Under the Pipelines Menu to the left, select **Environments**.
+1. Under the Pipelines Menu to the left, select **Environments (1)**.
 
-1. Click **Create Environment**.
+1. Click **Create Environment (2)**.
 
-1. In the **New Environment** pane, add a Name for the Environment, called **approvals**.
+   ![](images/new-az-400-mod3-15.png)
 
-1. Under **Resources**, select **None**.
+1. In the **New Environment** pane, add a Name for the Environment, called **approvals (1)**.
 
-1. Confirm the settings by pressing the **Create** button. Once the environment got created.
+1. Under **Resources**, select **None (2)**.
+
+1. Confirm the settings by pressing the **Create (3)** button. Once the environment got created.
+
+   ![](images/new-az-400-mod3-16.png)
 
 1. Select **Approvals and Checks** tab.
 
@@ -432,6 +454,8 @@ YAML Pipelines as Code don't have Release/Quality Gates as we have with Azure De
    > **Note:** In a real-life scenario, this would reflect the name of your DevOps team working on this project.
 
 1. Confirm the approval settings defined, by pressing the **Create** button.
+
+   ![](./images/new-az-400-mod3-18.png)
 
 1. Last, we need to add the necessary "environment: approvals" settings to the YAML pipeline code for the Deploy Stage. To do this, navigate to **Repos**, browse to the **.ado** folder, and select the **eshoponweb-ci.yml** Pipeline-as-Code file.
 
@@ -473,31 +497,31 @@ YAML Pipelines as Code don't have Release/Quality Gates as we have with Azure De
 
 
     ```yaml
-    - stage: Deploy
-      displayName: Deploy to an Azure Web App
-      jobs:
-        - deployment: Deploy
-          environment: approvals
-          pool:
-            vmImage: "windows-latest"
-          strategy:
-            runOnce:
-              deploy:
-                steps:
-                  - task: DownloadBuildArtifacts@1
-                    inputs:
-                      buildType: "current"
-                      downloadType: "single"
-                      artifactName: "Website"
-                      downloadPath: "$(Build.ArtifactStagingDirectory)"
-                  - task: AzureRmWebAppDeployment@4
-                    inputs:
-                      ConnectionType: "AzureRM"
-                      azureSubscription: "AZURE SUBSCRIPTION HERE (b999999abc-1234-987a-a1e0-27fb2ea7f9f4)"
-                      appType: "webApp"
-                      WebAppName: "eshoponWebYAML369825031"
-                      packageForLinux: "$(Build.ArtifactStagingDirectory)/**/Web.zip"
-                      AppSettings: "-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development"
+        - stage: Deploy
+          displayName: Deploy to an Azure Web App
+          jobs:
+            - deployment: Deploy
+              environment: approvals
+              pool:
+                vmImage: "windows-latest"
+              strategy:
+                runOnce:
+                  deploy:
+                    steps:
+                      - task: DownloadBuildArtifacts@1
+                        inputs:
+                          buildType: "current"
+                          downloadType: "single"
+                          artifactName: "Website"
+                          downloadPath: "$(Build.ArtifactStagingDirectory)"
+                      - task: AzureRmWebAppDeployment@4
+                        inputs:
+                          ConnectionType: "AzureRM"
+                          azureSubscription: "AZURE SUBSCRIPTION HERE (b999999abc-1234-987a-a1e0-27fb2ea7f9f4)"
+                          appType: "webApp"
+                          WebAppName: "eshoponWebYAML369825031"
+                          packageForLinux: "$(Build.ArtifactStagingDirectory)/**/Web.zip"
+                          AppSettings: "-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development"
     ```
 
 
@@ -527,4 +551,4 @@ YAML Pipelines as Code don't have Release/Quality Gates as we have with Azure De
 
 In this lab, you configured CI/CD pipelines as code with YAML in Azure DevOps.
 
-## Click Next to proceed with the next lab.
+### You have successfully completed the lab. Click on **Next >>** to procced with next lab.

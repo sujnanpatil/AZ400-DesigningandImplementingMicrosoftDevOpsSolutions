@@ -32,11 +32,13 @@ You can notice that the Unit Tests task is already part of the pipeline.
 
 - **Unit Tests** test a single part of your application's logic. One can further describe it by listing some of the things that it isn't. A unit test doesn't test how your code works with dependencies or infrastructure – that's what integration tests are for.
 
-1. From the **eShopOnWeb_MultiStageYAML** project in the Azure DevOps portal, in the vertical navigational pane, select **Pipelines** and then, within the **Pipelines** section, click **Releases(1)**.
+1. From the **eShopOnWeb_MultiStageYAML** project in the Azure DevOps portal, in the vertical navigational pane, select **Pipelines (2)** within the **Pipelines (1)** section.
 
-1. On the pipeline run pane, click the ellipsis symbol in the upper right corner and, in the dropdown menu, click **Edit pipeline**.
+1. On the pipeline pane, click the **ellipsis symbol (3)** in the upper right corner and, in the dropdown menu, click **Edit (3)**.
 
-1. At the end of the scipt add new line and add below code with and use the **Tab** key to fix the YAML indentation. 
+    ![Tests Summary](images/new-az-400-mod3-37.png)
+
+1. At the end of the script add new line and add below code with and use the **Tab** key to fix the YAML indentation. 
 
 1. Now you need to add the Integration Tests task after the Unit Tests task:
 
@@ -72,7 +74,7 @@ You can notice that the Unit Tests task is already part of the pipeline.
 
 1. Once completed, the **Test** tab will show as part of the pipeline run. Click on it to check the summary. It looks like shown below:
 
-    ![Tests Summary](images/AZ400_M05_TEST.png)
+    ![Tests Summary](images/new-az-400-mod3-36.png)
 
 1. For more details, at the bottom of the page, the table shows a list of the different run tests.
 
@@ -80,7 +82,7 @@ You can notice that the Unit Tests task is already part of the pipeline.
 
     ![Tests Table](images/AZ400_M05_TEST1.png)
 
-#### Task 3: Remove the Azure Devops billing
+#### Task 3: Remove the Azure DevOps billing
 
 In this task, you will remove pipeline billing to eliminate unnecessary charges.
 
@@ -98,4 +100,6 @@ In this task, you will remove pipeline billing to eliminate unnecessary charges.
 
 ## Review
 
-In this lab, you learned how to setup and run different tests types using Azure Pipelines and .Net.
+In this lab, you learned how to setup and run different test types using Azure Pipelines and .Net.
+
+### You have successfully completed the lab!
