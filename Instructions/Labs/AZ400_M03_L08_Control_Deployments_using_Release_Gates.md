@@ -50,11 +50,11 @@ In this task, you will add a YAML build definition to the existing project.
        
 1. On the **Where is your code?** pane, click **Azure Repos Git (YAML)** option.
    
-    ![Import Repository](images/newpip1.png)
+    ![Import Repository](images/new-az-400-mod3-6.png)
       
 1. On the **Select a repository** pane, click **eShopOnWeb_MultiStageYAML**.
    
-    ![Import Repository](images/newpip2.png)
+    ![Import Repository](images/new-az-400-mod3-35.png)
    
 1. On the **Configure your pipeline** pane, scroll down and select **Existing Azure Pipelines YAML File**.
    
@@ -62,12 +62,12 @@ In this task, you will add a YAML build definition to the existing project.
    
 1. In the **Selecting an existing YAML File** blade, specify the following parameters:
    
-    - Branch: **main**
-    - Path: Select **/.ado/eshoponweb-ci.yml** from the drop-down.
-      
-        ![Import Repository](images/newpip4.png)
+    - Branch: **main (1)**
+    - Path: Select **/.ado/eshoponweb-ci.yml (2)** from the drop-down.
   
-1. Click **Continue** to save these settings.
+1. Click **Continue (3)** to save these settings.
+
+    ![Import Repository](images/new-az-400-mod3-23.png)
    
 1. From the **Review your Pipeline YAML** screen, click **Run** to start the Build Pipeline process.
    
@@ -159,7 +159,9 @@ In this task, you will create two Azure web apps representing the **Canary** and
    ![portal](images/image004.png)
   
 1. On the **Application Insights(1)** blade, click **Turn on Application Insights(2)**.
-   
+
+   ![portal](images/new-az-400-mod3-27.png)
+
 1. In the **Change your resource** section, scroll down and click on **Select existing resource(1)** option, in the list of existing resources, select the newly created **Application Insight resource(2)**, click **Apply(3)**.
 
     ![portal](images/ainsetincananry2.png)
@@ -173,12 +175,14 @@ In this task, you will create two Azure web apps representing the **Canary** and
     > **Note**: You will create monitor alerts here, which you will use in later part of this lab.
 
 1. From the same **Settings** / **Application Insights** menu option within the Web App, select **View Application Insights Data**. This redirects you to the Application Insights blade in the Azure Portal.
-   
-1. On the Application Insights resource blade, in the **Monitoring** section, click **Alerts** and then click **Create > Alert rule**.
 
-    ![portal](images/alert.png)
+    ![portal](images/new-az-400-mod3-28.png)
+
+1. On the Application Insights resource blade, in the **Monitoring** section, click **Alerts (1)** and then click **+ Create (2) > Alert rule (3)**.
+
+    ![portal](images/new-az-400-mod3-29.png)
        
-1. On the **Create an alert rule** blade, in the **Select a name** textbox, Select  **Failed Requests(1)** from the drop-down. 
+1. On the **Create an alert rule** blade, in the **Select a signal** textbox, Select  **Failed Requests(1)** from the drop-down. 
 
     ![portal](images/failedreupdated.png)
      
@@ -188,7 +192,7 @@ In this task, you will create two Azure web apps representing the **Canary** and
     - Unit: **Count (4)**
     - Threshold value: type **0** (5)
 
-    ![portal](images/cond.png)
+        ![portal](images/cond.png)
     
 1. Click on **Next: Actions >**. Don't make any changes in the **Actions** settings blade, and define the following parameters under the **Details** section:
 
@@ -244,7 +248,7 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
      ![Azure devops](images/capro.png)
 
-1. On the **Pipeline** tab, select the **Add an Artifact** rectangle.
+1. On the **Pipeline** tab, select the **+ Add an artifact** rectangle.
 
      ![Azure devops](images/artifact.png)
      
@@ -276,13 +280,13 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
      
 1. Select the Task **Deploy Azure App Service**. In the **Package or Folder** field, update the default value of "$(System.DefaultWorkingDirectory)/\*\*/\*.zip" to **"$(System.DefaultWorkingDirectory)/\*\*/Web.zip"**
 
-    > notice an exclamation mark next to the Tasks tab. This is expected, as we need to configure the settings for the Production Stage.
+    > Notice an exclamation mark next to the Tasks tab. This is expected, as we need to configure the settings for the Production Stage.
     
     ![Azure devops](images/canaryre.png)
 
 1. Scroll down and open the **Application and Configuration Settings** pane and enter `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development` in the **App settings** box.
 
-1. Under **All pipelines > New Release Pipeline** pane, Click on **Tasks**,From the drop-down selct Select **Production**.
+1. Under **All pipelines > New Release Pipeline** pane, Click on **Tasks**,from the drop-down selct Select **Production**.
 
     ![Azure devops](images/selectpro.png)
 
@@ -312,7 +316,7 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
 1. On the **Run pipeline** pane, accept the default settings and click **Run** to trigger the pipeline. **Wait for the build pipeline to finish**.
 
-    > **Note**: After the build succeeds, the release will be triggered automatically and the application will be deployed to both the environments. Validate the release actions, once the build pipeline completed successfully.
+    > **Note**: After the build succeeds, the release will be triggered automatically, and the application will be deployed to both the environments. Validate the release actions, once the build pipeline completed successfully.
 
 1. In the vertical navigational pane, in the **Pipelines** section, click **Releases** and, on the **eShopOnWeb_MultiStageYAML** pane, click the entry representing the most recent release.
 1. On the **eShopOnWeb_MultiStageYAML > Release-1** blade, track the progress of the release and verify that the deployment to both web apps completed successfully.
@@ -337,7 +341,7 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
    
 1. Close the web browser tab displaying the **EShopOnWeb** web site.
 
-    > **Note**: Now you have the application with CI/CD configured. In the next exercise we will set up Quality Gates as part of a more advanced  Release pipeline.
+    > **Note**: Now you have the application with CI/CD configured. In the next exercise we will set up Quality Gates as part of a more advanced release pipeline.
 
 # Exercise 3: Configure release gates
 
@@ -367,11 +371,11 @@ In this task, you will configure pre-deployment gates.
 
     ![Azure devops](images/saverea.png)
 
-1. Return back to the Azure DevOps Portal, open the **eShopOnWeb_MultiStageYAML*** Project. Navigate to **Pipelines**, select **Releases** and select the **New Release Pipeline**. Click the **Create Release** button.
+1. Return back to the Azure DevOps Portal, open the **eShopOnWeb_MultiStageYAML*** Project. Navigate to **Pipelines**, select **Releases** and select the **New Release Pipeline**. Click the **Create release** button.
 
     ![Azure devops](images/crtrealeas.png) 
  
-1. On **create a new realease** page, click on **Create**.
+1. On **Create a new release** page, click on **Create**.
 
     ![Azure devops](images/createnewre.png)
 1. Notice the green confirmation message, saying "Release-2" has been created. Click the link of "Release-2" to navigate to its details.
@@ -384,10 +388,10 @@ In this task, you will configure pre-deployment gates.
 
 In this task, you will enable the post-deployment gate for the Canary Environment.
 
-1. Again switch to the **New Release Pipeline** pane, click **Edit**.
+1. Again, switch to the **New Release Pipeline** pane, click **Edit**.
 
     ![Azure devops](images/editre.png)
-      
+
 1. On the right edge of the rectangle representing the **Canary Environment** stage, click the oval shape representing the **Post-deployment conditions**.
 
    ![Azure devops](images/pre-deploy.png)
@@ -420,7 +424,7 @@ In this task, you will enable the post-deployment gate for the Canary Environmen
     - Set the value of **Timeout after which gates fail** to **8 Minutes(2)**.
     - Select the **On successful gates, ask for approvals(3)** option.
 
-    ![Azure devops](images/pre-deployset5.png) 
+        ![Azure devops](images/new-az-400-mod3-34.png) 
 
     > **Note**: The sampling interval and timeout work together so that the gates will call their functions at suitable intervals and reject the deployment if they don't succeed during the same sampling interval within the timeout period.
 
@@ -459,17 +463,17 @@ In this task, you will first generate some alerts for the Canary Web App, follow
 
 1. There should be at least **1** new alert in the list of results, having a **Severity 2** enter **Alerts** to open the Alerts Service of Azure Monitor.
 
-1. Notice there should be at least **1** Failed_Alert** with **Severity 2 - Warning** showing up in the list. This got trigger when you validated the non-existing website URL address in the previous exercise.
+1. Notice there should be at least **1 Failed_Alert** with **Severity 2 - Warning** showing up in the list. This got trigger when you validated the non-existing website URL address in the previous exercise.
 
     > **Note:** If no Alert shows up yet, wait another few minutes. 
     
     ![Azure devops](images/alertfailed.png) 
 
-1. Return back to the Azure DevOps Portal, open the **eShopOnWeb_MultiStageYAML*** Project. Navigate to **Pipelines**, select **Releases** and select the **New Release Pipeline**. Click the **Create Release** button.
+1. Return back to the Azure DevOps Portal, open the **eShopOnWeb_MultiStageYAML** Project. Navigate to **Pipelines**, select **Releases** and select the **New Release Pipeline**. Click the **Create Release** button.
 
     ![Azure devops](images/crtrealeas.png) 
  
-1. On **create a new realease** page, click on **Create**.
+1. On **Create a new release** page, click on **Create**.
 
     ![Azure devops](images/createnewre.png) 
    
@@ -495,4 +499,4 @@ In this task, you will first generate some alerts for the Canary Web App, follow
 
 In this lab, you configured release pipelines and then configured and tested release gates.
 
-## Click Next to proceed with the next lab.
+### You have successfully completed the lab. Click on **Next >>** to procced with next lab.
