@@ -350,7 +350,13 @@ In this task, you will import a CD pipeline, customize it and run it for deployi
 
 1. Your pipeline will take a name based on the project name. Lets **rename** it for identifying the pipeline better. Go to **Pipelines>Pipelines** and click on the recently created pipeline. Click on the ellipsis and **Rename/move** option. Name it **eshoponweb-cd-aci** and click on **Save**.
 
+  > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+   - If you receive a success message, you can proceed to the next task.
+   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
   
+   <validation step="10127a4a-453b-48da-b290-fea76e5a1dfe" />
+
 ## Review
 
 In this lab, you integrated Azure Key Vault with an Azure DevOps pipeline by using the following steps:
