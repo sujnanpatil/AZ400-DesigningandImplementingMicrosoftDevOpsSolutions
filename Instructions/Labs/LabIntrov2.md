@@ -36,7 +36,7 @@ Feel free to **start, stop, or restart** your virtual machine as needed from the
  
 ![Manage Your Virtual Machine](./images/az-400gs4.png)
 
-## **Lab Duration Extension**
+## Lab Duration Extension
 
 1. To extend the duration of the lab, kindly click the **Hourglass** icon in the top right corner of the lab environment. 
 
@@ -95,7 +95,7 @@ Feel free to **start, stop, or restart** your virtual machine as needed from the
 1. If a **Welcome to Microsoft Azure** pop-up window appears, simply click "Maybe Later" to skip the tour.
 
 
-6. Click "Next" from the bottom right corner to embark on your Lab journey!
+1. Click "Next" from the bottom right corner to embark on your Lab journey!
  
    ![Start Your Azure Journey](./images/az-400-intro5.png)
 
