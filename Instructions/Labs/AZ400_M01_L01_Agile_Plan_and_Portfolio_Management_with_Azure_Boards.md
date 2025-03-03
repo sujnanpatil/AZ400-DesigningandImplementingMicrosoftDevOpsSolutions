@@ -320,13 +320,19 @@ The sprint backlog should contain all the information the team needs to successf
 
 1. On the **Settings** panel, select the **Backlogs** dropdown.
 
+    ![](images/m1/0001.png)
+
     > **Note**: Entries on this tab allow you to set the levels available for navigation. Epics are not included by default, but you could change that.
 
 1. On the **Settings** panel, select the **Working days** dropdown.
 
+    ![](images/m1/0002.png)
+
     > **Note**: Entries on this tab allow you to specify the **Working days** the team follows. This applies to capacity and burndown calculations.
 
 1. On the **Settings** panel, select the **Working with bugs** dropdown.
+
+    ![](images/m1/0003.png)
 
     > **Note**: Entries on this tab allow you to specify how bugs are presented on the board.
 
@@ -344,11 +350,13 @@ To maximize a team's ability to consistently deliver high quality software, Kanb
 
 1. On the **Boards** panel, click the **Configure board settings** cogwheel icon (directly to the right of the funnel icon).
 
+    ![](images/m1/settings.png)
+
     > **Note**: The team is emphasizing work done with data, so there is special attention paid to any task associated with accessing or storing data.
 
-1. On the **Settings** panel, select the **Tag colors (1)** tab, click **+ Tag color (2)**, in the **Tag** textbox, type **data (3)** and leave the default color(4) in place and click on **Save and Close (5)**.
+1. On the **Settings** panel, select the **Tag colors (1)** tab, click **+ Add Tag color (2)**, in the **Tag** textbox, type **data (3)** and leave the default color(4) in place and click on **Save (5)**.
 
-    !["Settings" window, "Tag colors", include "data" tag](images/m1/tagcolor1.png)
+    !["Settings" window, "Tag colors", include "data" tag](images/m1/tagcolor1-1.png)
 
     > **Note**: Whenever a backlog item or bug is tagged with **data**, that tag will be highlighted.
 
@@ -415,6 +423,8 @@ To maximize a team's ability to consistently deliver high quality software, Kanb
     > **Note**: A lag often exists between when work gets moved into a column and when work starts. To counter that lag and reveal the actual state of work in progress, you can turn on split columns. When split, each column contains two sub-columns: **Doing** and **Done**. Split columns let your team implement a pull model. Without split columns, teams push work forward, to signal that they've completed their stage of work. However, pushing it to the next stage doesn't necessarily mean that a team member immediately starts work on that item.
 
 1. On the **QA Approved** tab, enable the **Split column into doing and done** checkbox to create two separate columns.
+
+    ![](images/m1/az-400p7-1.png)
 
     > **Note**: As your team updates the status of work as it progresses from one stage to the next, it helps that they agree on what **done** means. By specifying the **Definition of done** criteria for each Kanban column, you help share the essential tasks to complete before moving an item into a downstream stage.
 
