@@ -89,14 +89,13 @@ Feel free to **start, stop, or restart** your virtual machine as needed from the
 1. After scanning, click **Next** to proceed.
 
 1. On your phone, enter the number shown on your computer screen in the Authenticator app and select **Next**.
-       
+
 1. If prompted to stay signed in, you can click "No."
- 
+
 1. If a **Welcome to Microsoft Azure** pop-up window appears, simply click "Maybe Later" to skip the tour.
 
-
 1. Click "Next" from the bottom right corner to embark on your Lab journey!
- 
+
    ![Start Your Azure Journey](./images/az-400-intro5.png)
 
 ## Support Contact
