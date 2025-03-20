@@ -255,13 +255,6 @@ Let's continue to test the Feature manager.
    
    ![](images/67.dissappearmsg.png)
 
-   > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-   - If you receive a success message, you have successfully completed the lab.
-   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
- 
-   <validation step="ec5155c1-0a64-4319-9b84-94137c2a9658" />
-
 ## Task 6: Remove the Azure DevOps billing
 
 In this task, you will remove pipeline billing to eliminate unnecessary charges.
