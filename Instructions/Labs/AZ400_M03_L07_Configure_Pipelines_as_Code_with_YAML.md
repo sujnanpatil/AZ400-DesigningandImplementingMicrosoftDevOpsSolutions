@@ -52,7 +52,7 @@ In this lab, you will be performing the following exercises:
 
 7. On the **MS Hosted CI/CD** section under **Paid parallel jobs** enter value **1** and at the end of the page click on **Save**.
 
-    ![Azure DevOps](images/new-az-400-mod3-03.png)
+    ![Azure DevOps](images/az-400-lab3-3.png)
 
 ## Exercise 0: Configure the lab prerequisites
 
@@ -224,58 +224,26 @@ In this task, you will add continuous delivery to the YAML-based definition of t
         steps:
     ```
 
-1. Set the cursor on a new line at the end of the YAML definition.
+    ![](./images/az40145.png.png)
 
+1. Set the cursor on a new line at the end of the YAML definition and hit Enter/Return to add a new empty line.
+
+    ![](./images/az400cursor.png)
+     
     > **Note**: This will be the location where new tasks are added.
 
-1. In the list of tasks on the right side of the code pane, search for and select the **Azure App Service Deploy** task.
-1. In the **Azure App Service deploy** pane, specify the following settings and click **Add**:
-
-    - In the **Azure subscription** drop-down list, select the Azure subscription into which you deployed the Azure resources earlier in the lab, click **Authorize**, and, when prompted, authenticate by using the same user account you used during the Azure resource deployment.
-
-    - In the **App Service name** dropdown list, select the name of the web app you deployed earlier in the lab.
-
-      > **Note**: If you faced fallowing issue `Failed to obtain the Json Web Token(JWT) using service principal client ID` from the **Azure subscription**, select the Azure subscription into which you deployed the Azure resources earlier in the lab, click **Authorize**, once the authentication has been completed make sure to select latest generated **Service connection** 
-
-    - In the **Package or folder** text box, **update** the Default Value to `$(Build.ArtifactStagingDirectory)/**/Web.zip`
-
-    - In the **Application and Configuration Settings** at **App Settings** add `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development`
-      
-1. Confirm the settings from the Assistant pane by clicking the **Add** button.
-
-    > **Note**: This will automatically add the deployment task to the YAML pipeline definition.
-
-1. The snippet of code added to the editor should look similar to below, reflecting your name for the azureSubscription and WebappName parameters:
-
-   ```yaml
-   - task: AzureRmWebAppDeployment@4
-     inputs:
-       ConnectionType: 'AzureRM'
-       azureSubscription: 'MOC HOL 200196(c465113c-01ba-446f-943c-0f249c752a39)'
-       appType: 'webApp'
-       WebAppName: 'eshoponWebYAML533415268'
-       packageForLinux: '$(Build.ArtifactStagingDirectory)/**/Web.zip'
-       AppSettings: |
-         -UseOnlyInMemoryDatabase true 
-         -ASPNETCORE_ENVIRONMENT Development
-   ```
-
-1. Validate the task is listed as a child of the **steps** task. If not, select all lines from the added task, press the **Tab** key twice to indent it four spaces, so that it listed as a child of the **steps** task.
-
-    > **Note**: The **packageForLinux** parameter is misleading in the context of this lab, but it is valid for Windows or Linux.
-
-    > **Note**: By default, these two stages run independently. As a result, the build output from the first stage might not be available to the second stage without additional changes. To implement these changes, we will add a new task to download the deployment artifact in the beginning of the deploy stage.
-
-1. Place the cursor on the first line under the **steps** node of the **deploy** stage, and hit Enter/Return to add a new empty line (Line 64).
-
 1. On the **Tasks** pane, search for and select the **Download build artifacts** task.
-1. Specify the following parameters for this task:
-    - Download Artifacts produced by: **Current Build**
-    - Download Type: **Specific Artifact**
-    - Artifact Name: **Enter "Website" in the text box**
-    - Destination Directory: **$(Build.ArtifactStagingDirectory)**
 
-1. Click **Add**.
+   ![](./images/az400buildart.png)
+
+1. Specify the following parameters for this task:
+    - Download Artifacts produced by: **Current Build** (1)
+    - Download Type: **Specific Artifact** (2)
+    - Artifact Name: **Enter "Website" in the text box** (3)
+    - Destination Directory: **$(Build.ArtifactStagingDirectory)** (4)
+    - Click **Add**(5)
+
+      ![](./images/az400labsettingsartifct.png)
 
 1. The snippet of added code should look similar to below:
 
@@ -287,6 +255,48 @@ In this task, you will add continuous delivery to the YAML-based definition of t
             artifactName: 'Website'
             downloadPath: '$(Build.ArtifactStagingDirectory)'
     ```
+
+1. After adding the artifact, hit enter to move to the next line and place the cursor in a way that it is under **Steps** option as shown below.
+
+   ![](./images/az400curse.png)
+
+1. In the list of tasks on the right side of the code pane, search for and select the **Azure App Service Deploy** task.
+
+1. In the **Azure App Service deploy** pane, specify the following settings and click **Add**:
+
+    - In the **Azure subscription** drop-down list, select the Azure subscription into which you deployed the Azure resources earlier in the lab, click **Authorize**, and, when prompted, authenticate by using the same user account you used during the Azure resource deployment.
+
+       ![](./images/az400subauth.png)
+
+    - In the **App Service name** dropdown list, select the name of the web app you deployed earlier in the lab.
+  
+       ![](./images/az400webapp.png)
+
+      > **Note**: If you faced following issue `Failed to obtain the Json Web Token(JWT) using service principal client ID` from the **Azure subscription**, select the Azure subscription into which you deployed the Azure resources earlier in the lab, click **Authorize**, once the authentication has been completed make sure to select latest generated **Service connection** 
+
+    - In the **Package or folder** text box, **update** the Default Value to `$(Build.ArtifactStagingDirectory)/**/Web.zip`
+
+      ![](./images/az400artifact322.png)
+    
+1. Confirm the settings from the Assistant pane by clicking the **Add** button.
+
+    > **Note**: This will automatically add the deployment task to the YAML pipeline definition.
+
+1. The snippet of code added to the editor should look similar to below, reflecting your name for the azureSubscription and WebappName parameters:
+
+   ```yaml
+    - task: AzureRmWebAppDeployment@5
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'MOC HOL 200070(adf2da51-51d4-460a-9088-325668ef1f47)'
+        appType: 'webApp'
+        WebAppName: 'eshoponWebYAML3118028407'
+        packageForLinux: '$(Build.ArtifactStagingDirectory)/**/Web.zip'
+   ```
+
+1. Validate the task is listed as a child of the **steps** task. If not, select all lines from the added task, press the **Tab** key twice to indent it four spaces, so that it listed as a child of the **steps** task.
+
+
 1. If the YAML indentation is off, With the added task still selected in the editor, press the **Tab** key twice to indent it four spaces.
 
     > **Note**: Here as well you may also want to add an empty line before and after to make it easier to read.
