@@ -72,7 +72,9 @@ In this task, you will create an **eShopOnWeb** Azure DevOps project to be used 
 
 In this task you will import the eShopOnWeb Git repository that will be used by several labs.
 
-1.  On edge browser window on your lab computer, navigate to the Azure DevOps organization, then access the previously created **eShopOnWeb_MultiStageYAML** project. Navigate to **Repos (1)>Files (2)** and then click on **Import (3)** within the **Import a repository** card. On the **Import a Git Repository** window, paste the following URL https://github.com/MicrosoftLearning/eShopOnWeb.git **(4)** and click on **Import (5)**:
+1. Access the previously created **eShopOnWeb_MultiStageYAML** project.
+
+1. Navigate to **Repos (1)>Files (2)** and then click on **Import (3)** within the **Import a repository** card. On the **Import a Git Repository** window, paste the following URL https://github.com/MicrosoftLearning/eShopOnWeb.git **(4)** and click on **Import (5)**:
 
     ![Import Repository](images/az-400-4.png)
 
@@ -90,7 +92,9 @@ In this task you will import the eShopOnWeb Git repository that will be used by 
 1. Click on **Set as default branch (3)**.
 
     ![Import Repository](images/az-400-5.png)
-   
+
+   >**Note:** If there is only one branch then it is considered as the default branch automatically.You can proceed with the next task.
+
 ### Task 3: Create Azure resources
 
 In this task, you will create an Azure web app by using the Azure portal.
@@ -224,7 +228,7 @@ In this task, you will add continuous delivery to the YAML-based definition of t
         steps:
     ```
 
-    ![](./images/az40145.png.png)
+    ![](./images/az40145.png)
 
 1. Set the cursor on a new line at the end of the YAML definition and hit Enter/Return to add a new empty line.
 
@@ -232,7 +236,7 @@ In this task, you will add continuous delivery to the YAML-based definition of t
      
     > **Note**: This will be the location where new tasks are added.
 
-1. On the **Tasks** pane, search for and select the **Download build artifacts** task.
+1. From the right on the **Tasks** pane, search for and select the **Download build artifacts** task.
 
    ![](./images/az400buildart.png)
 
