@@ -241,6 +241,7 @@ In this task, you will add continuous delivery to the YAML-based definition of t
    ![](./images/az400buildart.png)
 
 1. Specify the following parameters for this task:
+   
     - Download Artifacts produced by: **Current Build** (1)
     - Download Type: **Specific Artifact** (2)
     - Artifact Name: **Enter "Website" in the text box** (3)
