@@ -1,0 +1,33 @@
+[
+    {
+      "Name": "Azure DevOps Hands-on Lab",
+      "Language": "English",
+      "BaseURL": "https://github.com/CloudLabs-MOC/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/tree/custom-devOps",
+      "Files": [
+        {
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/prod/Instructions/Labs/LabIntrov2.md",
+          "Order": 1
+        },
+        {
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/refs/heads/custom-devOps/Instructions/Labs/Devops_hol_lab1.md",
+          "Order": 2
+        },
+        {
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/refs/heads/custom-devOps/Instructions/Labs/Devops_hol_lab2.md",
+          "Order": 3
+        },
+        {
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/refs/heads/custom-devOps/Instructions/Labs/Devops_hol_lab3.md",
+          "Order": 4
+        },
+        {
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/refs/heads/custom-devOps/Instructions/Labs/Devops_hol_lab4.md",
+          "Order": 5
+        },
+        {
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/refs/heads/custom-devOps/Instructions/Labs/Devops_hol_lab5.md",
+          "Order": 6
+        }        
+      ]
+    }
+  ]
