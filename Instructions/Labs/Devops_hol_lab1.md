@@ -51,7 +51,7 @@ The repository is organized the following way:
 
 In this task, you will create an empty public GitHub repository and import the existing [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb) repository.
 
-1. From the lab computer, start a web browser, navigate to the [GitHub website](https://github.com/), sign in using your account, and click on **New** to create a new repository.
+1. From the lab computer, start a web browser, right click on [GitHub website](https://github.com/), paste it on the browser tab. Click on **Sign in** and sign in using your account, and click on **New** to create a new repository.
 
     ![Create Repository](images/github-new.png)
  
