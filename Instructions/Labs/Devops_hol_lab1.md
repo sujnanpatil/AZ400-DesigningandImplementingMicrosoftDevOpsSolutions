@@ -230,9 +230,11 @@ In this task, you will modify the given GitHub workflow and execute it to deploy
  
 In this task, you will review the GitHub workflow execution:
 
-1. In a browser window, go back to your **eShopOnWeb** GitHub repository.
+1. On the repository page, go to **Actions**.
 
-1. On the repository page, go to **Actions**, you will see the workflow setup before executing. Click on **eShopOnWeb Build and Test** (make sure you are selecting the **eShopOnWeb Build and Test** workflow which is associated with the **eshoponweb-ccid.yml**).
+    ![GitHub workflow in progress](images/dev25.png)
+
+1. You will see the workflow setup on top before executing. Click on **eShopOnWeb Build and Test** (make sure you are selecting the **eShopOnWeb Build and Test** workflow which is associated with the **eshoponweb-ccid.yml**).
 
     ![GitHub workflow in progress](images/actions.png)
 
@@ -242,17 +244,26 @@ In this task, you will review the GitHub workflow execution:
 
    > ![GitHub workflow in progress](images/runworkflow.png)
 
-1. Wait for the workflow to finish. From the **Summary** you can see the two workflow jobs, the status and Artifacts retained from the execution. You can click in each job to review logs.
+1. Click on the Workflow, wait for the workflow to finish. From the **Summary** you can see the two workflow jobs, the status and Artifacts retained from the execution. You can click in each job to review logs.
 
-    ![Succesfull workflow](images/gh-action-success.png)
+    ![GitHub workflow in progress](images/dev26.png)
 
-    >**Note**: If the job fails, you should navigate back to the **Code** section and locate to **eShopOnWeb/.github/workflows/eshoponweb-cicd.yml** file. Then, select the **Edit** (pencil icon) within the **publish** section. Replace **${{ env.WEBAPP-NAME }}** with **app-name: eshoponweb-webapp-<inject key="DeploymentID" enableCopy="false"/>** and save the changes by committing them.
+    >**Note**: If the job fails, you should navigate back to the **Code** section and locate to **eShopOnWeb/.github/workflows/eshoponweb-cicd.yml** file. Then, select the **Edit** (pencil icon) within the **publish (1)** section. Replace **${{ env.WEBAPP-NAME }}** with **app-name: eshoponweb-webapp-<inject key="DeploymentID" enableCopy="false"/> (2)** and save the changes by committing them **(3)**. 
+    - Navigate to **Actions**, and then check the workflow again. Wait untill it is succeeded.
 
-    ![Succesfull workflow](images/3-1.png)
+      ![Succesfull workflow](images/dev27.png)
 
-1. In a browser window, go back to the Azure Portal (https://portal.azure.com/). Open the resource group created before. You will see that the GitHub Action, using a bicep template, has created an Azure App Service Plan + App Service. You can see the published website opening the App Service and clicking **Browse**.
+1. In a browser window, go back to the Azure Portal (https://portal.azure.com/).
 
-    ![Browse WebApp](images/browse-webapp.png)
+1. Open the resource group **rg-az400-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** yo have created before. You will see that the GitHub Action, using a bicep template, has created an Azure App Service Plan + App Service.
+
+1. Select **eshoponweb-webapp-<inject key="DeploymentID" enableCopy="false"/>** App service.
+
+1. You can see the published website opening the App Service and clicking **Browse**.
+
+    ![Browse WebApp](images/dev28.png)
+    ![Browse WebApp](images/dev29.png)
+    
 
 ## Review
 
