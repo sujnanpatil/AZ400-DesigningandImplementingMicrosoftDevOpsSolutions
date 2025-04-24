@@ -210,7 +210,7 @@ In this task, you will modify the given GitHub workflow and execute it to deploy
 
 1. In the **env** section, make the following changes:
     - Replace **NAME** in **RESOURCE-GROUP** variable. It should be the same resource group created in previous steps 
-    - (Optional) You can choose your closest [azure region](https://azure.microsoft.com/en-gb/explore/global-infrastructure/geographies/#geographies) for **LOCATION**. For example, "westtus", "eastasia", "eastus", etc.
+    - (Optional) You can choose your closest [azure region](https://azure.microsoft.com/en-gb/explore/global-infrastructure/geographies/#geographies) for **LOCATION**. For example, "westus", "eastasia", "eastus", etc.
     - Replace **YOUR-SUBS-ID** in **SUBSCRIPTION-ID**. You can find your subscription ID from the Overview page of Resource group in Azure portal. 
     - Replace **WEBAPP-NAME** with **eshoponweb-webapp-<inject key="DeploymentID" enableCopy="false"/>**. It will be used to create a globally unique website using Azure App Service.
 
@@ -255,9 +255,13 @@ In this task, you will review the GitHub workflow execution:
 
 1. In a browser window, go back to the Azure Portal (https://portal.azure.com/).
 
-1. Open the resource group **rg-az400-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** yo have created before. You will see that the GitHub Action, using a bicep template, has created an Azure App Service Plan + App Service.
+1. Open the resource group **rg-az400-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** yo have created before. You will see that the GitHub Action, using a bicep template, has created an** Azure App Service Plan + App Service**.
+
+    ![](images/dev30.png)
 
 1. Select **eshoponweb-webapp-<inject key="DeploymentID" enableCopy="false"/>** App service.
+
+    ![](images/dev31.png)
 
 1. You can see the published website opening the App Service and clicking **Browse**.
 
