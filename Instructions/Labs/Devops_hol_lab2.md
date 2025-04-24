@@ -179,33 +179,50 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 
     > **Note**: Make sure you copy the token. You will not be able to retrieve it once you close this pane. 
 
-    ![Azure DevOps](images/token.png)
+    ![Azure DevOps](images/dev53.png)
 
 1. On the **Success** pane, click **Close**.
 
-    ![Azure DevOps](images/dev53.png)
+1. On the **Personal Access Token** pane of the Azure DevOps portal, click **Azure DevOps** symbol in the upper left corner.
 
-1. On the **Personal Access Token** pane of the Azure DevOps portal, click **Azure DevOps** symbol in the upper left corner and then click **Organization settings** label in the lower left corner.
+    ![Azure DevOps](images/dev55.png)
 
-1. To the left side of the **Overview** pane, in the vertical menu, in the **Pipelines** section, click **Agent pools**.
+1. Then click **Organization settings** label in the lower left corner.
 
-1. On the **Agent pools** pane, in the upper right corner, click **Add pool**. 
+    ![Azure DevOps](images/dev56.png)
 
-1. On the **Add agent pool** pane, in the **Pool type** dropdown list, select **Self-hosted**, in the **Name** text box, type **az400m05l05a-pool**, under **Pipeline permissions** select the checkboxes and then click **Create**.
+1. To the left side of the **Overview** pane, in the vertical menu, in the **Pipelines (1)** section, click **Agent pools (2)**. On the **Agent pools** pane, in the upper right corner, click **Add pool (3)**. 
 
-    ![Azure DevOps](images/E1T1S9.png)    
+    ![Azure DevOps](images/dev57.png)
+
+1. On the **Add agent pool** pane, in the **Pool type** dropdown list,
+   
+   - Select **Self-hosted (1)**
+   - In the **Name** text box, type **devops-pool (2)**
+   - Under **Pipeline permissions** select the checkboxes **(3)**
+   - Then click **Create (4)**
+
+     ![Azure DevOps](images/dev60.png)    
     
-1.  Back on the **Agent pools** pane, click the entry representing the newly created **az400m05l05a-pool**. 
+1. Back on the **Agent pools** pane, click the entry representing the newly created **devops-pool**. 
 
-1.  On the **Jobs** tab of the **az400m05l05a-pool** pane,  click the **New agent** button.
+    ![Azure DevOps](images/dev59.png)
 
-1. On the **Get the agent** pane, ensure that the **Windows** and **x64** tabs are selected, and click **Download** to download the zip archive containing the agent binaries to download it into the local **Downloads** folder within your user profile.
+1. On the **Jobs** tab of the **devops-pool** pane,  click the **New agent** button.
 
-   ![Azure DevOps](images/down.png)
+    ![Azure DevOps](images/dev61.png)
 
-   > **Note**: If you receive an error message at this point indicating that the current system settings prevent you from downloading the file, in the Browser window, in the upper right corner, click the gearwheel symbol designating the **Settings** menu header, in the dropdown menu, select **Internet Options**, in the **Internet Options** dialog box, click **Advanced**, on the **Advanced** tab, click **Reset**, in the **Reset Browser Settings** dialog box, click **Reset** again, click **Close**, and try the download again.
+1. On the **Get the agent** pane, ensure that the **Windows (1)** and **x64 (2)** tabs are selected, and click **Download (3)** to download the zip archive containing the agent binaries to download it into the local **Downloads** folder within your user profile.
 
-1.  Start Windows PowerShell as administrator and in the **Administrator: Windows PowerShell** console run the following lines to create the **C:\\agent** directory and extract the content of the downloaded archive into it.
+    ![Azure DevOps](images/dev62.png)
+
+     > **Note**: If you receive an error message at this point indicating that the current system settings prevent you from downloading the file, in the Browser window, in the upper right corner, click the gearwheel symbol designating the **Settings** menu header, in the dropdown menu, select **Internet Options**, in the **Internet Options** dialog box, click **Advanced**, on the **Advanced** tab, click **Reset**, in the **Reset Browser Settings** dialog box, click **Reset** again, click **Close**, and try the download again.
+
+1. On the LabVM, right click on **Start (1)**, then select **Windows PowerShell (Admin) (2)**.
+
+    ![Azure DevOps](images/dev63.png)
+
+1. Run the following lines to create the **C:\\agent** directory and extract the content of the downloaded archive into it.
 
     ```powershell
     cd \
@@ -215,7 +232,9 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
     [System.IO.Compression.ZipFile]::ExtractToDirectory($TARGET, "$PWD")
     ```
 
-    >**Note**: If you encounter an error indicating that the item already exists, please disregard it and proceed with the next steps.
+     >**Note**: If you encounter an error indicating that the item already exists, please ignore it and proceed with the next steps.
+
+      ![Azure DevOps](images/dev64.png)      
 
 1.  In the same **Administrator: Windows PowerShell** console, run the following to configure the agent:
 
@@ -223,69 +242,115 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
     .\config.cmd
     ```
 
+     ![Azure DevOps](images/dev65.png)     
+
 1.  When prompted, specify the values of the following settings:
 
     | Setting | Value |
     | ------- | ----- |
-    | Enter server URL | Enter https://dev.azure.com/<organization_name>, where <organization_name> is your Azure DevOps organization name (after updating the url it look similar to https://dev.azure.com/odluser<inject key="DeploymentID" enableCopy="false"/>/) |
+    | Enter server URL | Enter https://dev.azure.com/odluser<inject key="DeploymentID" enableCopy="false"/>/ |
     | Enter authentication type (press enter for PAT) | **Hit Enter** |
     | Enter personal access token | The access token you recorded earlier in this task |
-    | Enter agent pool (press enter for default) | enter **az400m05l05a-pool** |
+    | Enter agent pool (press enter for default) | enter **devops-pool** |
     | Enter agent name (press enter for labvm-<inject key="DeploymentID" enableCopy="false"/>) | **Hit Enter** |
     | Enter work folder (press enter for _work) | **Hit Enter** |
     | **(Only if shown)** Enter Perform an unzip for tasks for each step. (press enter for N) | **WARNING**: only press **Enter** if the message is shown|
     | Enter run agent as service? (Y/N) (press enter for N) | **Y** |
     | enter enable SERVICE_SID_TYPE_UNRESTRICTED (Y/N) (press enter for N) | **Y** |
     | Enter User account to use for the service (press enter for NT AUTHORITY\NETWORK SERVICE) | **Hit Enter** |
-    | Enter whether to prevent service starting immediately after configuration is finished? (Y/N) (press enter for N) | **Enter** |
+    | Enter whether to prevent service starting immediately after configuration is finished? (Y/N) (press enter for N) | ****Hit Enter** |
 
-    > **Note**: You can run self-hosted agent as either a service or an interactive process. You might want to start with the interactive mode, since this simplifies verifying agent functionality. For production use, you should consider either running the agent as a service or as an interactive process with auto-logon enabled, since both persist their running state and ensure that the agent starts automatically if the operating system is restarted.
+    ![Azure DevOps](images/dev66.png)    
 
-    > **Note**: Verify that the agent is reporting the **Listening for Jobs** status.
+     > **Note**: You can run self-hosted agent as either a service or an interactive process. You might want to start with the interactive mode, since this simplifies verifying agent functionality. For production use, you should consider either running the agent as a service or as an interactive process with auto-logon enabled, since both persist their running state and ensure that the agent starts automatically if the operating system is restarted.
 
-      ![Azure DevOps](images/pow.png)
+     > **Note**: Verify that the agent is reporting the **Listening for Jobs** status.
 
 1.  Switch to the browser window displaying the Azure DevOps portal and close the **Get the agent** pane.
 
-1.  Back on the **Agents** tab of the **az400m05l05a-pool** pane, note that the newly configured agent is listed with the **Online** status.
+1.  Back on the **Agents (1)** tab of the **devops-pool** pane, note that the newly configured agent is listed with the **Online (2)** status.
+
+    ![Azure DevOps](images/dev67.png)
 
 1.  In the web browser window displaying the Azure DevOps portal, in the upper left corner, click the **Azure DevOps** label.
 
+    ![Azure DevOps](images/dev68.png)
+
 1.  In the browser window displaying the list of projects, click the tile representing your **eShopOnWeb** project.
+
+    ![Azure DevOps](images/dev69.png)
  
-1.  On the **eShopOnWeb** pane, in the vertical navigational pane on the left side, in the **Pipelines** section, click **Pipelines**. 
+1.  On the **eShopOnWeb** pane, in the vertical navigational pane on the left side, in the **Pipelines (1)** section, click **Pipelines (2)**. On the **Recent** tab of the **Pipelines** pane, select **eShopOnWeb (3)**.
 
-1.  On the **Recent** tab of the **Pipelines** pane, select **eShopOnWeb** and, on the **eShopOnWeb** pane, select **Edit**.
+    ![Azure DevOps](images/dev70.png)
 
-1. On the **eShopOnWeb** edit pane, in the existing YAML-based pipeline, replace line 13 which says  `vmImage: ubuntu-latest` designating the target agent pool the following content, designating the newly created self-hosted agent pool:
+1. On the **eShopOnWeb** pane, select **Edit**.
+
+    ![Azure DevOps](images/dev71.png)
+
+1. On the **eShopOnWeb** edit pane, in the existing YAML-based pipeline, replace line **13** which says  `vmImage: ubuntu-latest` designating the target agent pool the following content, designating the newly created self-hosted agent pool:
 
     ```yaml
-    name: az400m05l05a-pool
+    name: devops-pool
     demands:
     - agent.name -equals Agentname
     ```
+
     > **Note**: Replace Agentname with **labvm-<inject key="DeploymentID" enableCopy="false"/>**
 
+    ![Azure DevOps](images/dev72.png)    
  
-    ![Azure DevOps](images/az-400-lab3-6.png)
+    ![Azure DevOps](images/dev73.png)
     
     > **WARNING**: Be careful with copy/paste, make sure you have same indentation shown above. 
  
-1.  On the **eShopOnWeb** edit pane, in the upper right corner of the pane, click **Validate + Save** and, on the **Save** pane, click **Save** again. This will automatically trigger the build based on this pipeline. 
+1.  On the **eShopOnWeb** edit pane, in the upper right corner of the pane, click **Validate + Save**.
 
-1. On the **Recent** tab of the **Pipelines** pane, click the **eShopOnWeb** entry, click on **Run** to run the pipeline
+    ![Azure DevOps](images/dev74.png)
+
+1. On the **Save** pane, click **Save** again. This will automatically trigger the build based on this pipeline. 
+
+    ![Azure DevOps](images/dev75.png)
+
+1. On the **Recent** tab of the **Pipelines** pane, click the **eShopOnWeb** entry.
+
+    ![Azure DevOps](images/dev76.png)
+
+1. Click on **Run pipeline.**    
+
+    ![Azure DevOps](images/dev77.png)
+
+1. Click on **Run** again to run the pipeline.
+
+    ![Azure DevOps](images/dev78.png)
+
+1. Click on **Buid**.    
+
+1. Click on **View**.
+
+    ![Azure DevOps](images/dev79.png)
 
 1. Depending on your lab setup, the pipeline might prompt you for permissions. Click **Permit** to allow the pipeline to run. 
 
+    ![Azure DevOps](images/dev80.png)
+
+1. Click on **Permit** on **Permit access**.
+
+    ![Azure DevOps](images/dev81.png)
+
 1. Wait until the build  succeeds.
 
-1. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better. Go to **Pipelines>Pipelines** and click on the recently created pipeline. Click on the **ellipsis (1)** and **Rename/move (2)** option.
+    ![Azure DevOps](images/dev82.png)
+
+1. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better.
+
+1. Go to **Pipelines>Pipelines (1)** and click on the recently created pipeline. Click on the **ellipsis (2)** and **Rename/move (3)** option.
    
-      ![](images/E2T1S27-1202.png)
+    ![Azure DevOps](images/dev83.png)
 
 1. Name it **eshoponweb-ci-pr (1)** and click on **Save (2)**.
 
-      ![](images/AZ-400-rename.png)  
+    ![Azure DevOps](images/dev84.png) 
 
 
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
