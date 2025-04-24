@@ -6,64 +6,61 @@
 
 In this task, you will add policies to the main branch and only allow changes using Pull Requests that comply with the defined policies. You want to ensure that changes in a branch are reviewed before they are merged.
 
-   1. Go to **Repos (1)>Branches (2)** section. On the **Mine** tab of the **Branches** pane, hover the mouse pointer over the **main (3)** branch entry to reveal the **ellipsis symbol (4)** on the right side.
+1. Go to **Repos (1)>Branches (2)** section. On the **Mine** tab of the **Branches** pane, hover the mouse pointer over the **main (3)** branch entry to reveal the **ellipsis symbol (4)** on the right side. Select **Branch Policies (5)**.
 
-      ![](images/az400-m3-L4-16.png)
+    ![](images/dev85.png)
 
-   2. Click the **ellipsis (4)** and, in the pop-up menu, select **Branch Policies (5)**.
+1. On the main tab of the repository settings, enable the option for **Require minimum number of reviewers (1)**. Add **1 (2)** reviewer and check the box **Allow requestors to approve their own changes (3)**(as you are the only user in your project for the lab)
 
-      ![](images/az400-m3-L4-17.png)
+    ![](images/dev86.png)
 
-   3. On the main tab of the repository settings, enable the option for **Require minimum number of reviewers (1)**. Add **1 (2)** reviewer and check the box **Allow requestors to approve their own changes (3)**(as you are the only user in your project for the lab)
+1. Click on the **main (1)** tab of the repository settings, in the **Build Validation (2)** section, **click + (Add a new build policy) (3)**.
 
-      ![](images/az400-m3-L4-18.png)
+    ![](images/dev87.png)
 
-   4. On the **main (1)** tab of the repository settings, in the **Build Validation (2)** section, **click + (Add a new build policy) (3)** and in the Build pipeline list, select **eshoponweb-ci-pr (4)** then click **Save (5)**
-
-      ![](images/az400-m3-L4-19.png)
-
-      ![](images/AZ-400-build.png)
+1. On the Build pipeline list, select **eshoponweb-ci-pr (4)** then click **Save (5)**
+    ![](images/dev88.png)
       
-      >**Note**: If you get any error while saving the branch validation refresh the page and try again.
+     >**Note**: If you get any error while saving the branch validation refresh the page and try again.
 
- ## Task 2: Working with Pull Requests
+## Task 2: Working with Pull Requests
  
- In this task, you will use the Azure DevOps portal to create a Pull Request, using a new branch to merge a change into the protected main branch.
+In this task, you will use the Azure DevOps portal to create a Pull Request, using a new branch to merge a change into the protected main branch.
  
- 1. Navigate to the **Repos (1)->Branches (2)** section in the eShopOnWeb navigation and click **New Branch (3)**.
+1. Navigate to the **Repos (1)->Branches (2)** section in the eShopOnWeb navigation and click **New Branch (3)**.
 
     ![](images/az400-m3-L4-21.png)
 
- 2. Create a new branch named **Feature01 (1)** based on the **main** branch and click **Create (2)**.
+1. Create a new branch named **Feature01 (1)** based on the **main** branch and click **Create (2)**.
 
     ![](images/az-400-lab3-8.png)
 
-3. Click **Feature01 (1)** and navigate to the **/eShopOnWeb/src(2)/Web(3)/Program.cs (4)** file as part of the **Feature01** branch and click on **edit (5)** to make the following change on the first line:
+1. Click **Feature01 (1)** and navigate to the **/eShopOnWeb/src(2)/Web(3)/Program.cs (4)** file as part of the **Feature01** branch and click on **edit (5)** to make the following change on the first line:
 
    ```
    // Testing my PR
    ```
 
-   ![](images/az400-m3-L4-23.png)
+    ![](images/az400-m3-L4-23.png)
 
-   ![](images/az400-m3-L4-24.png)
+    ![](images/az400-m3-L4-24.png)
    
- 4. Click on **Commit > Commit** (leave default commit message).
+1. Click on **Commit > Commit** (leave default commit message).
 
     ![](images/az400-m3-L4-25.png)
     
     ![](images/AZ-400-commit.png)
 
-5. A message will pop-up, proposing to create a Pull Request (as your **Feature01** branch is now ahead in changes, compared to **main**). Click on **Create a Pull Request (1)**.
+1. A message will pop-up, proposing to create a Pull Request (as your **Feature01** branch is now ahead in changes, compared to **main**). Click on **Create a Pull Request (1)**.
 
     ![](images/az400-m3-L4-27.png)
 
-6. In the **New pull request (1)** tab, leave defaults and click on **Create (2)**.
+1. In the **New pull request (1)** tab, leave defaults and click on **Create (2)**.
    
    ![](images/AZ-400-newpr.png)
    
-7. The Pull Request will show some pending requirements, based on the policies applied to the target **main** branch.
-
+1. The Pull Request will show some pending requirements, based on the policies applied to the target **main** branch.
+    
     - It shows **At least 1 user should review and approve the changes (1)**, click **Add (2)** select Required Reviewer and **select the Reviewer to complete the PR(3)**.
     - Build validation, you will see that the build **eshoponweb-ci-pr** was triggered automatically
      
