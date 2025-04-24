@@ -1,4 +1,25 @@
-# Hands-on Lab 3: Configuring Agent Pools and Understanding Pipeline Styles
+# Lab 3: Configuring Agent Pools and Understanding Pipeline Styles
+
+## Lab overview
+
+In this lab, you will learn how to define build pipelines in Azure DevOps using YAML.
+The pipelines will be used in two scenarios:
+
+- As part of Pull Request validation process.
+- As part of the Continuous Integration implementation.
+
+## Objectives
+
+In this lab, you will complete the following exercises:
+
+- Exercise 1: Include build validation as part of a Pull Request 
+- Exercise 2: Configure CI Pipeline as Code with YAML
+
+## Estimated timing: 45 minutes
+
+## Architecture Diagram
+
+  ![Architecture Diagram](images/lab4-architecture-new.png)
 
 ## Exercise 1: Include build validation as part of a Pull Request 
 
@@ -29,135 +50,159 @@ In this task, you will use the Azure DevOps portal to create a Pull Request, usi
  
 1. Navigate to the **Repos (1)->Branches (2)** section in the eShopOnWeb navigation and click **New Branch (3)**.
 
-    ![](images/az400-m3-L4-21.png)
+    ![](images/dev89.png)
 
 1. Create a new branch named **Feature01 (1)** based on the **main** branch and click **Create (2)**.
 
-    ![](images/az-400-lab3-8.png)
+    ![](images/dev90.png)
 
-1. Click **Feature01 (1)** and navigate to the **/eShopOnWeb/src(2)/Web(3)/Program.cs (4)** file as part of the **Feature01** branch and click on **edit (5)** to make the following change on the first line:
+1. Click **Feature01**.
 
+1. Navigate to the **/eShopOnWeb/src(1)/Web(2)/Program.cs (3)** file as part of the **Feature01** branch.
+
+    ![](images/dev91.png)
+    ![](images/dev92.png)
+
+1. Click on **Edit**.
+
+    ![](images/dev93.png)
+
+1. Add the following line on the first line **(1)** and click on **Commit (2)**.
+    
    ```
    // Testing my PR
    ```
 
-    ![](images/az400-m3-L4-23.png)
-
-    ![](images/az400-m3-L4-24.png)
+    ![](images/dev94.png)
    
-1. Click on **Commit > Commit** (leave default commit message).
-
-    ![](images/az400-m3-L4-25.png)
-    
-    ![](images/AZ-400-commit.png)
+1. Click on **Commit** again (leave default commit message).
 
 1. A message will pop-up, proposing to create a Pull Request (as your **Feature01** branch is now ahead in changes, compared to **main**). Click on **Create a Pull Request (1)**.
 
-    ![](images/az400-m3-L4-27.png)
+    ![](images/dev95.png)
 
-1. In the **New pull request (1)** tab, leave defaults and click on **Create (2)**.
+1. In the **New pull request** tab, leave defaults and click on **Create (2)**.
    
-   ![](images/AZ-400-newpr.png)
+    ![](images/dev96.png)
    
 1. The Pull Request will show some pending requirements, based on the policies applied to the target **main** branch.
+
+    - It shows **At least 1 user should review and approve the changes (1)**, 
+    - Click **Add (2)** select **Required Reviewer (3)**
+
+      ![](images/dev97.png)    
     
-    - It shows **At least 1 user should review and approve the changes (1)**, click **Add (2)** select Required Reviewer and **select the Reviewer to complete the PR(3)**.
-    - Build validation, you will see that the build **eshoponweb-ci-pr** was triggered automatically
-     
-     ![](images/az400-m3-L4-29.png)
-     
-     ![](images/az400-m3-L4-30.png)    
+1. Search for the ODL user email **<inject key="AzureAdUserEmail"></inject> (1)** and select from the list **(2)**. 
+
+    ![](images/dev98.png)
+
+1. Build validation, you will see that the build **eshoponweb-ci-pr** was triggered automatically
+         
+    ![](images/az400-m3-L4-30.png)    
       
-8. After all validations are successful, on the top-right click on **Approve**,  Now from the **Set auto-complete** dropdown you can click on **Complete**. 
+1. Wait for the validation to succeed before proceeding.
 
-9. On the **Complete Pull Request** tab, select only **Complete associated work items after merging** checkbox  and Click on **Complete Merge**
+    ![](images/dev99.png)
 
-   ![](images/az400-m3-L4-32.png)
+1. On the top-right click on **Approve**.
+
+    ![](images/dev100.png)
+
+1. Now from the **Complete (1)** dropdown you can click on **Complete (2)**. 
+
+    ![](images/dev101.png)
+
+1. On the **Complete Pull Request** tab, select only **Complete associated work items after merging** checkbox  and Click on **Complete Merge**
+
+   ![](images/dev102.png)
+
+   ![](images/dev103.png)
+
 
 ## Exercise 2: Configure CI Pipeline as Code with YAML
 
-  In this exercise, you will configure CI Pipeline as code with YAML.
+In this exercise, you will configure CI Pipeline as code with YAML.
 
 ### Task 1: Import the YAML build definition
 
-  In this task, you will add the YAML build definition that will be used to implement the Continuous Integration.
+In this task, you will add the YAML build definition that will be used to implement the Continuous Integration.
 
-  Let's start by importing the CI pipeline named **eshoponweb-ci.yml**.
+Let's start by importing the CI pipeline named **eshoponweb-ci.yml**.
 
-  1. Go to **Pipelines>Pipelines (1)** and click on **New Pipeline (2)** button
+1. Go to **Pipelines (1)>Pipelines (2)** and click on **New Pipeline (3)** button.
 
-     ![](images/az400-m3-L4-33.png)
+    ![](images/dev104.png)
 
-  2. Select **Azure Repos Git (YAML)**
+1. Select **Azure Repos Git (YAML)**.
 
-      ![](images/AZ-400-repo.png)
+    ![](images/dev105.png)
 
-  3. Select the **eShopOnWeb** repository
+1. Select the **eShopOnWeb** repository.
 
-     ![](images/az400-m3-L4-35.png)
+    ![](images/dev106.png)
 
-  4. Select **Existing Azure Pipelines YAML File**
+1. Select **Existing Azure Pipelines YAML File**
 
-     ![](images/az400-m3-L4-36.png)
+    ![](images/dev107.png)
 
-  5. Select the **/.ado/eshoponweb-ci.yml (1)** file then click on **Continue (2)**
+1. Select the **/.ado/eshoponweb-ci.yml (1)** file then click on **Continue (2)**
 
-     ![](images/az400-m3-L4-37.png)
+    ![](images/dev108.png)
 
-     The CI definition consists of the following tasks:
+    The CI definition consists of the following tasks:
      
-   o **DotNet Restore:** With NuGet Package Restore you can install all your project's dependency without having to store them in source control.
+    - **DotNet Restore:** With NuGet Package Restore you can install all your project's dependency without having to store them in source control.
        
-   o **DotNet Build:** Builds a project and all of its dependencies.
+    - **DotNet Build:** Builds a project and all of its dependencies.
        
-   o **DotNet Test:** .Net test driver used to execute unit tests.
+    - **DotNet Test:** .Net test driver used to execute unit tests.
        
-   o **DotNet Publish:** Publishes the application and its dependencies to a folder for deployment to a hosting system. In this case, it's             **Build.ArtifactStagingDirectory**.
+    - **DotNet Publish:** Publishes the application and its dependencies to a folder for deployment to a hosting system. In this case, it's             **Build.ArtifactStagingDirectory**.
        
-   o **Publish Artifact - Website:** Publish the app artifact (created in the previous step) and make it available as a pipeline artifact.
+    - **Publish Artifact - Website:** Publish the app artifact (created in the previous step) and make it available as a pipeline artifact.
        
-   o **Publish Artifact - Bicep:** Publish the infrastructure artifact (Bicep file) and make it available as a pipeline artifact.
+    - **Publish Artifact - Bicep:** Publish the infrastructure artifact (Bicep file) and make it available as a pipeline artifact.
        
               
-   ### Task 2: Enable Continuous Integration
+### Task 2: Enable Continuous Integration
    
-   The default build pipeline definition doesn't enable Continuous Integration
+The default build pipeline definition doesn't enable Continuous Integration
    
-   1. Now, you need to replace the **trigger: none** code with the following code:
+1. Now, you need to replace the **trigger: none** code with the following code:
    
-      ```
-        trigger:
-         branches:
-          include:
-          - main
-        paths:
-          include:
-          - src/web/*
-      ``` 
+    ```
+      trigger:
+       branches:
+        include:
+        - main
+      paths:
+        include:
+        - src/web/*
+    ``` 
 
-      ![](images/400s22.png)
+     ![](images/400s22.png)
 
       This will automatically trigger the build pipeline if any change is made to the main branch and the web application code (the src/web folder).Since you enabled Branch Policies, you need to pass by a Pull Request in order to update your code. 
     
-  2. Click the **Dropdown** and **Save** button (not **Save and run**) to save the pipeline definition.
+2. Click the **Dropdown** and **Save** button (not **Save and run**) to save the pipeline definition.
 
-     ![](images/az400-m3-L4-(40)(1).png)
+    ![](images/az400-m3-L4-(40)(1).png)
   
-  3. Select **Create a new branch for this commit (1)** Keep the default branch name and **Start a pull request(2)** checked. and Click on **Save(3)**
+3. Select **Create a new branch for this commit (1)** Keep the default branch name and **Start a pull request(2)** checked. and Click on **Save(3)**
 
-     ![](images/AZ-400-save.png)
+    ![](images/AZ-400-save.png)
 
-  4. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better. Go to  **Pipelines>Pipelines** and click on the recently created pipeline. Click on the **ellipsis (1)** and **Rename/move** option. Name it **eshoponweb-ci (2)**  and click on **Save (3)**.
+4. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better. Go to  **Pipelines>Pipelines** and click on the recently created pipeline. Click on the **ellipsis (1)** and **Rename/move** option. Name it **eshoponweb-ci (2)**  and click on **Save (3)**.
 
-     ![](images/az400-m3-L4-42.png)
+    ![](images/az400-m3-L4-42.png)
 
-  5. Go to **Repos (1)>Pullrequests (2)** and click on the existing pull request. After all validations are successful, on the top-right click on **Approve (3)**. Now you can click on **Complete (4)**.
+5. Go to **Repos (1)>Pullrequests (2)** and click on the existing pull request. After all validations are successful, on the top-right click on **Approve (3)**. Now you can click on **Complete (4)**.
 
-     ![](images/az400-m3-L4-43.png)
+    ![](images/az400-m3-L4-43.png)
 
-  6. On the **Complete Pull Request** tab, select only **Complete associated work items after merging** checkbox  and Click on **Complete Merge**
+6. On the **Complete Pull Request** tab, select only **Complete associated work items after merging** checkbox  and Click on **Complete Merge**
 
-     ![](images/az400-m3-L4-44.png)
+    ![](images/az400-m3-L4-44.png)
 
  ## Task 3: Test the CI pipeline
  
