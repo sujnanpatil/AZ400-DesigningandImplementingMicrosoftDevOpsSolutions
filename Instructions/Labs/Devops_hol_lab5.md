@@ -391,28 +391,41 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
     ![Azure devops](images/dev167.png)
 
-1. On the **Run pipeline** pane, accept the default settings and click **Run** to trigger the pipeline. **Wait for the build pipeline to finish**.
+1. On the **Run pipeline** pane, accept the default settings and click **Run** to trigger the pipeline.
+
+    ![Azure devops](images/dev169.png)
+
+1. Wait for the build pipeline to finish.
+
+    ![Azure devops](images/dev170.png)
 
     > **Note**: After the build succeeds, the release will be triggered automatically, and the application will be deployed to both the environments. Validate the release actions, once the build pipeline completed successfully.
 
-1. In the vertical navigational pane, in the **Pipelines** section, click **Releases** and, on the **eShopOnWeb_MultiStageYAML** pane, click the entry representing the most recent release.
-1. On the **eShopOnWeb_MultiStageYAML > Release-1** blade, track the progress of the release and verify that the deployment to both web apps completed successfully.
+1. In the vertical navigational pane, in the **Pipelines** section, click **Releases (1)** and, on the **eShopOnWeb_MultiStageYAML** pane, click the entry representing the most recent release **(2)**. On the **eShopOnWeb_MultiStageYAML > Release-1** blade, track the progress of the release and verify that the deployment to both web apps completed successfully **(3)**.
 
-   ![Azure devops](images/realeas1.png)
+    ![Azure devops](images/dev171.png)
 
-1. Switch back to the Azure portal interface, navigate to the resource group **az400m04l09-RG**, in the list of resources, click the **Canary** web app.
+1. Switch back to the Azure portal interface, navigate to the resource group **Web-RG**, in the list of resources, click the **Canary** web app.
 
-    ![portal](images/websitecan.png)
+    ![Azure devops](images/dev172.png)
 
-1. On the web app blade, click **Browse**, and verify that the web page (E-commerce website) loads successfully in a new web browser tab.
+1. On the web app blade, click **Browse**.
+
+    ![Azure devops](images/dev175.png)
+
+1. Verify that the web page (E-commerce website) loads successfully in a new web browser tab.
     
     ![portal](images/websitecan1.png)
    
-1. Switch back to the Azure portal interface, this time navigating  to the resource group **az400m04l09-RG**, in the list of resources, click the **Production** web app. 
+1. Switch back to the Azure portal interface, this time navigating  to the resource group **Web-RG**, in the list of resources, click the **Production** web app. 
 
-   ![portal](images/websiteprod.png)
+    ![Azure devops](images/dev174.png)
 
-1. On the web app blade, click **Browse**, and verify that the web page loads successfully in a new web browser tab.
+1. On the web app blade, click **Browse**.
+
+    ![Azure devops](images/dev173.png)
+
+1. Verify that the web page loads successfully in a new web browser tab.
 
    ![portal](images/websitecan1.png)
    
@@ -428,38 +441,42 @@ In this exercise, you will set up Quality Gates in the release pipeline.
 
 In this task, you will configure pre-deployment gates.
 
-1. Switch to the web browser window displaying the Azure DevOps portal, and open the **eShopOnWeb_MultiStageYAML** project. In the vertical navigational pane, in the **Pipelines** section, click **Releases** and, on the **New Release Pipeline** pane, click **Edit**.
+1. Switch to the web browser window displaying the Azure DevOps portal, and open the **eShopOnWeb_MultiStageYAML** project. In the vertical navigational pane, in the **Pipelines** section, click **Releases (1)** and, on the **New Release Pipeline (2)** pane, click **Edit (3)**.
 
-    ![Azure devops](images/editre.png)
+    ![Azure devops](images/dev176.png)
 
 1. On the **All pipelines > New Release Pipeline** pane, on the left edge of the rectangle representing the **Canary Environment** stage, click the oval shape representing the **Pre-deployment conditions**.
 
-    ![Azure devops](images/pre-deploy.png)
+    ![Azure devops](images/dev177.png)
     
-1. On **Pre-deployment conditions** pane, set the **Pre-deployment approvals** slider to **Enabled** and, in the **Approvers** text box, type and select your Azure DevOps account name <inject key="AzureAdUserEmail"></inject>.
+1. On **Pre-deployment conditions** pane, set the **Pre-deployment approvals** slider to **Enabled (1)** and, in the **Approvers** text box, type and select your Azure DevOps account name **<inject key="AzureAdUserEmail"></inject> (2)**.
 
-    ![Azure devops](images/predeploy.png)
+    ![Azure devops](images/dev178.png)
 
     > **Note**: In a real-life scenario, this should be a DevOps Team name alias instead of your own name.  
 
-1. Click on **x** mark in its upper right corner to **Save** the pre-approval settings and close the popup window.
+1. Click on **X** mark in its upper right corner to **Save** the pre-approval settings and close the popup window.
 
 1. Back on the **New Release Pipeline** pane, click **Save**, and in the **Save** dialog box, click **OK**.
 
-    ![Azure devops](images/saverea.png)
+    ![Azure devops](images/dev179.png)
 
-1. Return back to the Azure DevOps Portal, open the **eShopOnWeb_MultiStageYAML*** Project. Navigate to **Pipelines**, select **Releases** and select the **New Release Pipeline**. Click the **Create release** button.
+1. Return back to the Azure DevOps Portal, open the **eShopOnWeb_MultiStageYAML*** Project. Navigate to **Pipelines**, select **Releases (1)** and select the **New Release Pipeline (2)**. Click the **Create release (3)** button.
 
-    ![Azure devops](images/crtrealeas.png) 
+    ![Azure devops](images/dev180.png) 
  
 1. On **Create a new release** page, click on **Create**.
 
     ![Azure devops](images/createnewre.png)
-1. Notice the green confirmation message, saying "Release-2" has been created. Click the link of "Release-2" to navigate to its details.
+1. Notice the green confirmation message, saying **Release-2** has been created. 
 
-1. Notice the **Canary** Stage is in a **Pending Approval** state. Click the **Approve** button. This sets off the Canary Stage again.
+1. Click the link of **Release-2** to navigate to its details.
 
-    ![Azure devops](images/approve.png) 
+    ![Azure devops](images/dev181.png) 
+
+1. Notice the **Canary** Stage is in a **Pending Approval** state. Click the **Approve (1)(2)** button. This sets off the Canary Stage again.
+
+    ![Azure devops](images/dev182.png) 
 
 ### Task 2: Configure post-deployment gates for Azure Monitor
 
@@ -467,49 +484,49 @@ In this task, you will enable the post-deployment gate for the Canary Environmen
 
 1. Again, switch to the **New Release Pipeline** pane, click **Edit**.
 
-    ![Azure devops](images/editre.png)
+    ![Azure devops](images/dev183.png)
 
 1. On the right edge of the rectangle representing the **Canary Environment** stage, click the oval shape representing the **Post-deployment conditions**.
 
-   ![Azure devops](images/pre-deploy.png)
+   ![Azure devops](images/dev184.png)
    
 1. On **Post-deployment conditions** pane, set the **Gates** slider to **Enabled**.
     
     ![Azure devops](images/gatesena.png) 
      
-1. Click **+ Add**, and, in the pop-up menu, click **Query Azure Monitor Alerts**.
+1. Click **+ Add (1)**, and, in the pop-up menu, click **Query Azure Monitor Alerts (2)**.
 
-    ![Azure devops](images/qury.png) 
+    ![Azure devops](images/dev185.png) 
       
-1. On **Post-deployment conditions** pane, in the **Query Azure Monitor Alerts** section, in the **Azure subscription(1)** dropdown list, select the **service connection** entry representing the connection to your Azure subscription, and, in the **Resource group** dropdown list, select the **az400m04l09-RG(2)** entry.
+1. On **Post-deployment conditions** pane, in the **Query Azure Monitor Alerts** section, in the **Azure Subscription(1)** dropdown list, select the **service connection** entry representing the connection to your Azure subscription, and, in the **Resource group** dropdown list, select the **Web-RG(2)** entry.
 
-    ![Azure devops](images/azsubrg.png) 
+    ![Azure devops](images/dev186.png) 
 
-1. On the **Post-deployment conditions** pane, expand the **Advanced** section and configure the following options:
+1. On the **Post-deployment conditions** pane, expand the **Advanced (1)** section and configure the following options:
 
-    - Filter type: **None(1)**
-    - Severity: **Sev0, Sev1, Sev2, Sev3, Sev4(2)**
-    - Time Range: **Past Hour(3)**
-    - Alert State: **Acknowledged, New(4)**
-    - Monitor Condition: **Fired(5)**
+    - Filter type: **None(2)**
+    - Severity: **Sev0, Sev1, Sev2, Sev3, Sev4(3)**
+    - Time Range: **Past Hour(4)**
+    - Alert State: **Acknowledged, New(5)**
+    - Monitor Condition: **Fired(6)**
     
-    ![Azure devops](images/pre-deployset3.png) 
+      ![Azure devops](images/dev187.png) 
      
-1. On **Post-deployment conditions** pane, expand the **Evaluation options** and configure the following options:
+1. On **Post-deployment conditions** pane, expand the **Evaluation options (1)** and configure the following options:
 
-    - Set the value of **Time between re-evaluation of gates** to **5 Minutes(1)**.
-    - Set the value of **Timeout after which gates fail** to **8 Minutes(2)**.
-    - Select the **On successful gates, ask for approvals(3)** option.
+    - Set the value of **Time between re-evaluation of gates** to **5 Minutes(2)**
+    - Set the value of **Timeout after which gates fail** to **8 Minutes(3)**
+    - Select the **On successful gates, ask for approvals(4)** option
 
-        ![Azure devops](images/new-az-400-mod3-34.png) 
+      ![Azure devops](images/dev188.png) 
 
-    > **Note**: The sampling interval and timeout work together so that the gates will call their functions at suitable intervals and reject the deployment if they don't succeed during the same sampling interval within the timeout period.
+       > **Note**: The sampling interval and timeout work together so that the gates will call their functions at suitable intervals and reject the deployment if they don't succeed during the same sampling interval within the timeout period.
 
 1. Close the **Post-deployment conditions** pane, by clicking the **x** mark in its upper right corner.
 
-1. Back on the **New Release Pipeline** pane, click **Save**, and in the **Save** dialog box, click **OK**.
+1. Back on the **New Release Pipeline** pane, click **Save (1)**, and in the **Save** dialog box, click **OK (2)**.
 
-   [Azure devops](images/saverea.png)
+    ![Azure devops](images/dev189.png)
 
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
@@ -529,32 +546,47 @@ In this task, you will first generate some alerts for the Canary Web App, follow
 1. From the Azure Portal, browse to the **Canary Web App** Resource deployed earlier.
 1. From the Overview pane, notice the **URL** field showing the Hyperlink of the web application. Click this link, which redirects you to the EShopOnWeb web application in the browser.
 
-    ![portal](images/websitecan.png)
+    ![portal](images/dev190.png)
    
 1. To simulate a **Failed Request**, add **/discount** to the URL, which will result in an error message, since that page does not exist. Refresh this page several times to generate multiple events.
+
+    ![portal](images/dev191.png)
+
 1. From the Azure Portal, in the "Search resources, services and docs" field, enter **resource group(1)** and select the **Resource group(2)** Resource created in the previous exercise.
 
-    ![portal](images/rg.png)
+    ![portal](images/dev5.png)
 
-1. In the Azure portal, navigate to the resource group **az400m04l09-RG(1)** from the resource group select **RGATESCanary_FailedRequests** Metric alert rule.
+1. In the Azure portal, navigate to the resource group **Web-RG** from the resource group select **RGATESCanary_FailedRequests** Metric alert rule.
 
-1. There should be at least **1** new alert in the list of results, having a **Severity 2** enter **Alerts** to open the Alerts Service of Azure Monitor.
+    ![portal](images/dev192.png)
+
+1. There should be at least **1** new alert in the list of results, having a **Severity 2**.
 
 1. Notice there should be at least **1 Failed_Alert** with **Severity 2 - Warning** showing up in the list. This got trigger when you validated the non-existing website URL address in the previous exercise.
 
-    > **Note:** If no Alert shows up yet, wait another few minutes. 
+    ![portal](images/dev193.png)
 
-    ![Azure devops](images/alertfailed.png) 
+     > **Note:** If no Alert shows up yet, wait another few minutes. 
 
-1. Return back to the Azure DevOps Portal, open the **eShopOnWeb_MultiStageYAML** Project. Navigate to **Pipelines**, select **Releases** and select the **New Release Pipeline**. Click the **Create Release** button.
+1. Return back to the Azure DevOps Portal, open the **eShopOnWeb_MultiStageYAML** Project. Navigate to **Pipelines (1)**, select **Releases (2)** and select the **New Release Pipeline (3)**. Click the **Create Release (4)** button.
 
-    ![Azure devops](images/crtrealeas.png) 
+    ![Azure devops](images/dev194.png) 
  
 1. On **Create a new release** page, click on **Create**.
 
     ![Azure devops](images/createnewre.png) 
+
+1. Selec the Release pipeline.
+
+    ![portal](images/dev195.png)
    
-1. Wait for the Release pipeline to kick off, and **approve** the Canary Stage release action.
+1. Wait for the Release pipeline to kick off, and **Approve** the Canary Stage release action.
+
+    ![portal](images/dev196.png)
+
+1. If prompted, click on **Approve** again.
+
+    ![portal](images/dev197.png)
 
 1. Wait for the Canary release Stage to complete successfully. Notice how the **Post-deployment Gates** is switching to an **Evaluation Gates** status.  Click the **Evaluation Gates** icon.
 
@@ -568,9 +600,9 @@ In this task, you will first generate some alerts for the Canary Web App, follow
 
     > **Note**: Since there is an alert triggered by the exception, **Query Azure Monitor** gate will fail. This, in turn, will prevent deployment to the **Production** environment.
 
-1. Wait another 3 minutes and validate the status of the Release Gates again. As it is now +8 minutes after the initial Release Gates got checked, and it's been more than 8 minutes since the initial Application Insight Alert got triggered with action "Fired", it should result in a successful Release Gate, having allowed the deployment of the Production Release Stage as well.
+1. Wait another 3 minutes and validate the status of the Release Gates again. Click on the **Deployement (1)** icon. As it is now +8 minutes after the initial Release Gates got checked, and it's been more than 8 minutes since the initial Application Insight Alert got triggered with action "Fired", it should result in a successful Release Gate, having allowed the deployment of the Production Release Stage as well **(2)**.
 
-    ![Azure devops](images/gates.png) 
+    ![Azure devops](images/dev198.png) 
     
 ## Review
 
