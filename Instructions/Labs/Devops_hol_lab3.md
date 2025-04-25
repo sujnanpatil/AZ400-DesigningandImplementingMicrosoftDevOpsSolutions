@@ -180,84 +180,105 @@ The default build pipeline definition doesn't enable Continuous Integration
         - src/web/*
     ``` 
 
-     ![](images/400s22.png)
+     ![](images/dev110.png)
 
       This will automatically trigger the build pipeline if any change is made to the main branch and the web application code (the src/web folder).Since you enabled Branch Policies, you need to pass by a Pull Request in order to update your code. 
     
-2. Click the **Dropdown** and **Save** button (not **Save and run**) to save the pipeline definition.
+1. Click the on the **Save and run (1)** dropdown and **Save (2)** button (not **Save and run**) to save the pipeline definition.
 
-    ![](images/az400-m3-L4-(40)(1).png)
+    ![](images/dev111.png)
   
-3. Select **Create a new branch for this commit (1)** Keep the default branch name and **Start a pull request(2)** checked. and Click on **Save(3)**
+1. Select **Create a new branch for this commit (1)** Keep the default branch name and **Start a pull request(2)** checked. and Click on **Save(3)**
 
-    ![](images/AZ-400-save.png)
+    ![](images/dev112.png)
 
-4. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better. Go to  **Pipelines>Pipelines** and click on the recently created pipeline. Click on the **ellipsis (1)** and **Rename/move** option. Name it **eshoponweb-ci (2)**  and click on **Save (3)**.
+1. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better. Go to  **Pipelines>Pipelines (1)** and click on the recently created pipeline. Click on the **ellipsis (2)** and **Rename/move (3)** option.
 
-    ![](images/az400-m3-L4-42.png)
+    ![](images/dev115.png)
 
-5. Go to **Repos (1)>Pullrequests (2)** and click on the existing pull request. After all validations are successful, on the top-right click on **Approve (3)**. Now you can click on **Complete (4)**.
+1. Name it **eshoponweb-ci (1)**  and click on **Save (2)**.
 
-    ![](images/az400-m3-L4-43.png)
+    ![](images/dev116.png)
 
-6. On the **Complete Pull Request** tab, select only **Complete associated work items after merging** checkbox  and Click on **Complete Merge**
+1. Go to **Repos (1)>Pullrequests (2)** and click on the existing pull request **(3)**. 
 
-    ![](images/az400-m3-L4-44.png)
+    ![](images/dev117.png)
 
- ## Task 3: Test the CI pipeline
+1. After all validations are successful **(1)**, on the top-right click on **Approve (2)**. Now you can click on **Complete (3)**.
+
+    ![](images/dev118.png)
+
+1. On the **Complete Pull Request** tab, select only **Complete associated work items after merging** checkbox  and Click on **Complete Merge**
+
+    ![](images/dev119.png)
+
+    ![](images/dev120.png)
+
+### Task 3: Test the CI pipeline
  
- In this task, you will create a Pull Request, using a new branch to merge a change into the protected main branch and automatically trigger the CI pipeline Navigate to the Repos section
+ In this task, you will create a Pull Request, using a new branch to merge a change into the protected main branch and automatically trigger the CI pipeline Navigate to the Repos section.
  
- 1. Navigate to the **Repos (1)->Branches (2)** section. Create a **new branch (3)** named **Feature02 (4)** based on the **main** branch and Click on **Create (5)**
+1. Navigate to the **Repos (1)->Branches (2)** section. Create a **new branch (3)**.
 
-    ![](images/az400-m3-L4-45.png)
+    ![](images/dev121.png)
+
+1. Create a branch named **Feature02 (1)** based on the **main** branch and Click on **Create (2)**.    
     
     ![](images/az-400-lab3-9.png)
 
- 2. Click the new **Feature02 (1)** branch and navigate to the **/eShopOnWeb/src (2)/Web (3)/Program.cs (4)** file and click on **Edit (5)** to remove the first line // **Testing my PR (6)** and click on commit.
+1. Click the new **Feature02 (1)** branch.
+
+1. Navigate to the **/eShopOnWeb/src (1)/Web (2)/Program.cs (3)** file.
+
+    ![](images/dev122.png)
+    ![](images/dev123.png)
+
+1. Click on **Edit (1)** to remove the first line // **Testing my PR (2)**.
    
-    ![](images/az400-m3-L4-47.png)
+    ![](images/dev124.png)
+
+1. Click on commit.    
    
-    ![](images/az400-m3-L4-48.png)
+    ![](images/dev125.png)
 
- 3. Click on **Commit > Commit** (leave default commit message).
+1. Click on **Commit** (leave default commit message).
    
-    ![](images/az400-m3-L4-49.png)
+    ![](images/dev126.png)
 
- 4. A message will pop-up, proposing to create a Pull Request (as your **Feature02** branch is now ahead in changes, compared to main).
+1. A message will pop-up, proposing to create a Pull Request (as your **Feature02** branch is now ahead in changes, compared to main).
 
- 5. Click on **Create a Pull Request**
+1. Click on **Create a Pull Request**
 
-     ![](images/az400-m3-L4-50.png)
+    ![](images/dev127.png)
 
- 6. In the **New pull request (1)** tab, leave defaults and click on **Create (3)** The Pull Request will show some pending requirements, based on the policies applied to the target **main (2)** branch and wait until build completes.
+1. In the **New pull request** tab, leave defaults and click on **Create** The Pull Request will show some pending requirements, based on the policies applied to the target **main** branch and wait until build completes.
 
-     ![](images/AZ-400-pull.png)
+    ![](images/dev128.png)
 
- 7. After all validations are successful, on the top-right click on **Approve (1)**, click on **Complete (2)**
+1. After all validations are successful, on the top-right click on **Approve (1)**, select the **Complete (2)** drop down and then click on **Complete (3)**.
 
-     ![](images/az400-m3-L4-52.png)
+    ![](images/dev129.png)
 
- 8. On the **Complete Pull Request** tab, select only **Complete associated work items after merging** checkbox  and Click on **Complete Merge**
+1. On the **Complete Pull Request** tab, select only **Complete associated work items after merging** checkbox  and Click on **Complete Merge**.
 
-     ![](images/az400-m3-L4-53.png)
+     ![](images/dev130.png)
 
- 9. Go back to **Pipelines>Pipelines,** you will notice that the build **eshoponweb-ci** was triggered automatically after the code was merged.
+1. Go back to **Pipelines>Pipelines,** you will notice that the build **eshoponweb-ci** was triggered automatically after the code was merged.
 
     ![](images/az400-m3-L4-54.png)
  
- 10. Click on the **eshoponweb-ci** build then select the last run.
+1. Click on the **eshoponweb-ci** build then select the last run.
 
-       ![](images/az400-m3-L4-55.png)
+    ![](images/az400-m3-L4-55.png)
 
- 11. After its successful execution, click on **Related (1) > Published (2)** to check the published artifacts:
+1. After its successful execution, click on **Related (1) > Published (2)** to check the published artifacts:
            
-     ![](images/az400-m3-L4-56.png)  
+    ![](images/dev132.png) 
      
-     o Bicep: the infrastructure artifact  
-     o Website: the app artifact
+    - **Bicep**: the infrastructure artifact  
+    - **Website**: the app artifact
      
-     ![](images/az400-m3-L4-57.png)
+      ![](images/dev133.png)
      
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
