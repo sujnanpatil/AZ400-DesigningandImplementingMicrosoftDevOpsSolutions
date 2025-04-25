@@ -42,7 +42,7 @@ In this lab you will complete the following exercises:
 
     ![Azure DevOps](images/dev33.png)
     
-1. On the Azure DevOps page click on **Azure DevOps (1)** located at top left corner and then click on **Organization Setting (2)** at the left down corner
+1. On the Azure DevOps page click on **Azure DevOps (1)** located at top left corner and then click on **Organization Setting (2)** at the left down corner.
 
     ![Azure DevOps](images/dev34.png)
     
