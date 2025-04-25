@@ -40,17 +40,61 @@ In this lab, you will be performing the following exercises:
 
 ## Exercise 0: Configure the lab prerequisites
 
-### Task 1: Configure CI Pipeline as Code with YAML in Azure DevOps
+In this exercise, you will set up the prerequisites for the lab, which consist of a new Azure DevOps project with a repository based on the [eShopOnWeb](https://dev.azure.com/unhueteb/_git/eshopweb-az400).
+
+### Task 1: Create and configure the team project
+
+In this task, you will create an **eShopOnWeb_MultiStageYAML** Azure DevOps project to be used by several labs.
+
+1. On your lab computer, in a browser window click on **Azure DevOps** Ffrom the top left corner. Click on **+ New Project**.
+
+    ![Azure DevOps](images/dev134.png)
+
+1. Provide your project as **eShopOnWeb_MultiStageYAML (1)**, then select **Private (2)** and leave the other fields with defaults. Click on **Create (3)**.
+
+    ![Azure DevOps](images/dev135.png)
+
+### Task 2: Import eShopOnWeb Git Repository
+
+In this task you will import the eShopOnWeb Git repository that will be used by several labs.
+
+1. Access the previously created **eShopOnWeb_MultiStageYAML** project.
+
+1. Navigate to **Repos (1)>Files (2)** and then click on **Import (3)** within the **Import a repository** card. On the **Import a Git Repository** window, paste the following URL https://github.com/MicrosoftLearning/eShopOnWeb.git **(4)** and click on **Import (5)**:
+
+    ![Import Repository](images/dev136.png)
+
+1. The repository is organized the following way:
+
+    ![Azure DevOps](images/dev137.png)
+
+    - **.ado** folder contains Azure DevOps YAML pipelines
+    - **.devcontainer** folder container setup to develop using containers (either locally in VS Code or GitHub Codespaces)
+    - **infra** folder contains Bicep&ARM infrastructure as code templates used in some lab scenarios.
+    - **.github** folder container YAML GitHub workflow definitions.
+    - **src** folder contains the .NET 6 website used on the lab scenarios.
+
+1. Go to **Repos (1)>Branches (2)**. Make sure the **main** brach is set as a **default** branch **(3)**.
+
+    ![Azure DevOps](images/dev138.png)
+
+1. If not, On the **Branches** **(1)**, Hover on the **main** branch then click the ellipsis on the right of the column **(2)**. Click on **Set as default branch (3)**.
+
+    ![Import Repository](images/az-400-5.png)
+
+     >**Note:** If there is only one branch then it is considered as the default branch automatically.You can proceed with the next task.
+
+### Task 3: Configure CI Pipeline as Code with YAML in Azure DevOps
 
 In this task, you will add a YAML build definition to the existing project.
 
-1. Navigate back to the **Pipelines** pane in of the **Pipelines** hub.
-   
-1. In the **Create your Pipeline** window, click **New pipeline**.
+1. Navigate back to the **Pipelines (1)** pane in of the **Pipelines** hub. Click **Create pipeline (2)**.
+
+    ![Azure DevOps](images/dev139.png)
        
 1. On the **Where is your code?** pane, click **Azure Repos Git (YAML)** option.
    
-    ![Import Repository](images/new-az-400-mod3-6.png)
+    ![Azure DevOps](images/dev140.png)
       
 1. On the **Select a repository** pane, click **eShopOnWeb_MultiStageYAML**.
    
@@ -61,13 +105,12 @@ In this task, you will add a YAML build definition to the existing project.
    ![Import Repository](images/newpip3.png)
    
 1. In the **Selecting an existing YAML File** blade, specify the following parameters:
-   
+    
     - Branch: **main (1)**
-    - Path: Select **/.ado/eshoponweb-ci.yml (2)** from the drop-down.
-  
-1. Click **Continue (3)** to save these settings.
+    - Path: Select **/.ado/eshoponweb-ci.yml (2)** from the drop-down
+    - Click **Continue (3)** to save these settings
 
-    ![Import Repository](images/new-az-400-mod3-23.png)
+      ![Import Repository](images/new-az-400-mod3-23.png)
    
 1. From the **Review your Pipeline YAML** screen, click **Run** to start the Build Pipeline process.
    
@@ -77,7 +120,7 @@ In this task, you will add a YAML build definition to the existing project.
    
     ![Import Repository](images/newpip6.png)
    
-    > **Note**: Each task from the YAML file is available for review, including any warnings and errors.
+     > **Note**: Each task from the YAML file is available for review, including any warnings and errors.
 
 ## Exercise 1: Creating the necessary Azure Resources for the Release Pipeline
 
@@ -85,7 +128,7 @@ In this task, you will add a YAML build definition to the existing project.
 
 In this task, you will create two Azure web apps representing the **Canary** and **Production** environments, into which you'll deploy the application via Azure Pipelines.
 
-1. Switch back to the Azure portal.
+1. Switch back to the **Azure portal**.
 
 1. In the Azure portal, click the **Cloud Shell** icon, located directly to the right of the search textbox at the top of the page.
 
@@ -95,30 +138,42 @@ In this task, you will create two Azure web apps representing the **Canary** and
 
    >**Important:** Replace the `<region>` variable placeholder with the name of the Azure region that will host the two Azure web apps, for example **westeurope** or **centralus** or **any other available region** of your choice):
 
-   >**Note**: possible locations can be found by running the following command, use the **Name** on `<region>` : `az account list-locations -o table`
+   >**Note**: Possible locations can be found by running the following command, use the **Name** on `<region>` : `az account list-locations -o table`
 
     ```bash
     REGION='westeurope'
-    RESOURCEGROUPNAME='az400m04l09-RG'
+    RESOURCEGROUPNAME='Web-RG'
     az group create -n $RESOURCEGROUPNAME -l $REGION
     ```
+
+     ![Clouldshell](images/dev141.png)    
 
 1. To create an App service plan
 
     ```bash
-    SERVICEPLANNAME='az400m04l09-sp1'
+    SERVICEPLANNAME='Web-sp1'
     az appservice plan create -g $RESOURCEGROUPNAME -n $SERVICEPLANNAME --sku S1
     ```
 
-1.  Create two web apps with unique app names.
- 
-     ```bash
-     SUFFIX=$RANDOM$RANDOM
-     az webapp create -g $RESOURCEGROUPNAME -p $SERVICEPLANNAME -n RGATES$SUFFIX-Canary
-     az webapp create -g $RESOURCEGROUPNAME -p $SERVICEPLANNAME -n RGATES$SUFFIX-Prod
-     ```
+     ![Clouldshell](images/dev142.png)    
 
-    > **Note:** Record the name of the Canary web app. You will need it later in this lab.    Canary web app should look like : **RGATES495017526-Canary**
+1. Create two web apps with unique app names.
+ 
+    ```bash
+    SUFFIX=$RANDOM$RANDOM
+    az webapp create -g $RESOURCEGROUPNAME -p $SERVICEPLANNAME -n RGATES$SUFFIX-Canary
+    az webapp create -g $RESOURCEGROUPNAME -p $SERVICEPLANNAME -n RGATES$SUFFIX-Prod
+    ```
+
+1. Run the below command to list the web apps.
+
+    ```bash
+    az webapp list --query "[].name" -o tsv
+    ```
+
+     ![Clouldshell](images/dev143.png)     
+
+      > **Note:** Record the name of the Canary web app. You will need it later in this lab.    Canary web app should look like : **RGATES495017526-Canary**
 
 1. Wait for the Web App Services Resources provisioning process to complete and close the **Cloud Shell** pane.
 
@@ -126,25 +181,28 @@ In this task, you will create two Azure web apps representing the **Canary** and
 
 1. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the page to search for **Application Insights (1)** and, in the list of results, select **Application Insights (2)**.
 
-      ![portal](images/ain.png)
+    ![Clouldshell](images/dev144.png) 
    
 1. On the **Application Insights** blade, select **+ Create**.
 
-      ![portal](images/crtain.png)
+    ![portal](images/crtain.png)
       
-1. On the **Application Insights** blade, on the **Basics** tab, specify the following settings (leave others with their default values):
+1. On the **Application Insights** blade, on the **Basics** tab, specify the following settings (leave others with their default values) and then click on **Review + create (5)**. 
 
     | Setting | Value |
     | --- | --- |
-    | Resource group | **az400m04l09-RG (2)** |
-    | Name | the name of the Canary web app you recorded in the previous task (3) |
-    | Region | the same Azure region to which you deployed the web apps earlier in the previous task (4) |
+    | Sunscription | Leave the default one **(1)** |    
+    | Resource group | **Web-RG (2)** |
+    | Name | the name of the Canary web app you recorded in the previous task **(3)** |
+    | Region | the same Azure region to which you deployed the web apps earlier in the previous task **(4)** |
     
-    > **Note**: Disregard the deprecation message. This is required in order to prevent failures of the Enable Continuous Integration DevOps task you will be using later in this lab.
+    ![Clouldshell](images/dev145.png) 
 
-1. Click **Review + create (6)** and then click **Create**.
+     > **Note**: Disregard the deprecation message. This is required in order to prevent failures of the Enable Continuous Integration DevOps task you will be using later in this lab.
 
-     ![portal](images/applicationinsights.png)
+1. Then click **Create**.
+
+    ![portal](images/applicationinsights.png)
     
 1. Wait for the provisioning process to complete.
 
