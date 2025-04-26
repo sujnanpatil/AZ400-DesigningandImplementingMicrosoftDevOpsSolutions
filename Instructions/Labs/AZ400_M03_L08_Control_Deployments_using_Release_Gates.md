@@ -219,17 +219,20 @@ In this exercise, you will configure a release pipeline.
 
 In this task, you will set up the release tasks as part of the Release Pipeline.
 
-1. From the **eShopOnWeb_MultiStageYAML** project in the Azure DevOps portal, in the vertical navigational pane, select **Pipelines** and then, within the **Pipelines** section, click **Releases(1)**.
+1. Navigate to Azure DevOps page (1), from the bottom left, click on **Organization settings** (2).
+
+    ![Azure devops](images/az-4001.png)
+
+1. Go to the Pipelines (1) section, and click Settings (2). Turn off(3) the Disable creation of classic release pipelines.
+
+   ![Azure devops](images/lab2releaseenable.png)
+
+1. Navigate to the **eShopOnWeb_MultiStageYAML** project, in the vertical navigational pane, select **Pipelines** and then, within the **Pipelines** section, click **Releases(1)**.
+
 1. Click **New Pipeline(2)**.
     
      ![Azure devops](images/re.png)
-   
-   > **Note** - If you are unable to see the **Releases** under pipelines, Navigate to Azure DevOps page, from the bottom left, click on **Organization settings**, Go to the Pipelines (1) section, and click Settings (2). Turn off(3) the Disable creation of classic release pipelines.
-   
-   ![Azure devops](images/lab2releaseenable.png)
-   
-1. Navigate back to your project and now you will be able to see the releases under pipelines   
-  
+        
 1. From the **Select a template** window, **choose** **Azure App Service Deployment** (Deploy your application to Azure App Service. Choose from Web App on Windows, Linux, containers, Function Apps, or WebJobs) under the **Featured** list of templates.    
 
 1. Click **Apply**.
@@ -270,35 +273,70 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
     > **Note**: The canary environment has 1 task which, respectively, publishes the artifact package to Azure Web App.
 
-1. On the **All pipelines > New Release Pipeline** pane, ensure that the **Canary(1)** stage is selected. In the **Azure subscription(2)** dropdown list, Confirm the App Type is set to "Web App on Windows(3)". Next, in the **App Service name** dropdown list, select the name of the **Canary(4)** web app.
+1. Select the Task **Deploy Azure App Service** (1) and click on **Remove** (2).
 
-    ![Azure devops](images/capro01.png)
+     ![Azure devops](images/az-4002.png)
+
+1.  Next to the **Run on Agent** click on the **+** icon (1).In the new window that appears search for **App Service** (2) and click on **Add** (3) next to the Azure App Service Deploy option.
+
+    ![Azure devops](images/az-4003.png)
+
+1. Select the Azure App Service Deploy Agent.
+
+   ![Azure devops](images/az-4004.png)
+   
+1. In the **Azure subscription(2)** dropdown list,select your subscription.
+
+     >**Important:** After Selecting your Azure subscription and click **Authorize**. If prompted, authenticate by using the Azure user account.
+    
+      ![Azure devops](images/az-4008.png)
+
+   - Confirm the App Type is set to "Web App on Windows(3)".
+   - Next, in the **App Service name** dropdown list, select the name of the **Canary(4)** web app.
+
+     ![Azure devops](images/az50002.png)
       
-    >**Note:** After Selecting your Azure subscription and click **Authorize**. If prompted, authenticate by using the user account with the Owner role in the Azure subscription
-    
-    ![Azure devops](images/autho.png)
-     
-1. Select the Task **Deploy Azure App Service**. In the **Package or Folder** field, update the default value of "$(System.DefaultWorkingDirectory)/\*\*/\*.zip" to **"$(System.DefaultWorkingDirectory)/\*\*/Web.zip"**
+1. Further update the following settings in the App Service Deploy Task
 
-    > Notice an exclamation mark next to the Tasks tab. This is expected, as we need to configure the settings for the Production Stage.
-    
-    ![Azure devops](images/canaryre.png)
+   - In the **Package or Folder** field, update the default value of "$(System.DefaultWorkingDirectory)/\*\*/\*.zip" to **"$(System.DefaultWorkingDirectory)/\*\*/Web.zip"** (1)
 
-1. Scroll down and open the **Application and Configuration Settings** pane and enter `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development` in the **App settings** box.
+   - Scroll down and open the **Application and Configuration Settings** pane and enter `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development` in the **App settings** box (2).
 
-1. Under **All pipelines > New Release Pipeline** pane, Click on **Tasks**,from the drop-down selct Select **Production**.
+    ![Azure devops](images/az-4006.png)
+
+1. Under **All pipelines > New Release Pipeline** pane, Click on **Tasks**,from the drop-down  Select **Production**.
 
     ![Azure devops](images/selectpro.png)
 
-1. In **Production(1)** stage Similar to the Canary stage earlier, complete the pipeline settings. Under the Tasks tab / Production Deployment process, in the **Azure subscription(2)** dropdown list, select the Azure subscription you used for the **Canary Environment** stage, shown under **Available Azure Service connections**, as we already created the service connection before when authorizing the subscription use. In the **App type** from the dropdown list select **Web App on Windows(3)**, In the **App Service name(4)** from the dropdown list, select the name of the **Prod** web app.
+1. Select the Task **Deploy Azure App Service** (1) and click on **Remove** (2).
 
-    ![Azure devops](images/prodre1.png)
+     ![Azure devops](images/az-4002.png)
+
+1.  Next to the **Run on Agent** click on the **+** icon (1).In the new window that appears search for **App Service** (2) and click on **Add** (3) next to the Azure App Service Deploy option.
+
+    ![Azure devops](images/az-4003.png)
+
+1. Select the Azure App Service Deploy Agent.
+
+   ![Azure devops](images/az-4004.png)
+ 
+1. In **Production(1)** stage, complete the following  pipeline settings:
+  
+  - Under the Tasks tab / Production Deployment process, in the **Azure subscription(2)** dropdown list, select the Azure service connection, as we already created the service connection before when authorizing the subscription use.
+
+   ![Azure devops](images/az-4007.png)
+  
+  - In the **App type** from the dropdown list select **Web App on Windows(3)**, In the **App Service name(4)** from the dropdown list, select the name of the **Prod** web app.
+
+    ![Azure devops](images/az50003.png)
      
-1. Select the Task **Deploy Azure App Service**. In the **Package or Folder** field, update the default value of "$(System.DefaultWorkingDirectory)/\*\*/\*.zip" to **"$(System.DefaultWorkingDirectory)/\*\*/Web.zip"**
+1. Further update the following settings in the App Service Deploy Task
 
-    ![Azure devops](images/prodre.png)
+   - In the **Package or Folder** field, update the default value of "$(System.DefaultWorkingDirectory)/\*\*/\*.zip" to **"$(System.DefaultWorkingDirectory)/\*\*/Web.zip"** (1)
 
-1. Open the **Application and Configuration Settings** pane and enter `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development` in the **App settings** box.
+   - Scroll down and open the **Application and Configuration Settings** pane and enter `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development` in the **App settings** box (2).
+
+    ![Azure devops](images/az-4006.png)
    
 1. On the **All pipelines > New Release Pipeline** pane, click **Save** and, in the **Save** dialog box, click **OK**.
 
