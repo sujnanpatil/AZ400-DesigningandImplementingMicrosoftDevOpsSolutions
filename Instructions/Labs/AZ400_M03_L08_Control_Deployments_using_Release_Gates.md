@@ -322,11 +322,11 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
  
 1. In **Production(1)** stage, complete the following  pipeline settings:
   
-  - Under the Tasks tab / Production Deployment process, in the **Azure subscription(2)** dropdown list, select the Azure service connection, as we already created the service connection before when authorizing the subscription use.
+  - Under the Tasks tab / Production Deployment process, in the **Azure subscription** dropdown list, select the Azure service connection, as we already created the service connection before when authorizing the subscription use.
 
     ![Azure devops](images/az-4007.png)
   
-  - In the **App type** from the dropdown list select **Web App on Windows(3)**, In the **App Service name(4)** from the dropdown list, select the name of the **Prod** web app.
+  - In the **App type** from the dropdown list select **Web App on Windows**, In the **App Service name** from the dropdown list, select the name of the **Prod** web app.
 
     ![Azure devops](images/az50003.png)
      
@@ -443,7 +443,7 @@ In this task, you will enable the post-deployment gate for the Canary Environmen
      
 1. Click **+ Add**, and, in the pop-up menu, click **Query Azure Monitor Alerts**.
 
-    ![Azure devops](images/azy402.png) 
+    ![Azure devops](images/azy403.png) 
       
 1. On **Post-deployment conditions** pane, in the **Query Azure Monitor Alerts** section, in the **Azure subscription(1)** dropdown list, select the **service connection** entry representing the connection to your Azure subscription, and, in the **Resource group** dropdown list, select the **az400m04l09-RG(2)** entry.
 
@@ -473,7 +473,7 @@ In this task, you will enable the post-deployment gate for the Canary Environmen
 
 1. Back on the **New Release Pipeline** pane, click **Save**, and in the **Save** dialog box, click **OK**.
 
-   [Azure devops](images/saverea.png)
+   ![Azure devops](images/saverea.png)
 
    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    - If you receive a success message, you can proceed to the next task.
@@ -522,7 +522,7 @@ In this task, you will first generate some alerts for the Canary Web App, follow
    
 1. Wait for the Release pipeline to kick off, and **approve** the Canary Stage release action.
 
-1. Wait for the Canary release Stage to complete successfully. Notice how the **Post-deployment Gates** is switching to an **Evaluation Gates** status.
+1. Wait for the Canary release Stage to complete successfully. Notice how the **Post-deployment Gates** is switching to the **Evaluation Gates** status.
 
    ![Azure devops](images/azy405.png) 
    
