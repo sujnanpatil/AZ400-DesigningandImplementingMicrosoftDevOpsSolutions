@@ -324,7 +324,7 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
   
   - Under the Tasks tab / Production Deployment process, in the **Azure subscription(2)** dropdown list, select the Azure service connection, as we already created the service connection before when authorizing the subscription use.
 
-   ![Azure devops](images/az-4007.png)
+    ![Azure devops](images/az-4007.png)
   
   - In the **App type** from the dropdown list select **Web App on Windows(3)**, In the **App Service name(4)** from the dropdown list, select the name of the **Prod** web app.
 
