@@ -285,14 +285,14 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
    ![Azure devops](images/az-4004.png)
    
-1. In the **Azure subscription(2)** dropdown list,select your subscription.
+1. In the **Azure subscription** dropdown list,select your subscription.
 
      >**Important:** After Selecting your Azure subscription and click **Authorize**. If prompted, authenticate by using the Azure user account.
     
       ![Azure devops](images/az-4008.png)
 
-   - Confirm the App Type is set to "Web App on Windows(3)".
-   - Next, in the **App Service name** dropdown list, select the name of the **Canary(4)** web app.
+   - Confirm the App Type is set to "Web App on Windows".
+   - Next, in the **App Service name** dropdown list, select the name of the **Canary** web app.
 
      ![Azure devops](images/az50002.png)
       
