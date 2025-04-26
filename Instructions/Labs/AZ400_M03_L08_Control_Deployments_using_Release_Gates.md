@@ -358,9 +358,11 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
 1. In the vertical navigational pane, in the **Pipelines** section, click **Releases** and, on the **eShopOnWeb_MultiStageYAML** pane, click the entry representing the most recent release.
 
-1. On the **eShopOnWeb_MultiStageYAML > Release-1** blade, track the progress of the release and verify that the deployment to both web apps completed successfully.
+1. On the **eShopOnWeb_MultiStageYAML > Release-1** blade, track the progress of the release and verify that the deployment to both web apps has completed successfully.
 
    ![Azure devops](images/realeas1.png)
+
+   >**Note:** It might take upto 10 minutes for the Release pipeline to get succeeded.
 
 1. Switch back to the Azure portal interface, navigate to the resource group **az400m04l09-RG**, in the list of resources, click the **Canary** web app.
 
@@ -419,7 +421,7 @@ In this task, you will configure pre-deployment gates.
     ![Azure devops](images/createnewre.png)
 1. Notice the green confirmation message, saying "Release-2" has been created. Click the link of "Release-2" to navigate to its details.
 
-1. Notice the **Canary** Stage is in a **Pending Approval** state. Click the **Approve** button. This sets off the Canary Stage again.
+1. Notice the **Canary** Stage is in a **Pending Approval** state. Notice the **Approve** button.
 
     ![Azure devops](images/approve.png) 
 
@@ -433,15 +435,15 @@ In this task, you will enable the post-deployment gate for the Canary Environmen
 
 1. On the right edge of the rectangle representing the **Canary Environment** stage, click the oval shape representing the **Post-deployment conditions**.
 
-   ![Azure devops](images/pre-deploy.png)
+   ![Azure devops](images/azy400.png)
    
 1. On **Post-deployment conditions** pane, set the **Gates** slider to **Enabled**.
     
-    ![Azure devops](images/gatesena.png) 
+    ![Azure devops](images/azy401.png) 
      
 1. Click **+ Add**, and, in the pop-up menu, click **Query Azure Monitor Alerts**.
 
-    ![Azure devops](images/qury.png) 
+    ![Azure devops](images/azy402.png) 
       
 1. On **Post-deployment conditions** pane, in the **Query Azure Monitor Alerts** section, in the **Azure subscription(1)** dropdown list, select the **service connection** entry representing the connection to your Azure subscription, and, in the **Resource group** dropdown list, select the **az400m04l09-RG(2)** entry.
 
@@ -489,11 +491,13 @@ In this exercise, you will test the release gates by updating the application, w
 In this task, you will first generate some alerts for the Canary Web App, followed by tracking the release process with the release gates enabled.
 
 1. From the Azure Portal, browse to the **Canary Web App** Resource deployed earlier.
+
 1. From the Overview pane, notice the **URL** field showing the Hyperlink of the web application. Click this link, which redirects you to the EShopOnWeb web application in the browser.
 
     ![portal](images/websitecan.png)
    
 1. To simulate a **Failed Request**, add **/discount** to the URL, which will result in an error message, since that page does not exist. Refresh this page several times to generate multiple events.
+
 1. From the Azure Portal, in the "Search resources, services and docs" field, enter **resource group(1)** and select the **Resource group(2)** Resource created in the previous exercise.
 
     ![portal](images/rg.png)
@@ -518,21 +522,17 @@ In this task, you will first generate some alerts for the Canary Web App, follow
    
 1. Wait for the Release pipeline to kick off, and **approve** the Canary Stage release action.
 
-1. Wait for the Canary release Stage to complete successfully. Notice how the **Post-deployment Gates** is switching to an **Evaluation Gates** status.  Click the **Evaluation Gates** icon.
+1. Wait for the Canary release Stage to complete successfully. Notice how the **Post-deployment Gates** is switching to an **Evaluation Gates** status.
 
-   ![Azure devops](images/eva.png) 
+   ![Azure devops](images/azy405.png) 
    
-1. For the **Query Azure Monitor Alerts**, notice an initial failed state.
-
-1. Let the Release pipeline in a pending state for the next 5 minutes. After the 5 minutes did pass, notice the 2nd evaluation failing again.
+1. Let the Release pipeline run in the pending state for the next 5 minutes. 
 
 1. This is expected behavior, since there is an Application Insights Alerts triggered for the Canary Web App.
 
-    > **Note**: Since there is an alert triggered by the exception, **Query Azure Monitor** gate will fail. This, in turn, will prevent deployment to the **Production** environment.
+1. Validate the status of the Release Gates again. As it is now +8 minutes after the initial Release Gates got checked, and it's been more than 8 minutes since the initial Application Insight Alert got triggered with action "Fired", it should result in a successful Release Gate, having allowed the deployment of the Production Release Stage as well.
 
-1. Wait another 3 minutes and validate the status of the Release Gates again. As it is now +8 minutes after the initial Release Gates got checked, and it's been more than 8 minutes since the initial Application Insight Alert got triggered with action "Fired", it should result in a successful Release Gate, having allowed the deployment of the Production Release Stage as well.
-
-    ![Azure devops](images/gates.png) 
+    ![Azure devops](images/azy404.png) 
     
 ## Review
 
