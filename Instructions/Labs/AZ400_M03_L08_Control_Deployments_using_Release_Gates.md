@@ -421,7 +421,7 @@ In this task, you will configure pre-deployment gates.
     ![Azure devops](images/createnewre.png)
 1. Notice the green confirmation message, saying "Release-2" has been created. Click the link of "Release-2" to navigate to its details.
 
-1. Notice the **Canary** Stage is in a **Pending Approval** state. Notice the **Approve** button.
+1. Notice the **Canary** Stage is in a **Pending Approval** state. Notice the **Approve** button. Please don't click on Approve now as it will trigger the Release pipeline.
 
     ![Azure devops](images/approve.png) 
 
