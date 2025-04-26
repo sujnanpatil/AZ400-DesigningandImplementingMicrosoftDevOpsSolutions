@@ -310,15 +310,15 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
 1. Select the Task **Deploy Azure App Service** (1) and click on **Remove** (2).
 
-     ![Azure devops](images/az-4002.png)
+     ![Azure devops](images/az-x400.png)
 
 1.  Next to the **Run on Agent** click on the **+** icon (1).In the new window that appears search for **App Service** (2) and click on **Add** (3) next to the Azure App Service Deploy option.
 
-    ![Azure devops](images/az-4003.png)
+    ![Azure devops](images/az-x401.png)
 
 1. Select the Azure App Service Deploy Agent.
 
-   ![Azure devops](images/az-4004.png)
+   ![Azure devops](images/az-x402.png)
  
 1. In **Production(1)** stage, complete the following  pipeline settings:
   
@@ -336,7 +336,7 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
    - Scroll down and open the **Application and Configuration Settings** pane and enter `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development` in the **App settings** box (2).
 
-    ![Azure devops](images/az-4006.png)
+    ![Azure devops](images/az-x403.png)
    
 1. On the **All pipelines > New Release Pipeline** pane, click **Save** and, in the **Save** dialog box, click **OK**.
 
@@ -357,6 +357,7 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
     > **Note**: After the build succeeds, the release will be triggered automatically, and the application will be deployed to both the environments. Validate the release actions, once the build pipeline completed successfully.
 
 1. In the vertical navigational pane, in the **Pipelines** section, click **Releases** and, on the **eShopOnWeb_MultiStageYAML** pane, click the entry representing the most recent release.
+
 1. On the **eShopOnWeb_MultiStageYAML > Release-1** blade, track the progress of the release and verify that the deployment to both web apps completed successfully.
 
    ![Azure devops](images/realeas1.png)
