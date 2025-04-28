@@ -26,11 +26,13 @@ In this lab you will complete the following exercises:
 
 1. If you already have a GitHub account that you can use for this lab proceed with Exercise 1, else follow the instructions to create an account.
 
-1. Navigate to the https://github.com/ Click on Signup.
+1. Navigate to the https://github.com/ **(1)** and then Click on **Signup (2)**.
+
+   ![Github](images/dev263.png)
    
 1. Provide the **Email address (1)**, **Password (2)**, **Username (3)** and click on **Continue (4)**.
 
-   ![Github](images/create-github-account.png)
+   ![Github](images/dev264.png)
 
 1. If prompted, complete the the visual puzzle.
 
@@ -83,7 +85,7 @@ In this task, you will create an empty public GitHub repository and import the e
     | Repository Name | **eShopOnWeb (3)** |
     | Privacy | **Public** **(4)** | 
 
-    ![](images/dev2.png)
+    ![](images/dev265.png)
 
 1. Wait for the import to complete.
 
