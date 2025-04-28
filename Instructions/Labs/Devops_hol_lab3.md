@@ -77,6 +77,8 @@ In this task, you will use the Azure DevOps portal to create a Pull Request, usi
    
 1. Click on **Commit** again (leave default commit message).
 
+    ![](images/dev254.png)
+
 1. A message will pop-up, proposing to create a Pull Request (as your **Feature01** branch is now ahead in changes, compared to **main**). Click on **Create a Pull Request (1)**.
 
     ![](images/dev95.png)
@@ -99,22 +101,24 @@ In this task, you will use the Azure DevOps portal to create a Pull Request, usi
 1. Build validation, you will see that the build **eshoponweb-ci-pr** was triggered automatically
          
     ![](images/az400-m3-L4-30.png)    
+
+1. On the top-right click on **Approve**.
+
+    ![](images/dev100.png)    
       
 1. Wait for the validation to succeed before proceeding.
 
     ![](images/dev99.png)
 
-1. On the top-right click on **Approve**.
-
-    ![](images/dev100.png)
+     >**Note**: It might take around 2-3 minutes.
 
 1. Now from the **Complete (1)** dropdown you can click on **Complete (2)**. 
 
     ![](images/dev101.png)
 
-1. On the **Complete Pull Request** tab, select only **Complete associated work items after merging** checkbox  and Click on **Complete Merge**
+1. On the **Complete Pull Request** tab, select only **Complete associated work items after merging (1)** checkbox  and Click on **Complete Merge (2)**
 
-   ![](images/dev102.png)
+   ![](images/dev255.png)
 
    ![](images/dev103.png)
 
@@ -168,7 +172,7 @@ Let's start by importing the CI pipeline named **eshoponweb-ci.yml**.
    
 The default build pipeline definition doesn't enable Continuous Integration
    
-1. Now, you need to replace the **trigger: none** code with the following code:
+1. Now, you need to replace the **trigger: none** code in `line 8` with the following code:
    
     ```
       trigger:
@@ -182,7 +186,9 @@ The default build pipeline definition doesn't enable Continuous Integration
 
      ![](images/dev110.png)
 
-      This will automatically trigger the build pipeline if any change is made to the main branch and the web application code (the src/web folder).Since you enabled Branch Policies, you need to pass by a Pull Request in order to update your code. 
+      >**Note**: Be careful with copy/paste, make sure you have same indentation shown above.
+      
+      >**Note**: This will automatically trigger the build pipeline if any change is made to the main branch and the web application code (the src/web folder).Since you enabled Branch Policies, you need to pass by a Pull Request in order to update your code. 
     
 1. Click the on the **Save and run (1)** dropdown and **Save (2)** button (not **Save and run**) to save the pipeline definition.
 
@@ -192,9 +198,9 @@ The default build pipeline definition doesn't enable Continuous Integration
 
     ![](images/dev112.png)
 
-1. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better. Go to  **Pipelines>Pipelines (1)** and click on the recently created pipeline. Click on the **ellipsis (2)** and **Rename/move (3)** option.
+1. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better. Click on the **ellipsis (1)** and **Rename/move (2)** option.
 
-    ![](images/dev115.png)
+    ![](images/dev256.png)
 
 1. Name it **eshoponweb-ci (1)**  and click on **Save (2)**.
 
@@ -237,7 +243,7 @@ The default build pipeline definition doesn't enable Continuous Integration
    
     ![](images/dev124.png)
 
-1. Click on commit.    
+1. Click on **Commit**.    
    
     ![](images/dev125.png)
 
@@ -255,21 +261,23 @@ The default build pipeline definition doesn't enable Continuous Integration
 
     ![](images/dev128.png)
 
-1. After all validations are successful, on the top-right click on **Approve (1)**, select the **Complete (2)** drop down and then click on **Complete (3)**.
+1. Wait for the build to get succeeded **(1)**, then on the top-right click on **Approve (2)**, select the **Complete (3)** drop down and then click on **Complete (4)**.
 
-    ![](images/dev129.png)
+    ![](images/dev257.png)
+
+     >**Note**: Wait for the build to get succeed. It might take around 5 - 7 minutes.
 
 1. On the **Complete Pull Request** tab, select only **Complete associated work items after merging** checkbox  and Click on **Complete Merge**.
 
      ![](images/dev130.png)
 
-1. Go back to **Pipelines>Pipelines,** you will notice that the build **eshoponweb-ci** was triggered automatically after the code was merged.
+1. Go back to **Pipelines (1)>Pipelines (2)**, you will notice that the build **eshoponweb-ci (3)** was triggered automatically after the code was merged. Select it.
 
-    ![](images/az400-m3-L4-54.png)
+    ![](images/dev258.png)
  
-1. Click on the **eshoponweb-ci** build then select the last run.
+1. On the **eshoponweb-ci** build, select the last run.
 
-    ![](images/az400-m3-L4-55.png)
+    ![](images/dev259.png)
 
 1. After its successful execution, click on **Related (1) > Published (2)** to check the published artifacts:
            

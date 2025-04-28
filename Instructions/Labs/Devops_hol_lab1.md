@@ -51,7 +51,11 @@ The repository is organized the following way:
 
 In this task, you will create an empty public GitHub repository and import the existing [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb) repository.
 
-1. From the lab computer, start a web browser, right click on [GitHub website](https://github.com/), paste it on the browser tab. Click on **Sign in** and sign in using your account. 
+1. From the lab computer, start a web browser, right click on [GitHub website](https://github.com/), paste it on the browser tab.
+
+1. Click on **Sign in** and sign in using your account. 
+
+    ![Create Repository](images/dev231.png)
 
 1. Click on **New** to create a new repository.
 
@@ -67,7 +71,7 @@ In this task, you will create an empty public GitHub repository and import the e
     
     | Field | Value |
     | --- | --- |
-    | Thw URL for your source repository| https://github.com/MicrosoftLearning/eShopOnWeb **(1)** |
+    | The URL for your source repository| https://github.com/CloudLabs-MOC/eShopOnWeb **(1)** |
     | Owner | Leave your default username **(2)** |
     | Repository Name | **eShopOnWeb (3)** |
     | Privacy | **Public** **(4)** | 
@@ -102,15 +106,15 @@ In this task, you will create the Azure Service Principal used by GitHub to depl
 
 1. On the **Create a resource group** tab, 
 
-    - Resource Group name: **rg-az400-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/> (1)**
+    - Resource Group name: **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/> (1)**
     - Region: Leave the deafult one **(2)**
     - Click on **Review + Create (3)**
 
-    ![](images/dev7.png)
+      ![](images/dev232.png)
 
 1. Then click on **Create**.
 
-    ![](images/dev8.png)
+    ![](images/dev233.png)
 
 1. In the Azure Portal, open the **Cloud Shell** (next to the search bar).
 
@@ -136,9 +140,9 @@ In this task, you will create the Azure Service Principal used by GitHub to depl
    az ad sp create-for-rbac --name GH-Action-eshoponweb --role contributor --scopes /subscriptions/SUBSCRIPTION-ID/resourceGroups/RESOURCE-GROUP --sdk-auth
    ```
 
-    >**Note**: To get the **SUBSCRIPTION-ID** and **RESOURCE-GROUP**, In the Azure portal navigate to **rg-az400-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** Resource group then copy the **Resource group name (1)** and **SUBSCRIPTION-ID (2)**.
+    >**Note**: To get the **SUBSCRIPTION-ID** and **RESOURCE-GROUP**, In the Azure portal navigate to **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** Resource group then copy the **Resource group name (1)** and **SUBSCRIPTION-ID (2)**.
 
-     ![](images/dev14.png)
+     ![](images/dev234.png)
     
     >**Note:** Make sure this is typed or pasted as a single line!
     
@@ -172,9 +176,11 @@ In this task, you will create the Azure Service Principal used by GitHub to depl
    az provider register --namespace Microsoft.Web
    ```
 
+    ![Import ADO org to Sonarcloud](images/dev235.png)   
+
 1. In a browser window, go back to your **eShopOnWeb** GitHub repository.
 
-1. On the repository page, go to **Settings (1)**, click on **Secrets and variables (2)> Actions (3)**. Click on **New repository secret (2)**
+1. On the repository page, go to **Settings (1)**, click on **Secrets and variables (2)> Actions (3)**. Click on **New repository secret (4)**
 
       ![](images/dev15.png)
 
@@ -209,12 +215,12 @@ In this task, you will modify the given GitHub workflow and execute it to deploy
     ![](images/dev21.png)
 
 1. In the **env** section, make the following changes:
-    - Replace **NAME** in **RESOURCE-GROUP** variable. It should be the same resource group created in previous steps 
-    - (Optional) You can choose your closest [azure region](https://azure.microsoft.com/en-gb/explore/global-infrastructure/geographies/#geographies) for **LOCATION**. For example, "westus", "eastasia", "eastus", etc.
-    - Replace **YOUR-SUBS-ID** in **SUBSCRIPTION-ID**. You can find your subscription ID from the Overview page of Resource group in Azure portal. 
-    - Replace **WEBAPP-NAME** with **eshoponweb-webapp-<inject key="DeploymentID" enableCopy="false"/>**. It will be used to create a globally unique website using Azure App Service.
+    - **RESOURCE-GROUP**: Replace `RESOURCE-GROUP` variable with **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** 
+    - **Location**: You can choose your closest [azure region](https://azure.microsoft.com/en-gb/explore/global-infrastructure/geographies/#geographies) for **LOCATION**. For example, **westus**, "eastasia", "eastus", etc.
+    - **SUBSCRIPTION-ID**: Replace **YOUR-SUBS-ID** in **SUBSCRIPTION-ID**. You can find your subscription ID from the Overview page of **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** Resource group in Azure portal. 
+    - **WEBAPP-NAME**: Enter **eshoponweb-webapp-<inject key="DeploymentID" enableCopy="false"/>**. It will be used to create a globally unique website using Azure App Service.
 
-    ![](images/dev22.png)
+      ![](images/dev236.png)
 
 1. Read the workflow carefully, comments are provided to help understand.
 
@@ -255,17 +261,17 @@ In this task, you will review the GitHub workflow execution:
 
 1. In a browser window, go back to the Azure Portal (https://portal.azure.com/).
 
-1. Open the resource group **rg-az400-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** yo have created before. You will see that the GitHub Action, using a bicep template, has created an** Azure App Service Plan + App Service**.
+1. Open the resource group **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** yo have created before. **Refresh** the resource group.You will see that the GitHub Action, using a bicep template, has created an **Azure App Service Plan + App Service**.
 
-    ![](images/dev30.png)
+    ![](images/dev238.png)
 
 1. Select **eshoponweb-webapp-<inject key="DeploymentID" enableCopy="false"/>** App service.
 
-    ![](images/dev31.png)
+    ![](images/dev239.png)
 
 1. You can see the published website opening the App Service and clicking **Browse**.
 
-    ![Browse WebApp](images/dev28.png)
+    ![Browse WebApp](images/dev240.png)
     ![Browse WebApp](images/dev29.png)
     
 

@@ -66,15 +66,15 @@ In this task, you will create an **eShopOnWeb** Azure DevOps project to be used 
 
     ![Azure DevOps](images/dev36.png)
  
-1. Click on **New Project**. Give your project the name  **eShopOnWeb (1)**, select visibility as **Private(2)**  and leave the other fields with defaults. Click on **+ Create Project(3)**.
+1. Click on **New Project**. Give your project the name  **eShopOnWeb (1)**, select visibility as **Private(2)**  and leave the other fields with defaults. Click on **Create(3)**.
 
-      ![](images/dev37.png)
+      ![](images/dev241.png)
 
 ### Task 2: Import eShopOnWeb Git Repository 
 
 In this task you will import the eShopOnWeb Git repository that will be used by several labs.
 
-1. On the **eShopOnWeb** project. Click on **Repos (1)>Files (2) , Import a Repository**. Select **Import (3)**. On the **Import a Git Repository** window, paste the following URL https://github.com/MicrosoftLearning/eShopOnWeb.git **(4)** and click **Import (5)**.
+1. On the **eShopOnWeb** project. Click on **Repos (1)>Files (2) , Import a Repository**. Select **Import (3)**. On the **Import a Git Repository** window, paste the following URL https://github.com/CloudLabs-MOC/eShopOnWeb.git **(4)** and click **Import (5)**.
 
       ![](images/dev38.png)
       
@@ -258,7 +258,7 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
     | Enter run agent as service? (Y/N) (press enter for N) | **Y** |
     | enter enable SERVICE_SID_TYPE_UNRESTRICTED (Y/N) (press enter for N) | **Y** |
     | Enter User account to use for the service (press enter for NT AUTHORITY\NETWORK SERVICE) | **Hit Enter** |
-    | Enter whether to prevent service starting immediately after configuration is finished? (Y/N) (press enter for N) | ****Hit Enter** |
+    | Enter whether to prevent service starting immediately after configuration is finished? (Y/N) (press enter for N) | **Hit Enter** |
 
     ![Azure DevOps](images/dev66.png)    
 
@@ -296,7 +296,7 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
     - agent.name -equals Agentname
     ```
 
-    > **Note**: Replace Agentname with **labvm-<inject key="DeploymentID" enableCopy="false"/>**
+    > **Note**: Replace `Agentname` with **labvm-<inject key="DeploymentID" enableCopy="false"/>**
 
     ![Azure DevOps](images/dev72.png)    
  
@@ -312,35 +312,35 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 
     ![Azure DevOps](images/dev75.png)
 
-1. On the **Recent** tab of the **Pipelines** pane, click the **eShopOnWeb** entry.
+1. Click on **Run**.    
 
-    ![Azure DevOps](images/dev76.png)
-
-1. Click on **Run pipeline.**    
-
-    ![Azure DevOps](images/dev77.png)
+    ![Azure DevOps](images/dev253.png)
 
 1. Click on **Run** again to run the pipeline.
 
     ![Azure DevOps](images/dev78.png)
 
-1. Click on **Buid**.    
+1. Click on **View** to provide the permission.
 
-1. Click on **View**.
+    ![Azure DevOps](images/dev250.png)
 
-    ![Azure DevOps](images/dev79.png)
+1. Click on **Permit**.
 
-1. Depending on your lab setup, the pipeline might prompt you for permissions. Click **Permit** to allow the pipeline to run. 
-
-    ![Azure DevOps](images/dev80.png)
+    ![Azure DevOps](images/dev251.png)
 
 1. Click on **Permit** on **Permit access**.
 
     ![Azure DevOps](images/dev81.png)
 
+1. Click on **Buid**.  
+
+    ![Azure DevOps](images/dev252.png)
+
 1. Wait until the build  succeeds.
 
     ![Azure DevOps](images/dev82.png)
+
+     >**Note**: It might take around 5 minutes to build.
 
 1. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better.
 
