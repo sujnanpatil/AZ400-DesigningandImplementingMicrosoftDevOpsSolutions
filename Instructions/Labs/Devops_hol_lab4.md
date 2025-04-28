@@ -46,7 +46,7 @@ In this exercise, you will set up the prerequisites for the lab, which consist o
 
 In this task, you will create an **eShopOnWeb_MultiStageYAML** Azure DevOps project to be used by several labs.
 
-1. On your lab computer, in a browser window click on **Azure DevOps** Ffrom the top left corner. Click on **+ New Project**.
+1. On your lab computer, in a browser window click on **Azure DevOps** from the top left corner. Click on **+ New Project**.
 
     ![Azure DevOps](images/dev134.png)
 
@@ -60,7 +60,7 @@ In this task you will import the eShopOnWeb Git repository that will be used by 
 
 1. Access the previously created **eShopOnWeb_MultiStageYAML** project.
 
-1. Navigate to **Repos (1)>Files (2)** and then click on **Import (3)** within the **Import a repository** card. On the **Import a Git Repository** window, paste the following URL https://github.com/MicrosoftLearning/eShopOnWeb.git **(4)** and click on **Import (5)**:
+1. Navigate to **Repos (1)>Files (2)** and then click on **Import (3)** within the **Import a repository** card. On the **Import a Git Repository** window, paste the following URL https://github.com/CloudLabs-MOC/eShopOnWeb.git **(4)** and click on **Import (5)**:
 
     ![Import Repository](images/dev136.png)
 
@@ -119,8 +119,10 @@ In this task, you will add a YAML build definition to the existing project.
 1. Wait for the Build Pipeline to complete successfully. Ignore any warnings regarding the source code itself, as they are not relevant for this lab exercise.
    
     ![Import Repository](images/newpip6.png)
+
+     >**Note**: Wait for the pipeline build to get succeeded. It might take around 5 minutes.
    
-     > **Note**: Each task from the YAML file is available for review, including any warnings and errors.
+     >**Note**: Each task from the YAML file is available for review, including any warnings and errors.
 
 ## Exercise 1: Creating the necessary Azure Resources for the Release Pipeline
 
@@ -136,9 +138,7 @@ In this task, you will create two Azure web apps representing the **Canary** and
     
 1. From the **Bash** prompt, in the **Cloud Shell** pane, run the following command to create a resource group. 
 
-   >**Important:** Replace the `<region>` variable placeholder with the name of the Azure region that will host the two Azure web apps, for example **westeurope** or **centralus** or **any other available region** of your choice):
-
-   >**Note**: Possible locations can be found by running the following command, use the **Name** on `<region>` : `az account list-locations -o table`
+   >**Note**: If the region is not available, Possible locations can be found by running the following command : `az account list-locations -o table`. Then use the **Name** on region name.
 
     ```bash
     REGION='westeurope'
@@ -148,7 +148,7 @@ In this task, you will create two Azure web apps representing the **Canary** and
 
      ![Clouldshell](images/dev141.png)    
 
-1. To create an App service plan
+1. To create an **App service plan**.
 
     ```bash
     SERVICEPLANNAME='Web-sp1'
@@ -157,13 +157,15 @@ In this task, you will create two Azure web apps representing the **Canary** and
 
      ![Clouldshell](images/dev142.png)    
 
-1. Create two web apps with unique app names.
+1. Create two **Web apps** with unique app names.
  
     ```bash
     SUFFIX=$RANDOM$RANDOM
     az webapp create -g $RESOURCEGROUPNAME -p $SERVICEPLANNAME -n RGATES$SUFFIX-Canary
     az webapp create -g $RESOURCEGROUPNAME -p $SERVICEPLANNAME -n RGATES$SUFFIX-Prod
     ```
+
+1. Wait for the Web App Services Resources provisioning process to complete and close the **Cloud Shell** pane.    
 
 1. Run the below command to list the web apps.
 
@@ -175,7 +177,6 @@ In this task, you will create two Azure web apps representing the **Canary** and
 
       > **Note:** Record the name of the Canary web app. You will need it later in this lab.    Canary web app should look like : **RGATES495017526-Canary**
 
-1. Wait for the Web App Services Resources provisioning process to complete and close the **Cloud Shell** pane.
 
 ### Task 2: Configure an Application Insights resource
 
@@ -201,9 +202,7 @@ In this task, you will create two Azure web apps representing the **Canary** and
      > **Note**: Disregard the deprecation message. This is required in order to prevent failures of the Enable Continuous Integration DevOps task you will be using later in this lab.
 
 1. Then click **Create**.
-
-    ![portal](images/applicationinsights.png)
-    
+   
 1. Wait for the provisioning process to complete.
 
 1. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the page to search for **App service(1)** and, in the list of results, select **App service(2)**.

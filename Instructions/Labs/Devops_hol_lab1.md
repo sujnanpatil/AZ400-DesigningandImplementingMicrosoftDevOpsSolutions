@@ -53,9 +53,16 @@ In this task, you will create an empty public GitHub repository and import the e
 
 1. From the lab computer, start a web browser, right click on [GitHub website](https://github.com/), paste it on the browser tab.
 
-1. Click on **Sign in** and sign in using your account. 
-
+1. Click on **Sign in**. 
     ![Create Repository](images/dev231.png)
+
+1. Provide your **Github Username/email address** (1) and **Password (2)** then click on **Sign in (3)**.
+
+    ![Create Repository](images/dev261.png)
+
+1. Then you will recieve an device verfication code to your email, enter that **code (1)** and then click on **Verify (2)**. 
+
+    ![Create Repository](images/dev262.png)
 
 1. Click on **New** to create a new repository.
 
@@ -216,17 +223,17 @@ In this task, you will modify the given GitHub workflow and execute it to deploy
 
 1. In the **env** section, make the following changes:
     - **RESOURCE-GROUP**: Replace `RESOURCE-GROUP` variable with **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** 
-    - **Location**: You can choose your closest [azure region](https://azure.microsoft.com/en-gb/explore/global-infrastructure/geographies/#geographies) for **LOCATION**. For example, **westus**, "eastasia", "eastus", etc.
+    - **Location**: **westus**
     - **SUBSCRIPTION-ID**: Replace **YOUR-SUBS-ID** in **SUBSCRIPTION-ID**. You can find your subscription ID from the Overview page of **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** Resource group in Azure portal. 
     - **WEBAPP-NAME**: Enter **eshoponweb-webapp-<inject key="DeploymentID" enableCopy="false"/>**. It will be used to create a globally unique website using Azure App Service.
 
       ![](images/dev236.png)
 
-1. Read the workflow carefully, comments are provided to help understand.
+1. Scroll down, within the **publish (1)** section. Replace **${{ env.WEBAPP-NAME }}** with **app-name: eshoponweb-webapp-<inject key="DeploymentID" enableCopy="false"/> (2)** and then click on **Commit changes (3)**.
 
-1. Click on **Commit changes...**.
+    ![Succesfull workflow](images/dev27.png)
 
-    ![](images/dev23.png)
+     >**Note**: Read the workflow carefully, comments are provided to help understand.
 
 1. **Commit changes** again leaving defaults (changing the main branch). The workflow will get automatically executed.
 
@@ -240,9 +247,9 @@ In this task, you will review the GitHub workflow execution:
 
     ![GitHub workflow in progress](images/dev25.png)
 
-1. You will see the workflow setup on top before executing. Click on **eShopOnWeb Build and Test** (make sure you are selecting the **eShopOnWeb Build and Test** workflow which is associated with the **eshoponweb-ccid.yml**).
+1. You will see the workflow setup on top before executing. Click on **eshoponweb-ccid.yml** which is associated with **eShopOnWeb Build and Test**.
 
-    ![GitHub workflow in progress](images/actions.png)
+    ![GitHub workflow in progress](images/dev237.png)
 
     >**Note:** If it shows you the **Workflows aren’t being run on this repository**, select **Enable Actions on this repository**.
 
@@ -250,14 +257,11 @@ In this task, you will review the GitHub workflow execution:
 
    > ![GitHub workflow in progress](images/runworkflow.png)
 
-1. Click on the Workflow, wait for the workflow to finish. From the **Summary** you can see the two workflow jobs, the status and Artifacts retained from the execution. You can click in each job to review logs.
+1. From the **Summary** you can see the two workflow jobs, the status and Artifacts retained from the execution. You can click in each job to review logs.
 
     ![GitHub workflow in progress](images/dev26.png)
 
-    >**Note**: If the job fails, you should navigate back to the **Code** section and locate to **eShopOnWeb/.github/workflows/eshoponweb-cicd.yml** file. Then, select the **Edit** (pencil icon) within the **publish (1)** section. Replace **${{ env.WEBAPP-NAME }}** with **app-name: eshoponweb-webapp-<inject key="DeploymentID" enableCopy="false"/> (2)** and save the changes by committing them **(3)**. 
-    - Navigate to **Actions**, and then check the workflow again. Wait untill it is succeeded.
-
-      ![Succesfull workflow](images/dev27.png)
+     >**Note**: The workflow might take around 10 minutes to complete. Please wait until it is Succeeded.
 
 1. In a browser window, go back to the Azure Portal (https://portal.azure.com/).
 
