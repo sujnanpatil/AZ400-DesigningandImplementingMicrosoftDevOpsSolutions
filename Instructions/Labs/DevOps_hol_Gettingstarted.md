@@ -1,4 +1,4 @@
-# Developing a Custom RAG App Using Azure AI Foundry
+# Azure DevOps 
 
 ### Overall Estimated Duration: 4 Hours
 
