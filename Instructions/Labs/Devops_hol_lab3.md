@@ -1,12 +1,10 @@
-# Lab 3: Configuring Agent Pools and Understanding Pipeline Styles
+# Lab 3:  Enabling Continuous Integration with Azure Pipelines  
 
-## Lab overview
+## Estimated timing: 60 minutes
 
-In this lab, you will learn how to define build pipelines in Azure DevOps using YAML.
-The pipelines will be used in two scenarios:
+## Lab Scenario
 
-- As part of Pull Request validation process.
-- As part of the Continuous Integration implementation.
+In this lab, you will learn how to define and manage build pipelines in Azure DevOps using YAML. You will configure branch policies for build validation in pull requests, work with feature branches and pull requests, and set up a CI pipeline as code. The lab covers importing YAML build definitions, enabling continuous integration, and testing the pipeline to automate and validate code changes efficiently.
 
 ## Objectives
 
@@ -15,13 +13,14 @@ In this lab, you will complete the following exercises:
 - Exercise 1: Include build validation as part of a Pull Request 
 - Exercise 2: Configure CI Pipeline as Code with YAML
 
-## Estimated timing: 45 minutes
 
 ## Architecture Diagram
 
   ![Architecture Diagram](images/lab4-architecture-new.png)
 
 ## Exercise 1: Include build validation as part of a Pull Request 
+
+In this exercise, you will configure branch policies on the main branch to enforce pull request validation and ensure code reviews before merging changes. You will then create and manage a pull request in Azure DevOps, merging changes from a new branch into the protected main branch.
 
 ### Task 1: Branch Policies
 
@@ -44,7 +43,7 @@ In this task, you will add policies to the main branch and only allow changes us
       
      >**Note**: If you get any error while saving the branch validation refresh the page and try again.
 
-## Task 2: Working with Pull Requests
+### Task 2: Working with Pull Requests
  
 In this task, you will use the Azure DevOps portal to create a Pull Request, using a new branch to merge a change into the protected main branch.
  
@@ -77,6 +76,8 @@ In this task, you will use the Azure DevOps portal to create a Pull Request, usi
    
 1. Click on **Commit** again (leave default commit message).
 
+    ![](images/dev254.png)
+
 1. A message will pop-up, proposing to create a Pull Request (as your **Feature01** branch is now ahead in changes, compared to **main**). Click on **Create a Pull Request (1)**.
 
     ![](images/dev95.png)
@@ -99,29 +100,31 @@ In this task, you will use the Azure DevOps portal to create a Pull Request, usi
 1. Build validation, you will see that the build **eshoponweb-ci-pr** was triggered automatically
          
     ![](images/az400-m3-L4-30.png)    
+
+1. On the top-right click on **Approve**.
+
+    ![](images/dev100.png)    
       
 1. Wait for the validation to succeed before proceeding.
 
     ![](images/dev99.png)
 
-1. On the top-right click on **Approve**.
-
-    ![](images/dev100.png)
+     >**Note**: It might take around 2-3 minutes.
 
 1. Now from the **Complete (1)** dropdown you can click on **Complete (2)**. 
 
     ![](images/dev101.png)
 
-1. On the **Complete Pull Request** tab, select only **Complete associated work items after merging** checkbox  and Click on **Complete Merge**
+1. On the **Complete Pull Request** tab, select only **Complete associated work items after merging (1)** checkbox  and Click on **Complete Merge (2)**
 
-   ![](images/dev102.png)
+   ![](images/dev255.png)
 
    ![](images/dev103.png)
 
 
 ## Exercise 2: Configure CI Pipeline as Code with YAML
 
-In this exercise, you will configure CI Pipeline as code with YAML.
+In this exercise, you will configure a CI pipeline as code using YAML. You will import the YAML build definition, enable Continuous Integration for automatic builds, and test the pipeline by creating a pull request to trigger the CI process when merging changes into the protected main branch.
 
 ### Task 1: Import the YAML build definition
 
@@ -166,9 +169,11 @@ Let's start by importing the CI pipeline named **eshoponweb-ci.yml**.
               
 ### Task 2: Enable Continuous Integration
    
-The default build pipeline definition doesn't enable Continuous Integration
+The default build pipeline definition doesn't enable Continuous Integration.
+
+In this task, you will enable Continuous Integration by modifying the YAML build definition to trigger on changes to the main branch and web application code, then create and complete a pull request to merge the changes.
    
-1. Now, you need to replace the **trigger: none** code with the following code:
+1. Now, you need to replace the **trigger: none** code in `line 8` with the following code:
    
     ```
       trigger:
@@ -182,7 +187,9 @@ The default build pipeline definition doesn't enable Continuous Integration
 
      ![](images/dev110.png)
 
-      This will automatically trigger the build pipeline if any change is made to the main branch and the web application code (the src/web folder).Since you enabled Branch Policies, you need to pass by a Pull Request in order to update your code. 
+      >**Note**: Be careful with copy/paste, make sure you have same indentation shown above.
+      
+      >**Note**: This will automatically trigger the build pipeline if any change is made to the main branch and the web application code (the src/web folder).Since you enabled Branch Policies, you need to pass by a Pull Request in order to update your code. 
     
 1. Click the on the **Save and run (1)** dropdown and **Save (2)** button (not **Save and run**) to save the pipeline definition.
 
@@ -192,9 +199,9 @@ The default build pipeline definition doesn't enable Continuous Integration
 
     ![](images/dev112.png)
 
-1. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better. Go to  **Pipelines>Pipelines (1)** and click on the recently created pipeline. Click on the **ellipsis (2)** and **Rename/move (3)** option.
+1. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better. Click on the **ellipsis (1)** and **Rename/move (2)** option.
 
-    ![](images/dev115.png)
+    ![](images/dev256.png)
 
 1. Name it **eshoponweb-ci (1)**  and click on **Save (2)**.
 
@@ -237,7 +244,7 @@ The default build pipeline definition doesn't enable Continuous Integration
    
     ![](images/dev124.png)
 
-1. Click on commit.    
+1. Click on **Commit**.    
    
     ![](images/dev125.png)
 
@@ -255,21 +262,23 @@ The default build pipeline definition doesn't enable Continuous Integration
 
     ![](images/dev128.png)
 
-1. After all validations are successful, on the top-right click on **Approve (1)**, select the **Complete (2)** drop down and then click on **Complete (3)**.
+1. Wait for the build to get succeeded **(1)**, then on the top-right click on **Approve (2)**, select the **Complete (3)** drop down and then click on **Complete (4)**.
 
-    ![](images/dev129.png)
+    ![](images/dev257.png)
+
+     >**Note**: Wait for the build to get succeed. It might take around 5 - 7 minutes.
 
 1. On the **Complete Pull Request** tab, select only **Complete associated work items after merging** checkbox  and Click on **Complete Merge**.
 
      ![](images/dev130.png)
 
-1. Go back to **Pipelines>Pipelines,** you will notice that the build **eshoponweb-ci** was triggered automatically after the code was merged.
+1. Go back to **Pipelines (1)>Pipelines (2)**, you will notice that the build **eshoponweb-ci (3)** was triggered automatically after the code was merged. Select it.
 
-    ![](images/az400-m3-L4-54.png)
+    ![](images/dev258.png)
  
-1. Click on the **eshoponweb-ci** build then select the last run.
+1. On the **eshoponweb-ci** build, select the last run.
 
-    ![](images/az400-m3-L4-55.png)
+    ![](images/dev259.png)
 
 1. After its successful execution, click on **Related (1) > Published (2)** to check the published artifacts:
            
@@ -287,146 +296,15 @@ The default build pipeline definition doesn't enable Continuous Integration
  
    <validation step="acd984e3-6678-4326-9460-21caeb9889c7" />
           
- ## Review
+### Review
   
-  In this lab, you enabled pull request validation using a build definition and configured CI pipeline as code with YAML in Azure DevOps. 
+In this lab, you learned how to define and manage build pipelines in Azure DevOps using YAML. You configured branch policies for build validation in pull requests, worked with feature branches, and set up a CI pipeline as code. The lab included importing YAML build definitions, enabling continuous integration, and testing the pipeline to automate and validate code changes efficiently.
 
-### Click Next to proceed with the next lab.
+In this lab, you have accomplished the following:
+
+- Exercise 1: Included build validation as part of a Pull Request 
+- Exercise 2: Configured CI Pipeline as Code with YAML
 
 
-
-
-## Exercise 3: Implement Selenium tests by using a self-hosted Azure DevOps agent 
-
-### Task 2: Configure the release pipeline
-
-In this exercise, you will configure a release pipeline.
-
-### Task 1: Set Up Release Tasks
-
-In this task, you will set up the release tasks as part of the Release Pipeline.
-
-1. From the **eShopOnWeb_MultiStageYAML** project in the Azure DevOps portal, in the vertical navigational pane, select **Pipelines** and then, within the **Pipelines** section, click **Releases(1)**.
-1. Click **New Pipeline(2)**.
-    
-     ![Azure devops](images/re.png)
-   
-   > **Note** - If you are unable to see the **Releases** under pipelines, Navigate to Azure DevOps page, from the bottom left, click on **Organization settings**, Go to the Pipelines (1) section, and click Settings (2). Turn off(3) the Disable creation of classic release pipelines.
-   
-   ![Azure devops](images/lab2releaseenable.png)
-   
-1. Navigate back to your project and now you will be able to see the releases under pipelines   
-  
-1. From the **Select a template** window, **choose** **Azure App Service Deployment** (Deploy your application to Azure App Service. Choose from Web App on Windows, Linux, containers, Function Apps, or WebJobs) under the **Featured** list of templates.    
-
-1. Click **Apply**.
-
-    ![Azure devops](images/tem.png)
-
-1. From the **Stage** window appearing, update the default "Stage 1" Stage Name to **Canary**. Close the popup window by using the **X** button. You are now in the graphical editor of the Release Pipeline, showing the Canary Stage.
-
-    ![Azure devops](images/DevOpspage2.png)
-
-1. Hover the mouse over the Canary Stage, and click the **Clone** button, to copy the Canary Stage to an additional Stage. Name this Stage **Production**.
-
-    ![Azure devops](images/clone.png)
-
-    > **Note**: The pipeline now contains two stages named **Canary** and **Production**.
-
-     ![Azure devops](images/capro.png)
-
-1. On the **Pipeline** tab, select the **+ Add an artifact** rectangle.
-
-     ![Azure devops](images/artifact.png)
-     
-1. Select the **eShopOnWeb_MultiStageYAML** in the **Source (build pipeline)** field. Click **Add** to confirm the selection of the artifact.
-    
-     ![Azure devops](images/DevOpspage3.png)
-
-1. From the **Artifact** rectangle, notice the **Continuous Integration Trigger** (lightning bolt) appearing. 
-
-     ![Azure devops](images/image005.png)
-    
-1. Click it to open the **Continuous deployment trigger** settings. Click the continuous deployment trigger to toggle the switch to enable it. Leave all other settings at default and close the **Continuous deployment trigger** pane, by clicking the **x** mark in its upper right corner.
-
-     ![Azure devops](images/contin1.png)  
-   
-1. Within the **Canary Environments** stage, click the **1 job, 1 tasks** label and review the tasks within this stage.
-     
-    ![Azure devops](images/1job1task.png)
-
-    > **Note**: The canary environment has 1 task which, respectively, publishes the artifact package to Azure Web App.
-
-1. On the **All pipelines > New Release Pipeline** pane, ensure that the **Canary(1)** stage is selected. In the **Azure subscription(2)** dropdown list, Confirm the App Type is set to "Web App on Windows(3)". Next, in the **App Service name** dropdown list, select the name of the **Canary(4)** web app.
-
-    ![Azure devops](images/capro01.png)
-      
-    >**Note:** After Selecting your Azure subscription and click **Authorize**. If prompted, authenticate by using the user account with the Owner role in the Azure subscription
-    
-    ![Azure devops](images/autho.png)
-     
-1. Select the Task **Deploy Azure App Service**. In the **Package or Folder** field, update the default value of "$(System.DefaultWorkingDirectory)/\*\*/\*.zip" to **"$(System.DefaultWorkingDirectory)/\*\*/Web.zip"**
-
-    > Notice an exclamation mark next to the Tasks tab. This is expected, as we need to configure the settings for the Production Stage.
-    
-    ![Azure devops](images/canaryre.png)
-
-1. Scroll down and open the **Application and Configuration Settings** pane and enter `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development` in the **App settings** box.
-
-1. Under **All pipelines > New Release Pipeline** pane, Click on **Tasks**,from the drop-down selct Select **Production**.
-
-    ![Azure devops](images/selectpro.png)
-
-1. In **Production(1)** stage Similar to the Canary stage earlier, complete the pipeline settings. Under the Tasks tab / Production Deployment process, in the **Azure subscription(2)** dropdown list, select the Azure subscription you used for the **Canary Environment** stage, shown under **Available Azure Service connections**, as we already created the service connection before when authorizing the subscription use. In the **App type** from the dropdown list select **Web App on Windows(3)**, In the **App Service name(4)** from the dropdown list, select the name of the **Prod** web app.
-
-    ![Azure devops](images/prodre1.png)
-     
-1. Select the Task **Deploy Azure App Service**. In the **Package or Folder** field, update the default value of "$(System.DefaultWorkingDirectory)/\*\*/\*.zip" to **"$(System.DefaultWorkingDirectory)/\*\*/Web.zip"**
-
-    ![Azure devops](images/prodre.png)
-
-1. Open the **Application and Configuration Settings** pane and enter `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development` in the **App settings** box.
-   
-1. On the **All pipelines > New Release Pipeline** pane, click **Save** and, in the **Save** dialog box, click **OK**.
-
-    ![Azure devops](images/saverepip.png)
-
-   You have now successfully configured the Release Pipeline.
-
-1. In the browser window displaying the **eShopOnWeb_MultiStageYAML** project, in the vertical navigational pane, in the **Pipelines** section, click **Pipelines**.
-
-    ![](images/selectpipline.png)
-
-1. On the **Pipelines** pane, click the entry representing **eShopOnWeb_MultiStageYAML** build pipeline and then, on the **eShopOnWeb_MultiStageYAML** pane, click on **Run Pipeline**.
-
-    ![Azure devops](images/runpipafterrel.png)
-
-1. On the **Run pipeline** pane, accept the default settings and click **Run** to trigger the pipeline. **Wait for the build pipeline to finish**.
-
-    > **Note**: After the build succeeds, the release will be triggered automatically, and the application will be deployed to both the environments. Validate the release actions, once the build pipeline completed successfully.
-
-1. In the vertical navigational pane, in the **Pipelines** section, click **Releases** and, on the **eShopOnWeb_MultiStageYAML** pane, click the entry representing the most recent release.
-1. On the **eShopOnWeb_MultiStageYAML > Release-1** blade, track the progress of the release and verify that the deployment to both web apps completed successfully.
-
-   ![Azure devops](images/realeas1.png)
-
-1. Switch back to the Azure portal interface, navigate to the resource group **az400m04l09-RG**, in the list of resources, click the **Canary** web app.
-
-    ![portal](images/websitecan.png)
-
-1. On the web app blade, click **Browse**, and verify that the web page (E-commerce website) loads successfully in a new web browser tab.
-    
-    ![portal](images/websitecan1.png)
-   
-1. Switch back to the Azure portal interface, this time navigating  to the resource group **az400m04l09-RG**, in the list of resources, click the **Production** web app. 
-
-   ![portal](images/websiteprod.png)
-
-1. On the web app blade, click **Browse**, and verify that the web page loads successfully in a new web browser tab.
-
-   ![portal](images/websitecan1.png)
-   
-1. Close the web browser tab displaying the **EShopOnWeb** web site.
-
-    > **Note**: Now you have the application with CI/CD configured. In the next exercise we will set up Quality Gates as part of a more advanced release pipeline.
+### You have successfully completed the lab. Click on **Next >>** to procced with next lab.
 
