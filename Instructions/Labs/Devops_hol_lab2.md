@@ -1,12 +1,10 @@
 # Lab 02: Configuring Agent Pools and Understanding Pipeline Styles 
 
-## Lab overview
+## Estimated duration: 60 minutes
 
-YAML-based pipelines allow you to fully implement CI/CD as code, in which pipeline definitions reside in the same repository as the code that is part of your Azure DevOps project. YAML-based pipelines support a wide range of features that are part of the classic pipelines, such as pull requests, code reviews, history, branching, and templates. 
+## Lab Scenario
 
-Regardless of the choice of the pipeline style, to build your code or deploy your solution by using Azure Pipelines, you need an agent. An agent hosts compute resources that runs one job at a time. Jobs can be run directly on the host machine of the agent or in a container. You have an option to run your jobs using Microsoft-hosted agents, which are managed for you, or implementing a self-hosted agent that you set up and manage on your own. 
-
-In this lab, you will learn how to implement and use self-hosted agents with YAML pipelines.
+In this lab, you will learn how to implement and use self-hosted agents with YAML pipelines, which allow you to fully implement CI/CD as code by defining pipeline configurations directly within the same repository as your project code. YAML-based pipelines support essential features found in classic pipelines, including pull requests, code reviews, version history, branching, and reusable templates. Regardless of the pipeline style, Azure Pipelines require an agent to build or deploy your solution—these agents provide the compute resources to run jobs, either directly on the host machine or within a container. You can choose between Microsoft-hosted agents, which are managed for you, or self-hosted agents that you configure and maintain yourself.
 
 ## Objectives
 
@@ -16,15 +14,15 @@ In this lab you will complete the following exercises:
 - Exercise 2: Author YAML-based Azure DevOps pipelines
 - Exercise 3: Manage Azure DevOps agent pools
 
-
-## Estimated timing: 45 minutes
-
 ## Architecture Diagram
 
    ![Architecture Diagram](images/lab3-architecture-new.png)   
 
+## Lab requirement:
 
-## Set up an Azure DevOps organization
+### Set up an Azure DevOps organization
+
+If you don't already have an Azure DevOps organization, you signed in with your credentials, configured the organization settings, and enabled billing for CI/CD parallel jobs to prepare for pipeline execution.
 
 1. On your lab VM open **Edge Browser** on desktop and navigate to https://go.microsoft.com/fwlink/?LinkId=307137. 
 
@@ -56,7 +54,7 @@ In this lab you will complete the following exercises:
    
 ## Exercise 1: Configure the lab prerequisites 
 
-In this exercise, you will set up the prerequisite for the lab, which consists of the pre-configured Parts Unlimited team project based on an Azure DevOps Demo Generator template.
+In this exercise, you set up the prerequisites for the lab by creating a new Azure DevOps project named eShopOnWeb, setting its visibility to private, and leaving other settings as default for use in upcoming labs.
 
 ### Task 1: Create and configure the team project
 
@@ -145,7 +143,7 @@ In this task, you will create a template-based Azure DevOps YAML pipeline.
 
     >**Note**: we are just creating the pipeline definition for now, without running it. You will first set up an Azure DevOps agent pool and run the pipeline in a later exercise. 
 
-# Exercise 3: Manage Azure DevOps agent pools
+## Exercise 3: Manage Azure DevOps agent pools
 
 In this exercise, you will implement self-hosted Azure DevOps agent.
 
@@ -361,9 +359,17 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 
    <validation step="38dc84d9-2b4f-44c8-bf6f-1da2f5a9cde7" />
 
-## Review
+### Review
 
 In this lab, you learned how to convert classic pipelines into YAML-based ones and how to implement and use self-hosted agents.
+
+In this exercise, you have accomplished the following:
+
+- Exercise 1: Configured the lab prerequisites
+- Exercise 2: Authored YAML-based Azure DevOps pipelines
+- Exercise 3: Managed Azure DevOps agent pools
+
+### You have successfully completed the lab. Click on **Next >>** to procced with next lab.
 
 
 

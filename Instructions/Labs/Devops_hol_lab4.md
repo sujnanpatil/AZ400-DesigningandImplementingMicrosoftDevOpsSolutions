@@ -1,14 +1,10 @@
 # Lab 4: Controlling Deployments using Release Gates 
 
-## Lab Overview
+## Estimated timing: 90 minutes
 
-This lab covers the configuration of the deployment gates and details how to use them to control the execution of Azure Pipelines. To illustrate their implementation, you'll configure a release definition with two environments for an Azure Web App. You'll deploy to the Canary environment only when there are no blocking bugs for the app and mark the Canary environment complete only when there are no active alerts in Application Insights of Azure Monitor.
+## Lab Scenario
 
-A release pipeline specifies the end-to-end release process for an application to be deployed across various environments. Deployments to each environment are fully automated by using jobs and tasks. Ideally, you don't want new updates to the applications to be simultaneously exposed to all the users. It's a best practice to expose updates in a phased manner, that is, expose them to a subset of users, monitor their usage, and expose them to other users based on the experience of the initial set of users.
-
-Approvals and gates enable you to take control over the start and completion of the deployments in a release. You can wait for users to approve or reject deployments with approvals manually. Using release gates, you can specify application health criteria to be met before the release is promoted to the following environment. Before or after any environment deployment, all the specified gates are automatically evaluated until they pass or reach your defined timeout period and fail.
-
-Gates can be added to an environment in the release definition from the pre-deployment conditions or the post-deployment conditions panel. Multiple gates can be added to the environment conditions to ensure all the inputs are successful for the release.
+In this lab, you will learn how to configure deployment gates and use them to control the execution of Azure Pipelines. You will set up a release definition with two environments for an Azure Web App, deploying to the Canary environment only when there are no blocking bugs and completing the deployment only when there are no active alerts in Application Insights. The lab covers the concept of a release pipeline, where deployments are automated across environments using jobs and tasks. You will learn how to expose updates gradually to a subset of users, monitor usage, and then expand exposure based on initial user feedback. Additionally, you will explore how approvals and gates help control deployment start and completion, with gates evaluating application health criteria before promoting releases to the next environment. Multiple gates can be added to ensure all conditions are met before progressing a deployment.
 
 As an example:
 
@@ -32,7 +28,6 @@ In this lab, you will be performing the following exercises:
 - Exercise 3: Configure release gates
 - Exercise 4: Test release gates
 
-## Estimated timing: 60 minutes
 
 ## Architecture Diagram
 
@@ -126,6 +121,8 @@ In this task, you will add a YAML build definition to the existing project.
 
 ## Exercise 1: Creating the necessary Azure Resources for the Release Pipeline
 
+In this exercise, you will create the necessary Azure resources for the release pipeline by setting up two Azure web apps for deployment and configuring an Application Insights resource to monitor the application's performance and health.
+
 ### Task 1: Create two Azure web apps
 
 In this task, you will create two Azure web apps representing the **Canary** and **Production** environments, into which you'll deploy the application via Azure Pipelines.
@@ -179,6 +176,8 @@ In this task, you will create two Azure web apps representing the **Canary** and
 
 
 ### Task 2: Configure an Application Insights resource
+
+In this task, you will configure an Application Insights resource in the Azure portal, link it to the Canary web app, and create an alert rule to monitor failed requests, which will be used in later stages of the lab.
 
 1. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the page to search for **Application Insights (1)** and, in the list of results, select **Application Insights (2)**.
 
@@ -603,11 +602,19 @@ In this task, you will first generate some alerts for the Canary Web App, follow
 
     ![Azure devops](images/dev198.png) 
     
-## Review
+### Review
 
 In this lab, you configured release pipelines and then configured and tested release gates.
 
-## You have successfully completed the lab. Click on **Next >>** to procced with next lab.
+In this lab, you have accomplished the following:
+
+- Exercise 0: Configured the lab prerequisites
+- Exercise 1: Created the necessary Azure Resources for the Release Pipeline
+- Exercise 2: Configured the release pipeline
+- Exercise 3: Configured release gates
+- Exercise 4: Tested release gates
+
+### You have successfully completed the lab. Click on **Next >>** to procced with next lab.
 
 
 

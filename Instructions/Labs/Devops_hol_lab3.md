@@ -1,12 +1,10 @@
-# Lab 3: Configuring Agent Pools and Understanding Pipeline Styles
+# Lab 3:  Enabling Continuous Integration with Azure Pipelines  
 
-## Lab overview
+## Estimated timing: 60 minutes
 
-In this lab, you will learn how to define build pipelines in Azure DevOps using YAML.
-The pipelines will be used in two scenarios:
+## Lab Scenario
 
-- As part of Pull Request validation process.
-- As part of the Continuous Integration implementation.
+In this lab, you will learn how to define and manage build pipelines in Azure DevOps using YAML. You will configure branch policies for build validation in pull requests, work with feature branches and pull requests, and set up a CI pipeline as code. The lab covers importing YAML build definitions, enabling continuous integration, and testing the pipeline to automate and validate code changes efficiently.
 
 ## Objectives
 
@@ -15,13 +13,14 @@ In this lab, you will complete the following exercises:
 - Exercise 1: Include build validation as part of a Pull Request 
 - Exercise 2: Configure CI Pipeline as Code with YAML
 
-## Estimated timing: 45 minutes
 
 ## Architecture Diagram
 
   ![Architecture Diagram](images/lab4-architecture-new.png)
 
 ## Exercise 1: Include build validation as part of a Pull Request 
+
+In this exercise, you will configure branch policies on the main branch to enforce pull request validation and ensure code reviews before merging changes. You will then create and manage a pull request in Azure DevOps, merging changes from a new branch into the protected main branch.
 
 ### Task 1: Branch Policies
 
@@ -44,7 +43,7 @@ In this task, you will add policies to the main branch and only allow changes us
       
      >**Note**: If you get any error while saving the branch validation refresh the page and try again.
 
-## Task 2: Working with Pull Requests
+### Task 2: Working with Pull Requests
  
 In this task, you will use the Azure DevOps portal to create a Pull Request, using a new branch to merge a change into the protected main branch.
  
@@ -125,7 +124,7 @@ In this task, you will use the Azure DevOps portal to create a Pull Request, usi
 
 ## Exercise 2: Configure CI Pipeline as Code with YAML
 
-In this exercise, you will configure CI Pipeline as code with YAML.
+In this exercise, you will configure a CI pipeline as code using YAML. You will import the YAML build definition, enable Continuous Integration for automatic builds, and test the pipeline by creating a pull request to trigger the CI process when merging changes into the protected main branch.
 
 ### Task 1: Import the YAML build definition
 
@@ -170,7 +169,9 @@ Let's start by importing the CI pipeline named **eshoponweb-ci.yml**.
               
 ### Task 2: Enable Continuous Integration
    
-The default build pipeline definition doesn't enable Continuous Integration
+The default build pipeline definition doesn't enable Continuous Integration.
+
+In this task, you will enable Continuous Integration by modifying the YAML build definition to trigger on changes to the main branch and web application code, then create and complete a pull request to merge the changes.
    
 1. Now, you need to replace the **trigger: none** code in `line 8` with the following code:
    
@@ -295,9 +296,15 @@ The default build pipeline definition doesn't enable Continuous Integration
  
    <validation step="acd984e3-6678-4326-9460-21caeb9889c7" />
           
- ## Review
+### Review
   
-  In this lab, you enabled pull request validation using a build definition and configured CI pipeline as code with YAML in Azure DevOps. 
+In this lab, you learned how to define and manage build pipelines in Azure DevOps using YAML. You configured branch policies for build validation in pull requests, worked with feature branches, and set up a CI pipeline as code. The lab included importing YAML build definitions, enabling continuous integration, and testing the pipeline to automate and validate code changes efficiently.
 
-### Click Next to proceed with the next lab.
+In this lab, you have accomplished the following:
+
+- Exercise 1: Included build validation as part of a Pull Request 
+- Exercise 2: Configured CI Pipeline as Code with YAML
+
+
+### You have successfully completed the lab. Click on **Next >>** to procced with next lab.
 

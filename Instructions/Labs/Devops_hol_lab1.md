@@ -1,6 +1,8 @@
 # Lab 01: Implementing GitHub Actions for CI/CD
 
-## Lab overview
+## Estimated duration: 60 minutes
+
+## Lab Scenario
 
 In this lab, you will learn how to implement a GitHub Action workflow that deploys an Azure web app by using DevOps Starter.
 
@@ -8,10 +10,8 @@ In this lab, you will learn how to implement a GitHub Action workflow that deplo
 
 In this lab you will complete the following exercises:
 
-- Exercise 0: Import eShopOnWeb to your GitHub Repository
+- Exercise 1: Import eShopOnWeb to your GitHub Repository
 - Exercise 1: Setup your GitHub Repository and Azure access
-
-## Estimated timing: 40 minutes
 
 ## Architecture Diagram
 
@@ -49,7 +49,7 @@ The repository is organized the following way:
    - **.github** folder container YAML GitHub workflow definitions.
    - **src** folder contains the .NET 6 website used on the lab scenarios.
 
-## Task 1: Create a public repository in GitHub and import eShopOnWeb
+### Task 1: Create a public repository in GitHub and import eShopOnWeb
 
 In this task, you will create an empty public GitHub repository and import the existing [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb) repository.
 
@@ -99,7 +99,7 @@ In this task, you will create an empty public GitHub repository and import the e
 
 In this exercise, you will create an Azure Service Principal to authorize GitHub accessing your Azure subscription from GitHub Actions. You will also setup the GitHub workflow that will build, test and deploy your website to Azure. 
 
-## Task 1: Create an Azure Service Principal and save it as GitHub secret
+### Task 1: Create an Azure Service Principal and save it as GitHub secret
 
 In this task, you will create the Azure Service Principal used by GitHub to deploy the desired resources. As an alternative, you could also use [OpenID connect in Azure](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure), as a secretless authentication mechanism.
 
@@ -201,7 +201,7 @@ In this task, you will create the Azure Service Principal used by GitHub to depl
 
       ![Import ADO org to Sonarcloud](images/dev17.png)
 
-## Task 2: Modify and execute the GitHub workflow
+### Task 2: Modify and execute the GitHub workflow
 
 In this task, you will modify the given GitHub workflow and execute it to deploy the solution in your own subscription.
 
@@ -241,9 +241,9 @@ In this task, you will modify the given GitHub workflow and execute it to deploy
 
     ![](images/dev24.png)
 
-## Task 3: Review GitHub Workflow execution
+### Task 3: Review GitHub Workflow execution
  
-In this task, you will review the GitHub workflow execution:
+In this task, you will review the GitHub workflow execution.
 
 1. On the repository page, go to **Actions**.
 
@@ -281,8 +281,13 @@ In this task, you will review the GitHub workflow execution:
     ![Browse WebApp](images/dev29.png)
     
 
-## Review
+### Review
 
 In this lab, you implemented a GitHub Action workflow that deploys an Azure web app by using DevOps Starter.
 
-## Click Next to proceed with the next lab.
+In this lab, you have accomplished the following:
+
+- Exercise 1: Imported eShopOnWeb to your GitHub Repository
+- Exercise 1: Setup your GitHub Repository and Azure access
+
+### You have successfully completed the lab. Click on **Next >>** to procced with next lab.

@@ -1,8 +1,24 @@
 # Lab 5: Implementing Security and Compliance in an Azure Pipeline 
 
+## Estimated duration: 45 minutes
+
+## Lab Scenario
+
+In this lab, you will learn how to implement security and compliance in an Azure DevOps pipeline using the Mend Bolt extension. You will activate Mend Bolt, integrate it into a pipeline to scan for vulnerabilities in open source components, and trigger a build to analyze security risks. Additionally, you will manage costs by removing Azure DevOps billing to avoid unnecessary charges. This lab helps you ensure secure and cost-effective development practices in your pipeline.
+
+## Objectives
+
+In this lab you will complete the following exercises:
+
+- Exercise 1: Implement Security and Compliance in an Azure DevOps pipeline by using Mend Bolt 
+
 ## Exercise 1: Implement Security and Compliance in an Azure DevOps pipeline by using Mend Bolt 
 
+In this exercise, you will implement security and compliance in an Azure DevOps pipeline using Mend Bolt. You will activate the Mend Bolt extension, create and trigger a build to scan for vulnerabilities in open source components, and remove Azure DevOps billing to avoid unnecessary charges.
+
 ### Task 1: Activate Mend Bolt extension 
+
+In this task, you will activate the Mend Bolt extension in Azure DevOps by installing it from the marketplace and setting up the free version for use in your pipeline.
 
 1. On the Azure DevOps page click on **Azure DevOps** located at top left corner.
 
@@ -38,6 +54,8 @@
 
 
 ### Task 2: Create and Trigger a build 
+
+In this task, you will create and trigger a build in Azure DevOps by editing an existing pipeline, adding the Mend Bolt extension to scan for vulnerabilities, and running the pipeline to analyze the open source components for security risks and vulnerabilities.
 
 1. On the **Organization Setting** page, click on **Azure DevOps** located at top left corner.
 
@@ -110,3 +128,14 @@ In this task, you will remove pipeline billing to eliminate unnecessary charges.
 1. In the **Change billing** pane, select **Remove billing (1)** setting and click on **Save (2)**.      
 
    ![Branch Policies](images/dev221.png)
+
+
+### Review
+
+In this lab, you implemented security and compliance in an Azure DevOps pipeline using the Mend Bolt extension to scan for vulnerabilities and manage costs by removing Azure DevOps billing.
+
+In this lab, you have accomplished the following:
+
+- Exercise 1: Implemented Security and Compliance in an Azure DevOps pipeline by using Mend Bolt 
+
+### You have successfully completed the lab.
