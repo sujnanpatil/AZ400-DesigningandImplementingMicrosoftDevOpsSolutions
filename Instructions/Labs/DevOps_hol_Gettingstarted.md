@@ -66,7 +66,7 @@ Once you are ready to dive in, your virtual machine and **Lab Guide** will be ri
 
 To adjust the zoom level for the environment page, click the **A↕ : 100%** icon located next to the timer in the lab environment.
 
-   ![Manage Your Virtual Machine](../media/afg2.png)
+   ![Manage Your Virtual Machine](images/.png)
 
 ## Virtual Machine & Lab Guide
  
@@ -76,23 +76,23 @@ Your virtual machine is your workhorse throughout the workshop. The lab guide is
  
 To get a better understanding of your lab resources and credentials, navigate to the **Environment** tab.
  
-   ![Explore Lab Resources](../media/afg3.png)
+   ![Explore Lab Resources](images/afg3.png)
  
 ## Utilizing the Split Window Feature
  
 For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the top right corner.
  
- ![Use the Split Window Feature](../media/afg4.png)
+ ![Use the Split Window Feature](images/afg4.png)
  
 ## Managing Your Virtual Machine
  
 Feel free to **start, stop, or restart (2)** your virtual machine as needed from the **Resources (1)** tab. Your experience is in your hands!
  
- ![Manage Your Virtual Machine](../media/afg5.png)
+ ![Manage Your Virtual Machine](images/afg5.png)
 
 ## Lab Validation
 
-1. After completing the task, hit the **Validate (1)** button under the Validation tab integrated into your lab guide. You can proceed to the next task if you receive a success message. If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+1. After completing the task, hit the **Validate** button under the Validation tab integrated into your lab guide. You can proceed to the next task if you receive a success message. If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 
    ![Inline Validation](../media/u46.png)
 
@@ -103,29 +103,69 @@ Feel free to **start, stop, or restart (2)** your virtual machine as needed from
 
 1. On your virtual machine, click on the **Azure Portal** icon as shown below:
 
-   ![Launch Azure Portal](../media/afg6.png)
+   ![Launch Azure Portal](images/afg6.png)
    
 1. You will see the **Sign in to the Microsoft Azure** tab. Here, enter your credentials:
  
    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
  
-       ![Enter Your Username](../media/afg7.png)
+       ![Enter Your Username](images/afg7.png)
  
 1. Next, provide your password:
  
    - **Password:** <inject key="AzureAdUserPassword"></inject>
  
-       ![Enter Your Password](../media/afg8.png)
+       ![Enter Your Password](images/afg8.png)
+
+1. If you see the pop-up **Stay Signed in?**, click **No**.       
 
 1. If an **Action required** pop-up window appears, click on **Ask later**.
 
-   ![Ask Later](../media/afg9.png)
+   ![Ask Later](images/afg9.png)
     
 1. If prompted to stay signed in, you can click **No**.
  
-1. If a **Welcome to Microsoft Azure** pop-up window appears, click **Cancel** to skip the tour.
+## Steps to Proceed with MFA Setup if the "Ask Later" Option is Not Visible
 
-This hands-on lab will guide you in building a custom Retrieval-Augmented Generation (RAG) application using the Azure AI Foundry SDK. You will learn how to provision essential resources, develop a retrieval pipeline, and evaluate system performance. This lab will give you insights into how Azure AI Foundry enhances knowledge retrieval and response generation, enabling more accurate and context-aware AI applications.
+1. If you see the pop-up **Stay Signed in?**, click **No**.
+
+1. If **Action required** pop-up window appears, click on **Next**.
+   
+   ![](images/dpg11.png)
+
+1. On **Start by getting the app** page, click on **Next**.
+1. Click on **Next** twice.
+1. In **android**, go to the play store and Search for **Microsoft Authenticator** and Tap on **Install**.
+
+   ![Install](images/dpg12.png)
+
+   > Note: For Ios, Open the app store and repeat the steps.
+
+   > Note: Skip if already installed.
+
+1. Open the app and tap on **Scan a QR code**.
+
+1. Scan the QR code visible on the screen **(1)** and click on **Next (2)**.
+
+   ![QR code](images/dpg13.png)
+
+1. Enter the digit displayed on the Screen in the Authenticator app on mobile and tap on **Yes**.
+
+1. Once the notification is approved, click on **Next**.
+
+   ![Approved](images/dpg14.png)
+
+1. Click on **Done**.
+
+1. If prompted to stay signed in, you can click **"No"**.
+
+1. Tap on **Finish** in the Mobile Device.
+
+   > NOTE: While logging in again, enter the digits displayed on the screen in the **Authenticator app** and click on Yes.
+
+1. If a **Welcome to Microsoft Azure** pop-up window appears, simply click **"Cancel"** to skip the tour.
+
+1. If you see the pop-up **You have free Azure Advisor recommendations!**, close the window to continue the lab.
 
 ## Support Contact
 
@@ -138,6 +178,6 @@ Learner Support Contacts:
 
 Click **Next** from the lower right corner to move on to the next page.
 
-![Launch Azure Portal](../media/afg10.png)
+![Launch Azure Portal](images/dev266.png)
 
 ## Happy Learning!!
