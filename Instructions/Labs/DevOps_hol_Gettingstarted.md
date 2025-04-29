@@ -1,6 +1,6 @@
 # Azure DevOps 
 
-### Overall Estimated Duration: 4 Hours
+### Overall Estimated Duration: 8 Hours
 
 ## Overview
 
