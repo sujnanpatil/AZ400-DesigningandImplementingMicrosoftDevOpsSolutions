@@ -16,7 +16,7 @@ In this lab you will complete the following exercises:
 
 ## Architecture Diagram
 
-   ![Architecture Diagram](images/lab3-architecture-new.png)   
+![Architecture Diagram](images/lab3-architecture-new.png)   
 
 ## Lab requirement:
 
