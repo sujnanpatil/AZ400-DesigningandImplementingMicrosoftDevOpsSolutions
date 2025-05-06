@@ -16,7 +16,7 @@ In this lab you will complete the following exercises:
 
 ## Architecture Diagram
 
-   ![Architecture Diagram](images/lab3-architecture-new.png)   
+![Architecture Diagram](images/lab3-architecture-new.png)   
 
 ## Lab requirement:
 
@@ -64,9 +64,9 @@ In this task, you will create an **eShopOnWeb** Azure DevOps project to be used 
 
     ![Azure DevOps](images/dev36.png)
  
-1. Click on **New Project**. Give your project the name  **eShopOnWeb (1)**, select visibility as **Private(2)**  and leave the other fields with defaults. Click on **Create(3)**.
+1. Click on **New Project**. Give your project the name  **eShopOnWeb (1)**, select visibility as **Private(2)**  and leave the other fields with defaults. Click on **+Create project(3)**.
 
-      ![](images/dev241.png)
+      ![](images/dev37.png)
 
 ### Task 2: Import eShopOnWeb Git Repository 
 
@@ -159,19 +159,14 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 
     ![Azure DevOps](images/dev50.png)
 
-1. On the **Create a new personal access token** pane, click the **Show all scopes** link.
-
-    ![Azure DevOps](images/dev51.png)
-
-1. Then specify the following settings and click **Create (5)** (leave all others with their default values):
+1. On the **Create a new personal access token** pane, specify the following settings and click **Create (3)** (leave all others with their default values):
 
     | Setting | Value |
     | --- | --- |
     | Name | **eShopOnWeb (1)** |
-    | Scope **(custom defined) (2)** | **Agent Pools (3)** |
-    | Agent Pools | **Read and manage (4)** |
-    
-     ![Azure DevOps](images/dev54.png)
+    | Scope | **Full access (2)** |
+   
+     ![Azure DevOps](images/dev272.png)
 
 1. On the **Success** pane, copy the value of the personal access token to Clipboard.
 
@@ -250,7 +245,7 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
     | Enter authentication type (press enter for PAT) | **Hit Enter** |
     | Enter personal access token | The access token you recorded earlier in this task |
     | Enter agent pool (press enter for default) | enter **devops-pool** |
-    | Enter agent name (press enter for labvm-<inject key="DeploymentID" enableCopy="false"/>) | **Hit Enter** |
+    | Enter agent name (press enter for VM-<inject key="DeploymentID" enableCopy="false"/>) | **Hit Enter** |
     | Enter work folder (press enter for _work) | **Hit Enter** |
     | **(Only if shown)** Enter Perform an unzip for tasks for each step. (press enter for N) | **WARNING**: only press **Enter** if the message is shown|
     | Enter run agent as service? (Y/N) (press enter for N) | **Y** |
@@ -258,7 +253,7 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
     | Enter User account to use for the service (press enter for NT AUTHORITY\NETWORK SERVICE) | **Hit Enter** |
     | Enter whether to prevent service starting immediately after configuration is finished? (Y/N) (press enter for N) | **Hit Enter** |
 
-    ![Azure DevOps](images/dev66.png)    
+    ![Azure DevOps](images/dev273.png)    
 
      > **Note**: You can run self-hosted agent as either a service or an interactive process. You might want to start with the interactive mode, since this simplifies verifying agent functionality. For production use, you should consider either running the agent as a service or as an interactive process with auto-logon enabled, since both persist their running state and ensure that the agent starts automatically if the operating system is restarted.
 
@@ -266,13 +261,9 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 
 1.  Switch to the browser window displaying the Azure DevOps portal and close the **Get the agent** pane.
 
-1.  Back on the **Agents (1)** tab of the **devops-pool** pane, note that the newly configured agent is listed with the **Online (2)** status.
+1.  Back on the **Agents (1)** tab of the **devops-pool** pane, note that the newly configured agent is listed with the **Online (2)** status. Click on the **Azure DevOps (3)** label from the top left corner.
 
-    ![Azure DevOps](images/dev67.png)
-
-1.  In the web browser window displaying the Azure DevOps portal, in the upper left corner, click the **Azure DevOps** label.
-
-    ![Azure DevOps](images/dev68.png)
+    ![Azure DevOps](images/dev274.png)
 
 1.  In the browser window displaying the list of projects, click the tile representing your **eShopOnWeb** project.
 
@@ -294,17 +285,17 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
     - agent.name -equals Agentname
     ```
 
-    > **Note**: Replace `Agentname` with **labvm-<inject key="DeploymentID" enableCopy="false"/>**
+    > **Note**: Replace `Agentname` with **VM-<inject key="DeploymentID" enableCopy="false"/>**
 
     ![Azure DevOps](images/dev72.png)    
  
-    ![Azure DevOps](images/dev73.png)
+    ![Azure DevOps](images/dev275.png)
     
     > **WARNING**: Be careful with copy/paste, make sure you have same indentation shown above. 
  
 1.  On the **eShopOnWeb** edit pane, in the upper right corner of the pane, click **Validate + Save**.
 
-    ![Azure DevOps](images/dev74.png)
+    ![Azure DevOps](images/dev276.png)
 
 1. On the **Save** pane, click **Save** again. This will automatically trigger the build based on this pipeline. 
 
@@ -358,6 +349,68 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 
 
    <validation step="38dc84d9-2b4f-44c8-bf6f-1da2f5a9cde7" />
+
+## Exercise 4: Implement Selenium tests by using a self-hosted Azure DevOps agent  
+
+### Task 1: Deploy the Selenium project to Azure DevOps
+
+1. Before deploying the project, we need to enable the **creation of classic build pipeline and release**. 
+
+1. Click on **Azure DevOps** from the top left to navigate to Azure DevOps page, from the bottom left, click on **Organization settings**, Go to the **Pipelines (1)** section, and click **Settings (2)**. **Turn off** the **Disable creation of classic build pipelines** and **Disable creation of classic release pipelines (3)**.
+
+    ![Azure DevOps](images/dev304.png)
+
+1. On the Lab VM, serach for **Visual Studio (1)** and the the select **Visual studio 2022 (2)**.
+
+    ![Azure DevOps](images/dev277.png)
+
+1. On the Get started page, select **Open a project or solution**.
+
+    ![Azure DevOps](images/dev278.png)
+
+1. Navigate to `C:\Users\azureuser\Documents\AzDevOpsDemoGenerator\src` **(1)**, select **ADOGenerator.sln (2)** solution file and then click on **Open (3)**.
+
+    ![Azure DevOps](images/dev279.png)
+
+1. In the **Solution explorer**, right click on the **ADOGenerator project (1)** and select **Reload project with dependencies (2)**. Do the same for **API** as well to make the project compatible.
+
+    ![Azure DevOps](images/dev300.png)
+
+1. Right-click on the **ADOGenerator project** in the Solution Explorer **(1)**. and Select **Set as Startup Project (2)**.    
+
+    ![Azure DevOps](images/dev301.png)
+
+1. Right-click on the solution in the Solution Explorer **(1)** and select **Build (2)**.
+
+    ![Azure DevOps](images/dev302.png)
+
+1. Once the build is completed **(1)**, click on the **Start (2)** button.
+
+    ![Azure DevOps](images/dev303.png)
+
+1. Enter `1` to create a new project using demo generator.
+
+    ![Azure DevOps](images/dev305.png)
+
+1. Enter `14` to choose the Selenium template.
+
+    ![Azure DevOps](images/dev306.png)
+
+1. Enter `2` **(1)** to choose **PAT** as authentication method.
+
+    - Enter your Azure DevOps organization name as **odluser<inject key="DeploymentID" enableCopy="false"/> (2)**
+    - Enter the PAT token that you have copied in the previous exercise **(3)**
+    - Enter the new project name as **Selenium (4)** and you can see that project created successfuly
+
+      ![Azure DevOps](images/dev307.png)    
+
+1. Navigate back to the **Azure DevOps**, you can see te new created **Selenium project**.
+
+    ![Azure DevOps](images/dev308.png)
+
+1.     
+
+
 
 ### Review
 

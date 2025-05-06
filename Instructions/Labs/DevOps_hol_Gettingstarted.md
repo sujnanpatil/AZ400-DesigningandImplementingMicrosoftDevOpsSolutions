@@ -1,6 +1,6 @@
 # Azure DevOps 
 
-### Overall Estimated Duration: 4 Hours
+### Overall Estimated Duration: 8 Hours
 
 ## Overview
 
@@ -32,35 +32,13 @@ By the end of this lab, you will be able to:
 
 - Basic experience working with Azure Web Apps and Application Insights.
 
-## Architecture
-
-The architecture flow begins with setting up Azure DevOps pipelines using GitHub Actions or YAML-based configurations for CI/CD. Self-hosted or Microsoft-hosted agents execute build and deployment tasks, while Application Insights monitors performance and health. Release gates are configured to control staged deployments, and Mend Bolt integrates into the pipeline to scan for security vulnerabilities, ensuring secure, compliant, and automated application delivery across environments.
-
-## Architecture Diagram
-
-  ![](../media/afg15.png)
-
-## Explanation of Components
-
-1. **GitHub Actions**: A powerful automation tool for implementing CI/CD workflows, GitHub Actions enables seamless integration and deployment to Azure. It will help you automate the build and deployment processes for your applications directly from GitHub repositories.
-
-1. **Azure DevOps**: It is a suite of cloud-hosted services offered by Microsoft that supports the entire Software Development Life Cycle (SDLC), from planning and development to testing and deployment. It helps teams collaborate more effectively and streamline the process of building, testing, and deploying software. 
-
-1. **Azure DevOps Pipelines**: Azure DevOps provides a complete suite for managing your DevOps lifecycle, from version control to build, release, and monitoring. In this lab, you will work with YAML-based pipelines and manage your build and release configurations using Azure DevOps.
-
-1. **Self-Hosted Agents**: These agents give you complete control over the build and deployment environment, offering flexibility to run CI/CD tasks on your own infrastructure or virtual machines, ensuring compatibility with your system’s requirements.
-
-1. **Release Gates**: Release Gates are conditions placed on the deployment process in Azure Pipelines to ensure that certain checks are met before releasing to production. These gates could include health checks, approval processes, or even security compliance checks.
-
-1. **Mend Bolt**: A security scanning tool that integrates into your Azure DevOps pipeline. Mend Bolt scans your project for vulnerabilities in open-source components, ensuring that security and compliance are maintained throughout the CI/CD pipeline.
-
 ## Getting Started with the Lab
  
 ## Accessing Your Lab Environment
  
 Once you are ready to dive in, your virtual machine and **Lab Guide** will be right at your fingertips within your web browser.
 
-   ![](../media/afg1.png)
+   ![](images/devg1.png)
 
 ## Lab Guide Zoom In/Zoom Out
 

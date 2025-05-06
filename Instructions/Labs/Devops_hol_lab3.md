@@ -38,7 +38,8 @@ In this task, you will add policies to the main branch and only allow changes us
 
     ![](images/dev87.png)
 
-1. On the Build pipeline list, select **eshoponweb-ci-pr (4)** then click **Save (5)**
+1. On the Build pipeline list, select **eshoponweb-ci-pr (4)** then click **Save (5)**.
+
     ![](images/dev88.png)
       
      >**Note**: If you get any error while saving the branch validation refresh the page and try again.
@@ -103,7 +104,7 @@ In this task, you will use the Azure DevOps portal to create a Pull Request, usi
 
 1. On the top-right click on **Approve**.
 
-    ![](images/dev100.png)    
+    ![](images/dev267.png)    
       
 1. Wait for the validation to succeed before proceeding.
 
@@ -211,9 +212,13 @@ In this task, you will enable Continuous Integration by modifying the YAML build
 
     ![](images/dev117.png)
 
-1. After all validations are successful **(1)**, on the top-right click on **Approve (2)**. Now you can click on **Complete (3)**.
+1. Click on **Approve** on the top-right.
 
-    ![](images/dev118.png)
+    ![](images/dev267.png)
+
+1. Once the **Required checks are succeeded (1)**, click on **Complete (2)** drop down and then select **Complete (3)**.
+
+    ![](images/dev269.png)
 
 1. On the **Complete Pull Request** tab, select only **Complete associated work items after merging** checkbox  and Click on **Complete Merge**
 
@@ -261,6 +266,16 @@ In this task, you will enable Continuous Integration by modifying the YAML build
 1. In the **New pull request** tab, leave defaults and click on **Create** The Pull Request will show some pending requirements, based on the policies applied to the target **main** branch and wait until build completes.
 
     ![](images/dev128.png)
+
+1. Click on **Approve** from top right.
+
+    ![](images/dev270.png)
+
+1. Once the **Required checks are succeeded (1)**, click on **Complete (2)** drop down and then select **Complete (3)**.
+
+    ![](images/dev271.png)
+
+     >**Note**: Please wait, it might take around 3-5 minutes to succeed the required checks.     
 
 1. Wait for the build to get succeeded **(1)**, then on the top-right click on **Approve (2)**, select the **Complete (3)** drop down and then click on **Complete (4)**.
 
