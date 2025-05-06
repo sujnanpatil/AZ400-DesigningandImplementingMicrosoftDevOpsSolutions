@@ -64,9 +64,9 @@ In this task, you will create an **eShopOnWeb** Azure DevOps project to be used 
 
     ![Azure DevOps](images/dev36.png)
  
-1. Click on **New Project**. Give your project the name  **eShopOnWeb (1)**, select visibility as **Private(2)**  and leave the other fields with defaults. Click on **Create(3)**.
+1. Click on **New Project**. Give your project the name  **eShopOnWeb (1)**, select visibility as **Private(2)**  and leave the other fields with defaults. Click on **+Create project(3)**.
 
-      ![](images/dev241.png)
+      ![](images/dev37.png)
 
 ### Task 2: Import eShopOnWeb Git Repository 
 
