@@ -26,11 +26,11 @@ In this lab you will complete the following exercises:
 
 1. If you already have a GitHub account that you can use for this lab proceed with Exercise 1, else follow the instructions to create an account.
 
-1. Navigate to the https://github.com/ **(1)** and then Click on **Signup (2)**.
+1. Navigate to the https://github.com/ **(1)** and then Click on **Sign up (2)** in the top right corner.
 
    ![Github](images/dev263.png)
    
-1. Provide the **Email address (1)**, **Password (2)**, **Username (3)** and click on **Continue (4)**.
+1. Provide your **Email address (1)**, **Password (2)**, **Username (3)** and click on **Continue (4)**.
 
    ![Github](images/dev264.png)
 
@@ -53,7 +53,7 @@ The repository is organized the following way:
 
 In this task, you will create an empty public GitHub repository and import the existing [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb) repository.
 
-1. From the lab computer, start a web browser, right click on [GitHub website](https://github.com/), paste it on the browser tab.
+1. From the Lab vm, start a web browser, right click on [GitHub website](https://github.com/), paste it on the browser tab.
 
 1. Click on **Sign in**. 
     ![Create Repository](images/dev231.png)
@@ -103,7 +103,7 @@ In this exercise, you will create an Azure Service Principal to authorize GitHub
 
 In this task, you will create the Azure Service Principal used by GitHub to deploy the desired resources. As an alternative, you could also use [OpenID connect in Azure](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure), as a secretless authentication mechanism.
 
-1. On your lab VM, in a browser window, open the  [Azure Portal](https://portal.azure.com).
+1. On your lab VM, in a edge browser window, open the  [Azure Portal](https://portal.azure.com).
 
 1. In the portal, search for **Resource Groups (1)** and select **Resource Groups (2)**.
 
@@ -114,10 +114,11 @@ In this task, you will create the Azure Service Principal used by GitHub to depl
     ![](images/dev6.png)
 
 1. On the **Create a resource group** tab, 
-
-    - Resource Group name: **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/> (1)**
-    - Region: Leave the deafult one **(2)**
-    - Click on **Review + Create (3)**
+     
+    - Subscription: Leave it at the default setting  **(1)**
+    - Resource Group name: **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/> (2)**
+    - Region: Leave the deafult one **(3)**
+    - Click on **Review + Create (4)**
 
       ![](images/dev232.png)
 
@@ -138,7 +139,7 @@ In this task, you will create the Azure Service Principal used by GitHub to depl
 1. On the **Getting started**, 
 
     - Select **No storage account required (1)**
-    - Leave the deafault subscription **(2)**
+    - Leave the default subscription **(2)**
     - Select **Apply**
 
       ![](images/dev11.png)
@@ -149,15 +150,15 @@ In this task, you will create the Azure Service Principal used by GitHub to depl
    az ad sp create-for-rbac --name GH-Action-eshoponweb --role contributor --scopes /subscriptions/SUBSCRIPTION-ID/resourceGroups/RESOURCE-GROUP --sdk-auth
    ```
 
-    >**Note**: To get the **SUBSCRIPTION-ID** and **RESOURCE-GROUP**, In the Azure portal navigate to **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** Resource group then copy the **Resource group name (1)** and **SUBSCRIPTION-ID (2)**.
+    >**NOTE**: To get the **SUBSCRIPTION-ID** and **RESOURCE-GROUP**, In the Azure portal navigate to **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** Resource group then copy the **Resource group name (1)** and **SUBSCRIPTION-ID (2)**.
 
      ![](images/dev234.png)
     
-    >**Note:** Make sure this is typed or pasted as a single line!
+    >**NOTE:** Make sure this is typed or pasted as a single line!
     
-    >**Note:** This command will create a Service Principal with Contributor access to the Resource Group created before. This way we make sure GitHub Actions will only have the permissions needed to interact only with this Resource Group (not the rest of the subscription).
+    >**NOTE:** This command will create a Service Principal with Contributor access to the Resource Group created before. This way we make sure GitHub Actions will only have the permissions needed to interact only with this Resource Group (not the rest of the subscription).
 
-1. The command will output a JSON object, you will later keep it as a GitHub secret for the workflow, **Copy the JSON (2)**. The JSON contains the identifiers used to authenticate against Azure in the name of an Azure AD application identity (service principal).
+1. The command will output a JSON object, you will later keep it as a GitHub secret for the workflow, **Copy the JSON (2)**. The JSON contains the identifiers used to authenticate against Azure in the name of an Azure Entra application identity (service principal).
 
     ```JSON
     {
@@ -179,13 +180,13 @@ In this task, you will create the Azure Service Principal used by GitHub to depl
 
     ![Import ADO org to Sonarcloud](images/dev235.png)   
 
-1. In a browser window, go back to your **eShopOnWeb** GitHub repository.
+1. Navigate back to your **eShopOnWeb** GitHub repository opened in the browser.
 
-1. On the repository page, go to **Settings (1)**, click on **Secrets and variables (2)> Actions (3)**. Click on **New repository secret (4)**
+1. On the repository page, go to **Settings (1)**, click on **Secrets and variables (2)> Actions (3)**. Click on **New repository secret (4)** under Repository secrets.
 
       ![](images/dev15.png)
 
-1. On the **Action Secret/New secret**,
+1. On the **Action Secret/New secret** tab, add the following:
     
     - Name : **AZURE_CREDENTIALS (1)**
     - Secret: **paste the previously copied  JSON object (2)** (GitHub is able to keep multiple secrets under same name, used by  [azure/login](https://github.com/Azure/login) action )
@@ -197,7 +198,7 @@ In this task, you will create the Azure Service Principal used by GitHub to depl
 
 In this task, you will modify the given GitHub workflow and execute it to deploy the solution in your own subscription.
 
-1. In a browser window, go back to your **eShopOnWeb** GitHub repository.
+1. Navigate to your **eShopOnWeb** GitHub repository.
 
 1. On the repository page, go to **Code**.
 
@@ -211,7 +212,7 @@ In this task, you will modify the given GitHub workflow and execute it to deploy
 
     ![](images/dev20.png)
 
-1. Uncomment the **on** section (delete "#"). The workflow triggers with every push to the main branch and also offers manual triggering ("workflow_dispatch").
+1. Uncomment the **on** section (delete "#" symbol). The workflow triggers with every push to the main branch and also offers manual triggering ("workflow_dispatch").
 
     ![](images/dev21.png)
 
@@ -227,7 +228,7 @@ In this task, you will modify the given GitHub workflow and execute it to deploy
 
     ![Succesfull workflow](images/dev27.png)
 
-     >**Note**: Read the workflow carefully, comments are provided to help understand.
+     >**NOTE**: Read the workflow carefully, comments are provided to help understand.
 
 1. **Commit changes** again leaving defaults (changing the main branch). The workflow will get automatically executed.
 
@@ -237,15 +238,15 @@ In this task, you will modify the given GitHub workflow and execute it to deploy
  
 In this task, you will review the GitHub workflow execution.
 
-1. On the repository page, go to **Actions**.
+1. On the **eShopOnWeb** repository page, go to **Actions**.
 
     ![GitHub workflow in progress](images/dev25.png)
 
-1. You will see the workflow setup on top before executing. Click on **eshoponweb-ccid.yml** which is associated with **eShopOnWeb Build and Test**.
+1. You will see the workflow setup on top before executing. Click on **Update eshoponweb-ccid.yml** which is associated with **eShopOnWeb Build and Test**.
 
     ![GitHub workflow in progress](images/dev237.png)
 
-    >**Note:** If it shows you the **Workflows aren’t being run on this repository**, select **Enable Actions on this repository**.
+    >**NOTE:** If it shows you the **Workflows aren’t being run on this repository**, select **Enable Actions on this repository**.
 
    > And then on the select workflow that is **eShopOnWeb Build and Test (1)** page, select **Run workflow (2)** drop-down, and select **Run workflow (3)**.
 
@@ -255,11 +256,11 @@ In this task, you will review the GitHub workflow execution.
 
     ![GitHub workflow in progress](images/dev26.png)
 
-     >**Note**: The workflow might take around 10 minutes to complete. Please wait until it is Succeeded.
+     >**NOTE**: The workflow might take around 10 minutes to complete. Please wait until it is _Succeeded_, as illustrated above.
 
-1. In a browser window, go back to the Azure Portal (https://portal.azure.com/).
+1. Navigate to the Azure Portal (https://portal.azure.com/).
 
-1. Open the resource group **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** yo have created before. **Refresh** the resource group.You will see that the GitHub Action, using a bicep template, has created an **Azure App Service Plan + App Service**.
+1. Open the resource group **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** that have created earlier in Exercise 2, Task 1. **Refresh** the resource group.You will notice that the GitHub Action, using a bicep template, has deployed an **Azure App Service Plan**  and an **App Service**.
 
     ![](images/dev238.png)
 
@@ -267,15 +268,14 @@ In this task, you will review the GitHub workflow execution.
 
     ![](images/dev239.png)
 
-1. You can see the published website opening the App Service and clicking **Browse**.
+1. You can view the published website by opening the App Service and clicking on **Browse**.
 
     ![Browse WebApp](images/dev240.png)
     ![Browse WebApp](images/dev29.png)
     
-
 ### Review
 
-In this lab, you implemented a GitHub Action workflow that deploys an Azure web app by using Azure DevOps.
+In this lab, you implemented a GitHub Action workflow that deploys a dynamic Azure web app by using Azure DevOps.
 
 In this lab, you have accomplished the following:
 
