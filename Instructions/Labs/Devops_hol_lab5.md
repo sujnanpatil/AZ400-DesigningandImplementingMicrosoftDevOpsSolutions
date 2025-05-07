@@ -1,6 +1,6 @@
 # Lab 5: Implementing Security and Compliance in an Azure Pipeline 
 
-## Estimated duration: 45 minutes
+## Estimated duration: 30 minutes
 
 ## Lab Scenario
 
