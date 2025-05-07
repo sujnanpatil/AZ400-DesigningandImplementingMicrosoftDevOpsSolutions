@@ -4,7 +4,7 @@
 
 ## Lab Scenario
 
-In this lab, you will learn how to implement a GitHub Action workflow that deploys an Azure web app by using Azure DevOps.
+In this lab, you'll import the eShopOnWeb project into your GitHub repository and set up Azure access for CI/CD. You'll create a service principal, store credentials as GitHub secrets, and run a GitHub Actions workflow to deploy the application.
 
 ## Objectives
 
