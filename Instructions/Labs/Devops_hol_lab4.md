@@ -333,48 +333,77 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
     > **Note**: The canary environment has 1 task which, respectively, publishes the artifact package to Azure Web App.
 
-1. On the **All pipelines > New Release Pipeline** pane, ensure that the **Canary(1)** stage is selected. In the **Azure subscription(2)** dropdown list, Confirm the App Type is set to **Web App on Windows(3)**. Next, in the **App Service name** dropdown list, select the name of the **Canary(4)** web app.
+1. Select the Task **Deploy Azure App Service (1)** and click on **Remove (2)**.
 
-    ![Azure devops](images/capro01.png)
-      
-    >**Note:** After Selecting your Azure subscription and click **Authorize**. If prompted, authenticate by using the user account with the Owner role in the Azure subscription
+    ![Azure devops](images/dev280.png)
+
+1.  Next to the **Run on Agent** click on the **+** icon **(1)**.In the new window that appears search for **App Service** **(2)** and click on **Add** **(3)** next to the Azure App Service Deploy option.
+
+    ![Azure devops](images/dev281.png)
+
+1. Select the **Azure App Service Deploy** Agent.
+
+   ![Azure devops](images/dev282.png)    
+
+1. In the **Azure subscription** dropdown list,select your **subscription (1)**.
+
+     >**Important:** After Selecting your Azure subscription and click **Authorize (2)**. If prompted, authenticate by using the Azure user account.
     
-    ![Azure devops](images/autho.png)
+      ![Azure devops](images/dev283.png)
+
+1. Confirm the App Type is set to **Web App on Windows (1)**.
+
+    - Next, in the **App Service name** dropdown list, select the name of the **Canary (2)** web app.
+
+      ![Azure devops](images/dev284.png)   
+
+1. Further update the following settings in the App Service Deploy Task
+
+   - In the **Package or Folder** field, update the default value of "$(System.DefaultWorkingDirectory)/\*\*/\*.zip" to **"$(System.DefaultWorkingDirectory)/\*\*/Web.zip"** **(1)**
+
+   - Scroll down and open the **Application and Configuration Settings** pane and enter `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development` in the **App settings** box **(2)**.
+
+     ![Azure devops](images/dev285.png)
      
-1. Select the Task **Deploy Azure App Service (1)**. In the **Package or Folder** field, update the default value of "$(System.DefaultWorkingDirectory)/\*\*/\*.zip" to **"$(System.DefaultWorkingDirectory)/\*\*/Web.zip"** **(2)**.
-
-    > Notice an exclamation mark next to the Tasks tab. This is expected, as we need to configure the settings for the Production Stage.
-    
-    ![Azure devops](images/canaryre.png)
-
-1. Scroll down and open the **Application and Configuration Settings** pane and enter `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development` **(3)** in the **App settings** box.
-
-    ![Azure devops](images/dev163.png)
 
 1. Under **All pipelines > New Release Pipeline** pane, Click on **Tasks (1)**,from the drop-down selct Select **Production (2)**.
 
-    ![Azure devops](images/dev164.png)
+    ![Azure devops](images/dev286.png)
 
-1. In **Production(1)** stage Similar to the Canary stage earlier, complete the pipeline settings. Under the Tasks tab / Production Deployment process,
+1. Select the Task **Deploy Azure App Service** **(1)** and click on **Remove** **(2)**.
 
-    - **Azure subscription** dropdown list: Select the Azure subscription you used for the **Canary Environment** stage, shown under **Available Azure Service connections (2)**, as we already created the service connection before when authorizing the subscription use. 
-    - **App type** from the dropdown list: Select **Web App on Windows(3)**
-    - **App Service name** from the dropdown list: Select the name of the **Prod (4)** web app
+     ![Azure devops](images/dev287.png)
 
-      ![Azure devops](images/prodre1.png)
+1.  Next to the **Run on Agent** click on the **+** icon **(1)**.In the new window that appears search for **App Service** **(2)** and click on **Add** **(3)** next to the Azure App Service Deploy option.
 
-       >**Note:** If prompted, after selecting your Azure subscription and click **Authorize**. If prompted, authenticate by using the user account with the Owner role in the Azure subscription      
-     
-1. Select the Task **Deploy Azure App Service (1)**. In the **Package or Folder** field, update the default value of "$(System.DefaultWorkingDirectory)/\*\*/\*.zip" to **"$(System.DefaultWorkingDirectory)/\*\*/Web.zip"** **(2)**.
+    ![Azure devops](images/dev288.png)
 
-1. Open the **Application and Configuration Settings** pane and enter `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development` in the **App settings (3)** box.
+1. Select the Azure App Service Deploy Agent.
 
-    ![Azure devops](images/dev165.png)
-   
+   ![Azure devops](images/dev289.png)    
+
+1. In **Production(1)** stage, complete the following  pipeline settings:
+  
+    - Under the Tasks tab / Production Deployment process, in the **Azure subscription** dropdown list, select the **Azure service connection**, as we already created the service connection before when authorizing the subscription use.
+
+      ![Azure devops](images/dev290.png)
+  
+    - In the **App type** from the dropdown list select **Web App on Windows (1)**, In the **App Service name** from the dropdown list, select the name of the **Prod (2)** web app.
+
+      ![Azure devops](images/dev291.png)
+
+1. Further update the following settings in the App Service Deploy Task
+
+   - In the **Package or Folder** field, update the default value of "$(System.DefaultWorkingDirectory)/\*\*/\*.zip" to **"$(System.DefaultWorkingDirectory)/\*\*/Web.zip"** **(1)**
+
+   - Scroll down and open the **Application and Configuration Settings** pane and enter `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development` in the **App settings** box **(2)**
+
+     ![Azure devops](images/dev292.png)      
+
 1. On the **All pipelines > New Release Pipeline** pane, click **Save**.
 
-    ![Azure devops](images/saverepip.png)
-
+    ![Azure devops](images/dev293.png)     
+ 
 1. On the **Save** dialog box, click **OK**.
 
     ![Azure devops](images/dev166.png)
@@ -455,6 +484,10 @@ In this task, you will configure pre-deployment gates.
 
 1. Click on **X** mark in its upper right corner to **Save** the pre-approval settings and close the popup window.
 
+1. Click on **Save**.
+
+    ![Azure devops](images/dev294.png)
+
 1. Back on the **New Release Pipeline** pane, click **Save**, and in the **Save** dialog box, click **OK**.
 
     ![Azure devops](images/dev179.png)
@@ -486,15 +519,15 @@ In this task, you will enable the post-deployment gate for the Canary Environmen
 
 1. On the right edge of the rectangle representing the **Canary Environment** stage, click the oval shape representing the **Post-deployment conditions**.
 
-   ![Azure devops](images/dev184.png)
+   ![Azure devops](images/dev295.png)
    
 1. On **Post-deployment conditions** pane, set the **Gates** slider to **Enabled**.
     
-    ![Azure devops](images/gatesena.png) 
+    ![Azure devops](images/dev296.png) 
      
 1. Click **+ Add (1)**, and, in the pop-up menu, click **Query Azure Monitor Alerts (2)**.
 
-    ![Azure devops](images/dev185.png) 
+    ![Azure devops](images/dev297.png) 
       
 1. On **Post-deployment conditions** pane, in the **Query Azure Monitor Alerts** section, in the **Azure Subscription(1)** dropdown list, select the **service connection** entry representing the connection to your Azure subscription, and, in the **Resource group** dropdown list, select the **Web-RG(2)** entry.
 
@@ -572,9 +605,7 @@ In this task, you will first generate some alerts for the Canary Web App, follow
  
 1. On **Create a new release** page, click on **Create**.
 
-    ![Azure devops](images/createnewre.png) 
-
-1. Selec the Release pipeline.
+1. Select the Release pipeline.
 
     ![portal](images/dev195.png)
    
@@ -586,17 +617,13 @@ In this task, you will first generate some alerts for the Canary Web App, follow
 
     ![portal](images/dev197.png)
 
-1. Wait for the Canary release Stage to complete successfully. Notice how the **Post-deployment Gates** is switching to an **Evaluation Gates** status.  Click the **Evaluation Gates** icon.
+1. Wait for the Canary release Stage to complete successfully. Notice how the **Post-deployment Gates** is switching to the **Evaluation** Gates status.
 
    ![Azure devops](images/eva.png) 
+
+1. Let the Release pipeline run in the pending state for the next 5 minutes.
    
-1. For the **Query Azure Monitor Alerts**, notice an initial failed state.
-
-1. Let the Release pipeline in a pending state for the next 5 minutes. After the 5 minutes did pass, notice the 2nd evaluation failing again.
-
 1. This is expected behavior, since there is an Application Insights Alerts triggered for the Canary Web App.
-
-    > **Note**: Since there is an alert triggered by the exception, **Query Azure Monitor** gate will fail. This, in turn, will prevent deployment to the **Production** environment.
 
 1. Wait another 3 minutes and validate the status of the Release Gates again. Click on the **Deployement (1)** icon. As it is now +8 minutes after the initial Release Gates got checked, and it's been more than 8 minutes since the initial Application Insight Alert got triggered with action "Fired", it should result in a successful Release Gate, having allowed the deployment of the Production Release Stage as well **(2)**.
 
