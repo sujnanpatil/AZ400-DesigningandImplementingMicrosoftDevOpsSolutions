@@ -1,6 +1,6 @@
 # Lab 3:  Enabling Continuous Integration with Azure Pipelines  
 
-## Estimated timing: 60 minutes
+## Estimated timing: 40 minutes
 
 ## Lab Scenario
 
