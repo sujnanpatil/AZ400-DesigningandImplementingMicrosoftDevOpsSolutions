@@ -2,15 +2,15 @@
 
 ### Overall Estimated Duration: 8 Hours
 
-## Overview
+## Introduction - Overview of GitHub and Collaborative Development
 
-In this hands-on lab, you will learn how to implement end-to-end DevOps practices using Azure DevOps and GitHub. You will start by deploying an Azure web app using GitHub Actions and DevOps Starter, followed by configuring self-hosted agents and YAML pipelines to enable CI/CD automation. You will then define continuous integration workflows with branch policies, control release flows with deployment gates based on app health and monitoring, and ensure pipeline security by integrating the Mend Bolt extension to detect open-source vulnerabilities. By the end of the lab, you’ll have a comprehensive understanding of modern DevOps automation, security, and compliance practices.
+In this hands-on lab, you will learn how to implement end-to-end DevOps practices using Azure DevOps and GitHub. You will start by deploying an Azure web app using GitHub Actions and Azure DevOps, followed by configuring self-hosted agents and YAML pipelines to enable CI/CD automation. You will then define continuous integration workflows with branch policies, control release flows with deployment gates based on app health and monitoring, and ensure pipeline security by integrating the Mend Bolt extension to detect open-source vulnerabilities. By the end of the lab, you’ll have a comprehensive understanding of modern DevOps automation, security, and compliance practices.
 
 ## Objectives
 
 By the end of this lab, you will be able to:
 
-- **Implementing GitHub Actions for CI/CD**: In this hands-on lab, participants will learn how to implement a GitHub Action workflow to deploy an Azure web app using DevOps Starter. They will configure GitHub Actions for continuous integration and deployment, connect to Azure services, and automate the deployment process for a streamlined DevOps pipeline.
+- **Implementing GitHub Actions for CI/CD**: In this hands-on lab, participants will learn how to implement a GitHub Action workflow to deploy an Azure web app using DevOps. They will configure GitHub Actions for continuous integration and deployment, connect to Azure services, and automate the deployment process for a streamlined DevOps pipeline.
 
 - **Configuring Agent Pools and Understanding Pipeline Styles**: In this hands-on lab, participants will learn how to configure self-hosted agents and implement CI/CD using YAML pipelines in Azure DevOps, enabling full pipeline automation and control within their code repositories.
 
@@ -34,7 +34,7 @@ By the end of this lab, you will be able to:
 
 ## Architecture
 
-The architecture flow involves using GitHub Actions and Azure DevOps Pipelines to implement a full CI/CD pipeline for deploying Azure Web Apps. GitHub is used as the central code repository where developers push code and trigger GitHub Actions for initial builds and deployments via Azure DevOps Starter. Self-hosted and Microsoft-hosted agent pools are configured in Azure DevOps to run YAML-based pipelines, enabling automated CI/CD with complete pipeline-as-code control. Continuous integration is enforced through branch policies and pull request validations, ensuring code quality before merging. Release gates are configured within Azure Pipelines to introduce compliance and environment-specific checks before progressing to production, using criteria such as service health, approval steps, and business rules. Security and compliance are integrated using the Mend Bolt extension in the pipeline to scan for vulnerabilities and enforce build-time governance. The entire DevOps lifecycle—from commit to deploy—is automated, secure, and monitored using Azure-native tools and services.
+The architecture flow involves using GitHub Actions and Azure DevOps Pipelines to implement a full CI/CD pipeline for deploying Azure Web Apps. GitHub is used as the central code repository where developers push code and trigger GitHub Actions for initial builds and deployments via Azure DevOps. Self-hosted and Microsoft-hosted agent pools are configured in Azure DevOps to run YAML-based pipelines, enabling automated CI/CD with complete pipeline-as-code control. Continuous integration is enforced through branch policies and pull request validations, ensuring code quality before merging. Release gates are configured within Azure Pipelines to introduce compliance and environment-specific checks before progressing to production, using criteria such as service health, approval steps, and business rules. Security and compliance are integrated using the Mend Bolt extension in the pipeline to scan for vulnerabilities and enforce build-time governance. The entire DevOps lifecycle—from commit to deploy—is automated, secure, and monitored using Azure-native tools and services.
 
 ## Architecture Diagram
 
@@ -65,41 +65,41 @@ The architecture flow involves using GitHub Actions and Azure DevOps Pipelines t
 
 ## Getting Started with the Lab
  
-## Accessing Your Lab Environment
+### Accessing Your Lab Environment
  
 Once you are ready to dive in, your virtual machine and **Lab Guide** will be right at your fingertips within your web browser.
 
    ![](images/devg1.png)
 
-## Lab Guide Zoom In/Zoom Out
+### Lab Guide Zoom In/Zoom Out
 
 To adjust the zoom level for the environment page, click the **A↕ : 100%** icon located next to the timer in the lab environment.
 
    ![Manage Your Virtual Machine](images/dpg2.png)
 
-## Virtual Machine & Lab Guide
+### Virtual Machine & Lab Guide
  
 Your virtual machine is your workhorse throughout the workshop. The lab guide is your roadmap to success.
  
-## Exploring Your Lab Resources
+### Exploring Your Lab Resources
  
 To get a better understanding of your lab resources and credentials, navigate to the **Environment** tab.
  
    ![Explore Lab Resources](images/afg3.png)
  
-## Utilizing the Split Window Feature
+### Utilizing the Split Window Feature
  
 For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the top right corner.
  
  ![Use the Split Window Feature](images/afg4.png)
  
-## Managing Your Virtual Machine
+### Managing Your Virtual Machine
  
 Feel free to **start, stop, or restart (2)** your virtual machine as needed from the **Resources (1)** tab. Your experience is in your hands!
  
  ![Manage Your Virtual Machine](images/afg5.png)
 
-## Lab Validation
+### Lab Validation
 
 1. After completing the task, hit the **Validate** button under the Validation tab integrated into your lab guide. You can proceed to the next task if you receive a success message. If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 
@@ -108,7 +108,7 @@ Feel free to **start, stop, or restart (2)** your virtual machine as needed from
 1. If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com.
 
 
-## Let's Get Started with Azure Portal
+### Let's Get Started with Azure Portal
 
 1. On your virtual machine, click on the **Azure Portal** icon as shown below:
 
@@ -134,7 +134,7 @@ Feel free to **start, stop, or restart (2)** your virtual machine as needed from
     
 1. If prompted to stay signed in, you can click **No**.
  
-## Steps to Proceed with MFA Setup if the "Ask Later" Option is Not Visible
+### Steps to Proceed with MFA Setup if the "Ask Later" Option is Not Visible
 
 1. If you see the pop-up **Stay Signed in?**, click **No**.
 
@@ -179,7 +179,7 @@ Feel free to **start, stop, or restart (2)** your virtual machine as needed from
 
 This hands-on lab will guide you through implementing end-to-end DevOps practices using Azure DevOps and GitHub. You will deploy an Azure web app with GitHub Actions, set up CI/CD automation with YAML pipelines, and configure release gates based on app health. Additionally, you will integrate the Mend Bolt extension to detect open-source vulnerabilities, ensuring security and compliance in your pipeline.
 
-## Support Contact
+### Support Contact
 
 The CloudLabs support team is available 24/7, 365 days a year, via email and live chat to ensure seamless assistance anytime. We offer dedicated support channels tailored specifically for learners and instructors, ensuring that all your needs are promptly and efficiently addressed.
 
