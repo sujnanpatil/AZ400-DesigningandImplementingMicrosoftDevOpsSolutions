@@ -4,7 +4,7 @@
 
 ## Lab Scenario
 
-In this lab, you will learn how to implement a GitHub Action workflow that deploys an Azure web app by using DevOps Starter.
+In this lab, you will learn how to implement a GitHub Action workflow that deploys an Azure web app by using Azure DevOps.
 
 ## Objectives
 
