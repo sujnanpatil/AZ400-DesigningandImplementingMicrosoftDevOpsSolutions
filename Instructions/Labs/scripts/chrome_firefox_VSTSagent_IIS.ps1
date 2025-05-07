@@ -14,7 +14,6 @@ $ProgressPreference = "SilentlyContinue"
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 ###################################################################################################
 
-
 # chrome
 $Path = $env:TEMP; $Installer = "chrome_installer.exe"; Invoke-WebRequest "http://dl.google.com/chrome/install/375.126/chrome_installer.exe" -OutFile $Path\$Installer; Start-Process -FilePath $Path\$Installer -Args "/silent /install" -Verb RunAs -Wait; Remove-Item $Path\$Installer
 
@@ -79,5 +78,12 @@ Set-ExecutionPolicy Unrestricted -Force
 Install-WindowsFeature -Name Web-Server -IncludeAllSubFeature 
 
 Sleep 10
+# Define variables
+$msiUrl = "https://download.microsoft.com/download/9/2/2/9228aac2-90d1-4f48-b423-af345296c7dd/EN/x64/DacFramework.msi"
+$msiPath = "$env:TEMP\DacFramework.msi"
 
+# Download the MSI file for DAC framework
+Invoke-WebRequest -Uri $msiUrl -OutFile $msiPath
 
+# Install the MSI file silently
+Start-Process msiexec.exe -ArgumentList "/i `"$msiPath`" /quiet /norestart" -Wait -NoNewWindow
