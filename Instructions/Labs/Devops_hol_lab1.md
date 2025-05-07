@@ -36,7 +36,7 @@ In this lab you will complete the following exercises:
 
 1. If prompted, complete the the visual puzzle.
 
-1. Provide the confirmation and verify your account and click on create account. This would take 2 minutes to create.
+1. Confirm your details, verify your account, and click **'Create Account'**. The process will take approximately 2 minutes to complete.
 
 # Exercise 1: Import eShopOnWeb to your GitHub Repository
 
