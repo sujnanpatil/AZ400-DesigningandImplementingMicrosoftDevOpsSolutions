@@ -1,6 +1,6 @@
 # Lab 4: Controlling Deployments using Release Gates 
 
-## Estimated timing: 90 minutes
+## Estimated timing: 70 minutes
 
 ## Lab Scenario
 
