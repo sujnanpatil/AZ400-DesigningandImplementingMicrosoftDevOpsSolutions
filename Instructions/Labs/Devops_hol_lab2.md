@@ -343,15 +343,6 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 
     ![Azure DevOps](images/dev84.png) 
 
-
-   > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-   > - If you receive a success message, you can proceed further.
-   > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
-
-
-   <validation step="38dc84d9-2b4f-44c8-bf6f-1da2f5a9cde7" />
-
 ## Exercise 4: Implement Selenium tests by using a self-hosted Azure DevOps agent  
 
 In this exercise, you will implement automated Selenium tests using a self-hosted Azure DevOps agent. You will deploy a Selenium project to Azure DevOps, configure the agent on a virtual machine, and trigger a build and release pipeline to execute the tests automatically.

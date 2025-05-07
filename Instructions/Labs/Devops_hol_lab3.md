@@ -304,13 +304,6 @@ In this task, you will enable Continuous Integration by modifying the YAML build
      
       ![](images/dev133.png)
      
-   > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-   - If you receive a success message, you can proceed to the next task.
-   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
- 
-   <validation step="acd984e3-6678-4326-9460-21caeb9889c7" />
-          
 ### Review
   
 In this lab, you learned how to define and manage build pipelines in Azure DevOps using YAML. You configured branch policies for build validation in pull requests, worked with feature branches, and set up a CI pipeline as code. The lab included importing YAML build definitions, enabling continuous integration, and testing the pipeline to automate and validate code changes efficiently.
