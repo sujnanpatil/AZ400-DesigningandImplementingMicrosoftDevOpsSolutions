@@ -6,18 +6,6 @@
 
 In this lab, you will learn how to configure deployment gates and use them to control the execution of Azure Pipelines. You will set up a release definition with two environments for an Azure Web App, deploying to the Canary environment only when there are no blocking bugs and completing the deployment only when there are no active alerts in Application Insights. The lab covers the concept of a release pipeline, where deployments are automated across environments using jobs and tasks. You will learn how to expose updates gradually to a subset of users, monitor usage, and then expand exposure based on initial user feedback. Additionally, you will explore how approvals and gates help control deployment start and completion, with gates evaluating application health criteria before promoting releases to the next environment. Multiple gates can be added to ensure all conditions are met before progressing a deployment.
 
-As an example:
-
-- Pre-deployment gates ensure no active issues in the work item or problem management system before deploying a build to an environment.
-- Post-deployment gates ensure no incidents from the app's monitoring or incident management system after being deployed before promoting the release to the following environment.
-
-There are 4 types of gates included by default in every account.
-
-- Invoke Azure Function: Trigger the execution of an Azure Function and ensures a successful completion.
-- Query Azure Monitor alerts: Observe the configured Azure Monitor alert rules for active alerts.
-- Invoke REST API: Make a call to a REST API and continues if it returns a successful response.
-- Query work items: Ensure the number of matching work items returned from a query is within a threshold.
-
 ## Objectives
 
 In this lab, you will be performing the following exercises:
@@ -558,13 +546,6 @@ In this task, you will enable the post-deployment gate for the Canary Environmen
 1. Back on the **New Release Pipeline** pane, click **Save (1)**, and in the **Save** dialog box, click **OK (2)**.
 
     ![Azure devops](images/dev189.png)
-
-   > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-   - If you receive a success message, you can proceed to the next task.
-   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
- 
-   <validation step="29f6bfe8-0b16-4145-92f9-30e77d26ab03" />
 
 ## Exercise 4: Test release gates
 

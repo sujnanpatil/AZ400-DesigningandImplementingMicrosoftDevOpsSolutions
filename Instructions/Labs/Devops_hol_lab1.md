@@ -3,6 +3,7 @@
 ## Estimated duration: 60 minutes
 
 ## Lab Scenario
+
 You are a DevOps engineer for Contoso.ltd tasked with deploying a dynamic .NET web app to Azure using GitHub Actions and Infrastructure as Code. In this lab, you will import the eShopOnWeb app into your GitHub repository, configure Azure access using a service principal, and automate deployment via a GitHub Actions workflow backed by Bicep templates.
 
 ## Objectives

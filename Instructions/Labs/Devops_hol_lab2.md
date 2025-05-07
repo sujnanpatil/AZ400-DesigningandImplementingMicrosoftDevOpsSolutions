@@ -1,10 +1,11 @@
 # Lab 02: Configuring Agent Pools and Understanding Pipeline Styles 
 
-## Estimated duration: 60 minutes
+## Estimated duration: 90 minutes
 
 ## Lab Scenario
 
-In this lab, you will learn how to implement and use self-hosted agents with YAML pipelines, which allow you to fully implement CI/CD as code by defining pipeline configurations directly within the same repository as your project code. YAML-based pipelines support essential features found in classic pipelines, including pull requests, code reviews, version history, branching, and reusable templates. Regardless of the pipeline style, Azure Pipelines require an agent to build or deploy your solution—these agents provide the compute resources to run jobs, either directly on the host machine or within a container. You can choose between Microsoft-hosted agents, which are managed for you, or self-hosted agents that you configure and maintain yourself.
+In this lab, you'll learn how to implement self-hosted agents using YAML pipelines to enable fully code-based CI/CD workflows. YAML pipelines support key features like pull requests, branching, version history, and reusable templates. Azure Pipelines require agents to run jobs—either Microsoft-hosted or self-hosted, which you manage yourself. You'll configure a self-hosted Azure DevOps agent, set up a release pipeline, and integrate Selenium tests. Finally, you'll trigger the build and release processes to validate the complete pipeline.
+
 
 ## Objectives
 
@@ -13,6 +14,7 @@ In this lab you will complete the following exercises:
 - Exercise 1: Configure the lab prerequisites
 - Exercise 2: Author YAML-based Azure DevOps pipelines
 - Exercise 3: Manage Azure DevOps agent pools
+- Exercise 4: Implement Selenium tests by using a self-hosted Azure DevOps agent
 
 ## Architecture Diagram
 
@@ -341,18 +343,14 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 
     ![Azure DevOps](images/dev84.png) 
 
-
-   > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-   > - If you receive a success message, you can proceed further.
-   > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
-
-
-   <validation step="38dc84d9-2b4f-44c8-bf6f-1da2f5a9cde7" />
-
 ## Exercise 4: Implement Selenium tests by using a self-hosted Azure DevOps agent  
 
+In this exercise, you will implement automated Selenium tests using a self-hosted Azure DevOps agent. You will deploy a Selenium project to Azure DevOps, configure the agent on a virtual machine, and trigger a build and release pipeline to execute the tests automatically.
+
+
 ### Task 1: Deploy the Selenium project to Azure DevOps
+
+In this task, you will open and configure the ADOGenerator Selenium project in Visual Studio, build the solution, and use the demo generator to create a new Azure DevOps project using the Selenium template.
 
 1. Before deploying the project, we need to enable the **creation of classic build pipeline and release**. 
 
@@ -408,8 +406,148 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 
     ![Azure DevOps](images/dev308.png)
 
-1.     
+### Task 2: Configure agent on the VM
 
+In this task, you will configure a self-hosted Azure DevOps agent on the SeleniumVM and update the release pipeline to use the Default agent pool for all deployment phases.
+
+1. Navigate to Azure portal, then go to **SeleniumVM** inside the Selenium RG.
+
+    ![Azure DevOps](images/dev309.png)
+
+1. Login to the VM using RDP with the following credentials
+
+    - Username: **vmadmin**
+    - Password: **P2ssw0rd@123**
+
+1. In the SeleniumVM open web browser, sign in to your Azure DevOps organization using te link https://go.microsoft.com/fwlink/?LinkId=307137.
+
+1. If promted, plaese sign in with the given creadential.
+
+    * Email/Username: <inject key="AzureAdUserEmail"></inject>
+
+    * Password: <inject key="AzureAdUserPassword"></inject>
+
+1. Choose **Azure DevOps (1)**, **Organization settings (2)**.
+
+    ![Azure DevOps](images/dev311.png)
+
+1. Choose **Agent pools (1)** and then select the **Default (1)** pool.
+
+    ![Azure DevOps](images/dev312.png)
+
+1. Select the **Agents** tab and choose **New agent**.
+
+1. On the **Get the agent** pane, ensure that the **Windows (1)** and **x64 (2)** tabs are selected, and click **Download (3)** to download the zip archive containing the agent binaries to download it into the local **Downloads** folder within your user profile.
+
+    ![Azure DevOps](images/dev62.png)
+
+1. Once the download is complete, click on **Open file**.
+
+    ![Azure DevOps](images/dev313.png)
+
+1. Right click on the downloaded file and then click on **Extract all**.
+
+1. Change the destination path to **C:\AzAgent (1)** then click on **Extract (2)**.
+
+    ![Azure DevOps](images/dev310.png)
+
+1. On the SeleniumVM, right click on **Start (1)**, then select **Windows PowerShell (Admin) (2)**.
+
+    ![Azure DevOps](images/dev63.png) 
+    
+1. Run the command `cd C:\AzAgent` Change the path to C:\AzAgent.
+
+1. Type `.\config.cmd` and hit **Enter**.
+
+1.  When prompted, specify the values of the following settings:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Enter server URL | Enter https://dev.azure.com/odluser<inject key="DeploymentID" enableCopy="false"/>/ (Copy completely)|
+    | Enter authentication type (press enter for PAT) | **Hit Enter** |
+    | Enter personal access token | The access token you recorded earlier in this task |
+    | Enter agent pool (press enter for default) | **Hit Enter** |
+    | Enter agent name (press enter for SeleniumVM) | **Hit Enter** |
+    | Enter work folder (press enter for _work) | **Hit Enter** |
+    | **(Only if shown)** Enter Perform an unzip for tasks for each step. (press enter for N) | **WARNING**: only press **Enter** if the message is shown|
+    | Enter run agent as service? (Y/N) (press enter for N) | **Y** |
+    | enter enable SERVICE_SID_TYPE_UNRESTRICTED (Y/N) (press enter for N) | **Y** |
+    | Enter User account to use for the service (press enter for NT AUTHORITY\NETWORK SERVICE) | **Hit Enter** |
+    | Enter whether to prevent service starting immediately after configuration is finished? (Y/N) (press enter for N) | **Hit Enter** |
+
+    ![Azure DevOps](images/dev314.png)    
+
+1.  Back on the **Agents (1)** tab of the **Default** pane, note that the newly configured agent is listed with the **Online (2)** status. Click on the **Azure DevOps (3)** label from the top left corner.
+
+    ![Azure DevOps](images/dev315.png)
+
+1. Select the **Selenium** project.
+
+1. Go to **Releases (1)** under Pipelines tab. Select **Selenium release (2)** definition and click on **Edit (3)**.
+
+    ![Azure DevOps](images/dev316.png)
+
+1. Click on the **Tasks (1)** drop down and  Open **Dev (2)** environment to see the three deployment phases.
+
+    ![Azure DevOps](images/dev317.png)
+
+    ![Azure DevOps](images/dev318.png)    
+
+1. Click on **IIS Deployment phase (1)** and select the **Default (2)** Agent pool.
+
+    ![Azure DevOps](images/dev320.png)
+
+1. Repeat the above step for **SQL Deployment phase**.
+
+    ![Azure DevOps](images/dev321.png)
+
+1. Click on **Selenium tests execution** phase and set Agent pool to Default then **Save** the changes.
+
+    ![Azure DevOps](images/dev322.png)
+
+### Task 3: Exercise 3: Trigger Build and Release
+
+In this task, we will trigger the Build to compile Selenium C# scripts along with the Web application. The resulting binaries are copied to Azure VM and finally the selenium scripts are executed as part of the automated Release.
+
+1. Navigate to **Pipelines (1)** under Pipelines. Select **Selenium (2)** build pipeline.
+
+    ![Azure DevOps](images/dev323.png) 
+
+1. Click **Run pipeline**.    
+
+    ![Azure DevOps](images/dev324.png) 
+
+1. Click on **Run** again.
+
+1. Click on **Phase 1**.
+
+1. This build will publish the test artifacts to Azure DevOps, which will be used in release.
+
+1. Wait untill the build get succeeded.
+
+    ![Azure DevOps](images/dev325.png)
+
+1. Once the build is successful, release will be triggered. Navigate to back to **Releases (1)**  tab to see the deployment in-progress. Click on the **Release-1**
+
+    ![Azure DevOps](images/dev326.png)
+
+1. When Selenium test execution phase starts, you can see the Selenium test execution jobs. Wait untill the jobs completed successfully.
+
+    ![Azure DevOps](images/dev327.png)
+
+1. In this lab, we are executing **four UI** test scenarios configured to run on Chrome and Firefox browsers.
+
+1. Navigate to **Chrome** from the desktop, then paste the following URL http://localhost:82/. You should be able to see the PartsUnlimited website.
+
+    ![Azure DevOps](images/dev328.png)
+
+1. Navigate to **Firefox** from the desktop, then paste the following URL http://localhost:82/. 
+
+    ![Azure DevOps](images/dev342.png)
+
+1. Once the release succeeds, click on the **Tests** tab to analyze the test results.
+
+    ![Azure DevOps](images/dev319.png)
 
 
 ### Review
@@ -421,6 +559,7 @@ In this exercise, you have accomplished the following:
 - Exercise 1: Configured the lab prerequisites
 - Exercise 2: Authored YAML-based Azure DevOps pipelines
 - Exercise 3: Managed Azure DevOps agent pools
+- Exercise 4: Implemented Selenium tests by using a self-hosted Azure DevOps agent
 
 ### You have successfully completed the lab. Click on **Next >>** to procced with next lab.
 
