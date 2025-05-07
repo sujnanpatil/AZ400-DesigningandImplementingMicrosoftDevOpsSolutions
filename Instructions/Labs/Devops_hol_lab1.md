@@ -11,11 +11,11 @@ In this lab, you will learn how to implement a GitHub Action workflow that deplo
 In this lab you will complete the following exercises:
 
 - Exercise 1: Import eShopOnWeb to your GitHub Repository
-- Exercise 1: Setup your GitHub Repository and Azure access
+- Exercise 2: Setup your GitHub Repository and Azure access
 
 ## Architecture Diagram
 
-   ![Architecture Diagram](images/lab5-architecture-new.png)
+   ![Architecture Diagram](images/devarc1.png)
 
 ## Lab requirements
 
