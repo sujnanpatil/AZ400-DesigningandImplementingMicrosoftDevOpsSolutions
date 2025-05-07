@@ -1,6 +1,6 @@
 # Lab 02: Configuring Agent Pools and Understanding Pipeline Styles 
 
-## Estimated duration: 90 minutes
+## Estimated duration: 60 minutes
 
 ## Lab Scenario
 
