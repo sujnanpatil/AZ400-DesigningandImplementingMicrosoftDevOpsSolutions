@@ -82,7 +82,7 @@ Sleep 10
 $msiUrl = "https://download.microsoft.com/download/9/2/2/9228aac2-90d1-4f48-b423-af345296c7dd/EN/x64/DacFramework.msi"
 $msiPath = "$env:TEMP\DacFramework.msi"
 
-# Download the MSI file
+# Download the MSI file for DAC framework
 Invoke-WebRequest -Uri $msiUrl -OutFile $msiPath
 
 # Install the MSI file silently
