@@ -3,15 +3,15 @@
 ## Estimated duration: 60 minutes
 
 ## Lab Scenario
-
-In this lab, you will learn how to implement a GitHub Action workflow that deploys an Azure web app by using Azure DevOps.
+You are a DevOps engineer for Contoso.ltd tasked with deploying a dynamic .NET web app to Azure using GitHub Actions and Infrastructure as Code. In this lab, you will import the eShopOnWeb app into your GitHub repository, configure Azure access using a service principal, and automate deployment via a GitHub Actions workflow backed by Bicep templates.
 
 ## Objectives
 
 In this lab you will complete the following exercises:
 
-- Exercise 1: Import eShopOnWeb to your GitHub Repository
-- Exercise 2: Setup your GitHub Repository and Azure access
+- Import the eShopOnWeb app into your GitHub repository
+- Configure GitHub repository settings and Azure service principal
+- Update and run a GitHub Actions workflow to deploy the web app to Azure
 
 ## Architecture Diagram
 
