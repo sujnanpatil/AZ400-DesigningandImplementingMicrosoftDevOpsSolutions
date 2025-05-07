@@ -34,7 +34,7 @@ In this lab you will complete the following exercises:
 
    ![Github](images/dev264.png)
 
-1. If prompted, complete the the visual puzzle.
+1. If prompted, complete the visual puzzle.
 
 1. Confirm your details, verify your account, and click **'Create Account'**. The process will take approximately 2 minutes to complete.
 
@@ -62,7 +62,7 @@ In this task, you will create an empty public GitHub repository and import the e
 
     ![Create Repository](images/dev261.png)
 
-1. Then you will recieve an device verfication code to your email, enter that **code (1)** and then click on **Verify (2)**. 
+1. Then you will receive a device verification code to your email, enter that **code (1)** and then click on **Verify (2)**. 
 
     ![Create Repository](images/dev262.png)
 
@@ -117,7 +117,7 @@ In this task, you will create the Azure Service Principal used by GitHub to depl
      
     - Subscription: Leave it at the default setting  **(1)**
     - Resource Group name: **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/> (2)**
-    - Region: Leave the deafult one **(3)**
+    - Region: Leave the default one **(3)**
     - Click on **Review + Create (4)**
 
       ![](images/dev232.png)
@@ -144,7 +144,7 @@ In this task, you will create the Azure Service Principal used by GitHub to depl
 
       ![](images/dev11.png)
 
-1. Once the Terminal starts, execute the following command **(1)**, replacing **SUBSCRIPTION-ID** and **RESOURCE-GROUP** with your own identifiers (both can be found on the **Overview** page of the Resorce Group):
+1. Once the Terminal starts, execute the following command **(1)**, replacing **SUBSCRIPTION-ID** and **RESOURCE-GROUP** with your own identifiers (both can be found on the **Overview** page of the Resource Group):
 
    ```
    az ad sp create-for-rbac --name GH-Action-eshoponweb --role contributor --scopes /subscriptions/SUBSCRIPTION-ID/resourceGroups/RESOURCE-GROUP --sdk-auth
@@ -260,7 +260,7 @@ In this task, you will review the GitHub workflow execution.
 
 1. Navigate to the Azure Portal (https://portal.azure.com/).
 
-1. Open the resource group **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** that have created earlier in Exercise 2, Task 1. **Refresh** the resource group.You will notice that the GitHub Action, using a bicep template, has deployed an **Azure App Service Plan**  and an **App Service**.
+1. Open the resource group **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** that have created earlier in Exercise 2, Task 1. **Refresh** the resource group. You will notice that the GitHub Action, using a bicep template, has deployed an **Azure App Service Plan**  and an **App Service**.
 
     ![](images/dev238.png)
 
