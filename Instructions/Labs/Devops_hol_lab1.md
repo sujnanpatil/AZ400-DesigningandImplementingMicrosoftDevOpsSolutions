@@ -1,6 +1,6 @@
 # Lab 01: Implementing GitHub Actions for CI/CD
 
-## Estimated duration: 30 minutes
+## Estimated duration: 40 minutes
 
 ## Lab Scenario
 
