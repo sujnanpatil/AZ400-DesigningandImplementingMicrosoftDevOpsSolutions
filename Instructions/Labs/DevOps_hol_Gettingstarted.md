@@ -11,15 +11,15 @@ In this hands-on lab, you will learn how to implement end-to-end DevOps practice
 
 By the end of this lab, you will be able to:
 
-- **Implementing GitHub Actions for CI/CD**: In this hands-on lab, participants will learn how to implement a GitHub Action workflow to deploy an Azure web app using DevOps. They will configure GitHub Actions for continuous integration and deployment, connect to Azure services, and automate the deployment process for a streamlined DevOps pipeline.
+- **Implementing GitHub Actions for CI/CD**: During this hands-on session, participants will learn how to implement a GitHub Action workflow to deploy an Azure web app using DevOps. They will configure GitHub Actions for continuous integration and deployment, connect to Azure services, and automate the deployment process for a streamlined DevOps pipeline.
 
-- **Configuring Agent Pools and Understanding Pipeline Styles**: In this hands-on lab, participants will learn how to configure self-hosted Azure DevOps agents, build and release pipelines using YAML, and integrate Selenium testing for automated validation—enabling end-to-end CI/CD automation with version-controlled pipeline definitions.
+- **Configuring Agent Pools and Understanding Pipeline Styles**: During this hands-on session, participants will learn how to configure self-hosted Azure DevOps agents, build and release pipelines using YAML, and integrate Selenium testing for automated validation—enabling end-to-end CI/CD automation with version-controlled pipeline definitions.
 
-- **Enabling Continuous Integration with Azure Pipelines**: In this hands-on lab, participants will define and manage YAML-based build pipelines in Azure DevOps, configure branch policies, and implement continuous integration to automate and validate code changes through pull requests.
+- **Enabling Continuous Integration with Azure Pipelines**: During this hands-on session, participants will define and manage YAML-based build pipelines in Azure DevOps, configure branch policies, and implement continuous integration to automate and validate code changes through pull requests.
 
-- **Controlling Deployments using Release Gates**: In this hands-on lab, participants will configure deployment gates in Azure Pipelines to control and automate application releases across environments, ensuring deployments proceed only when predefined health and compliance checks are met.
+- **Controlling Deployments using Release Gates**: During this hands-on session, participants will configure deployment gates in Azure Pipelines to control and automate application releases across environments, ensuring deployments proceed only when predefined health and compliance checks are met.
 
-- **Implementing Security and Compliance in an Azure Pipeline**: In this hands-on lab, participants will implement security and compliance in an Azure DevOps pipeline by integrating the Mend Bolt extension to scan for vulnerabilities, analyze security risks during builds, and manage costs by disabling unnecessary billing.
+- **Implementing Security and Compliance in an Azure Pipeline**: During this hands-on session, participants will implement security and compliance in an Azure DevOps pipeline by integrating the Mend Bolt extension to scan for vulnerabilities, analyze security risks during builds, and manage costs by disabling unnecessary billing.
   
 ## Prerequisites
 
