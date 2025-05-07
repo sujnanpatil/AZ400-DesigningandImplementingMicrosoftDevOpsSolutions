@@ -275,7 +275,7 @@ In this task, you will review the GitHub workflow execution.
 
 ### Review
 
-In this lab, you implemented a GitHub Action workflow that deploys an Azure web app by using DevOps Starter.
+In this lab, you implemented a GitHub Action workflow that deploys an Azure web app by using Azure DevOps.
 
 In this lab, you have accomplished the following:
 
