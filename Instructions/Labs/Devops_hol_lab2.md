@@ -409,9 +409,38 @@ In this task, you will open and configure the ADOGenerator Selenium project in V
 
 In this task, you will configure a self-hosted Azure DevOps agent on the SeleniumVM and update the release pipeline to use the Default agent pool for all deployment phases.
 
-1. Navigate to Azure portal, then go to **SeleniumVM** inside the Selenium RG.
+1. Navigate to Azure portal, then go to **SeleniumVM** inside the **Selenium** RG.
 
     ![Azure DevOps](images/dev309.png)
+
+1. Click on **Connect (1)** drop down and then select **Connect (2)**.
+
+    ![Azure DevOps](images/dev343.png) 
+
+1. Click on **Download RDP file**.
+
+    ![Azure DevOps](images/dev344.png) 
+
+1. Select **Keep**.
+
+1. From the downloads, click on **Open file**.
+
+    ![Azure DevOps](images/dev345.png) 
+
+1. Select **Connect**.
+
+1. Click on **More options**.
+
+1. Click on **Use a different User account**.
+
+1. Login to the VM using RDP with the following credentials and then click on **OK (3)**.
+
+    - Username: **vmadmin (1)**
+    - Password: **P2ssw0rd@123 (2)**
+
+      ![Azure DevOps](images/dev346.png)    
+
+1. Click on **Yes** to connect to the VM.     
 
 1. Login to the VM using RDP with the following credentials
 
@@ -533,6 +562,27 @@ In this task, we will trigger the Build to compile Selenium C# scripts along wit
 1. When Selenium test execution phase starts, you can see the Selenium test execution jobs. Wait untill the jobs completed successfully.
 
     ![Azure DevOps](images/dev327.png)
+
+    - If the **IIS deployment** fails, please follow the below steps to fix that.
+    - In SeleniumVM search bar, search for **Services (1)** and then select **Services (2)**
+
+      ![Azure DevOps](images/dev329.png)    
+
+    - Right click on the **Azure Pipeline agent (1)** and the click on **Stop (2)**
+
+      ![Azure DevOps](images/dev330.png)  
+
+    - Click on **Azure Pipelien agent** 
+
+    - Navigate to **Log On (1)** tab, then select **Local System account (2)** and then click on **OK (3)**
+
+      ![Azure DevOps](images/dev331.png)         
+
+    - Click on on **Start** to start the services
+
+      ![Azure DevOps](images/dev332.png)           
+
+    - Then navigate back to DevOps releases, click on **Redeploy**      
 
 1. In this lab, we are executing **four UI** test scenarios configured to run on Chrome and Firefox browsers.
 
