@@ -73,7 +73,7 @@ Feel free to **start, stop, or restart (2)** your virtual machine as needed from
 
 1. After completing the task, hit the **Validate** button under the Validation tab integrated into your lab guide. You can proceed to the next task if you receive a success message. If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 
-   ![Inline Validation](../media/u46.png)
+   ![Inline Validation](images/gdev5.png)
 
 1. If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com.
 
