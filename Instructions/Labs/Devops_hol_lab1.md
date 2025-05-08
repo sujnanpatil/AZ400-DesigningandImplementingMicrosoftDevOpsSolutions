@@ -171,7 +171,7 @@ In this task, you will create the Azure Service Principal used by GitHub to depl
     }
     ```
 
-    ![Import ADO org to Sonarcloud](images/dev16.png)
+    ![Import ADO org to Sonarcloud](images/dev-16.png)
 
 1. You also need to run the following command to register the resource provider for the **Azure App Service** you will deploy later:
 

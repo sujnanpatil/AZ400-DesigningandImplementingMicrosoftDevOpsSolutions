@@ -33,44 +33,13 @@ By the end of this lab, you will be able to:
 
 - Basic experience working with Azure Web Apps and Application Insights.
 
-## Architecture
-
-The architecture flow involves using GitHub Actions and Azure DevOps Pipelines to implement a full CI/CD pipeline for deploying Azure Web Apps. GitHub is used as the central code repository where developers push code and trigger GitHub Actions for initial builds and deployments via Azure DevOps. Self-hosted and Microsoft-hosted agent pools are configured in Azure DevOps to run YAML-based pipelines, enabling automated CI/CD with complete pipeline-as-code control. Continuous integration is enforced through branch policies and pull request validations, ensuring code quality before merging. Release gates are configured within Azure Pipelines to introduce compliance and environment-specific checks before progressing to production, using criteria such as service health, approval steps, and business rules. Security and compliance are integrated using the Mend Bolt extension in the pipeline to scan for vulnerabilities and enforce build-time governance. The entire DevOps lifecycle—from commit to deploy—is automated, secure, and monitored using Azure-native tools and services.
-
-## Architecture Diagram
-
-![](images/devarcc.png)
-
-## Explanation of Components
-
-1. **GitHub**: GitHub acts as the source code repository where developers collaborate and manage code versions. It integrates with GitHub Actions to automate build, test, and deployment workflows directly from code pushes and pull requests.
-
-1. **GitHub Actions**: GitHub Actions provides a cloud-native automation platform for continuous integration and deployment. It triggers workflows based on events in the GitHub repository and automates the deployment of web applications to Azure using pre-configured or custom YAML-based workflows.
-
-1. **Azure DevOps Pipelines**: Azure Pipelines offers robust CI/CD capabilities using YAML or classic pipelines. It orchestrates the build, test, and release processes across environments with full control and visibility into every stage of the software lifecycle.
-
-1. **Agent Pools (Microsoft-hosted & Self-hosted)**: Agent pools are used to define where pipeline jobs run. Microsoft-hosted agents offer pre-configured environments, while self-hosted agents give teams control over the runtime environment, software tools, and scalability.
-
-1. **YAML Pipelines**: YAML pipelines enable Infrastructure as Code (IaC) for CI/CD processes in Azure DevOps. They allow versioning and code reviews of pipeline definitions alongside application code, enhancing traceability and consistency.
-
-1. **Branch Policies**: Branch policies enforce quality gates such as required reviewers, successful build validations, and status checks before allowing changes to be merged into protected branches, thus enabling secure and stable continuous integration.
-
-1. **Release Gates**: Release gates are checkpoints within release pipelines that ensure specific conditions—like service health, approvals, or compliance checks—are met before advancing to the next environment, helping enforce safe and compliant deployments.
-
-1. **Azure Web Apps**: Azure Web Apps is the target deployment service for web applications. It supports automated deployments from CI/CD pipelines and offers scalability, security, and integration with monitoring and diagnostics tools.
-
-1. **Mend Bolt**: Mend Bolt (formerly WhiteSource Bolt) is a free extension for Azure DevOps that scans open-source dependencies in real-time to detect vulnerabilities and license issues, enabling early detection and remediation of security risks.
-
-1. **Visual Studio Code**: Acts as the integrated development environment (IDE) for coding, debugging, and managing Git repositories. It enables developers to work with both GitHub Actions and Azure DevOps pipelines through extensions and terminal-based workflows.
-
-
 ## Getting Started with the Lab
  
 ### Accessing Your Lab Environment
  
-Once you are ready to dive in, your virtual machine and **Lab Guide** will be right at your fingertips within your web browser.
+Once you are ready to dive in, your virtual machine and **Guide** will be right at your fingertips within your web browser.
 
-   ![](images/devg1.png)
+   ![](images/gdev1.png)
 
 ### Lab Guide Zoom In/Zoom Out
 
@@ -86,25 +55,25 @@ Your virtual machine is your workhorse throughout the workshop. The lab guide is
  
 To get a better understanding of your lab resources and credentials, navigate to the **Environment** tab.
  
-   ![Explore Lab Resources](images/afg3.png)
+   ![Explore Lab Resources](images/gdev2.png)
  
 ### Utilizing the Split Window Feature
  
 For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the top right corner.
  
- ![Use the Split Window Feature](images/afg4.png)
+ ![Use the Split Window Feature](images/gdev3.png)
  
 ### Managing Your Virtual Machine
  
 Feel free to **start, stop, or restart (2)** your virtual machine as needed from the **Resources (1)** tab. Your experience is in your hands!
  
- ![Manage Your Virtual Machine](images/afg5.png)
+ ![Manage Your Virtual Machine](images/gdev4.png)
 
 ### Lab Validation
 
 1. After completing the task, hit the **Validate** button under the Validation tab integrated into your lab guide. You can proceed to the next task if you receive a success message. If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 
-   ![Inline Validation](../media/u46.png)
+   ![Inline Validation](images/gdev5.png)
 
 1. If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com.
 

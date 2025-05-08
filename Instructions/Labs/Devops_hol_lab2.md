@@ -4,8 +4,7 @@
 
 ## Lab Scenario
 
-In this lab, you'll learn how to implement self-hosted agents using YAML pipelines to enable fully code-based CI/CD workflows. YAML pipelines support key features like pull requests, branching, version history, and reusable templates. Azure Pipelines require agents to run jobs—either Microsoft-hosted or self-hosted, which you manage yourself. You'll configure a self-hosted Azure DevOps agent, set up a release pipeline, and integrate Selenium tests. Finally, you'll trigger the build and release processes to validate the complete pipeline.
-
+You are a DevOps engineer at Contoso Ltd., responsible for modernizing the CI/CD workflows for an internal .NET application. To streamline deployment and gain better control over the build infrastructure, you are tasked with configuring a self-hosted Azure DevOps agent and implementing code-based pipelines using YAML. In this lab, you will define and run YAML pipelines, integrate Selenium tests, and automate the build and release processes using a self-hosted agent to support a scalable and maintainable DevOps pipeline.
 
 ## Objectives
 
@@ -18,7 +17,7 @@ In this lab you will complete the following exercises:
 
 ## Architecture Diagram
 
-![Architecture Diagram](images/devarc2.png)   
+![Architecture Diagram](images/devarcc-2.png)   
 
 ## Lab requirement:
 
@@ -410,9 +409,38 @@ In this task, you will open and configure the ADOGenerator Selenium project in V
 
 In this task, you will configure a self-hosted Azure DevOps agent on the SeleniumVM and update the release pipeline to use the Default agent pool for all deployment phases.
 
-1. Navigate to Azure portal, then go to **SeleniumVM** inside the Selenium RG.
+1. Navigate to Azure portal, then go to **SeleniumVM** inside the **Selenium** RG.
 
     ![Azure DevOps](images/dev309.png)
+
+1. Click on **Connect (1)** drop down and then select **Connect (2)**.
+
+    ![Azure DevOps](images/dev343.png) 
+
+1. Click on **Download RDP file**.
+
+    ![Azure DevOps](images/dev344.png) 
+
+1. Select **Keep**.
+
+1. From the downloads, click on **Open file**.
+
+    ![Azure DevOps](images/dev345.png) 
+
+1. Select **Connect**.
+
+1. Click on **More options**.
+
+1. Click on **Use a different User account**.
+
+1. Login to the VM using RDP with the following credentials and then click on **OK (3)**.
+
+    - Username: **vmadmin (1)**
+    - Password: **P2ssw0rd@123 (2)**
+
+      ![Azure DevOps](images/dev346.png)    
+
+1. Click on **Yes** to connect to the VM.     
 
 1. Login to the VM using RDP with the following credentials
 
@@ -534,6 +562,27 @@ In this task, we will trigger the Build to compile Selenium C# scripts along wit
 1. When Selenium test execution phase starts, you can see the Selenium test execution jobs. Wait untill the jobs completed successfully.
 
     ![Azure DevOps](images/dev327.png)
+
+    - If the **IIS deployment** fails, please follow the below steps to fix that.
+    - In SeleniumVM search bar, search for **Services (1)** and then select **Services (2)**
+
+      ![Azure DevOps](images/dev329.png)    
+
+    - Right click on the **Azure Pipeline agent (1)** and the click on **Stop (2)**
+
+      ![Azure DevOps](images/dev330.png)  
+
+    - Click on **Azure Pipelien agent** 
+
+    - Navigate to **Log On (1)** tab, then select **Local System account (2)** and then click on **OK (3)**
+
+      ![Azure DevOps](images/dev331.png)         
+
+    - Click on on **Start** to start the services
+
+      ![Azure DevOps](images/dev332.png)           
+
+    - Then navigate back to DevOps releases, click on **Redeploy**      
 
 1. In this lab, we are executing **four UI** test scenarios configured to run on Chrome and Firefox browsers.
 

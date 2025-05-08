@@ -4,7 +4,7 @@
 
 ## Lab Scenario
 
-In this lab, you will learn how to define and manage build pipelines in Azure DevOps using YAML. You will configure branch policies for build validation in pull requests, work with feature branches and pull requests, and set up a CI pipeline as code. The lab covers importing YAML build definitions, enabling continuous integration, and testing the pipeline to automate and validate code changes efficiently.
+You are a DevOps engineer at Contoso Ltd., tasked with improving the development workflow by implementing continuous integration (CI) practices. In this lab, you will define YAML-based build pipelines in Azure DevOps, configure branch policies to enforce build validation in pull requests, and manage feature branches using pull requests. You will import YAML build definitions, automate code validation, and ensure all changes are properly tested before integration, helping your team maintain high code quality and streamline delivery.
 
 ## Objectives
 
