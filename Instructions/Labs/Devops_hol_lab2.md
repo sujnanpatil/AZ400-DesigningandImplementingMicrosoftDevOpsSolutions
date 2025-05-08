@@ -18,7 +18,7 @@ In this lab you will complete the following exercises:
 
 ## Architecture Diagram
 
-![Architecture Diagram](images/devarc2.png)   
+![Architecture Diagram](images/devarc-2.png)   
 
 ## Lab requirement:
 
