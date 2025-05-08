@@ -4,8 +4,7 @@
 
 ## Lab Scenario
 
-In this lab, you'll learn how to implement self-hosted agents using YAML pipelines to enable fully code-based CI/CD workflows. YAML pipelines support key features like pull requests, branching, version history, and reusable templates. Azure Pipelines require agents to run jobs—either Microsoft-hosted or self-hosted, which you manage yourself. You'll configure a self-hosted Azure DevOps agent, set up a release pipeline, and integrate Selenium tests. Finally, you'll trigger the build and release processes to validate the complete pipeline.
-
+You are a DevOps engineer at Contoso Ltd., responsible for modernizing the CI/CD workflows for an internal .NET application. To streamline deployment and gain better control over the build infrastructure, you are tasked with configuring a self-hosted Azure DevOps agent and implementing code-based pipelines using YAML. In this lab, you will define and run YAML pipelines, integrate Selenium tests, and automate the build and release processes using a self-hosted agent to support a scalable and maintainable DevOps pipeline.
 
 ## Objectives
 
