@@ -51,10 +51,6 @@ The architecture flow involves using GitHub Actions and Azure DevOps Pipelines t
 
 1. **Agent Pools (Microsoft-hosted & Self-hosted)**: Agent pools are used to define where pipeline jobs run. Microsoft-hosted agents offer pre-configured environments, while self-hosted agents give teams control over the runtime environment, software tools, and scalability.
 
-1. **YAML Pipelines**: YAML pipelines enable Infrastructure as Code (IaC) for CI/CD processes in Azure DevOps. They allow versioning and code reviews of pipeline definitions alongside application code, enhancing traceability and consistency.
-
-1. **Branch Policies**: Branch policies enforce quality gates such as required reviewers, successful build validations, and status checks before allowing changes to be merged into protected branches, thus enabling secure and stable continuous integration.
-
 1. **Release Gates**: Release gates are checkpoints within release pipelines that ensure specific conditions—like service health, approvals, or compliance checks—are met before advancing to the next environment, helping enforce safe and compliant deployments.
 
 1. **Azure Web Apps**: Azure Web Apps is the target deployment service for web applications. It supports automated deployments from CI/CD pipelines and offers scalability, security, and integration with monitoring and diagnostics tools.
