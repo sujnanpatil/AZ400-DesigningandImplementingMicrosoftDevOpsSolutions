@@ -131,8 +131,6 @@ In this task, you will create the Azure Service Principal used by GitHub to depl
 
     ![](images/dev9.png)
 
-     >**NOTE:** If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and select **Create storage**
-
 1. Select **Bash** mode.
 
     ![](images/dev10.png)
@@ -171,7 +169,7 @@ In this task, you will create the Azure Service Principal used by GitHub to depl
     }
     ```
 
-    ![Import ADO org to Sonarcloud](images/dev-16.png)
+    ![Import ADO org to Sonarcloud](images/dev--16.png)
 
 1. You also need to run the following command to register the resource provider for the **Azure App Service** you will deploy later:
 
@@ -259,7 +257,7 @@ In this task, you will review the GitHub workflow execution.
 
      >**NOTE**: The workflow might take around 10 minutes to complete. Please wait until it is _Succeeded_, as illustrated above.
 
-1. Navigate to the Azure Portal (https://portal.azure.com/).
+1. Navigate back to to the **Azure Portal**.
 
 1. Open the resource group **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** that have created earlier in Exercise 2, Task 1. **Refresh** the resource group. You will notice that the GitHub Action, using a bicep template, has deployed an **Azure App Service Plan**  and an **App Service**.
 
@@ -281,6 +279,6 @@ In this lab, you implemented a GitHub Action workflow that deploys a dynamic Azu
 In this lab, you have accomplished the following:
 
 - Exercise 1: Imported eShopOnWeb to your GitHub Repository
-- Exercise 1: Setup your GitHub Repository and Azure access
+- Exercise 2: Setup your GitHub Repository and Azure access
 
 ### You have successfully completed the lab. Click on **Next >>** to procced with next lab.
