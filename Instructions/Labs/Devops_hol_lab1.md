@@ -16,7 +16,7 @@ In this lab you will complete the following exercises:
 
 ## Architecture Diagram
 
-   ![Architecture Diagram](images/devarc1.png)
+   ![Architecture Diagram](images/devarcc1.png)
 
 ## Lab requirements
 
@@ -257,7 +257,7 @@ In this task, you will review the GitHub workflow execution.
 
      >**NOTE**: The workflow might take around 10 minutes to complete. Please wait until it is _Succeeded_, as illustrated above.
 
-1. Navigate back to to the **Azure Portal**.
+1. Navigate back to to the [Azure Portal](https://portal.azure.com/).
 
 1. Open the resource group **rg-devOps-eshopeonweb-<inject key="DeploymentID" enableCopy="false"/>** that have created earlier in Exercise 2, Task 1. **Refresh** the resource group. You will notice that the GitHub Action, using a bicep template, has deployed an **Azure App Service Plan**  and an **App Service**.
 
