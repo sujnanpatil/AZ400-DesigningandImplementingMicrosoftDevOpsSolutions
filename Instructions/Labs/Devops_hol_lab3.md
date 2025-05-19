@@ -42,7 +42,7 @@ In this task, you will add policies to the main branch and only allow changes us
 
     ![](images/dev88.png)
       
-     >**Note**: If you get any error while saving the branch validation refresh the page and try again.
+     >**Note**: If you get any error while saving the branch validation, refresh the page and try again.
 
 ### Task 2: Working with Pull Requests
  
@@ -79,7 +79,7 @@ In this task, you will use the Azure DevOps portal to create a Pull Request, usi
 
     ![](images/dev254.png)
 
-1. A message will pop-up, proposing to create a Pull Request (as your **Feature01** branch is now ahead in changes, compared to **main**). Click on **Create a Pull Request (1)**.
+1. A message will pop up, proposing to create a Pull Request (as your **Feature01** branch is now ahead in changes, compared to **main**). Click on **Create a Pull Request (1)**.
 
     ![](images/dev95.png)
 
@@ -102,7 +102,7 @@ In this task, you will use the Azure DevOps portal to create a Pull Request, usi
          
     ![](images/az400-m3-L4-30.png)    
 
-1. On the top-right click on **Approve**.
+1. On the top-right, click on **Approve**.
 
     ![](images/dev267.png)    
       
@@ -129,7 +129,7 @@ In this exercise, you will configure a CI pipeline as code using YAML. You will 
 
 ### Task 1: Import the YAML build definition
 
-In this task, you will add the YAML build definition that will be used to implement the Continuous Integration.
+In this task, you will add the YAML build definition that will be used to implement Continuous Integration.
 
 Let's start by importing the CI pipeline named **eshoponweb-ci.yml**.
 
@@ -155,7 +155,7 @@ Let's start by importing the CI pipeline named **eshoponweb-ci.yml**.
 
     The CI definition consists of the following tasks:
      
-    - **DotNet Restore:** With NuGet Package Restore you can install all your project's dependency without having to store them in source control.
+    - **DotNet Restore:** With NuGet Package Restore, you can install all your project's dependencies without having to store them in source control.
        
     - **DotNet Build:** Builds a project and all of its dependencies.
        
@@ -188,9 +188,9 @@ In this task, you will enable Continuous Integration by modifying the YAML build
 
      ![](images/dev110.png)
 
-      >**Note**: Be careful with copy/paste, make sure you have same indentation shown above.
+      >**Note**: Be careful with copy/paste, make sure you have the same indentation shown above.
       
-      >**Note**: This will automatically trigger the build pipeline if any change is made to the main branch and the web application code (the src/web folder).Since you enabled Branch Policies, you need to pass by a Pull Request in order to update your code. 
+      >**Note**: This will automatically trigger the build pipeline if any change is made to the main branch and the web application code (the src/web folder). Since you enabled Branch Policies, you need to pass a Pull Request to update your code. 
     
 1. Click the on the **Save and run (1)** dropdown and **Save (2)** button (not **Save and run**) to save the pipeline definition.
 
@@ -200,7 +200,7 @@ In this task, you will enable Continuous Integration by modifying the YAML build
 
     ![](images/dev112.png)
 
-1. Your pipeline will take a name based on the project name. Let's **rename** it for identifying the pipeline better. Click on the **ellipsis (1)** and **Rename/move (2)** option.
+1. Your pipeline will take a name based on the project name. Let's **rename** it to identify the pipeline better. Click on the **ellipsis (1)** and **Rename/move (2)** option.
 
     ![](images/dev256.png)
 
@@ -236,7 +236,7 @@ In this task, you will enable Continuous Integration by modifying the YAML build
    
 ### Task 3: Test the CI pipeline
  
- In this task, you will create a Pull Request, using a new branch to merge a change into the protected main branch and automatically trigger the CI pipeline Navigate to the Repos section.
+ In this task, you will create a Pull Request, using a new branch to merge a change into the protected main branch and automatically trigger the CI pipeline. Navigate to the Repos section.
  
 1. Navigate to the **Repos (1)->Branches (2)** section. Create a **new branch (3)**.
 
@@ -265,13 +265,13 @@ In this task, you will enable Continuous Integration by modifying the YAML build
    
     ![](images/dev126.png)
 
-1. A message will pop-up, proposing to create a Pull Request (as your **Feature02** branch is now ahead in changes, compared to main).
+1. A message will pop up, proposing to create a Pull Request (as your **Feature02** branch is now ahead in changes, compared to main).
 
 1. Click on **Create a Pull Request**
 
     ![](images/dev127.png)
 
-1. In the **New pull request** tab, leave defaults and click on **Create** The Pull Request will show some pending requirements, based on the policies applied to the target **main** branch and wait until build completes.
+1. In the **New pull request** tab, leave defaults and click on **Create**. The Pull Request will show some pending requirements, based on the policies applied to the target **main** branch. Wait until the  build completes.
 
     ![](images/dev128.png)
 
@@ -283,13 +283,11 @@ In this task, you will enable Continuous Integration by modifying the YAML build
 
     ![](images/dev271.png)
 
-     >**Note**: Please wait, it might take around 3-5 minutes to succeed the required checks.     
+     >**Note**: Please wait. The required checks might take 3-5 minutes to complete.     
 
 1. Wait for the build to get succeeded **(1)**, then on the top-right click on **Approve (2)**, select the **Complete (3)** drop down and then click on **Complete (4)**.
 
     ![](images/dev257.png)
-
-     >**Note**: Wait for the build to get succeed. It might take around 5 - 7 minutes.
 
 1. On the **Complete Pull Request** tab, select only **Complete associated work items after merging** checkbox  and Click on **Complete Merge**.
 
@@ -322,5 +320,5 @@ In this lab, you have accomplished the following:
 - Exercise 2: Configured CI Pipeline as Code with YAML
 
 
-### You have successfully completed the lab. Click on **Next >>** to procced with next lab.
+### You have successfully completed the lab. Click on **Next >>** to proceed with the next lab.
 
