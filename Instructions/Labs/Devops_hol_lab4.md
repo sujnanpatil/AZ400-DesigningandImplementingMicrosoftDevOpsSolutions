@@ -162,6 +162,14 @@ In this task, you will create two Azure web apps representing the **Canary** and
 
       > **Note:** Record the name of the Canary web app. You will need it later in this lab.    Canary web app should look like : **RGATES495017526-Canary**
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+ 
+- Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
+- If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+- If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+   <validation step="abc690c9-65ed-4bb7-a3e1-c7b943d91eeb" /> 
+
 
 ### Task 2: Configure an Application Insights resource
 
