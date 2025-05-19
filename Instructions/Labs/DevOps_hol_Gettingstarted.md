@@ -37,13 +37,13 @@ By the end of this lab, you will be able to:
  
 ### Accessing Your Lab Environment
  
-Once you are ready to dive in, your virtual machine and **Guide** will be right at your fingertips within your web browser.
+Once you are ready to dive in, your virtual machine and **Guide** will be at your fingertips within your web browser.
 
    ![](images/gdev1.png)
 
 ### Lab Guide Zoom In/Zoom Out
 
-To adjust the zoom level for the environment page, click the **A↕ : 100%** icon located next to the timer in the lab environment.
+To adjust the zoom level for the environment page, click the **A↕: 100%** icon next to the lab environment's timer.
 
    ![Manage Your Virtual Machine](images/dpg2.png)
 
@@ -118,7 +118,7 @@ Feel free to **start, stop, or restart (2)** your virtual machine as needed from
 
    ![Install](images/dpg12.png)
 
-   > Note: For Ios, Open the app store and repeat the steps.
+   > Note: For iOS, open the App Store and repeat the steps.
 
    > Note: Skip if already installed.
 
@@ -128,7 +128,7 @@ Feel free to **start, stop, or restart (2)** your virtual machine as needed from
 
    ![QR code](images/dpg13.png)
 
-1. Enter the digit displayed on the Screen in the Authenticator app on mobile and tap on **Yes**.
+1. Enter the digit displayed on the Screen in the Authenticator app on your mobile and tap on **Yes**.
 
 1. Once the notification is approved, click on **Next**.
 
