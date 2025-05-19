@@ -369,6 +369,8 @@ In this task, you will open and configure the ADOGenerator Selenium project in V
 
     ![Azure DevOps](images/dev277.png)
 
+    > **Note:** If a Sign in to Visual Studio window is open click on **Skip and add accounts later** and Start Visual Studio.
+
 1. On the Get started page, select **Open a project or solution**.
 
     ![Azure DevOps](images/dev278.png)
