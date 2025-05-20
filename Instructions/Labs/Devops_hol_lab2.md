@@ -86,16 +86,16 @@ In this task, you will import the eShopOnWeb Git repository that will be used by
       ![](images/dev38.png)
       
 1. The repository is organized in the following way:
-   
-   - **.ado** folder contains Azure DevOps YAML pipelines
+    
+    - **.ado** folder contains Azure DevOps YAML pipelines
          
-   - **.devcontainer** folder container setup to develop using containers (either locally in VS Code or GitHub Codespaces)
+    - **.devcontainer** folder container setup to develop using containers (either locally in VS Code or GitHub Codespaces)
            
-   - **.github** folder contains YAML GitHub workflow definitions.
+    - **.github** folder contains YAML GitHub workflow definitions.
          
-   - **src** folder contains the .NET 6 website used in the lab scenarios.
+    - **src** folder contains the .NET 6 website used in the lab scenarios.
          
-     ![](images/dev39.png)
+      ![](images/dev39.png)
 
 1. Go to **Repos (1)>Branches (2)**, make sure the **main** branch is set as **default branch (3)**.
 
