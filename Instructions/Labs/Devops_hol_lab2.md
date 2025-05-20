@@ -220,9 +220,9 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 
      > **Note**: If you receive an error message at this point indicating that the current system settings prevent you from downloading the file, in the Browser window, in the upper right corner, click the gearwheel symbol designating the **Settings** menu header, in the dropdown menu, select **Internet Options**, in the **Internet Options** dialog box, click **Advanced**, on the **Advanced** tab, click **Reset**, in the **Reset Browser Settings** dialog box, click **Reset** again, click **Close**, and try the download again.
 
-1. On the LabVM, right click on **Start (1)**, then select **Command Prompt (Admin) (2)**.
+1. On the LabVM, right click on **Start (1)**, then select **Windows Powershell (Admin) (2)**.
 
-    ![Azure DevOps](images/ddev5.png)
+    ![Azure DevOps](images/dev63.png)
 
 1. Run the following lines to create the **C:\\agent** directory and extract the content of the downloaded archive into it.
 
