@@ -4,7 +4,7 @@
 
 ## Lab Scenario
 
-You are a DevOps engineer at Contoso Ltd., tasked with improving the development workflow by implementing continuous integration (CI) practices. In this lab, you will define YAML-based build pipelines in Azure DevOps, configure branch policies to enforce build validation in pull requests, and manage feature branches using pull requests. You will import YAML build definitions, automate code validation, and ensure all changes are properly tested before integration, helping your team maintain high code quality and streamline delivery.
+You are a DevOps engineer at Contoso.ltd, tasked with improving the development workflow by implementing continuous integration (CI) practices. In this lab, you will define YAML-based build pipelines in Azure DevOps, configure branch policies to enforce build validation in pull requests, and manage feature branches using pull requests. You will import YAML build definitions, automate code validation, and ensure all changes are properly tested before integration, helping your team maintain high code quality and streamline delivery.
 
 ## Objectives
 
