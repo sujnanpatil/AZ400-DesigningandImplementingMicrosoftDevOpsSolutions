@@ -4,11 +4,11 @@
 
 ## Lab Scenario
 
-You are a DevOps engineer for Contoso.ltd responsible for ensuring that all code passing through the CI/CD pipeline complies with security and cost management standards. In this lab, you will integrate the Mend Bolt extension into your Azure DevOps pipeline to scan for vulnerabilities in open-source components used by your .NET application. You will configure the pipeline to run Mend Bolt during the build stage, automatically detecting security risks and generating vulnerability reports. Additionally, you will review and disable unnecessary Azure DevOps billing features to optimize operational costs. This lab equips you with the skills to implement secure, compliant, and cost-effective DevOps practices as part of Contoso’s governance and quality assurance initiatives.
+You are a DevOps engineer for Contoso, ltd, responsible for ensuring that all code passing through the CI/CD pipeline complies with security and cost management standards. In this lab, you will integrate the Mend Bolt extension into your Azure DevOps pipeline to scan for vulnerabilities in open-source components used by your .NET application. You will configure the pipeline to run Mend Bolt during the build stage, automatically detecting security risks and generating vulnerability reports. Additionally, you will review and disable unnecessary Azure DevOps billing features to optimize operational costs. This lab equips you with the skills to implement secure, compliant, and cost-effective DevOps practices as part of Contoso’s governance and quality assurance initiatives.
 
 ## Objectives
 
-In this lab you will complete the following exercises:
+In this lab, you will complete the following exercises:
 
 - Exercise 1: Implement Security and Compliance in an Azure DevOps pipeline by using Mend Bolt 
 
@@ -20,15 +20,15 @@ In this lab you will complete the following exercises:
 
 In this exercise, you will implement security and compliance in an Azure DevOps pipeline using Mend Bolt. You will activate the Mend Bolt extension, create and trigger a build to scan for vulnerabilities in open source components, and remove Azure DevOps billing to avoid unnecessary charges.
 
-### Task 1: Activate Mend Bolt extension 
+### Task 1: Activate the Mend Bolt extension 
 
 In this task, you will activate the Mend Bolt extension in Azure DevOps by installing it from the marketplace and setting up the free version for use in your pipeline.
 
-1. On the Azure DevOps page click on **Azure DevOps** located at top left corner.
+1. On the Azure DevOps page, click on **Azure DevOps** located in the top left corner.
 
     ![Azure DevOps](images/dev199.png)
 
-1. Then click on **Organization Setting** at the left down corner. 
+1. Then click on **Organization Settings** at the bottom  left corner. 
 
     ![Azure DevOps](images/dev200.png)
 
@@ -52,7 +52,7 @@ In this task, you will activate the Mend Bolt extension in Azure DevOps by insta
 
     ![Azure DevOps](images/dev205.png)
 
-1. On the **Organization Settings**, select **Mend (1)** under Extensions. Provide your First name, Last name, Work Email, Company Name and other details **(2)** and then click **Create Account (3)** button to start using the Free version.    
+1. On the **Organization Settings**, select **Mend (1)** under Extensions. Provide your First name, Last name, Work Email, Company Name, and other details **(2)** and then click **Create Account (3)** button to start using the Free version.    
 
     ![Azure DevOps](images/dev206.png)
 
@@ -85,7 +85,7 @@ In this task, you will create and trigger a build in Azure DevOps by editing an 
 
     ![Azure DevOps](images/dev212.png)
 
-1. Give 2 Tab spaces, make sure the alignment is there as in the screenshot **(1)** and then click on **Validate and save (2)**.
+1. Give 2 Tab spaces, make sure the alignment is there as in the screenshot **(1)**, and then click on **Validate and save (2)**.
 
     ![Azure DevOps](images/dev213.png)
 
@@ -105,11 +105,11 @@ In this task, you will create and trigger a build in Azure DevOps by editing an 
 
     ![Azure DevOps](images/dev217.png)
 
-1. Once the build is completed **(1)**, click back navigation **(2)** to see the summary which shows Test results, Build artifacts etc. as shown below.    
+1. Once the build is completed **(1)**, click back navigation **(2)** to see the summary, which shows Test results, Build artifacts, etc., as shown below.    
 
     ![Azure DevOps](images/dev218.png)
 
-1. Navigate to **Mend Bolt** tab. This shows the list of all vulnerable open source components with Vulnerability Risk, Vulnerable Libraries, Severity Distribution.
+1. Navigate to **Mend Bolt** tab. This shows the list of all vulnerable open source components with Vulnerability Risk, Vulnerable Libraries, and Severity Distribution.
 
     ![Azure DevOps](images/dev219.png)
 
@@ -117,7 +117,7 @@ In this task, you will create and trigger a build in Azure DevOps by editing an 
 
 In this task, you will remove pipeline billing to eliminate unnecessary charges.
 
-1. On the lab computer, switch to the browser window displaying Azure DevOps organization homepage by clicking on **Azure Devops** from the top left corner.
+1. On the lab computer, switch to the browser window displaying the Azure DevOps organization homepage by clicking on **Azure DevOps** from the top left corner.
 
    ![Branch Policies](images/407.png)
 

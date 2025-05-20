@@ -4,7 +4,7 @@
 
 ## Lab Scenario
 
-You are a DevOps engineer for Contoso.ltd tasked with implementing a safe and controlled deployment process for a mission-critical .NET web application hosted in Azure. In this lab, you will configure a multi-stage release pipeline in Azure DevOps that deploys the app to two environments: Canary and Production. You will first define release gates to ensure the Canary deployment proceeds only when there are no high-severity bugs logged in the work item tracking system. You will then configure post-deployment gates that evaluate Application Insights telemetry to verify application health before promoting the release to Production. This lab demonstrates how to automate gradual rollouts, monitor real-time usage metrics, and use approvals and gate logic to enforce compliance and operational readiness. Your objective is to minimize risk and ensure only healthy builds are promoted across environments, aligning with Contoso’s standards for secure and reliable software delivery.
+You are a DevOps engineer for Contoso, Ltd, tasked with implementing a safe and controlled deployment process for a mission-critical .NET web application hosted in Azure. In this lab, you will configure a multi-stage release pipeline in Azure DevOps that deploys the app to two environments: Canary and Production. You will first define release gates to ensure the Canary deployment proceeds only when there are no high-severity bugs logged in the work item tracking system. You will then configure post-deployment gates that evaluate Application Insights telemetry to verify application health before promoting the release to Production. This lab demonstrates how to automate gradual rollouts, monitor real-time usage metrics, and use approvals and gate logic to enforce compliance and operational readiness. Your objective is to minimize risk and ensure only healthy builds are promoted across environments, aligning with Contoso’s standards for secure and reliable software delivery.
 
 ## Objectives
 
@@ -29,7 +29,7 @@ In this exercise, you will set up the prerequisites for the lab, which consist o
 
 In this task, you will create an **eShopOnWeb_MultiStageYAML** Azure DevOps project to be used by several labs.
 
-1. On your lab computer, in a browser window click on **Azure DevOps** from the top left corner. Click on **+ New Project**.
+1. On your lab computer, in a browser window, click on **Azure DevOps** from the top left corner. Click on **+ New Project**.
 
     ![Azure DevOps](images/dev134.png)
 
@@ -47,25 +47,25 @@ In this task you will import the eShopOnWeb Git repository that will be used by 
 
     ![Import Repository](images/dev136.png)
 
-1. The repository is organized the following way:
+1. The repository is organized in the following way:
 
     ![Azure DevOps](images/dev137.png)
 
     - **.ado** folder contains Azure DevOps YAML pipelines
     - **.devcontainer** folder container setup to develop using containers (either locally in VS Code or GitHub Codespaces)
-    - **infra** folder contains Bicep&ARM infrastructure as code templates used in some lab scenarios.
-    - **.github** folder container YAML GitHub workflow definitions.
-    - **src** folder contains the .NET 6 website used on the lab scenarios.
+    - **infra** folder contains Bicep & ARM infrastructure as code templates used in some lab scenarios.
+    - **.github** folder contains YAML GitHub workflow definitions.
+    - **src** folder contains the .NET 6 website used in the lab scenarios.
 
-1. Go to **Repos (1)>Branches (2)**. Make sure the **main** brach is set as a **default** branch **(3)**.
+1. Go to **Repos (1)>Branches (2)**. Make sure the **main** branch is set as a **default** branch **(3)**.
 
     ![Azure DevOps](images/dev138.png)
 
-1. If not, On the **Branches** **(1)**, Hover on the **main** branch then click the ellipsis on the right of the column **(2)**. Click on **Set as default branch (3)**.
+1. If not, on the **Branches** **(1)**, hover on the **main** branch, then click the ellipsis on the right of the column **(2)**. Click on **Set as default branch (3)**.
 
     ![Import Repository](images/az-400-5.png)
 
-     >**Note:** If there is only one branch then it is considered as the default branch automatically.You can proceed with the next task.
+     >**Note:** If there is only one branch, then it is considered as the default branch automatically. You can proceed with the next task.
 
 ### Task 3: Configure CI Pipeline as Code with YAML in Azure DevOps
 
@@ -103,7 +103,7 @@ In this task, you will add a YAML build definition to the existing project.
    
     ![Import Repository](images/newpip6.png)
 
-     >**Note**: Wait for the pipeline build to get succeeded. It might take around 5 minutes.
+     >**Note**: Wait for the pipeline build to succeed. It might take around 5 minutes.
    
      >**Note**: Each task from the YAML file is available for review, including any warnings and errors.
 
@@ -123,7 +123,7 @@ In this task, you will create two Azure web apps representing the **Canary** and
     
 1. From the **Bash** prompt, in the **Cloud Shell** pane, run the following command to create a resource group. 
 
-   >**Note**: If the region is not available, Possible locations can be found by running the following command : `az account list-locations -o table`. Then use the **Name** on region name.
+   >**Note**: If the region is not available, Possible locations can be found by running the following command: `az account list-locations -o table`. Then use the **Name** on the region name.
 
     ```bash
     REGION='westeurope'
@@ -160,7 +160,7 @@ In this task, you will create two Azure web apps representing the **Canary** and
 
      ![Clouldshell](images/dev143.png)     
 
-      > **Note:** Record the name of the Canary web app. You will need it later in this lab.    Canary web app should look like : **RGATES495017526-Canary**
+      > **Note:** Record the name of the Canary web app. You will need it later in this lab. The canary web app should look like: **RGATES495017526-Canary**
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
  
@@ -194,7 +194,7 @@ In this task, you will configure an Application Insights resource in the Azure p
     
     ![Clouldshell](images/dev145.png) 
 
-     > **Note**: Disregard the deprecation message. This is required in order to prevent failures of the Enable Continuous Integration DevOps task you will be using later in this lab.
+     > **Note**: Disregard the deprecation message. This is required to prevent failures of the Enable Continuous Integration DevOps task you will be using later in this lab.
 
 1. Then click **Create**.
    
@@ -210,13 +210,13 @@ In this task, you will configure an Application Insights resource in the Azure p
   
 1. On the **Canary** web app page, in the properties tab, click **Application Insights**.
 
-   ![portal](images/image004.png)
+    ![portal](images/image004.png)
   
 1. On the **Application Insights** blade, click **Turn on Application Insights**.
 
     ![](images/dev148.png)
 
-1. In the **Change your resource** section, scroll down and click on **Select existing resource(1)** option, in the list of existing resources, select the newly created **Application Insight resource(2)**, click **Apply(3)**.
+1. In the **Change your resource** section, scroll down and click on the **Select existing resource(1)** option, in the list of existing resources, select the newly created **Application Insight resource(2)**, click **Apply(3)**.
 
     ![](images/dev149.png)
 
@@ -226,7 +226,7 @@ In this task, you will configure an Application Insights resource in the Azure p
 
 1. Wait until the change takes effect.
 
-    > **Note**: You will create monitor alerts here, which you will use in later part of this lab.
+    > **Note**: You will create monitor alerts here, which you will use in the later part of this lab.
 
 1. From the same **Settings** / **Application Insights** menu option within the Web App, select **View Application Insights Data**. This redirects you to the Application Insights blade in the Azure Portal.
 
@@ -247,11 +247,11 @@ In this task, you will configure an Application Insights resource in the Azure p
 
       ![](images/dev153.png)
     
-1. Don't make any changes in the **Actions** settings blade, click on **Next: Actions >**.
+1. Don't make any changes in the **Actions** settings blade, click on **Next: Details >**.
 
     ![](images/dev154.png)
 
-1. Define the following parameters under the **Details** section and then onfirm the creation of the Alert rule by clicking **Review + create (5)**
+1. Define the following parameters under the **Details** section and then confirm the creation of the Alert rule by clicking **Review + create (5)**
 
     | Setting | Value |
     | --- | --- |
@@ -279,9 +279,9 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
     
     ![Azure devops](images/dev157.png)
    
-     > **Note** - If you are unable to see the **Releases** under pipelines, Navigate to Azure DevOps page, from the bottom left, click on **Organization settings**, Go to the **Pipelines (1)** section, and click **Settings (2)**. **Turn off(3)** the **Disable creation of classic release pipelines**.
+     > **Note** - If you are unable to see the **Releases** under pipelines, navigate to the Azure DevOps page, from the bottom left, click on **Organization settings**, go to the **Pipelines (1)** section, and click **Settings (2)**. **Turn off(3)** the **Disable creation of classic release pipelines**.
    
-   ![Azure devops](images/lab2releaseenable.png)
+    ![Azure devops](images/lab2releaseenable.png)
    
 1. Navigate back to your project and now you will be able to see the releases under pipelines   
   
@@ -289,11 +289,11 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
     ![Azure devops](images/dev158.png)
 
-1. From the **Stage** window appearing, update the default `Stage 1` Stage Name to **Canary**. 
+1. From the **Stage** window, update the default `Stage 1` Stage Name to **Canary**. 
 
     ![Azure devops](images/dev159.png)
 
-1. Close the popup window by using the **X** button. You are now in the graphical editor of the Release Pipeline, showing the Canary Stage.
+1. Close the pop-up window by using the **X** button. You are now in the graphical editor of the Release Pipeline, showing the Canary Stage.
 
 1. Hover the mouse over the Canary Stage, and click the **Clone** button, to copy the Canary Stage to an additional Stage. 
 
@@ -311,7 +311,7 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
      ![Azure devops](images/artifact.png)
      
-1. Select the **eShopOnWeb_MultiStageYAML (1)** in the **Source (build pipeline)** field. It will appear by deafult in **Source alias (2)** then click **Add (3)** to confirm the selection of the artifact.
+1. Select the **eShopOnWeb_MultiStageYAML (1)** in the **Source (build pipeline)** field. It will appear by default in **Source alias (2)**, then click **Add (3)** to confirm the selection of the artifact.
     
      ![Azure devops](images/DevOpspage3.png)
 
@@ -319,11 +319,11 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
      ![Azure devops](images/image005.png)
     
-1. Enable the **continuous deployment trigger** toggle to enable it. Leave all other settings at default and close the **Continuous deployment trigger** pane, by clicking the **x** mark in its upper right corner.
+1. Enable the **continuous deployment trigger** toggle to enable it. Leave all other settings at default and close the **Continuous deployment trigger** pane by clicking the **x** mark in its upper right corner.
 
      ![Azure devops](images/contin1.png)  
    
-1. Within the **Canary Environments** stage, click the **1 job, 1 tasks** label and review the tasks within this stage.
+1. Within the **Canary Environments** stage, click the **1 job, 1 task** label and review the tasks within this stage.
      
     ![Azure devops](images/1job1task.png)
 
@@ -333,13 +333,13 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
     ![Azure devops](images/dev280.png)
 
-1.  Next to the **Run on Agent** click on the **+** icon **(1)**.In the new window that appears search for **App Service** **(2)** and click on **Add** **(3)** next to the Azure App Service Deploy option.
+1.  Next to the **Run on Agent** click on the **+** icon **(1)**.In the new window that appears, search for **App Service** **(2)** and click on **Add** **(3)** next to the Azure App Service Deploy option.
 
     ![Azure devops](images/dev281.png)
 
 1. Select the **Azure App Service Deploy** Agent.
 
-   ![Azure devops](images/dev282.png)    
+    ![Azure devops](images/dev282.png)    
 
 1. In the **Azure subscription** dropdown list,select your **subscription (1)**.
 
@@ -364,19 +364,19 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
 1. Under **All pipelines > New Release Pipeline** pane, Click on **Tasks (1)**,from the drop-down selct Select **Production (2)**.
 
-    ![Azure devops](images/dev286.png)
+     ![Azure devops](images/dev286.png)
 
 1. Select the Task **Deploy Azure App Service** **(1)** and click on **Remove** **(2)**.
 
      ![Azure devops](images/dev287.png)
 
-1.  Next to the **Run on Agent** click on the **+** icon **(1)**.In the new window that appears search for **App Service** **(2)** and click on **Add** **(3)** next to the Azure App Service Deploy option.
+1.  Next to the **Run on Agent** click on the **+** icon **(1)**.In the new window that appears, search for **App Service** **(2)** and click on **Add** **(3)** next to the Azure App Service Deploy option.
 
-    ![Azure devops](images/dev288.png)
+     ![Azure devops](images/dev288.png)
 
 1. Select the Azure App Service Deploy Agent.
 
-   ![Azure devops](images/dev289.png)    
+    ![Azure devops](images/dev289.png)    
 
 1. In **Production(1)** stage, complete the following  pipeline settings:
   
@@ -422,7 +422,7 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
     ![Azure devops](images/dev170.png)
 
-    > **Note**: After the build succeeds, the release will be triggered automatically, and the application will be deployed to both the environments. Validate the release actions, once the build pipeline completed successfully.
+    > **Note**: After the build succeeds, the release will be triggered automatically, and the application will be deployed to both environments. Validate the release actions once the build pipeline has completed successfully.
 
 1. In the vertical navigational pane, in the **Pipelines** section, click **Releases (1)** and, on the **eShopOnWeb_MultiStageYAML** pane, click the entry representing the most recent release **(2)**. On the **eShopOnWeb_MultiStageYAML > Release-1** blade, track the progress of the release and verify that the deployment to both web apps completed successfully **(3)**.
 
@@ -450,11 +450,11 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
 1. Verify that the web page loads successfully in a new web browser tab.
 
-   ![portal](images/websitecan1.png)
+    ![portal](images/websitecan1.png)
    
-1. Close the web browser tab displaying the **EShopOnWeb** web site.
+1. Close the web browser tab displaying the **EShopOnWeb** website.
 
-    > **Note**: Now you have the application with CI/CD configured. In the next exercise we will set up Quality Gates as part of a more advanced release pipeline.
+    > **Note**: Now you have the application with CI/CD configured. In the next exercise, we will set up Quality Gates as part of a more advanced release pipeline.
 
 ## Exercise 3: Configure release gates
 
@@ -472,13 +472,13 @@ In this task, you will configure pre-deployment gates.
 
     ![Azure devops](images/dev177.png)
     
-1. On **Pre-deployment conditions** pane, set the **Pre-deployment approvals** slider to **Enabled (1)** and, in the **Approvers** text box, type and select your Azure DevOps account name **<inject key="AzureAdUserEmail"></inject> (2)**.
+1. On the **Pre-deployment conditions** pane, set the **Pre-deployment approvals** slider to **Enabled (1)** and, in the **Approvers** text box, type and select your Azure DevOps account name **<inject key="AzureAdUserEmail"></inject> (2)**.
 
     ![Azure devops](images/dev178.png)
 
-    > **Note**: In a real-life scenario, this should be a DevOps Team name alias instead of your own name.  
+    > **Note**: In a real-life scenario, this should be a DevOps Team name alias instead of your name.  
 
-1. Click on **X** mark in its upper right corner to **Save** the pre-approval settings and close the popup window.
+1. Click on the **X** mark in its upper right corner to **Save** the pre-approval settings and close the popup window.
 
 1. Click on **Save**.
 
@@ -488,7 +488,7 @@ In this task, you will configure pre-deployment gates.
 
     ![Azure devops](images/dev179.png)
 
-1. Return back to the Azure DevOps Portal, open the **eShopOnWeb_MultiStageYAML*** Project. Navigate to **Pipelines**, select **Releases (1)** and select the **New Release Pipeline (2)**. Click the **Create release (3)** button.
+1. Return to the Azure DevOps Portal, open the **eShopOnWeb_MultiStageYAML*** Project. Navigate to **Pipelines**, select **Releases (1)** and select the **New Release Pipeline (2)**. Click the **Create release (3)** button.
 
     ![Azure devops](images/dev180.png) 
  
@@ -559,7 +559,7 @@ In this task, you will enable the post-deployment gate for the Canary Environmen
 
 In this exercise, you will test the release gates by updating the application, which will trigger a deployment.
 
-### Task 1: Update and deploy application after adding release gates
+### Task 1: Update and deploy the application after adding release gates
 
 In this task, you will first generate some alerts for the Canary Web App, followed by tracking the release process with the release gates enabled.
 
@@ -582,13 +582,13 @@ In this task, you will first generate some alerts for the Canary Web App, follow
 
 1. There should be at least **1** new alert in the list of results, having a **Severity 2**.
 
-1. Notice there should be at least **1 Failed_Alert** with **Severity 2 - Warning** showing up in the list. This got trigger when you validated the non-existing website URL address in the previous exercise.
+1. Notice there should be at least **1 Failed_Alert** with **Severity 2 - Warning** showing up in the list. This got triggered when you validated the non-existent website URL address in the previous exercise.
 
     ![portal](images/dev193.png)
 
      > **Note:** If no Alert shows up yet, wait another few minutes. 
 
-1. Return back to the Azure DevOps Portal, open the **eShopOnWeb_MultiStageYAML** Project. Navigate to **Pipelines (1)**, select **Releases (2)** and select the **New Release Pipeline (3)**. Click the **Create Release (4)** button.
+1. Return to the Azure DevOps Portal, open the **eShopOnWeb_MultiStageYAML** Project. Navigate to **Pipelines (1)**, select **Releases (2)**, and select the **New Release Pipeline (3)**. Click the **Create Release (4)** button.
 
     ![Azure devops](images/dev194.png) 
  
@@ -606,15 +606,15 @@ In this task, you will first generate some alerts for the Canary Web App, follow
 
     ![portal](images/dev197.png)
 
-1. Wait for the Canary release Stage to complete successfully. Notice how the **Post-deployment Gates** is switching to the **Evaluation** Gates status.
+1. Wait for the Canary release Stage to complete successfully. Notice how the **Post-deployment Gates** are switching to the **Evaluation** Gates status.
 
-   ![Azure devops](images/eva.png) 
+    ![Azure devops](images/eva.png) 
 
 1. Let the Release pipeline run in the pending state for the next 5 minutes.
    
-1. This is expected behavior, since there is an Application Insights Alerts triggered for the Canary Web App.
+1. This is expected behavior, since there is an Application Insights alert triggered for the Canary Web App.
 
-1. Wait another 3 minutes and validate the status of the Release Gates again. Click on the **Deployement (1)** icon. As it is now +8 minutes after the initial Release Gates got checked, and it's been more than 8 minutes since the initial Application Insight Alert got triggered with action "Fired", it should result in a successful Release Gate, having allowed the deployment of the Production Release Stage as well **(2)**.
+1. Wait another 3 minutes and validate the status of the Release Gates again. Click on the **Deployment (1)** icon. As it is now +8 minutes after the initial Release Gates got checked, and it's been more than 8 minutes since the initial Application Insight Alert got triggered with action "Fired", it should result in a successful Release Gate, having allowed the deployment of the Production Release Stage as well **(2)**.
 
     ![Azure devops](images/dev198.png) 
     
@@ -630,7 +630,7 @@ In this lab, you have accomplished the following:
 - Exercise 3: Configured release gates
 - Exercise 4: Tested release gates
 
-### You have successfully completed the lab. Click on **Next >>** to procced with next lab.
+### You have successfully completed the lab. Click on **Next >>** to proceed with the next lab.
 
 
 
