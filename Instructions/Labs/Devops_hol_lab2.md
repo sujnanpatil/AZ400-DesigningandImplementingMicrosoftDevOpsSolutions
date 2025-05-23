@@ -572,7 +572,7 @@ In this task, we will trigger the Build to compile Selenium C# scripts along wit
 
      >**Note**: It might take around 5 minutes to complete.
 
-1. Once the build is successful, the release will be triggered. Navigate back to the **Releases (1)**  tab to see the deployment in progress. Click on the **Release-1**
+1. Once the build is successful, the release will be triggered. Navigate back to the **Releases (1)**  tab to see the deployment in progress. Click on the **Release-1 (2)**
 
     ![Azure DevOps](images/dev326.png)
 

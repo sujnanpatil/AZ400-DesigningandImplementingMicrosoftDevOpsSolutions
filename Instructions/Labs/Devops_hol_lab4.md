@@ -515,7 +515,7 @@ In this task, you will enable the post-deployment gate for the Canary Environmen
 
 1. On the right edge of the rectangle representing the **Canary Environment** stage, click the oval shape representing the **Post-deployment conditions**.
 
-   ![Azure devops](images/dev295.png)
+    ![Azure devops](images/dev295.png)
    
 1. On **Post-deployment conditions** pane, set the **Gates** slider to **Enabled**.
     
