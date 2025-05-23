@@ -4,7 +4,7 @@
 
 ## Lab Scenario
 
-You are a DevOps engineer for Contoso, ltd, responsible for ensuring that all code passing through the CI/CD pipeline complies with security and cost management standards. In this lab, you will integrate the Mend Bolt extension into your Azure DevOps pipeline to scan for vulnerabilities in open-source components used by your .NET application. You will configure the pipeline to run Mend Bolt during the build stage, automatically detecting security risks and generating vulnerability reports. Additionally, you will review and disable unnecessary Azure DevOps billing features to optimize operational costs. This lab equips you with the skills to implement secure, compliant, and cost-effective DevOps practices as part of Contoso’s governance and quality assurance initiatives.
+You are a DevOps engineer for Contoso.ltd, responsible for ensuring that all code passing through the CI/CD pipeline complies with security and cost management standards. In this lab, you will integrate the Mend Bolt extension into your Azure DevOps pipeline to scan for vulnerabilities in open-source components used by your .NET application. You will configure the pipeline to run Mend Bolt during the build stage, automatically detecting security risks and generating vulnerability reports. Additionally, you will review and disable unnecessary Azure DevOps billing features to optimize operational costs. This lab equips you with the skills to implement secure, compliant, and cost-effective DevOps practices as part of Contoso’s governance and quality assurance initiatives.
 
 ## Objectives
 

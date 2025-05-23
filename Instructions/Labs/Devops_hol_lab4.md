@@ -4,7 +4,7 @@
 
 ## Lab Scenario
 
-You are a DevOps engineer for Contoso, Ltd, tasked with implementing a safe and controlled deployment process for a mission-critical .NET web application hosted in Azure. In this lab, you will configure a multi-stage release pipeline in Azure DevOps that deploys the app to two environments: Canary and Production. You will first define release gates to ensure the Canary deployment proceeds only when there are no high-severity bugs logged in the work item tracking system. You will then configure post-deployment gates that evaluate Application Insights telemetry to verify application health before promoting the release to Production. This lab demonstrates how to automate gradual rollouts, monitor real-time usage metrics, and use approvals and gate logic to enforce compliance and operational readiness. Your objective is to minimize risk and ensure only healthy builds are promoted across environments, aligning with Contoso’s standards for secure and reliable software delivery.
+You are a DevOps engineer for Contoso.ltd, tasked with implementing a safe and controlled deployment process for a mission-critical .NET web application hosted in Azure. In this lab, you will configure a multi-stage release pipeline in Azure DevOps that deploys the app to two environments: Canary and Production. You will first define release gates to ensure the Canary deployment proceeds only when there are no high-severity bugs logged in the work item tracking system. You will then configure post-deployment gates that evaluate Application Insights telemetry to verify application health before promoting the release to Production. This lab demonstrates how to automate gradual rollouts, monitor real-time usage metrics, and use approvals and gate logic to enforce compliance and operational readiness. Your objective is to minimize risk and ensure only healthy builds are promoted across environments, aligning with Contoso’s standards for secure and reliable software delivery.
 
 ## Objectives
 
@@ -333,7 +333,7 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
     ![Azure devops](images/dev280.png)
 
-1.  Next to the **Run on Agent** click on the **+** icon **(1)**.In the new window that appears, search for **App Service** **(2)** and click on **Add** **(3)** next to the Azure App Service Deploy option.
+1. Next to the **Run on Agent** click on the **+** icon **(1)**.In the new window that appears, search for **App Service** **(2)** and click on **Add** **(3)** next to the Azure App Service Deploy option.
 
     ![Azure devops](images/dev281.png)
 
@@ -355,11 +355,11 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
 1. Further update the following settings in the App Service Deploy Task
 
-   - In the **Package or Folder** field, update the default value of "$(System.DefaultWorkingDirectory)/\*\*/\*.zip" to **"$(System.DefaultWorkingDirectory)/\*\*/Web.zip"** **(1)**
+    - In the **Package or Folder** field, update the default value of "$(System.DefaultWorkingDirectory)/\*\*/\*.zip" to **"$(System.DefaultWorkingDirectory)/\*\*/Web.zip"** **(1)**
 
-   - Scroll down and open the **Application and Configuration Settings** pane and enter `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development` in the **App settings** box **(2)**.
+    - Scroll down and open the **Application and Configuration Settings** pane and enter `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development` in the **App settings** box **(2)**.
 
-     ![Azure devops](images/dev285.png)
+      ![Azure devops](images/dev285.png)
      
 
 1. Under **All pipelines > New Release Pipeline** pane, Click on **Tasks (1)**,from the drop-down selct Select **Production (2)**.
@@ -379,7 +379,7 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
     ![Azure devops](images/dev289.png)    
 
 1. In **Production(1)** stage, complete the following  pipeline settings:
-  
+    
     - Under the Tasks tab / Production Deployment process, in the **Azure subscription** dropdown list, select the **Azure service connection**, as we already created the service connection before when authorizing the subscription use.
 
       ![Azure devops](images/dev290.png)
@@ -390,11 +390,11 @@ In this task, you will set up the release tasks as part of the Release Pipeline.
 
 1. Further update the following settings in the App Service Deploy Task
 
-   - In the **Package or Folder** field, update the default value of "$(System.DefaultWorkingDirectory)/\*\*/\*.zip" to **"$(System.DefaultWorkingDirectory)/\*\*/Web.zip"** **(1)**
+    - In the **Package or Folder** field, update the default value of "$(System.DefaultWorkingDirectory)/\*\*/\*.zip" to **"$(System.DefaultWorkingDirectory)/\*\*/Web.zip"** **(1)**
 
-   - Scroll down and open the **Application and Configuration Settings** pane and enter `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development` in the **App settings** box **(2)**
+    - Scroll down and open the **Application and Configuration Settings** pane and enter `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development` in the **App settings** box **(2)**
 
-     ![Azure devops](images/dev292.png)      
+      ![Azure devops](images/dev292.png)      
 
 1. On the **All pipelines > New Release Pipeline** pane, click **Save**.
 

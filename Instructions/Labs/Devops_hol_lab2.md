@@ -4,7 +4,7 @@
 
 ## Lab Scenario
 
-You are a DevOps engineer at Contoso Ltd., responsible for modernizing the CI/CD workflows for an internal .NET application. To streamline deployment and gain better control over the build infrastructure, you are tasked with configuring a self-hosted Azure DevOps agent and implementing code-based pipelines using YAML. In this lab, you will define and run YAML pipelines, integrate Selenium tests, and automate the build and release processes using a self-hosted agent to support a scalable and maintainable DevOps pipeline.
+You are a DevOps engineer at Contoso.ltd, responsible for modernizing the CI/CD workflows for an internal .NET application. To streamline deployment and gain better control over the build infrastructure, you are tasked with configuring a self-hosted Azure DevOps agent and implementing code-based pipelines using YAML. In this lab, you will define and run YAML pipelines, integrate Selenium tests, and automate the build and release processes using a self-hosted agent to support a scalable and maintainable DevOps pipeline.
 
 ## Objectives
 
@@ -86,16 +86,16 @@ In this task, you will import the eShopOnWeb Git repository that will be used by
       ![](images/dev38.png)
       
 1. The repository is organized in the following way:
-   
-   - **.ado** folder contains Azure DevOps YAML pipelines
+    
+    - **.ado** folder contains Azure DevOps YAML pipelines
          
-   - **.devcontainer** folder container setup to develop using containers (either locally in VS Code or GitHub Codespaces)
+    - **.devcontainer** folder container setup to develop using containers (either locally in VS Code or GitHub Codespaces)
            
-   - **.github** folder contains YAML GitHub workflow definitions.
+    - **.github** folder contains YAML GitHub workflow definitions.
          
-   - **src** folder contains the .NET 6 website used in the lab scenarios.
+    - **src** folder contains the .NET 6 website used in the lab scenarios.
          
-     ![](images/dev39.png)
+      ![](images/dev39.png)
 
 1. Go to **Repos (1)>Branches (2)**, make sure the **main** branch is set as **default branch (3)**.
 
@@ -179,7 +179,7 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 
 1. On the **Success** pane, copy the value of the personal access token to the Clipboard.
 
-    > **Note**: Make sure you copy the token. You will not be able to retrieve it once you close this pane. 
+    > **Note**: Make sure you **copy** and paste the token in a notepad. You will not be able to retrieve it once you close this pane. 
 
     ![Azure DevOps](images/dev53.png)
 
@@ -198,13 +198,13 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
     ![Azure DevOps](images/dev57.png)
 
 1. On the **Add agent pool** pane, in the **Pool type** dropdown list,
-   
-   - Select **Self-hosted (1)**
-   - In the **Name** text box, type **devops-pool (2)**
-   - Under **Pipeline permissions** select the checkboxes **(3)**
-   - Then click **Create (4)**
+    
+    - Select **Self-hosted (1)**
+    - In the **Name** text box, type **devops-pool (2)**
+    - Under **Pipeline permissions** select the checkboxes **(3)**
+    - Then click **Create (4)**
 
-     ![Azure DevOps](images/dev60.png)    
+      ![Azure DevOps](images/dev60.png)    
     
 1. Back on the **Agent pools** pane, click the entry representing the newly created **devops-pool**. 
 
@@ -220,7 +220,7 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 
      > **Note**: If you receive an error message at this point indicating that the current system settings prevent you from downloading the file, in the Browser window, in the upper right corner, click the gearwheel symbol designating the **Settings** menu header, in the dropdown menu, select **Internet Options**, in the **Internet Options** dialog box, click **Advanced**, on the **Advanced** tab, click **Reset**, in the **Reset Browser Settings** dialog box, click **Reset** again, click **Close**, and try the download again.
 
-1. On the LabVM, right click on **Start (1)**, then select **Windows PowerShell (Admin) (2)**.
+1. On the LabVM, right click on **Start (1)**, then select **Windows Powershell (Admin) (2)**.
 
     ![Azure DevOps](images/dev63.png)
 
@@ -238,7 +238,7 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 
       ![Azure DevOps](images/dev64.png)      
 
-1.  In the same **Administrator: Windows PowerShell** console, run the following to configure the agent:
+1. In the same **Administrator: Windows PowerShell** console, run the following to configure the agent:
 
     ```powershell
     .\config.cmd
@@ -246,7 +246,7 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 
      ![Azure DevOps](images/dev65.png)     
 
-1.  When prompted, specify the values of the following settings:
+1. When prompted, specify the values of the following settings:
 
     | Setting | Value |
     | ------- | ----- |
@@ -268,17 +268,17 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
 
      > **Note**: Verify that the agent is reporting the **Listening for Jobs** status.
 
-1.  Switch to the browser window displaying the Azure DevOps portal and close the **Get the agent** pane.
+1. Switch to the browser window displaying the Azure DevOps portal and close the **Get the agent** pane.
 
-1.  Back on the **Agents (1)** tab of the **devops-pool** pane, note that the newly configured agent is listed with the **Online (2)** status. Click on the **Azure DevOps (3)** label from the top left corner.
+1. Back on the **Agents (1)** tab of the **devops-pool** pane, note that the newly configured agent is listed with the **Online (2)** status. Click on the **Azure DevOps (3)** label from the top left corner.
 
     ![Azure DevOps](images/dev274.png)
 
-1.  In the browser window displaying the list of projects, click the tile representing your **eShopOnWeb** project.
+1. In the browser window displaying the list of projects, click the tile representing your **eShopOnWeb** project.
 
     ![Azure DevOps](images/dev69.png)
  
-1.  On the **eShopOnWeb** pane, in the vertical navigational pane on the left side, in the **Pipelines (1)** section, click **Pipelines (2)**. On the **Recent** tab of the **Pipelines** pane, select **eShopOnWeb (3)**.
+1. On the **eShopOnWeb** pane, in the vertical navigational pane on the left side, in the **Pipelines (1)** section, click **Pipelines (2)**. On the **Recent** tab of the **Pipelines** pane, select **eShopOnWeb (3)**.
 
     ![Azure DevOps](images/dev70.png)
 
@@ -302,7 +302,7 @@ In this task, you will configure your lab Virtual Machine as an Azure DevOps sel
     
     > **WARNING**: Be careful with copy/paste, make sure you have the same indentation shown above. 
  
-1.  On the **eShopOnWeb** edit pane, in the upper right corner of the pane, click **Validate + Save**.
+1. On the **eShopOnWeb** edit pane, in the upper right corner of the pane, click **Validate + Save**.
 
     ![Azure DevOps](images/dev276.png)
 
@@ -365,7 +365,7 @@ In this task, you will open and configure the ADOGenerator Selenium project in V
 
     ![Azure DevOps](images/dev304.png)
 
-1. On the Lab VM, serach for **Visual Studio (1)** and the the select **Visual studio 2022 (2)**.
+1. On the Lab VM, search for **Visual Studio (1)** and the the select **Visual studio 2022 (2)**.
 
     ![Azure DevOps](images/dev277.png)
 
@@ -379,7 +379,21 @@ In this task, you will open and configure the ADOGenerator Selenium project in V
 
     ![Azure DevOps](images/dev279.png)
 
-1. In the **Solution explorer**, right click on the **ADOGenerator project (1)** and select **Reload project with dependencies (2)**. Do the same for **API** as well to make the project compatible.
+1. Enable the checkbox for **.NET desktop development (1)** and then click on **Install (2)** to install the workload.
+
+    ![Azure DevOps](images/ddev1.png)
+
+     >**Note**: Wait until all the package installation completes, it might take around 5-10 minutes.
+
+1. Once the Installation completes, **close** the installation page.    
+
+    ![Azure DevOps](images/ddev2.png)
+
+1. From the search bar, search for **Visual studio 2022 (1)** and then open the **ADOGenerator.sln (2)** Project.    
+
+    ![Azure DevOps](images/ddev3.png)
+
+1. If the projects are not loaded, In the **Solution explorer**, right click on the **ADOGenerator project (1)** and select **Reload project with dependencies (2)**. Do the same for **API** as well to make the project compatible.
 
     ![Azure DevOps](images/dev300.png)
 
@@ -439,7 +453,7 @@ In this task, you will configure a self-hosted Azure DevOps agent on the Seleniu
 
 1. Select **Connect**.
 
-1. Click on **More options**.
+1. Click on **More choices**.
 
 1. Click on **Use a different User account**.
 
@@ -452,12 +466,11 @@ In this task, you will configure a self-hosted Azure DevOps agent on the Seleniu
 
 1. Click on **Yes** to connect to the VM.     
 
-1. Log in to the VM using RDP with the following credentials
+1. In the SeleniumVM open **Chrome** from the desktop.
 
-    - Username: **vmadmin**
-    - Password: **P2ssw0rd@123**
+    >**Note**: Click on **Don't sign in** followed by **Skip** and then **Got it**.
 
-1. In the SeleniumVM open web browser, sign in to your Azure DevOps organization using the link https://go.microsoft.com/fwlink/?LinkId=307137.
+1. Sign in to your Azure DevOps organization using the link https://go.microsoft.com/fwlink/?LinkId=307137.
 
 1. If prompted, please sign in with the given credentials.
 
@@ -479,9 +492,9 @@ In this task, you will configure a self-hosted Azure DevOps agent on the Seleniu
 
     ![Azure DevOps](images/dev62.png)
 
-1. Once the download is complete, click on **Open file**.
+1. Once the download is complete, click on **Folder** icon.
 
-    ![Azure DevOps](images/dev313.png)
+    ![Azure DevOps](images/ddev4.png)
 
 1. Right-click on the downloaded file and then click on **Extract all**.
 
@@ -489,15 +502,15 @@ In this task, you will configure a self-hosted Azure DevOps agent on the Seleniu
 
     ![Azure DevOps](images/dev310.png)
 
-1. On the SeleniumVM, right click on **Start (1)**, then select **Windows PowerShell (Admin) (2)**.
+1. On the SeleniumVM, right click on **Start (1)**, then select **Command Prompt(Admin) (2)**.
 
-    ![Azure DevOps](images/dev63.png) 
+    ![Azure DevOps](images/ddev5.png) 
     
 1. Run the command `cd C:\AzAgent` Change the path to C:\AzAgent.
 
 1. Type `.\config.cmd` and hit **Enter**.
 
-1.  When prompted, specify the values of the following settings:
+1. When prompted, specify the values of the following settings:
 
     | Setting | Value |
     | ------- | ----- |
@@ -515,7 +528,7 @@ In this task, you will configure a self-hosted Azure DevOps agent on the Seleniu
 
     ![Azure DevOps](images/dev314.png)    
 
-1.  Back on the **Agents (1)** tab of the **Default** pane, note that the newly configured agent is listed with the **Online (2)** status. Click on the **Azure DevOps (3)** label from the top left corner.
+1. Back on the **Agents (1)** tab of the **Default** pane, note that the newly configured agent is listed with the **Online (2)** status. Click on the **Azure DevOps (3)** label from the top left corner.
 
     ![Azure DevOps](images/dev315.png)
 
@@ -565,14 +578,16 @@ In this task, we will trigger the Build to compile Selenium C# scripts along wit
 
     ![Azure DevOps](images/dev325.png)
 
+     >**Note**: It might take around 5 minutes to complete.
+
 1. Once the build is successful, the release will be triggered. Navigate back to the **Releases (1)**  tab to see the deployment in progress. Click on the **Release-1**
 
     ![Azure DevOps](images/dev326.png)
 
-1. When the Selenium test execution phase starts, you can see the Selenium test execution jobs. Wait until the jobs care ompleted successfully.
+1. When the Selenium test execution phase starts, you can see the Selenium test execution jobs. Wait until the jobs are completed successfully.
 
     ![Azure DevOps](images/dev327.png)
-
+    
     - If the **IIS deployment** fails, please follow the steps below to fix that.
     - In SeleniumVM search bar, search for **Services (1)** and then select **Services (2)**
 
@@ -592,7 +607,9 @@ In this task, we will trigger the Build to compile Selenium C# scripts along wit
 
       ![Azure DevOps](images/dev332.png)           
 
-    - Then navigate back to DevOps releases, click on **Redeploy**      
+    - Then navigate back to DevOps releases, click on **Redeploy** and then **Deploy**.
+
+1. Wait for the Selenium test execution jobs completion. It might take around 10-15 minutes.       
 
 1. In this lab, we are executing **four UI** test scenarios configured to run on Chrome and Firefox browsers.
 
