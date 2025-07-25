@@ -1,4 +1,4 @@
-# Mazda - Custom DevOps Lab 
+# Implementing DevOps with GitHub and Azure DevOps
 
 ### Overall Estimated Duration: 4 Hours
 
