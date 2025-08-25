@@ -278,7 +278,7 @@ In this task, you will review the GitHub workflow execution.
 - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-   <validation step="bbf0a520-41e6-41d4-97ab-23cda9045900" />   
+   <validation step="2173da1b-a494-48b6-a1f0-c1c459c4fd38" />   
     
 ### Review
 
