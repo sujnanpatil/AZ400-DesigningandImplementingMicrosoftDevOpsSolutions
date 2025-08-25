@@ -168,7 +168,7 @@ In this task, you will create two Azure web apps representing the **Canary** and
 - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-   <validation step="abc690c9-65ed-4bb7-a3e1-c7b943d91eeb" /> 
+   <validation step="dd072a9a-2198-4a7d-a792-333c98ffbb25" /> 
 
 
 ### Task 2: Configure an Application Insights resource
